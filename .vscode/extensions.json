@@ -1,3 +1,7 @@
 {
-  "recommendations": ["trixnz.vscode-lua", "esbenp.prettier-vscode"]
+  "recommendations": [
+    "trixnz.vscode-lua",
+    "esbenp.prettier-vscode",
+    "Vue.volar"
+  ]
 }
