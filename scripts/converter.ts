@@ -1,10 +1,10 @@
 import base64url from 'base64url'
 import path from 'path'
 import { promises as fs } from 'fs'
-import clipboardy from 'clipboardy'
+const clipboardy = import('clipboardy')
 
-var luamin = require('luamin')
-var luafmt = require('lua-format')
+const luamin = require('luamin')
+const luafmt = require('lua-format')
 
 async function base64ToLua() {
   const base64Dir = path.join(__dirname, '../base64url')
@@ -141,7 +141,7 @@ async function main() {
   if (process.argv[2] === 'b64tolua') {
     await base64ToLua()
   } else if (process.argv[2] === 'luatob64') {
-    clipboardy.writeSync(
+    ;(await clipboardy).default.writeSync(
       [...(await luaToBase64()).values()]
         .map(({ tweakKey, tweakValue }) => `!bset ${tweakKey} ${tweakValue}`)
         .join('\n'),
