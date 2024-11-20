@@ -20,7 +20,7 @@ install [asdf](https://asdf-vm.com/guide/getting-started.html)
 make install
 ```
 
-### Manual / If that doesn't work:
+### Manual / If that doesn't work / troubleshooting:
 
 ### Windows
 
@@ -34,6 +34,11 @@ vfox use nodejs@23 --project
 ```sh
 asdf plugin add nodejs https://github.com/asdf-vm/asdf-nodejs.git
 asdf install nodejs 22.9.0
+```
+
+### Both
+
+```sh
 npm install -g bun ts-node
 bun install
 ```
