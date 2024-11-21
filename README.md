@@ -59,7 +59,16 @@ Converts base64url tweaks back into lua and tries format it somewhat similarly:
 make b64tolua
 ```
 
+# Release to The Paste Machine Spreadsheet
+
+1. Copy sheet (Meaning to make a new sheet within the spreadsheet. Using Google terminology one spreadsheet can have multiple sheets).
+2. Execute `make luatob64` in the nuttyb repo (what is done above).
+3. Paste your clipboard in an unoccupied area in the new sheet.
+4. Cut the cell contents from that paste and replace the old ones. Tweakdefs3 on replacing tweakdefs3 etc.
+5. Add the new version to the dropdowns sheet (v1.52 for example).
+6. Update doc link in the top left cell of the first sheet.
+
 # Todo
 
-- make release target to build/update paste machine app
-- build historical json as a base64url archive. And for supporting the version dropdown feature.
+- Make release target to build/update paste machine web app
+- Build historical json as a base64url archive. And for supporting the version dropdown feature.
