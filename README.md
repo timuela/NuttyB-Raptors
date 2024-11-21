@@ -59,7 +59,7 @@ Converts base64url tweaks back into lua and tries format it somewhat similarly:
 make b64tolua
 ```
 
-# Release to The Paste Machine Spreadsheet
+# Release new version to [The Paste Machine Spreadsheet](https://docs.google.com/spreadsheets/d/1QSVsuAAMhBrhiZdTihVfSCwPzbbZWDLCtXWP23CU0ko)
 
 1. Copy sheet (Meaning to make a new sheet within the spreadsheet. Using Google terminology one spreadsheet can have multiple sheets).
 2. Execute `make luatob64` in the nuttyb repo (what is done above).
