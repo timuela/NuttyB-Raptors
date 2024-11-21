@@ -27,26 +27,20 @@ function addWeapon(h, i, j)
 	UnitDefs[h].weapondefs = UnitDefs[h].weapondefs or {}
 	UnitDefs[h].customparams = UnitDefs[h].customparams or {}
 	local k = 'repulsor'
-	table.insert(
-		UnitDefs[h].weapons,
-		{
-			def = k,
-			onlytargetcategory = j or ''
-		}
-	)
+	table.insert(UnitDefs[h].weapons, {
+		def = k,
+		onlytargetcategory = j or ''
+	})
 	UnitDefs[h].weapondefs[k] = i
 	if i.shield and i.shield.power > 0 then
 		i.range = i.shield.radius
 		UnitDefs[h].customparams = UnitDefs[h].customparams or {}
-		a(
-			UnitDefs[h].customparams,
-			{
-				off_on_stun = 'true',
-				shield_color_mult = 0.8,
-				shield_power = i.shield.power,
-				shield_radius = i.shield.radius
-			}
-		)
+		a(UnitDefs[h].customparams, {
+			off_on_stun = 'true',
+			shield_color_mult = 0.8,
+			shield_power = i.shield.power,
+			shield_radius = i.shield.radius
+		})
 	end
 end
 local l = {
@@ -98,6 +92,7 @@ local m = {
 	'corcomlvl2',
 	'corcomlvl3',
 	'legcom',
+	'legcomlvl2',
 	'legcomlvl3',
 	'legcomlvl4'
 }
@@ -159,7 +154,6 @@ if UnitDefs then
 	UnitDefs.raptor_land_assault_emp_t2_v1.weapondefs.raptorparalyzerbig.paralyzetime = 10
 	UnitDefs.raptor_allterrain_arty_emp_t2_v1.weapondefs.goolauncher.paralyzetime = 6
 	UnitDefs.raptor_allterrain_arty_emp_t4_v1.weapondefs.goolauncher.paralyzetime = 10
-	UnitDefs.raptor_air_bomber_emp_t2_v1.cruisealtitude = UnitDefs.raptor_air_bomber_emp_t2_v1.cruisealtitude + 400
 	UnitDefs.raptor_air_bomber_emp_t2_v1.weapondefs.weapon.damage.shields = 1000
 	UnitDefs.raptor_air_bomber_emp_t2_v1.weapondefs.weapon.damage.default = 2000
 	UnitDefs.raptor_air_bomber_emp_t2_v1.weapondefs.weapon.paralyzetime = 10
@@ -171,25 +165,25 @@ if UnitDefs then
 	UnitDefs.raptor_matriarch_electric.weapondefs.melee.paralyzetime = 13
 	UnitDefs.raptor_matriarch_electric.weapondefs.spike_emp_blob.paralyzetime = 13
 	UnitDefs.armcom.featuredefs.dead.reclaimable = false
-	UnitDefs.armcom.featuredefs.dead.damage = 57600
+	UnitDefs.armcom.featuredefs.dead.damage = 9999999
 	UnitDefs.armcomlvl2.featuredefs.dead.reclaimable = false
-	UnitDefs.armcomlvl2.featuredefs.dead.damage = 57600
+	UnitDefs.armcomlvl2.featuredefs.dead.damage = 9999999
 	UnitDefs.armcomlvl3.featuredefs.dead.reclaimable = false
-	UnitDefs.armcomlvl3.featuredefs.dead.damage = 57600
+	UnitDefs.armcomlvl3.featuredefs.dead.damage = 9999999
 	UnitDefs.corcom.featuredefs.dead.reclaimable = false
-	UnitDefs.corcom.featuredefs.dead.damage = 57600
+	UnitDefs.corcom.featuredefs.dead.damage = 9999999
 	UnitDefs.corcomlvl2.featuredefs.dead.reclaimable = false
-	UnitDefs.corcomlvl2.featuredefs.dead.damage = 57600
+	UnitDefs.corcomlvl2.featuredefs.dead.damage = 9999999
 	UnitDefs.corcomlvl3.featuredefs.dead.reclaimable = false
-	UnitDefs.corcomlvl3.featuredefs.dead.damage = 57600
+	UnitDefs.corcomlvl3.featuredefs.dead.damage = 9999999
 	UnitDefs.legcom.featuredefs.dead.reclaimable = false
-	UnitDefs.legcom.featuredefs.dead.damage = 57600
+	UnitDefs.legcom.featuredefs.dead.damage = 9999999
 	UnitDefs.legcomlvl2.featuredefs.dead.reclaimable = false
-	UnitDefs.legcomlvl2.featuredefs.dead.damage = 57600
+	UnitDefs.legcomlvl2.featuredefs.dead.damage = 9999999
 	UnitDefs.legcomlvl3.featuredefs.dead.reclaimable = false
-	UnitDefs.legcomlvl3.featuredefs.dead.damage = 57600
+	UnitDefs.legcomlvl3.featuredefs.dead.damage = 9999999
 	UnitDefs.legcomlvl4.featuredefs.dead.reclaimable = false
-	UnitDefs.legcomlvl4.featuredefs.dead.damage = 57600
+	UnitDefs.legcomlvl4.featuredefs.dead.damage = 9999999
 end
 local t = {
 	'raptor_antinuke',
