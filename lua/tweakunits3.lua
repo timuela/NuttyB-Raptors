@@ -339,7 +339,7 @@ return {
 			weapons = {
 				[1] = {
 					def = "CORCOMLASER",
-					onlytargetcategory = "SURFACE",
+					onlytargetcategory = "NOTSUB",
 					fastautoretargeting = true,
 				},
 				[5] = {
