@@ -1,3 +1,4 @@
+-- NuttyB v1.52 Cortex Com
 return {
     corcom = {
         customparams = {

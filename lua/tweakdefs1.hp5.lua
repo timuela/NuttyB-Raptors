@@ -1,3 +1,4 @@
+-- NuttyB v1.52 5X Raptor HP
 local a = {
 	health = 1325000,
 	repairable = false,

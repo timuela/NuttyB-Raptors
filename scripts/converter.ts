@@ -110,9 +110,12 @@ async function luaFileToBase64Url(
       tweakValue: '',
     })
 
-  const minified = destPath.includes('units')
+  const firstLine = content.split('\n')[0];
+  const tweakComment = /^\s*--.*/.test(firstLine) ? firstLine+'\n' : '';
+
+  const minified = tweakComment + (destPath.includes('units')
     ? luamin.minify(content).replace(/.*?(\{.*)/, '$1')
-    : luamin.minify(content)
+    : luamin.minify(content))
 
   const tweakValue = base64url.encode(minified)
 

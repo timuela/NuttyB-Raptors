@@ -1,3 +1,4 @@
+-- NuttyB v1.52 Legion Com
 return {
     legcom = {
         energymake = 50,

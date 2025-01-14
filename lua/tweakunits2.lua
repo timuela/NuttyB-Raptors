@@ -1,3 +1,4 @@
+-- NuttyB v1.52 Armada Com
 return {
 	armcom = {
 		customparams = {

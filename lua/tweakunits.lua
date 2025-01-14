@@ -1,3 +1,4 @@
+-- NuttyB v1.52 Tweakunits Main
 return{
     cortron = {
         energycost = 42000,
