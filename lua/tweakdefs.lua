@@ -1,4 +1,4 @@
--- NuttyB v1.52 defs main
+-- NuttyB v1.52 Defs Main
 local UnitDefs = UnitDefs or {}
 local function a(b, c)
 	for d, e in pairs(c) do
