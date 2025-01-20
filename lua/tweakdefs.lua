@@ -1,4 +1,4 @@
--- NuttyB v1.52 Def Main
+-- NuttyB v1.51 Def Main
 local UnitDefs = UnitDefs or {}
 local function a(b, c)
 	for d, e in pairs(c) do
@@ -28,26 +28,20 @@ function addWeapon(h, i, j)
 	UnitDefs[h].weapondefs = UnitDefs[h].weapondefs or {}
 	UnitDefs[h].customparams = UnitDefs[h].customparams or {}
 	local k = 'repulsor'
-	table.insert(
-		UnitDefs[h].weapons,
-		{
-			def = k,
-			onlytargetcategory = j or ''
-		}
-	)
+	table.insert(UnitDefs[h].weapons, {
+		def = k,
+		onlytargetcategory = j or ''
+	})
 	UnitDefs[h].weapondefs[k] = i
 	if i.shield and i.shield.power > 0 then
 		i.range = i.shield.radius
 		UnitDefs[h].customparams = UnitDefs[h].customparams or {}
-		a(
-			UnitDefs[h].customparams,
-			{
-				off_on_stun = 'true',
-				shield_color_mult = 0.8,
-				shield_power = i.shield.power,
-				shield_radius = i.shield.radius
-			}
-		)
+		a(UnitDefs[h].customparams, {
+			off_on_stun = 'true',
+			shield_color_mult = 0.8,
+			shield_power = i.shield.power,
+			shield_radius = i.shield.radius
+		})
 	end
 end
 local l = {

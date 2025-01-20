@@ -1,4 +1,4 @@
--- NuttyB v1.52 4X HP
+-- NuttyB v1.51 4X HP
 local a = {
 	health = 1200000,
 	repairable = false,
