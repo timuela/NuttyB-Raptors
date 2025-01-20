@@ -60,42 +60,53 @@ async function base64UrlFileToLua(
   destPath: string,
   tweakKey: string,
 ): Promise<tweakResult> {
-  const content = (await fs.readFile(srcPath, 'utf-8')).trim()
-  if (!content)
-    return Promise.resolve({
+  try {
+
+    const content = (await fs.readFile(srcPath, 'utf-8')).trim()
+    if (!content)
+      return Promise.resolve({
+        tweakKey,
+        tweakValue: '',
+      })
+
+    const decoded =
+      (destPath.includes('units') ? 'return ' : '') + base64url.decode(content)
+    let tweakValue = luafmt
+      .Beautify(decoded, {
+        RenameVariables: false,
+        RenameGlobals: false,
+        SolveMath: false,
+      })
+      .replace(/^[\s\S]*?\]\]\s*/, '')
+      .replace(/;\s*\n/g, '\n')
+      .replace(/"/g, "'")
+
+    tweakValue += tweakValue.endsWith('\n') ? '' : '\n'
+
+
+    return fs
+      .writeFile(destPath, tweakValue, 'utf-8')
+      .then(() => {
+        return {
+          tweakKey,
+          tweakValue,
+        }
+      })
+      .catch((err) => {
+        console.error(err)
+        return {
+          tweakKey,
+          tweakValue,
+        }
+      })
+  }
+  catch (err) {
+    console.error(err)
+    return {
       tweakKey,
       tweakValue: '',
-    })
-
-  const decoded =
-    (destPath.includes('units') ? 'return ' : '') + base64url.decode(content)
-  let tweakValue = luafmt
-    .Beautify(decoded, {
-      RenameVariables: false,
-      RenameGlobals: false,
-      SolveMath: false,
-    })
-    .replace(/^[\s\S]*?\]\]\s*/, '')
-    .replace(/;\s*\n/g, '\n')
-    .replace(/"/g, "'")
-
-  tweakValue += tweakValue.endsWith('\n') ? '' : '\n'
-
-  return fs
-    .writeFile(destPath, tweakValue, 'utf-8')
-    .then(() => {
-      return {
-        tweakKey,
-        tweakValue,
-      }
-    })
-    .catch((err) => {
-      console.error(err)
-      return {
-        tweakKey,
-        tweakValue,
-      }
-    })
+    }
+  }
 }
 
 async function luaFileToBase64Url(
