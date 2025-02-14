@@ -1,4 +1,4 @@
--- NuttyB v1.52 Mega Nuke
+--NuttyB v1.52 Mega Nuke
 return {
 	armsilo = {
 		energycost = 1500000,

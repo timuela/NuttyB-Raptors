@@ -1,12 +1,12 @@
--- NuttyB v1.52 20 Wind Limit
+--NuttyB v1.52 20 Wind Limit
 return {
 	armwin = {
-		unitrestricted = 20
+		maxthisunit = 20
 	},
 	corwin = {
-		unitrestricted = 20
+		maxthisunit = 20
 	},
 	legwin = {
-		unitrestricted = 20
+		maxthisunit = 20
 	}
 }
