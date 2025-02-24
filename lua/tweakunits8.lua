@@ -1,4 +1,4 @@
---T3 Eco
+--T4 Eco
 return {
 	lootboxplatinum = {
 		buildtime = 1000000,
