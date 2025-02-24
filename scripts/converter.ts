@@ -55,6 +55,9 @@ async function processDirectory(
       const nestedDestDir = path.join(destDir, entry.name);
       await fs.mkdir(nestedDestDir, { recursive: true }).catch(() => {});
 
+      // Use the directory name as the tweakKey for all files in this directory
+      const tweakKey = entry.name;
+
       // Process files in this subdirectory
       const subEntries = await fs.readdir(srcPath, { withFileTypes: true });
       for (const subEntry of subEntries) {
@@ -67,7 +70,7 @@ async function processDirectory(
           );
 
           conversions.push(
-            convertFunction(subSrcPath, subDestPath, subEntry.name.split('.')[0]),
+            convertFunction(subSrcPath, subDestPath, tweakKey),
           );
         }
       }
