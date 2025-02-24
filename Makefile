@@ -23,3 +23,5 @@ b64tolua:
 	@ts-node ./scripts/converter.ts b64tolua
 luatob64:
 	@ts-node ./scripts/converter.ts luatob64
+b64: luatob64
+lua: b64tolua
