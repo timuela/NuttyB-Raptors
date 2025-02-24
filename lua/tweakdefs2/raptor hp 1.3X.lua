@@ -7,7 +7,10 @@ for f, g in pairs(UnitDefs) do
 		g.workertime = g.workertime * 0.5
 		g.canassist = 0
 	end
-	if g.customparams and g.customparams.subfolder and g.customparams.subfolder == 'other/raptors' and g.health then
+	if
+		g.customparams and g.customparams.subfolder and g.customparams.subfolder == 'other/raptors' and g.health and
+			not f:match('^raptor_queen_.*')
+	 then
 		g.health = 1.3 * g.health
 	end
 end
