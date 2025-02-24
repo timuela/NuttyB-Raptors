@@ -1,3 +1,4 @@
+--T3 Eco
 return {
 	lootboxplatinum = {
 		buildtime = 1000000,
@@ -12,8 +13,8 @@ return {
 		reclaimable = true,
 		customparams = {
 			i18n_en_humanname = 'Super Fusion Reactor',
-			i18n_en_tooltip = 'Produces 30000 Energy, Transportable (Very Hazardous)',
-		},
+			i18n_en_tooltip = 'Produces 30000 Energy, Transportable (Very Hazardous)'
+		}
 	},
 	armdf = {
 		activatewhenbuilt = true,
@@ -42,7 +43,7 @@ return {
 				height = 20,
 				metal = 3099,
 				object = 'Units/coruwfus_dead.s3o',
-				reclaimable = true,
+				reclaimable = true
 			},
 			heap = {
 				blocking = false,
@@ -54,51 +55,51 @@ return {
 				metal = 1240,
 				object = 'Units/cor5X5A.s3o',
 				reclaimable = true,
-				resurrectable = 0,
-			},
+				resurrectable = 0
+			}
 		},
 		customparams = {
 			energyconv_capacity = 5000,
 			energyconv_efficiency = 0.02500,
 			i18n_en_humanname = 'Super Energy Converter',
-			i18n_en_tooltip = 'Converts 5000 energy into 125 metal per sec',
-		},
+			i18n_en_tooltip = 'Converts 5000 energy into 125 metal per sec'
+		}
 	},
 	armaca = {
 		buildoptions = {
 			[34] = 'lootboxplatinum',
-			[35] = 'armdf',
-		},
+			[35] = 'armdf'
+		}
 	},
 	armack = {
 		buildoptions = {
 			[31] = 'lootboxplatinum',
-			[32] = 'armdf',
-		},
+			[32] = 'armdf'
+		}
 	},
 	armacv = {
 		buildoptions = {
 			[31] = 'lootboxplatinum',
-			[32] = 'armdf',
-		},
+			[32] = 'armdf'
+		}
 	},
 	coraca = {
 		buildoptions = {
 			[33] = 'lootboxplatinum',
-			[34] = 'armdf',
-		},
+			[34] = 'armdf'
+		}
 	},
 	corack = {
 		buildoptions = {
 			[30] = 'lootboxplatinum',
-			[31] = 'armdf',
-		},
+			[31] = 'armdf'
+		}
 	},
 	coracv = {
 		buildoptions = {
 			[30] = 'lootboxplatinum',
-			[31] = 'armdf',
-		},
+			[31] = 'armdf'
+		}
 	},
 	legaca = {
 		buildoptions = {
@@ -136,7 +137,7 @@ return {
 			'leggant',
 			'lootboxplatinum',
 			'armdf'
-		},
+		}
 	},
 	legack = {
 		buildoptions = {
@@ -171,12 +172,12 @@ return {
 			'legalab',
 			'lootboxplatinum',
 			'armdf'
-		},
+		}
 	},
 	legacv = {
 		buildoptions = {
 			[30] = 'lootboxplatinum',
-			[31] = 'armdf',
-		},
-	},
+			[31] = 'armdf'
+		}
+	}
 }
