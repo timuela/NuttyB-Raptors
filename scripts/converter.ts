@@ -36,23 +36,56 @@ async function processDirectory(
     tweakKey: string,
   ) => Promise<tweakResult>,
 ) {
-  const files = await fs.readdir(srcDir, { withFileTypes: true })
+  // Ensure destination directory exists
+  await fs.mkdir(destDir, { recursive: true }).catch(() => {});
 
-  let conversions: Promise<{ [key: string]: string }>[] = []
-  for (const file of files) {
-    const srcPath = path.join(srcDir, file.name)
-    const destBaseFileName = file.name.split('.').slice(0, -1).join('.')
-    const destPath = path.join(
-      destDir,
-      `${destBaseFileName}.${toFileExtension}`,
-    )
+  const entries = await fs.readdir(srcDir, { withFileTypes: true });
 
-    conversions.push(
-      convertFunction(srcPath, destPath, file.name.split('.')[0]),
-    )
+  console.log(
+    `Processing ${entries.length} entries from ${srcDir} to ${destDir}...`,
+  );
+
+  let conversions: Promise<{ [key: string]: string }>[] = [];
+
+  for (const entry of entries) {
+    const srcPath = path.join(srcDir, entry.name);
+
+    if (entry.isDirectory()) {
+      // Create corresponding directory in destination
+      const nestedDestDir = path.join(destDir, entry.name);
+      await fs.mkdir(nestedDestDir, { recursive: true }).catch(() => {});
+
+      // Process files in this subdirectory
+      const subEntries = await fs.readdir(srcPath, { withFileTypes: true });
+      for (const subEntry of subEntries) {
+        if (!subEntry.isDirectory()) { // Only process files, not nested directories
+          const subSrcPath = path.join(srcPath, subEntry.name);
+          const destBaseFileName = subEntry.name.split('.').slice(0, -1).join('.');
+          const subDestPath = path.join(
+            nestedDestDir,
+            `${destBaseFileName}.${toFileExtension}`,
+          );
+
+          conversions.push(
+            convertFunction(subSrcPath, subDestPath, subEntry.name.split('.')[0]),
+          );
+        }
+      }
+    } else {
+      // Process file in the root directory
+      const destBaseFileName = entry.name.split('.').slice(0, -1).join('.');
+      const destPath = path.join(
+        destDir,
+        `${destBaseFileName}.${toFileExtension}`,
+      );
+
+      conversions.push(
+        convertFunction(srcPath, destPath, entry.name.split('.')[0]),
+      );
+    }
   }
 
-  return Promise.all(conversions)
+  return Promise.all(conversions);
 }
 
 async function base64UrlFileToLua(

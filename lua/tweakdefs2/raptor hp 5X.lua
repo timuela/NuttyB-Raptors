@@ -1,19 +1,4 @@
 --NuttyB v1.52 5X HP
-local a = {
-	health = 1325000,
-	repairable = false,
-	canbehealed = false,
-	buildtime = 9999999,
-	autoheal = 2,
-	canSelfRepair = false
-}
-for b, c in pairs(UnitDefs) do
-	if b == 'raptor_queen_epic' then
-		for d, e in pairs(a) do
-			c[d] = e
-		end
-	end
-end
 for f, g in pairs(UnitDefs) do
 	if string.sub(f, 1, 24) == 'raptor_land_swarmer_heal' then
 		g.reclaimspeed = 100
@@ -22,12 +7,8 @@ for f, g in pairs(UnitDefs) do
 		g.workertime = g.workertime * 0.25
 		g.canassist = 0
 	end
-end
-for b, c in pairs(UnitDefs) do
-	if c.customparams and c.customparams.subfolder and c.customparams.subfolder == 'other/raptors' then
-		if c.health then
-			c.health = 5 * c.health
-		end
+	if g.customparams and g.customparams.subfolder and g.customparams.subfolder == 'other/raptors' and g.health then
+		g.health = 5 * g.health
 	end
 end
 local h = UnitDef_Post
