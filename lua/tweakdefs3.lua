@@ -1,7 +1,7 @@
 --T3 Eco
 local unitDefs = UnitDefs or {}
-local lootboxplatinum = 'lootboxplatinum'
-local armdf = 'armdf'
+local t3Afus = 'lootboxplatinum'
+local t3Conv = 'armdf'
 local energy = {
 	buildpic = 'other/resourcecheat.dds',
 	buildtime = 1000000,
@@ -21,6 +21,7 @@ local converter = {
 	energycost = 500000,
 	energymake = 0,
 	explodeas = 'fusionExplosion',
+	decoyfor = nil,
 	health = 1000,
 	maxwaterdepth = 20,
 	metalcost = 8000,
@@ -31,10 +32,13 @@ local converter = {
 local converterCustomparams = {
 	energyconv_capacity = 5000,
 	energyconv_efficiency = 0.02500,
-	subfolder = 'ArmBuildings/LandEconomy',
-	unitgroup = 'metal',
+	decoyfor = nil,
 	i18n_en_humanname = 'Super Energy Converter',
-	i18n_en_tooltip = 'Converts 5000 energy into 125 metal per sec'
+	i18n_en_tooltip = 'Converts 5000 energy into 125 metal per sec',
+	subfolder = 'ArmBuildings/LandEconomy',
+	techlevel = '3',
+	translatedHumanName = 'Super Energy Converter',
+	unitgroup = 'metal'
 }
 local converterFeaturedefsDead = {
 	blocking = true,
@@ -77,30 +81,44 @@ local builderNames = {
 }
 
 for key, value in pairs(energy) do
-	unitDefs[lootboxplatinum][key] = value
+	unitDefs[t3Afus][key] = value
 end
 
-unitDefs[lootboxplatinum].customparams.i18n_en_humanname = 'Super Fusion Reactor'
-unitDefs[lootboxplatinum].customparams.i18n_en_tooltip = 'Produces 30000 Energy, Transportable (Very Hazardous)'
+unitDefs[t3Afus].customparams.i18n_en_humanname = 'Super Fusion Reactor'
+unitDefs[t3Afus].customparams.i18n_en_tooltip = 'Produces 30000 Energy, Transportable (Very Hazardous)'
+unitDefs[t3Afus].customparams.techlevel = '3'
+-- unitDefs[t3Afus].customparams.modCategories['object'] = false
+unitDefs[t3Afus].translatedHumanName = 'Super Fusion Reactor'
+-- unitDefs[t3Afus].modCategories['object'] = false
+unitDefs[t3Afus].canMove = nil
+unitDefs[t3Afus].canmove = nil
 
 for key, value in pairs(converter) do
-	unitDefs[armdf][key] = value
+	unitDefs[t3Conv][key] = value
 end
 
 for key, value in pairs(converterCustomparams) do
-	unitDefs[armdf].customparams[key] = value
+	unitDefs[t3Conv].customparams[key] = value
 end
 
 for key, value in pairs(converterFeaturedefsDead) do
-	unitDefs[armdf].featuredefs.dead[key] = value
+	unitDefs[t3Conv].featuredefs.dead[key] = value
 end
 for key, value in pairs(converterFeaturedefsHeap) do
-	unitDefs[armdf].featuredefs.heap[key] = value
+	unitDefs[t3Conv].featuredefs.heap[key] = value
 end
 
 for i = 1, #builderNames do
 	local builderName = builderNames[i]
 	local nBuildOptions = #unitDefs[builderName].buildoptions
-	unitDefs[builderName].buildoptions[nBuildOptions + 1] = armdf
-	unitDefs[builderName].buildoptions[nBuildOptions + 2] = lootboxplatinum
+	unitDefs[builderName].buildoptions[nBuildOptions + 1] = t3Conv
+	unitDefs[builderName].buildoptions[nBuildOptions + 2] = t3Afus
+end
+
+local h = UnitDef_Post
+function UnitDef_Post(i, j)
+	h(i, j)
+	unitDefs[t3Afus].canMove = nil
+	unitDefs[t3Afus].canmove = nil
+	unitDefs[t3Conv].decoyfor = nil
 end
