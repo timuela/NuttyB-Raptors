@@ -1,4 +1,4 @@
---T4 Eco
+--T3 Eco
 local unitDefs = UnitDefs or {}
 local lootboxplatinum = 'lootboxplatinum'
 local armdf = 'armdf'
