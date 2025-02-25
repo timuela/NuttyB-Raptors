@@ -153,44 +153,120 @@ for p, q in pairs(UnitDefs) do
 	end
 end
 if UnitDefs then
-	UnitDefs.raptor_air_kamikaze_basic_t2_v1.selfdestructas = 'raptor_empdeath_big'
-	UnitDefs.raptor_land_swarmer_emp_t2_v1.weapondefs.raptorparalyzersmall.damage.shields = 60
-	UnitDefs.raptor_land_swarmer_emp_t2_v1.weapondefs.raptorparalyzersmall.paralyzetime = 6
-	UnitDefs.raptor_land_assault_emp_t2_v1.weapondefs.raptorparalyzerbig.damage.shields = 140
-	UnitDefs.raptor_land_assault_emp_t2_v1.weapondefs.raptorparalyzerbig.paralyzetime = 10
-	UnitDefs.raptor_allterrain_arty_emp_t2_v1.weapondefs.goolauncher.paralyzetime = 6
-	UnitDefs.raptor_allterrain_arty_emp_t4_v1.weapondefs.goolauncher.paralyzetime = 10
-	UnitDefs.raptor_air_bomber_emp_t2_v1.cruisealtitude = UnitDefs.raptor_air_bomber_emp_t2_v1.cruisealtitude + 400
-	UnitDefs.raptor_air_bomber_emp_t2_v1.weapondefs.weapon.damage.shields = 1000
-	UnitDefs.raptor_air_bomber_emp_t2_v1.weapondefs.weapon.damage.default = 2000
-	UnitDefs.raptor_air_bomber_emp_t2_v1.weapondefs.weapon.paralyzetime = 10
-	UnitDefs.raptor_allterrain_swarmer_emp_t2_v1.weapondefs.raptorparalyzersmall.paralyzetime = 6
-	UnitDefs.raptor_allterrain_swarmer_emp_t2_v1.weapondefs.raptorparalyzersmall.damage.shields = 60
-	UnitDefs.raptor_allterrain_assault_emp_t2_v1.weapondefs.raptorparalyzerbig.paralyzetime = 6
-	UnitDefs.raptor_allterrain_assault_emp_t2_v1.weapondefs.raptorparalyzerbig.damage.shields = 140
-	UnitDefs.raptor_matriarch_electric.weapondefs.goo.paralyzetime = 13
-	UnitDefs.raptor_matriarch_electric.weapondefs.melee.paralyzetime = 13
-	UnitDefs.raptor_matriarch_electric.weapondefs.spike_emp_blob.paralyzetime = 13
-	UnitDefs.armcom.featuredefs.dead.reclaimable = false
-	UnitDefs.armcom.featuredefs.dead.damage = 57600
-	UnitDefs.armcomlvl2.featuredefs.dead.reclaimable = false
-	UnitDefs.armcomlvl2.featuredefs.dead.damage = 57600
-	UnitDefs.armcomlvl3.featuredefs.dead.reclaimable = false
-	UnitDefs.armcomlvl3.featuredefs.dead.damage = 57600
-	UnitDefs.corcom.featuredefs.dead.reclaimable = false
-	UnitDefs.corcom.featuredefs.dead.damage = 57600
-	UnitDefs.corcomlvl2.featuredefs.dead.reclaimable = false
-	UnitDefs.corcomlvl2.featuredefs.dead.damage = 57600
-	UnitDefs.corcomlvl3.featuredefs.dead.reclaimable = false
-	UnitDefs.corcomlvl3.featuredefs.dead.damage = 57600
-	UnitDefs.legcom.featuredefs.dead.reclaimable = false
-	UnitDefs.legcom.featuredefs.dead.damage = 57600
-	UnitDefs.legcomlvl2.featuredefs.dead.reclaimable = false
-	UnitDefs.legcomlvl2.featuredefs.dead.damage = 57600
-	UnitDefs.legcomlvl3.featuredefs.dead.reclaimable = false
-	UnitDefs.legcomlvl3.featuredefs.dead.damage = 57600
-	UnitDefs.legcomlvl4.featuredefs.dead.reclaimable = false
-	UnitDefs.legcomlvl4.featuredefs.dead.damage = 57600
+	if UnitDefs.raptor_air_kamikaze_basic_t2_v1 then
+		UnitDefs.raptor_air_kamikaze_basic_t2_v1.selfdestructas = 'raptor_empdeath_big'
+	end
+	if UnitDefs.raptor_land_swarmer_emp_t2_v1 then
+		UnitDefs.raptor_land_swarmer_emp_t2_v1.weapondefs.raptorparalyzersmall.damage.shields = 60
+	end
+	if UnitDefs.raptor_land_swarmer_emp_t2_v1 then
+		UnitDefs.raptor_land_swarmer_emp_t2_v1.weapondefs.raptorparalyzersmall.paralyzetime = 6
+	end
+	if UnitDefs.raptor_land_assault_emp_t2_v1 then
+		UnitDefs.raptor_land_assault_emp_t2_v1.weapondefs.raptorparalyzerbig.damage.shields = 140
+	end
+	if UnitDefs.raptor_land_assault_emp_t2_v1 then
+		UnitDefs.raptor_land_assault_emp_t2_v1.weapondefs.raptorparalyzerbig.paralyzetime = 10
+	end
+	if UnitDefs.raptor_allterrain_arty_emp_t2_v1 then
+		UnitDefs.raptor_allterrain_arty_emp_t2_v1.weapondefs.goolauncher.paralyzetime = 6
+	end
+	if UnitDefs.raptor_allterrain_arty_emp_t4_v1 then
+		UnitDefs.raptor_allterrain_arty_emp_t4_v1.weapondefs.goolauncher.paralyzetime = 10
+	end
+	if UnitDefs.raptor_air_bomber_emp_t2_v1 then
+		UnitDefs.raptor_air_bomber_emp_t2_v1.cruisealtitude = UnitDefs.raptor_air_bomber_emp_t2_v1.cruisealtitude + 400
+	end
+	if UnitDefs.raptor_air_bomber_emp_t2_v1 then
+		UnitDefs.raptor_air_bomber_emp_t2_v1.weapondefs.weapon.damage.shields = 1000
+	end
+	if UnitDefs.raptor_air_bomber_emp_t2_v1 then
+		UnitDefs.raptor_air_bomber_emp_t2_v1.weapondefs.weapon.damage.default = 2000
+	end
+	if UnitDefs.raptor_air_bomber_emp_t2_v1 then
+		UnitDefs.raptor_air_bomber_emp_t2_v1.weapondefs.weapon.paralyzetime = 10
+	end
+	if UnitDefs.raptor_allterrain_swarmer_emp_t2_v1 then
+		UnitDefs.raptor_allterrain_swarmer_emp_t2_v1.weapondefs.raptorparalyzersmall.paralyzetime = 6
+	end
+	if UnitDefs.raptor_allterrain_swarmer_emp_t2_v1 then
+		UnitDefs.raptor_allterrain_swarmer_emp_t2_v1.weapondefs.raptorparalyzersmall.damage.shields = 60
+	end
+	if UnitDefs.raptor_allterrain_assault_emp_t2_v1 then
+		UnitDefs.raptor_allterrain_assault_emp_t2_v1.weapondefs.raptorparalyzerbig.paralyzetime = 6
+	end
+	if UnitDefs.raptor_allterrain_assault_emp_t2_v1 then
+		UnitDefs.raptor_allterrain_assault_emp_t2_v1.weapondefs.raptorparalyzerbig.damage.shields = 140
+	end
+	if UnitDefs.raptor_matriarch_electric then
+		UnitDefs.raptor_matriarch_electric.weapondefs.goo.paralyzetime = 13
+	end
+	if UnitDefs.raptor_matriarch_electric then
+		UnitDefs.raptor_matriarch_electric.weapondefs.melee.paralyzetime = 13
+	end
+	if UnitDefs.raptor_matriarch_electric then
+		UnitDefs.raptor_matriarch_electric.weapondefs.spike_emp_blob.paralyzetime = 13
+	end
+	if UnitDefs.armcom then
+		UnitDefs.armcom.featuredefs.dead.reclaimable = false
+	end
+	if UnitDefs.armcom then
+		UnitDefs.armcom.featuredefs.dead.damage = 57600
+	end
+	if UnitDefs.armcomlvl2 then
+		UnitDefs.armcomlvl2.featuredefs.dead.reclaimable = false
+	end
+	if UnitDefs.armcomlvl2 then
+		UnitDefs.armcomlvl2.featuredefs.dead.damage = 57600
+	end
+	if UnitDefs.armcomlvl3 then
+		UnitDefs.armcomlvl3.featuredefs.dead.reclaimable = false
+	end
+	if UnitDefs.armcomlvl3 then
+		UnitDefs.armcomlvl3.featuredefs.dead.damage = 57600
+	end
+	if UnitDefs.corcom then
+		UnitDefs.corcom.featuredefs.dead.reclaimable = false
+	end
+	if UnitDefs.corcom then
+		UnitDefs.corcom.featuredefs.dead.damage = 57600
+	end
+	if UnitDefs.corcomlvl2 then
+		UnitDefs.corcomlvl2.featuredefs.dead.reclaimable = false
+	end
+	if UnitDefs.corcomlvl2 then
+		UnitDefs.corcomlvl2.featuredefs.dead.damage = 57600
+	end
+	if UnitDefs.corcomlvl3 then
+		UnitDefs.corcomlvl3.featuredefs.dead.reclaimable = false
+	end
+	if UnitDefs.corcomlvl3 then
+		UnitDefs.corcomlvl3.featuredefs.dead.damage = 57600
+	end
+	if UnitDefs.legcom then
+		UnitDefs.legcom.featuredefs.dead.reclaimable = false
+	end
+	if UnitDefs.legcom then
+		UnitDefs.legcom.featuredefs.dead.damage = 57600
+	end
+	if UnitDefs.legcomlvl2 then
+		UnitDefs.legcomlvl2.featuredefs.dead.reclaimable = false
+	end
+	if UnitDefs.legcomlvl2 then
+		UnitDefs.legcomlvl2.featuredefs.dead.damage = 57600
+	end
+	if UnitDefs.legcomlvl3 then
+		UnitDefs.legcomlvl3.featuredefs.dead.reclaimable = false
+	end
+	if UnitDefs.legcomlvl3 then
+		UnitDefs.legcomlvl3.featuredefs.dead.damage = 57600
+	end
+	if UnitDefs.legcomlvl4 then
+		UnitDefs.legcomlvl4.featuredefs.dead.reclaimable = false
+	end
+	if UnitDefs.legcomlvl4 then
+		UnitDefs.legcomlvl4.featuredefs.dead.damage = 57600
+	end
 end
 local t = {
 	'raptor_antinuke',
