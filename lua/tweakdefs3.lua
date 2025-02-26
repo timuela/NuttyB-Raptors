@@ -12,7 +12,8 @@ local energy = {
 	health = 10000,
 	metalcost = 97000,
 	metalmake = 0,
-	reclaimable = true
+	reclaimable = true,
+	canmove = false
 }
 local converter = {
 	activatewhenbuilt = true,
@@ -21,23 +22,21 @@ local converter = {
 	energycost = 500000,
 	energymake = 0,
 	explodeas = 'fusionExplosion',
-	decoyfor = nil,
 	health = 1000,
-	maxwaterdepth = 20,
 	metalcost = 8000,
 	objectname = 'Units/CORUWFUS.s3o',
 	script = 'Units/CORUWFUS.cob',
-	selfdestructas = 'fusionExplosionSelfd'
+	selfdestructas = 'fusionExplosionSelfd',
+	translatedHumanName = 'Super Energy Converter'
 }
 local converterCustomparams = {
 	energyconv_capacity = 5000,
-	energyconv_efficiency = 0.0175,
+	energyconv_efficiency = 0.0181,
 	decoyfor = nil,
 	i18n_en_humanname = 'Super Energy Converter',
 	i18n_en_tooltip = 'Converts 5000 energy into 125 metal per sec',
 	subfolder = 'ArmBuildings/LandEconomy',
-	techlevel = '3',
-	translatedHumanName = 'Super Energy Converter',
+	techlevel = 3,
 	unitgroup = 'metal'
 }
 local converterFeaturedefsDead = {
@@ -86,12 +85,7 @@ end
 
 unitDefs[t3Afus].customparams.i18n_en_humanname = 'Super Fusion Reactor'
 unitDefs[t3Afus].customparams.i18n_en_tooltip = 'Produces 30000 Energy, Transportable (Very Hazardous)'
-unitDefs[t3Afus].customparams.techlevel = '3'
--- unitDefs[t3Afus].customparams.modCategories['object'] = false
-unitDefs[t3Afus].translatedHumanName = 'Super Fusion Reactor'
--- unitDefs[t3Afus].modCategories['object'] = false
-unitDefs[t3Afus].canMove = nil
-unitDefs[t3Afus].canmove = nil
+unitDefs[t3Afus].customparams.techlevel = 3
 
 for key, value in pairs(converter) do
 	unitDefs[t3Conv][key] = value
@@ -113,12 +107,4 @@ for i = 1, #builderNames do
 	local nBuildOptions = #unitDefs[builderName].buildoptions
 	unitDefs[builderName].buildoptions[nBuildOptions + 1] = t3Conv
 	unitDefs[builderName].buildoptions[nBuildOptions + 2] = t3Afus
-end
-
-local h = UnitDef_Post
-function UnitDef_Post(i, j)
-	h(i, j)
-	unitDefs[t3Afus].canMove = nil
-	unitDefs[t3Afus].canmove = nil
-	unitDefs[t3Conv].decoyfor = nil
 end
