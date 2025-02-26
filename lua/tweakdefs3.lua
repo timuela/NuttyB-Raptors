@@ -31,7 +31,7 @@ local converter = {
 }
 local converterCustomparams = {
 	energyconv_capacity = 5000,
-	energyconv_efficiency = 0.02,
+	energyconv_efficiency = 0.025,
 	decoyfor = nil,
 	i18n_en_humanname = 'Super Energy Converter',
 	i18n_en_tooltip = 'Converts 5000 energy into 125 metal per sec',
