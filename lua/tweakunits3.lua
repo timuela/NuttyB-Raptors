@@ -8,7 +8,8 @@ return {
 			evolution_condition = 'timer',
 			evolution_timer = 420, -- Adjusted timer value
 			combatradius = 0,
-			paratrooper = true
+			paratrooper = true,
+			fall_damage_multiplier = 0
 		},
 		autoheal = 40,
 		speed = 40,
@@ -104,7 +105,8 @@ return {
 			combatradius = 0,
 			shield_power = 500,
 			shield_radius = 100,
-			paratrooper = true
+			paratrooper = true,
+			fall_damage_multiplier = 0
 		},
 		weapondefs = {
 			armcomlaser = {
@@ -258,7 +260,8 @@ return {
 		customparams = {
 			shield_power = 500,
 			shield_radius = 100,
-			paratrooper = true
+			paratrooper = true,
+			fall_damage_multiplier = 0
 		},
 		weapondefs = {
 			corcomlaser = {

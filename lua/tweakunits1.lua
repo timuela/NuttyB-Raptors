@@ -19,7 +19,8 @@ return {
 			evolution_condition = 'timer',
 			evolution_timer = 420,
 			combatradius = 0,
-			paratrooper = true
+			paratrooper = true,
+			fall_damage_multiplier = 0
 		},
 		weapondefs = {
 			legcomlaser = {
@@ -97,7 +98,8 @@ return {
 			stockpilelimit = 15,
 			combatradius = 0,
 			evolution_timer = 600,
-			paratrooper = true
+			paratrooper = true,
+			fall_damage_multiplier = 0
 		},
 		buildoptions = {
 			[1] = 'cornecro',
@@ -215,7 +217,8 @@ return {
 			stockpilelimit = 20,
 			combatradius = 0,
 			evolution_timer = 600,
-			paratrooper = true
+			paratrooper = true,
+			fall_damage_multiplier = 0
 		},
 		buildoptions = {
 			[1] = 'corgate',
