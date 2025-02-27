@@ -8,7 +8,8 @@ return {
 			evolution_condition = 'timer',
 			evolution_timer = 420,
 			combatradius = 0,
-			stockpilelimit = 5
+			stockpilelimit = 5,
+			paratrooper = true
 		},
 		energymake = 100,
 		metalmake = 10,
@@ -175,7 +176,8 @@ return {
 			evolution_timer = 900,
 			combatradius = 0,
 			stockpilelimit = 8,
-			wtboostunittype = ''
+			wtboostunittype = '',
+			paratrooper = true
 		},
 		weapondefs = {
 			armcomlaser = {
@@ -335,7 +337,8 @@ return {
 		},
 		customparams = {
 			stockpilelimit = 10,
-			wtboostunittype = ''
+			wtboostunittype = '',
+			paratrooper = true
 		},
 		weapondefs = {
 			old_armsnipe_weapon = {
