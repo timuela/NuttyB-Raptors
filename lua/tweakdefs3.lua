@@ -38,7 +38,7 @@ local converterCustomparams = {
 	energyconv_efficiency = 0.0181,
 	decoyfor = nil,
 	i18n_en_humanname = 'Super Energy Converter',
-	i18n_en_tooltip = 'Converts 5000 energy into 125 metal per sec',
+	i18n_en_tooltip = 'Converts ' .. converter.energymake .. ' energy into 81 metal per sec',
 	subfolder = 'ArmBuildings/LandEconomy',
 	techlevel = 3,
 	unitgroup = 'metal'
@@ -88,7 +88,7 @@ for key, value in pairs(energy) do
 end
 
 unitDefs[t3Afus].customparams.i18n_en_humanname = 'Super Fusion Reactor'
-unitDefs[t3Afus].customparams.i18n_en_tooltip = 'Produces 30000 Energy, Transportable (Very Hazardous)'
+unitDefs[t3Afus].customparams.i18n_en_tooltip = 'Produces ' .. energy.energymake .. ' Energy (Very Hazardous)'
 unitDefs[t3Afus].customparams.techlevel = 3
 
 for key, value in pairs(converter) do

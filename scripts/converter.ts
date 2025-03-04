@@ -6,6 +6,8 @@ const clipboardy = import('clipboardy')
 const luamin = require('luamin')
 const luafmt = require('lua-format')
 
+const defaultTweakResult = { tweakKey: '', tweakValue: '', isChanged: false }
+
 async function base64ToLua() {
   const base64Dir = path.join(__dirname, '../base64url')
   const luaDir = path.join(__dirname, '../lua')
@@ -24,7 +26,7 @@ async function luaToBase64() {
   return processDirectory(luaDir, base64Dir, 'base64url', luaFileToBase64Url)
 }
 
-type tweakResult = { tweakKey: string; tweakValue: string }
+type tweakResult = { tweakKey: string; tweakValue: string, isChanged: boolean }
 
 async function processDirectory(
   srcDir: string,
@@ -45,7 +47,7 @@ async function processDirectory(
     `Processing ${entries.length} entries from ${srcDir} to ${destDir}...`,
   );
 
-  let conversions: Promise<{ [key: string]: string }>[] = [];
+  let conversions: Promise<tweakResult>[] = [];
 
   for (const entry of entries) {
     const srcPath = path.join(srcDir, entry.name);
@@ -98,15 +100,12 @@ async function base64UrlFileToLua(
 ): Promise<tweakResult> {
   try {
 
-    const content = (await fs.readFile(srcPath, 'utf-8')).trim()
-    if (!content)
-      return Promise.resolve({
-        tweakKey,
-        tweakValue: '',
-      })
+    const srcContent = (await fs.readFile(srcPath, 'utf-8')).trim()
+    if (!srcContent)
+      return Promise.resolve(defaultTweakResult)
 
     const decoded =
-      (destPath.includes('units') ? 'return ' : '') + base64url.decode(content)
+      (destPath.includes('units') ? 'return ' : '') + base64url.decode(srcContent)
     let tweakValue = luafmt
       .Beautify(decoded, {
         RenameVariables: false,
@@ -119,6 +118,7 @@ async function base64UrlFileToLua(
 
     tweakValue += tweakValue.endsWith('\n') ? '' : '\n'
 
+    const destContent = await fs.readFile(destPath, 'utf-8')
 
     return fs
       .writeFile(destPath, tweakValue, 'utf-8')
@@ -126,6 +126,7 @@ async function base64UrlFileToLua(
         return {
           tweakKey,
           tweakValue,
+          isChanged: destContent !== tweakValue
         }
       })
       .catch((err) => {
@@ -133,15 +134,13 @@ async function base64UrlFileToLua(
         return {
           tweakKey,
           tweakValue,
+          isChanged: true
         }
       })
   }
   catch (err) {
     console.error(err)
-    return {
-      tweakKey,
-      tweakValue: '',
-    }
+    return defaultTweakResult
   }
 }
 
@@ -152,10 +151,7 @@ async function luaFileToBase64Url(
 ) {
   const content = (await fs.readFile(srcPath, 'utf-8')).trim()
   if (!content)
-    return Promise.resolve({
-      tweakKey,
-      tweakValue: '',
-    })
+    return Promise.resolve(defaultTweakResult)
 
   const firstLine = content.split('\n')[0];
   const tweakComment = /^\s*--.*/.test(firstLine) ? firstLine+'\n' : '';
@@ -171,6 +167,8 @@ async function luaFileToBase64Url(
     throw err
   }
 
+  const destContent = await fs.readFile(destPath, 'utf-8')
+
   const tweakValue = base64url.encode(minified)
 
   return fs
@@ -179,6 +177,7 @@ async function luaFileToBase64Url(
       return {
         tweakKey,
         tweakValue: tweakValue,
+        isChanged: destContent !== tweakValue
       }
     })
     .catch((err) => {
@@ -186,6 +185,7 @@ async function luaFileToBase64Url(
       return {
         tweakKey,
         tweakValue,
+        isChanged: true
       }
     })
 }
@@ -198,11 +198,12 @@ async function main() {
   if (process.argv[2] === 'b64tolua') {
     await base64ToLua()
   } else if (process.argv[2] === 'luatob64') {
-    ;(await clipboardy).default.writeSync(
+    (await clipboardy).default.writeSync(
       [...(await luaToBase64()).values()]
+        .filter(({ isChanged }) => isChanged)
         .map(({ tweakKey, tweakValue }) => `!bset ${tweakKey} ${tweakValue}`)
-        .join('\n'),
-    )
+        .join('\n')
+    );
   } else {
     console.error('Usage: ts-node ./scripts/converter.ts b64tolua|luatob64')
   }
