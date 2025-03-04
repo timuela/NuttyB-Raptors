@@ -1,5 +1,5 @@
 --NuttyB v1.52 Def Main
-local UnitDefs = UnitDefs or {}
+local unitDefs = UnitDefs or {}
 local function a(b, c)
 	for d, e in pairs(c) do
 		if type(e) == 'table' and type(b[d]) == 'table' then
@@ -23,24 +23,24 @@ function deepCopy(c, f)
 	return g
 end
 function addWeapon(h, i, j)
-	UnitDefs[h] = UnitDefs[h] or {}
-	UnitDefs[h].weapons = UnitDefs[h].weapons or {}
-	UnitDefs[h].weapondefs = UnitDefs[h].weapondefs or {}
-	UnitDefs[h].customparams = UnitDefs[h].customparams or {}
+	unitDefs[h] = unitDefs[h] or {}
+	unitDefs[h].weapons = unitDefs[h].weapons or {}
+	unitDefs[h].weapondefs = unitDefs[h].weapondefs or {}
+	unitDefs[h].customparams = unitDefs[h].customparams or {}
 	local k = 'repulsor'
 	table.insert(
-		UnitDefs[h].weapons,
+		unitDefs[h].weapons,
 		{
 			def = k,
 			onlytargetcategory = j or ''
 		}
 	)
-	UnitDefs[h].weapondefs[k] = i
+	unitDefs[h].weapondefs[k] = i
 	if i.shield and i.shield.power > 0 then
 		i.range = i.shield.radius
-		UnitDefs[h].customparams = UnitDefs[h].customparams or {}
+		unitDefs[h].customparams = unitDefs[h].customparams or {}
 		a(
-			UnitDefs[h].customparams,
+			unitDefs[h].customparams,
 			{
 				off_on_stun = 'true',
 				shield_color_mult = 0.8,
@@ -111,7 +111,7 @@ for n, h in ipairs(m) do
 	o.shield.powerregenenergy = 3
 	addWeapon(h, o)
 end
-for p, q in pairs(UnitDefs) do
+for p, q in pairs(unitDefs) do
 	if string.sub(p, 1, 24) == 'raptor_air_fighter_basic' then
 		if q.weapondefs then
 			for r, s in pairs(q.weapondefs) do
@@ -152,120 +152,120 @@ for p, q in pairs(UnitDefs) do
 		end
 	end
 end
-if UnitDefs then
-	if UnitDefs.raptor_air_kamikaze_basic_t2_v1 then
-		UnitDefs.raptor_air_kamikaze_basic_t2_v1.selfdestructas = 'raptor_empdeath_big'
+if unitDefs then
+	if unitDefs.raptor_air_kamikaze_basic_t2_v1 then
+		unitDefs.raptor_air_kamikaze_basic_t2_v1.selfdestructas = 'raptor_empdeath_big'
 	end
-	if UnitDefs.raptor_land_swarmer_emp_t2_v1 then
-		UnitDefs.raptor_land_swarmer_emp_t2_v1.weapondefs.raptorparalyzersmall.damage.shields = 60
+	if unitDefs.raptor_land_swarmer_emp_t2_v1 then
+		unitDefs.raptor_land_swarmer_emp_t2_v1.weapondefs.raptorparalyzersmall.damage.shields = 60
 	end
-	if UnitDefs.raptor_land_swarmer_emp_t2_v1 then
-		UnitDefs.raptor_land_swarmer_emp_t2_v1.weapondefs.raptorparalyzersmall.paralyzetime = 6
+	if unitDefs.raptor_land_swarmer_emp_t2_v1 then
+		unitDefs.raptor_land_swarmer_emp_t2_v1.weapondefs.raptorparalyzersmall.paralyzetime = 6
 	end
-	if UnitDefs.raptor_land_assault_emp_t2_v1 then
-		UnitDefs.raptor_land_assault_emp_t2_v1.weapondefs.raptorparalyzerbig.damage.shields = 140
+	if unitDefs.raptor_land_assault_emp_t2_v1 then
+		unitDefs.raptor_land_assault_emp_t2_v1.weapondefs.raptorparalyzerbig.damage.shields = 140
 	end
-	if UnitDefs.raptor_land_assault_emp_t2_v1 then
-		UnitDefs.raptor_land_assault_emp_t2_v1.weapondefs.raptorparalyzerbig.paralyzetime = 10
+	if unitDefs.raptor_land_assault_emp_t2_v1 then
+		unitDefs.raptor_land_assault_emp_t2_v1.weapondefs.raptorparalyzerbig.paralyzetime = 10
 	end
-	if UnitDefs.raptor_allterrain_arty_emp_t2_v1 then
-		UnitDefs.raptor_allterrain_arty_emp_t2_v1.weapondefs.goolauncher.paralyzetime = 6
+	if unitDefs.raptor_allterrain_arty_emp_t2_v1 then
+		unitDefs.raptor_allterrain_arty_emp_t2_v1.weapondefs.goolauncher.paralyzetime = 6
 	end
-	if UnitDefs.raptor_allterrain_arty_emp_t4_v1 then
-		UnitDefs.raptor_allterrain_arty_emp_t4_v1.weapondefs.goolauncher.paralyzetime = 10
+	if unitDefs.raptor_allterrain_arty_emp_t4_v1 then
+		unitDefs.raptor_allterrain_arty_emp_t4_v1.weapondefs.goolauncher.paralyzetime = 10
 	end
-	if UnitDefs.raptor_air_bomber_emp_t2_v1 then
-		UnitDefs.raptor_air_bomber_emp_t2_v1.cruisealtitude = UnitDefs.raptor_air_bomber_emp_t2_v1.cruisealtitude + 400
+	if unitDefs.raptor_air_bomber_emp_t2_v1 then
+		unitDefs.raptor_air_bomber_emp_t2_v1.cruisealtitude = unitDefs.raptor_air_bomber_emp_t2_v1.cruisealtitude + 400
 	end
-	if UnitDefs.raptor_air_bomber_emp_t2_v1 then
-		UnitDefs.raptor_air_bomber_emp_t2_v1.weapondefs.weapon.damage.shields = 1000
+	if unitDefs.raptor_air_bomber_emp_t2_v1 then
+		unitDefs.raptor_air_bomber_emp_t2_v1.weapondefs.weapon.damage.shields = 1000
 	end
-	if UnitDefs.raptor_air_bomber_emp_t2_v1 then
-		UnitDefs.raptor_air_bomber_emp_t2_v1.weapondefs.weapon.damage.default = 2000
+	if unitDefs.raptor_air_bomber_emp_t2_v1 then
+		unitDefs.raptor_air_bomber_emp_t2_v1.weapondefs.weapon.damage.default = 2000
 	end
-	if UnitDefs.raptor_air_bomber_emp_t2_v1 then
-		UnitDefs.raptor_air_bomber_emp_t2_v1.weapondefs.weapon.paralyzetime = 10
+	if unitDefs.raptor_air_bomber_emp_t2_v1 then
+		unitDefs.raptor_air_bomber_emp_t2_v1.weapondefs.weapon.paralyzetime = 10
 	end
-	if UnitDefs.raptor_allterrain_swarmer_emp_t2_v1 then
-		UnitDefs.raptor_allterrain_swarmer_emp_t2_v1.weapondefs.raptorparalyzersmall.paralyzetime = 6
+	if unitDefs.raptor_allterrain_swarmer_emp_t2_v1 then
+		unitDefs.raptor_allterrain_swarmer_emp_t2_v1.weapondefs.raptorparalyzersmall.paralyzetime = 6
 	end
-	if UnitDefs.raptor_allterrain_swarmer_emp_t2_v1 then
-		UnitDefs.raptor_allterrain_swarmer_emp_t2_v1.weapondefs.raptorparalyzersmall.damage.shields = 60
+	if unitDefs.raptor_allterrain_swarmer_emp_t2_v1 then
+		unitDefs.raptor_allterrain_swarmer_emp_t2_v1.weapondefs.raptorparalyzersmall.damage.shields = 60
 	end
-	if UnitDefs.raptor_allterrain_assault_emp_t2_v1 then
-		UnitDefs.raptor_allterrain_assault_emp_t2_v1.weapondefs.raptorparalyzerbig.paralyzetime = 6
+	if unitDefs.raptor_allterrain_assault_emp_t2_v1 then
+		unitDefs.raptor_allterrain_assault_emp_t2_v1.weapondefs.raptorparalyzerbig.paralyzetime = 6
 	end
-	if UnitDefs.raptor_allterrain_assault_emp_t2_v1 then
-		UnitDefs.raptor_allterrain_assault_emp_t2_v1.weapondefs.raptorparalyzerbig.damage.shields = 140
+	if unitDefs.raptor_allterrain_assault_emp_t2_v1 then
+		unitDefs.raptor_allterrain_assault_emp_t2_v1.weapondefs.raptorparalyzerbig.damage.shields = 140
 	end
-	if UnitDefs.raptor_matriarch_electric then
-		UnitDefs.raptor_matriarch_electric.weapondefs.goo.paralyzetime = 13
+	if unitDefs.raptor_matriarch_electric then
+		unitDefs.raptor_matriarch_electric.weapondefs.goo.paralyzetime = 13
 	end
-	if UnitDefs.raptor_matriarch_electric then
-		UnitDefs.raptor_matriarch_electric.weapondefs.melee.paralyzetime = 13
+	if unitDefs.raptor_matriarch_electric then
+		unitDefs.raptor_matriarch_electric.weapondefs.melee.paralyzetime = 13
 	end
-	if UnitDefs.raptor_matriarch_electric then
-		UnitDefs.raptor_matriarch_electric.weapondefs.spike_emp_blob.paralyzetime = 13
+	if unitDefs.raptor_matriarch_electric then
+		unitDefs.raptor_matriarch_electric.weapondefs.spike_emp_blob.paralyzetime = 13
 	end
-	if UnitDefs.armcom then
-		UnitDefs.armcom.featuredefs.dead.reclaimable = false
+	if unitDefs.armcom then
+		unitDefs.armcom.featuredefs.dead.reclaimable = false
 	end
-	if UnitDefs.armcom then
-		UnitDefs.armcom.featuredefs.dead.damage = 57600
+	if unitDefs.armcom then
+		unitDefs.armcom.featuredefs.dead.damage = 57600
 	end
-	if UnitDefs.armcomlvl2 then
-		UnitDefs.armcomlvl2.featuredefs.dead.reclaimable = false
+	if unitDefs.armcomlvl2 then
+		unitDefs.armcomlvl2.featuredefs.dead.reclaimable = false
 	end
-	if UnitDefs.armcomlvl2 then
-		UnitDefs.armcomlvl2.featuredefs.dead.damage = 57600
+	if unitDefs.armcomlvl2 then
+		unitDefs.armcomlvl2.featuredefs.dead.damage = 57600
 	end
-	if UnitDefs.armcomlvl3 then
-		UnitDefs.armcomlvl3.featuredefs.dead.reclaimable = false
+	if unitDefs.armcomlvl3 then
+		unitDefs.armcomlvl3.featuredefs.dead.reclaimable = false
 	end
-	if UnitDefs.armcomlvl3 then
-		UnitDefs.armcomlvl3.featuredefs.dead.damage = 57600
+	if unitDefs.armcomlvl3 then
+		unitDefs.armcomlvl3.featuredefs.dead.damage = 57600
 	end
-	if UnitDefs.corcom then
-		UnitDefs.corcom.featuredefs.dead.reclaimable = false
+	if unitDefs.corcom then
+		unitDefs.corcom.featuredefs.dead.reclaimable = false
 	end
-	if UnitDefs.corcom then
-		UnitDefs.corcom.featuredefs.dead.damage = 57600
+	if unitDefs.corcom then
+		unitDefs.corcom.featuredefs.dead.damage = 57600
 	end
-	if UnitDefs.corcomlvl2 then
-		UnitDefs.corcomlvl2.featuredefs.dead.reclaimable = false
+	if unitDefs.corcomlvl2 then
+		unitDefs.corcomlvl2.featuredefs.dead.reclaimable = false
 	end
-	if UnitDefs.corcomlvl2 then
-		UnitDefs.corcomlvl2.featuredefs.dead.damage = 57600
+	if unitDefs.corcomlvl2 then
+		unitDefs.corcomlvl2.featuredefs.dead.damage = 57600
 	end
-	if UnitDefs.corcomlvl3 then
-		UnitDefs.corcomlvl3.featuredefs.dead.reclaimable = false
+	if unitDefs.corcomlvl3 then
+		unitDefs.corcomlvl3.featuredefs.dead.reclaimable = false
 	end
-	if UnitDefs.corcomlvl3 then
-		UnitDefs.corcomlvl3.featuredefs.dead.damage = 57600
+	if unitDefs.corcomlvl3 then
+		unitDefs.corcomlvl3.featuredefs.dead.damage = 57600
 	end
-	if UnitDefs.legcom then
-		UnitDefs.legcom.featuredefs.dead.reclaimable = false
+	if unitDefs.legcom then
+		unitDefs.legcom.featuredefs.dead.reclaimable = false
 	end
-	if UnitDefs.legcom then
-		UnitDefs.legcom.featuredefs.dead.damage = 57600
+	if unitDefs.legcom then
+		unitDefs.legcom.featuredefs.dead.damage = 57600
 	end
-	if UnitDefs.legcomlvl2 then
-		UnitDefs.legcomlvl2.featuredefs.dead.reclaimable = false
+	if unitDefs.legcomlvl2 then
+		unitDefs.legcomlvl2.featuredefs.dead.reclaimable = false
 	end
-	if UnitDefs.legcomlvl2 then
-		UnitDefs.legcomlvl2.featuredefs.dead.damage = 57600
+	if unitDefs.legcomlvl2 then
+		unitDefs.legcomlvl2.featuredefs.dead.damage = 57600
 	end
-	if UnitDefs.legcomlvl3 then
-		UnitDefs.legcomlvl3.featuredefs.dead.reclaimable = false
+	if unitDefs.legcomlvl3 then
+		unitDefs.legcomlvl3.featuredefs.dead.reclaimable = false
 	end
-	if UnitDefs.legcomlvl3 then
-		UnitDefs.legcomlvl3.featuredefs.dead.damage = 57600
+	if unitDefs.legcomlvl3 then
+		unitDefs.legcomlvl3.featuredefs.dead.damage = 57600
 	end
-	if UnitDefs.legcomlvl4 then
-		UnitDefs.legcomlvl4.featuredefs.dead.reclaimable = false
+	if unitDefs.legcomlvl4 then
+		unitDefs.legcomlvl4.featuredefs.dead.reclaimable = false
 	end
-	if UnitDefs.legcomlvl4 then
-		UnitDefs.legcomlvl4.featuredefs.dead.damage = 57600
+	if unitDefs.legcomlvl4 then
+		unitDefs.legcomlvl4.featuredefs.dead.damage = 57600
 	end
 end
 local t = {
@@ -287,7 +287,7 @@ local t = {
 	'raptor_turret_emp_t4_v1',
 	'raptor_worm_green'
 }
-for p, u in pairs(UnitDefs) do
+for p, u in pairs(unitDefs) do
 	for r, v in ipairs(t) do
 		if p == v then
 			u.maxthisunit = 10
@@ -302,7 +302,7 @@ for p, u in pairs(UnitDefs) do
 		end
 	end
 end
-for w, q in pairs(UnitDefs) do
+for w, q in pairs(unitDefs) do
 	if q.builder == true then
 		if q.canfly == true then
 			q.explodeas = ''
@@ -317,7 +317,7 @@ local t = {
 	'raptor_air_bomber_basic_t4_v2',
 	'raptor_air_bomber_basic_t1_v1'
 }
-for p, u in pairs(UnitDefs) do
+for p, u in pairs(unitDefs) do
 	for r, v in ipairs(t) do
 		if p == v then
 			if u.weapondefs then
@@ -328,4 +328,12 @@ for p, u in pairs(UnitDefs) do
 			break
 		end
 	end
+end
+
+for _, w in pairs({'armrespawn', 'correspawn', 'legnanotcbase'}) do
+	unitDefs[w].cantbetransported = false
+	unitDefs[w].footprintx = 4
+	unitDefs[w].footprintz = 4
+	unitDefs[w].customparams.paratrooper = true
+	unitDefs[w].customparams.fall_damage_multiplier = 0
 end
