@@ -533,7 +533,7 @@ return {
 		turnrate = 16000,
 		health = 10450,
 		weapondefs = {
-			ata = {
+			ARMBRTHA_MAIN = {
 				areaofeffect = 96,
 				avoidFriendly = false,
 				avoidFeature = false,
@@ -581,7 +581,7 @@ return {
 		weapons = {
 			[1] = {
 				badtargetcategory = 'VTOL GROUNDSCOUT',
-				def = 'ATA',
+				def = 'ARMBRTHA_MAIN',
 				onlytargetcategory = 'SURFACE'
 			}
 		}
@@ -595,7 +595,7 @@ return {
 		footprintx = 6,
 		footprintz = 6,
 		weapondefs = {
-			ata = {
+			CORINT_MAIN = {
 				areaofeffect = 155,
 				avoidFriendly = false,
 				avoidFeature = false,
@@ -643,7 +643,7 @@ return {
 		weapons = {
 			[1] = {
 				badtargetcategory = 'VTOL GROUNDSCOUT',
-				def = 'ATA',
+				def = 'CORINT_MAIN',
 				onlytargetcategory = 'SURFACE'
 			}
 		}
@@ -657,7 +657,7 @@ return {
 		footprintx = 6,
 		footprintz = 6,
 		weapondefs = {
-			ATA = {
+			LEGLRPC_MAIN = {
 				areaofeffect = 150,
 				avoidFriendly = false,
 				avoidFeature = false,
@@ -708,7 +708,7 @@ return {
 		weapons = {
 			[1] = {
 				badtargetcategory = 'VTOL GROUNDSCOUT',
-				def = 'ATA',
+				def = 'LEGLRPC_MAIN',
 				onlytargetcategory = 'SURFACE'
 			}
 		}
