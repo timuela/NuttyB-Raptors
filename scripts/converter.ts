@@ -167,10 +167,7 @@ async function luaFileToBase64Url(
     throw err
   }
 
-  console.log('asdfsdf1123')
   const destContent = await fs.readFile(destPath, 'utf-8').catch(() => null);
-
-  console.log('asdfsdf')
 
   const tweakValue = base64url.encode(minified)
 
