@@ -553,7 +553,7 @@ return {
 				impulsefactor = 0,
 				largebeamlaser = true,
 				laserflaresize = 1,
-				name = 'Expermental Duction Beam',
+				name = 'Experimental Duction Beam',
 				noselfdamage = true,
 				range = 2300,
 				reloadtime = 12,

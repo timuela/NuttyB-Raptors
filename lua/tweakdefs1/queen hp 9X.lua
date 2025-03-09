@@ -1,4 +1,4 @@
---NuttyB v1.52 5X QHP
+--NuttyB v1.52 9X QHP
 for b, c in pairs(UnitDefs) do
 	if b:match('^raptor_queen_.*') then
 		c.repairable = false
