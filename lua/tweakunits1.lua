@@ -1,4 +1,10 @@
 --NuttyB v1.52 Legion Com
+local tableMerge = table.merge
+local allCustomParams = {
+	combatradius = 0,
+	paratrooper = true,
+	fall_damage_multiplier = 0
+}
 return {
 	legcom = {
 		energymake = 50,
@@ -11,17 +17,17 @@ return {
 			[34] = 'legdtf',
 			[35] = 'legdtr'
 		},
-		customparams = {
-			stockpilelimit = 10,
-			evolution_announcement = 'Legion commanders have upgraded to level 2',
-			evolution_announcement_size = 18.5,
-			evolution_target = 'legcomlvl2',
-			evolution_condition = 'timer',
-			evolution_timer = 420,
-			combatradius = 0,
-			paratrooper = true,
-			fall_damage_multiplier = 0
-		},
+		customparams = tableMerge(
+			allCustomParams,
+			{
+				stockpilelimit = 10,
+				evolution_announcement = 'Legion commanders have upgraded to level 2',
+				evolution_announcement_size = 18.5,
+				evolution_target = 'legcomlvl2',
+				evolution_condition = 'timer',
+				evolution_timer = 420
+			}
+		),
 		weapondefs = {
 			legcomlaser = {
 				corethickness = 0.45,
@@ -94,13 +100,13 @@ return {
 		metalmake = 15,
 		speed = 57.5,
 		autoheal = 100,
-		customparams = {
-			stockpilelimit = 15,
-			combatradius = 0,
-			evolution_timer = 600,
-			paratrooper = true,
-			fall_damage_multiplier = 0
-		},
+		customparams = tableMerge(
+			allCustomParams,
+			{
+				stockpilelimit = 15,
+				evolution_timer = 600
+			}
+		),
 		buildoptions = {
 			[1] = 'cornecro',
 			[2] = 'legadvsol',
@@ -213,13 +219,13 @@ return {
 		speed = 70.5,
 		workertime = 700,
 		autoheal = 150,
-		customparams = {
-			stockpilelimit = 20,
-			combatradius = 0,
-			evolution_timer = 600,
-			paratrooper = true,
-			fall_damage_multiplier = 0
-		},
+		customparams = tableMerge(
+			allCustomParams,
+			{
+				stockpilelimit = 20,
+				evolution_timer = 600
+			}
+		),
 		buildoptions = {
 			[1] = 'corgate',
 			[2] = 'corfus',
@@ -343,7 +349,7 @@ return {
 		speed = 88.5,
 		workertime = 1000,
 		autoheal = 180,
-		customparams = {stockpilelimit = 20},
+		customparams = tableMerge(allCustomParams, {stockpilelimit = 20}),
 		buildoptions = {
 			[1] = 'corgate',
 			[2] = 'corfus',

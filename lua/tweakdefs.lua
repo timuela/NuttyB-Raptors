@@ -1,27 +1,9 @@
 --NuttyB v1.52 Def Main
 local unitDefs = UnitDefs or {}
-local function a(b, c)
-	for d, e in pairs(c) do
-		if type(e) == 'table' and type(b[d]) == 'table' then
-			a(b[d], e)
-		else
-			b[d] = e
-		end
-	end
-end
-function deepCopy(c, f)
-	f = f or {}
-	local g = {}
-	f[c] = g
-	for d, e in pairs(c) do
-		if type(e) == 'table' then
-			g[d] = f[e] or deepCopy(e, f)
-		else
-			g[d] = e
-		end
-	end
-	return g
-end
+
+local tableMerge = table.merge
+local deepCopy = table.copy
+
 function addWeapon(h, i, j)
 	unitDefs[h] = unitDefs[h] or {}
 	unitDefs[h].weapons = unitDefs[h].weapons or {}
@@ -39,7 +21,7 @@ function addWeapon(h, i, j)
 	if i.shield and i.shield.power > 0 then
 		i.range = i.shield.radius
 		unitDefs[h].customparams = unitDefs[h].customparams or {}
-		a(
+		tableMerge(
 			unitDefs[h].customparams,
 			{
 				off_on_stun = 'true',
@@ -311,11 +293,11 @@ for w, q in pairs(unitDefs) do
 	end
 end
 local t = {
+	'raptor_air_bomber_basic_t1_v1',
 	'raptor_air_bomber_basic_t2_v1',
 	'raptor_air_bomber_basic_t2_v2',
 	'raptor_air_bomber_basic_t4_v1',
-	'raptor_air_bomber_basic_t4_v2',
-	'raptor_air_bomber_basic_t1_v1'
+	'raptor_air_bomber_basic_t4_v2'
 }
 for p, u in pairs(unitDefs) do
 	for r, v in ipairs(t) do

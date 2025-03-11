@@ -1,16 +1,22 @@
 --NuttyB v1.52 Cortex Com
+local tableMerge = table.merge
+local allCustomParams = {
+	combatradius = 0,
+	paratrooper = true,
+	fall_damage_multiplier = 0
+}
 return {
 	corcom = {
-		customparams = {
-			evolution_announcement = 'Cor Commanders upgraded',
-			evolution_announcement_size = 18.5,
-			evolution_target = 'corcomlvl2',
-			evolution_condition = 'timer',
-			evolution_timer = 420, -- Adjusted timer value
-			combatradius = 0,
-			paratrooper = true,
-			fall_damage_multiplier = 0
-		},
+		customparams = tableMerge(
+			allCustomParams,
+			{
+				evolution_announcement = 'Cor Commanders upgraded',
+				evolution_announcement_size = 18.5,
+				evolution_target = 'corcomlvl2',
+				evolution_condition = 'timer',
+				evolution_timer = 420 -- Adjusted timer value
+			}
+		),
 		autoheal = 40,
 		speed = 40,
 		energymake = 75,
@@ -96,18 +102,18 @@ return {
 			[46] = 'cortl',
 			[47] = 'cornecro'
 		},
-		customparams = {
-			evolution_announcement = 'Combat Commanders upgraded',
-			evolution_announcement_size = 18.5,
-			evolution_target = 'corcomlvl3',
-			evolution_condition = 'timer',
-			evolution_timer = 900,
-			combatradius = 0,
-			shield_power = 500,
-			shield_radius = 100,
-			paratrooper = true,
-			fall_damage_multiplier = 0
-		},
+		customparams = tableMerge(
+			allCustomParams,
+			{
+				evolution_announcement = 'Combat Commanders upgraded',
+				evolution_announcement_size = 18.5,
+				evolution_target = 'corcomlvl3',
+				evolution_condition = 'timer',
+				evolution_timer = 900,
+				shield_power = 500,
+				shield_radius = 100
+			}
+		),
 		weapondefs = {
 			armcomlaser = {
 				areaofeffect = 16,
@@ -257,12 +263,13 @@ return {
 			[44] = 'cormaw',
 			[45] = 'cormwall'
 		},
-		customparams = {
-			shield_power = 500,
-			shield_radius = 100,
-			paratrooper = true,
-			fall_damage_multiplier = 0
-		},
+		customparams = tableMerge(
+			allCustomParams,
+			{
+				shield_power = 500,
+				shield_radius = 100
+			}
+		),
 		weapondefs = {
 			corcomlaser = {
 				areaofeffect = 12,

@@ -1,17 +1,23 @@
 --NuttyB v1.52 Armada Com
+local tableMerge = table.merge
+local allCustomParams = {
+	combatradius = 0,
+	paratrooper = true,
+	fall_damage_multiplier = 0
+}
 return {
 	armcom = {
-		customparams = {
-			evolution_announcement = 'Arm Commanders upgraded',
-			evolution_announcement_size = 18.5,
-			evolution_target = 'armcomlvl2',
-			evolution_condition = 'timer',
-			evolution_timer = 420,
-			combatradius = 0,
-			stockpilelimit = 5,
-			paratrooper = true,
-			fall_damage_multiplier = 0
-		},
+		customparams = tableMerge(
+			allCustomParams,
+			{
+				evolution_announcement = 'Arm Commanders upgraded',
+				evolution_announcement_size = 18.5,
+				evolution_target = 'armcomlvl2',
+				evolution_condition = 'timer',
+				evolution_timer = 420,
+				stockpilelimit = 5
+			}
+		),
 		energymake = 100,
 		metalmake = 10,
 		autoheal = 55,
@@ -169,18 +175,18 @@ return {
 			'armsy',
 			'armrectr'
 		},
-		customparams = {
-			evolution_announcement = 'Arm Commanders upgraded',
-			evolution_announcement_size = 18.5,
-			evolution_target = 'armcomlvl3',
-			evolution_condition = 'timer',
-			evolution_timer = 900,
-			combatradius = 0,
-			stockpilelimit = 8,
-			wtboostunittype = '',
-			paratrooper = true,
-			fall_damage_multiplier = 0
-		},
+		customparams = tableMerge(
+			allCustomParams,
+			{
+				evolution_announcement = 'Arm Commanders upgraded',
+				evolution_announcement_size = 18.5,
+				evolution_target = 'armcomlvl3',
+				evolution_condition = 'timer',
+				evolution_timer = 900,
+				stockpilelimit = 8,
+				wtboostunittype = ''
+			}
+		),
 		weapondefs = {
 			armcomlaser = {
 				areaofeffect = 16,
@@ -337,12 +343,13 @@ return {
 			'armvang',
 			'armrectr'
 		},
-		customparams = {
-			stockpilelimit = 10,
-			wtboostunittype = '',
-			paratrooper = true,
-			fall_damage_multiplier = 0
-		},
+		customparams = tableMerge(
+			allCustomParams,
+			{
+				stockpilelimit = 10,
+				wtboostunittype = ''
+			}
+		),
 		weapondefs = {
 			old_armsnipe_weapon = {
 				areaofeffect = 64,
