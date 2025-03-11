@@ -1,62 +1,4 @@
 --NuttyB v1.52 Units Main
-local tableMerge = table.merge
-local empblast = {
-	explodeas = 'empblast',
-	selfdestructas = 'empblast'
-}
-local sat = {
-	sightdistance = 3100,
-	radardistance = 4080,
-	cruisealtitude = 3300,
-	energyupkeep = 1250
-}
-local airDrone = {
-	energycost = 2000,
-	metalcost = 100
-}
-local landDrone = {
-	energycost = 1000,
-	metalcost = 100,
-	buildtime = 1000
-}
-local t3LandLab = {
-	buildoptions = {
-		[55] = 'armassistdrone_land',
-		[56] = 'corassistdrone_land',
-		[57] = 'legassistdrone_land'
-	}
-}
-local t3CorLegAirLab = {
-	buildoptions = {
-		[55] = 'armassistdrone',
-		[56] = 'corassistdrone',
-		[57] = 'legassistdrone',
-		[58] = 'corsat'
-	}
-}
-local corlegnuke = {
-	metalcost = 1800,
-	energycost = 41000,
-	weapondefs = {
-		fmd_rocket = {
-			coverage = 2125,
-			stockpiletime = 70
-		}
-	}
-}
-local repairable = {
-	repairable = true
-}
-local blocking = {
-	blocking = true
-}
-
-local corHllltWeapon = {
-	energypershot = 10,
-	damage = {
-		default = 70
-	}
-}
 return {
 	cortron = {
 		energycost = 42000,
@@ -74,14 +16,38 @@ return {
 			}
 		}
 	},
-	corfort = repairable,
-	armfort = repairable,
-	corscavfort = repairable,
-	legforti = repairable,
-	armgate = empblast,
-	corgate = empblast,
-	corsat = sat,
-	armsat = sat,
+	corfort = {
+		repairable = true
+	},
+	armfort = {
+		repairable = true
+	},
+	corscavfort = {
+		repairable = true
+	},
+	legforti = {
+		repairable = true
+	},
+	armgate = {
+		explodeas = 'empblast',
+		selfdestructas = 'empblast'
+	},
+	corgate = {
+		explodeas = 'empblast',
+		selfdestructas = 'empblast'
+	},
+	corsat = {
+		sightdistance = 3100,
+		radardistance = 4080,
+		cruisealtitude = 3300,
+		energyupkeep = 1250
+	},
+	armsat = {
+		sightdistance = 3100,
+		radardistance = 4080,
+		cruisealtitude = 3300,
+		energyupkeep = 1250
+	},
 	legstarfall = {
 		weapondefs = {
 			starfire = {
@@ -216,58 +182,55 @@ return {
 			}
 		}
 	},
-	armassistdrone = tableMerge(
-		airDrone,
-		{
-			buildoptions = {
-				[31] = 'armclaw'
-			}
+	armassistdrone = {
+		energycost = 2000,
+		metalcost = 100,
+		buildoptions = {
+			[31] = 'armclaw'
 		}
-	),
-	corassistdrone = tableMerge(
-		airDrone,
-		{
-			buildoptions = {
-				[32] = 'cormaw'
-			}
+	},
+	corassistdrone = {
+		energycost = 2000,
+		metalcost = 100,
+		buildoptions = {
+			[32] = 'cormaw'
 		}
-	),
-	legassistdrone = tableMerge(
-		airDrone,
-		{
-			buildoptions = {
-				[31] = 'legdtf',
-				[32] = 'legdtl',
-				[33] = 'legdtr'
-			}
+	},
+	legassistdrone = {
+		energycost = 2000,
+		metalcost = 100,
+		buildoptions = {
+			[31] = 'legdtf',
+			[32] = 'legdtl',
+			[33] = 'legdtr'
 		}
-	),
-	armassistdrone_land = tableMerge(
-		landDrone,
-		{
-			buildoptions = {
-				[31] = 'armclaw'
-			}
+	},
+	armassistdrone_land = {
+		energycost = 1000,
+		metalcost = 100,
+		buildtime = 1000,
+		buildoptions = {
+			[31] = 'armclaw'
 		}
-	),
-	corassistdrone_land = tableMerge(
-		landDrone,
-		{
-			buildoptions = {
-				[32] = 'cormaw'
-			}
+	},
+	corassistdrone_land = {
+		energycost = 1000,
+		metalcost = 100,
+		buildtime = 1000,
+		buildoptions = {
+			[32] = 'cormaw'
 		}
-	),
-	legassistdrone_land = tableMerge(
-		landDrone,
-		{
-			buildoptions = {
-				[31] = 'legdtl',
-				[32] = 'legdtf',
-				[33] = 'legdtr'
-			}
+	},
+	legassistdrone_land = {
+		energycost = 1000,
+		metalcost = 100,
+		buildtime = 1000,
+		buildoptions = {
+			[31] = 'legdtl',
+			[32] = 'legdtf',
+			[33] = 'legdtr'
 		}
-	),
+	},
 	raptor_hive = {
 		weapondefs = {
 			antiground = {
@@ -294,19 +257,52 @@ return {
 			}
 		}
 	},
-	armshltx = t3LandLab,
-	corgant = t3LandLab,
-	leggant = t3LandLab,
-	armapt3 = tableMerge(
-		t3CorLegAirLab,
-		{
-			buildoptions = {
-				[58] = 'armsat'
-			}
+	armshltx = {
+		buildoptions = {
+			[55] = 'armassistdrone_land',
+			[56] = 'corassistdrone_land',
+			[57] = 'legassistdrone_land'
 		}
-	),
-	corapt3 = t3CorLegAirLab,
-	legapt3 = t3CorLegAirLab,
+	},
+	corgant = {
+		buildoptions = {
+			[55] = 'armassistdrone_land',
+			[56] = 'corassistdrone_land',
+			[57] = 'legassistdrone_land'
+		}
+	},
+	leggant = {
+		buildoptions = {
+			[55] = 'armassistdrone_land',
+			[56] = 'corassistdrone_land',
+			[57] = 'legassistdrone_land',
+			[58] = 'legassistdrone_land'
+		}
+	},
+	armapt3 = {
+		buildoptions = {
+			[55] = 'armassistdrone',
+			[56] = 'corassistdrone',
+			[57] = 'legassistdrone',
+			[58] = 'armsat'
+		}
+	},
+	corapt3 = {
+		buildoptions = {
+			[55] = 'armassistdrone',
+			[56] = 'corassistdrone',
+			[57] = 'legassistdrone',
+			[58] = 'corsat'
+		}
+	},
+	legapt3 = {
+		buildoptions = {
+			[55] = 'armassistdrone',
+			[56] = 'corassistdrone',
+			[57] = 'legassistdrone',
+			[58] = 'corsat'
+		}
+	},
 	armlwall = {
 		energycost = 21000,
 		metalcost = 1250,
@@ -345,8 +341,26 @@ return {
 			}
 		}
 	},
-	corfmd = corlegnuke,
-	legabm = corlegnuke,
+	corfmd = {
+		metalcost = 1800,
+		energycost = 41000,
+		weapondefs = {
+			fmd_rocket = {
+				coverage = 2125,
+				stockpiletime = 70
+			}
+		}
+	},
+	legabm = {
+		metalcost = 1800,
+		energycost = 41000,
+		weapondefs = {
+			fmd_rocket = {
+				coverage = 2125,
+				stockpiletime = 70
+			}
+		}
+	},
 	corwint2 = {
 		metalcost = 400
 	},
@@ -381,9 +395,15 @@ return {
 			}
 		}
 	},
-	armrespawn = blocking,
-	legnanotcbase = blocking,
-	correspawn = blocking,
+	armrespawn = {
+		blocking = false
+	},
+	legnanotcbase = {
+		blocking = false
+	},
+	correspawn = {
+		blocking = false
+	},
 	legrwall = {
 		energycost = 20000
 	},
@@ -479,10 +499,30 @@ return {
 		energycost = 8000,
 		health = 2070,
 		weapondefs = {
-			hllt_1 = corHllltWeapon,
-			hllt_2 = corHllltWeapon,
-			hllt_3 = corHllltWeapon,
-			hllt_4 = corHllltWeapon
+			hllt_1 = {
+				energypershot = 10,
+				damage = {
+					default = 70
+				}
+			},
+			hllt_2 = {
+				energypershot = 10,
+				damage = {
+					default = 70
+				}
+			},
+			hllt_3 = {
+				energypershot = 10,
+				damage = {
+					default = 70
+				}
+			},
+			hllt_4 = {
+				energypershot = 10,
+				damage = {
+					default = 70
+				}
+			}
 		}
 	},
 	armbrtha = {
