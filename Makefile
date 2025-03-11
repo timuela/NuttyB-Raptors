@@ -13,15 +13,17 @@ else
 		NODE_INSTALL_CMD = asdf install
 endif
 
+PATH_ARG ?= base64url/tweakdefs3.base64url
+
 install:
 	@$(NODE_INSTALL_CMD)
 	@$(NODE_USE_CMD)
 	@npm install -g bun ts-node
 	@bun install
 
-b64tolua:
+lua:
 	@ts-node ./scripts/converter.ts b64tolua
-luatob64:
+b64:
 	@ts-node ./scripts/converter.ts luatob64
-b64: luatob64
-lua: b64tolua
+clipboard-raw:
+	@powershell -Command "Get-Content -Path '$(PATH_ARG)' | Set-Clipboard"

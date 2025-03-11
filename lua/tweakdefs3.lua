@@ -1,7 +1,8 @@
 --T3 Eco
 local unitDefs = UnitDefs or {}
 local t3Afus = 'lootboxplatinum'
-local t3Conv = 'armdf'
+local t3ConverterNameSource = 'armdf'
+local t3ConverterName = 'armdf_t3_converter'
 local energy = {
 	buildpic = 'other/resourcecheat.dds',
 	buildtime = 1000000,
@@ -91,24 +92,25 @@ unitDefs[t3Afus].customparams.i18n_en_humanname = 'Super Fusion Reactor'
 unitDefs[t3Afus].customparams.i18n_en_tooltip = 'Produces ' .. energy.energymake .. ' Energy (Very Hazardous)'
 unitDefs[t3Afus].customparams.techlevel = 3
 
+unitDefs[t3ConverterName] = unitDefs[t3ConverterNameSource]
 for key, value in pairs(converter) do
-	unitDefs[t3Conv][key] = value
+	unitDefs[t3ConverterName][key] = value
 end
 
 for key, value in pairs(converterCustomparams) do
-	unitDefs[t3Conv].customparams[key] = value
+	unitDefs[t3ConverterName].customparams[key] = value
 end
 
 for key, value in pairs(converterFeaturedefsDead) do
-	unitDefs[t3Conv].featuredefs.dead[key] = value
+	unitDefs[t3ConverterName].featuredefs.dead[key] = value
 end
 for key, value in pairs(converterFeaturedefsHeap) do
-	unitDefs[t3Conv].featuredefs.heap[key] = value
+	unitDefs[t3ConverterName].featuredefs.heap[key] = value
 end
 
 for i = 1, #builderNames do
 	local builderName = builderNames[i]
 	local nBuildOptions = #unitDefs[builderName].buildoptions
-	unitDefs[builderName].buildoptions[nBuildOptions + 1] = t3Conv
+	unitDefs[builderName].buildoptions[nBuildOptions + 1] = t3ConverterName
 	unitDefs[builderName].buildoptions[nBuildOptions + 2] = t3Afus
 end
