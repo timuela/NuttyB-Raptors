@@ -2,7 +2,7 @@
 local unitDefs = UnitDefs or {}
 local t3Afus = 'lootboxplatinum'
 local t3ConverterNameSource = 'armdf'
-local t3ConverterName = 'armdf_t3_converter'
+local t3ConverterNameNew = 'armdf_t3_converter'
 local energy = {
 	buildpic = 'other/resourcecheat.dds',
 	buildtime = 1000000,
@@ -92,25 +92,28 @@ unitDefs[t3Afus].customparams.i18n_en_humanname = 'Super Fusion Reactor'
 unitDefs[t3Afus].customparams.i18n_en_tooltip = 'Produces ' .. energy.energymake .. ' Energy (Very Hazardous)'
 unitDefs[t3Afus].customparams.techlevel = 3
 
-unitDefs[t3ConverterName] = unitDefs[t3ConverterNameSource]
 for key, value in pairs(converter) do
-	unitDefs[t3ConverterName][key] = value
+	unitDefs[t3ConverterNameSource][key] = value
 end
 
 for key, value in pairs(converterCustomparams) do
-	unitDefs[t3ConverterName].customparams[key] = value
+	unitDefs[t3ConverterNameSource].customparams[key] = value
 end
 
 for key, value in pairs(converterFeaturedefsDead) do
-	unitDefs[t3ConverterName].featuredefs.dead[key] = value
+	unitDefs[t3ConverterNameSource].featuredefs.dead[key] = value
 end
 for key, value in pairs(converterFeaturedefsHeap) do
-	unitDefs[t3ConverterName].featuredefs.heap[key] = value
+	unitDefs[t3ConverterNameSource].featuredefs.heap[key] = value
 end
 
+unitDefs[t3ConverterNameNew] = unitDefs[t3ConverterNameSource]
 for i = 1, #builderNames do
 	local builderName = builderNames[i]
 	local nBuildOptions = #unitDefs[builderName].buildoptions
-	unitDefs[builderName].buildoptions[nBuildOptions + 1] = t3ConverterName
+	-- grid menu is filled from the bottom up
+	unitDefs[builderName].buildoptions[nBuildOptions + 3] = t3ConverterNameNew
 	unitDefs[builderName].buildoptions[nBuildOptions + 2] = t3Afus
+	-- this one will not show for arm cons in the economy category which fixes the placement issue for all factions
+	unitDefs[builderName].buildoptions[nBuildOptions + 1] = t3ConverterNameSource
 end
