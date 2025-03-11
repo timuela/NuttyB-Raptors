@@ -101,7 +101,7 @@ table.mergeInPlace(
 	unitDefs,
 	{
 		[fusionName] = fusion,
-		[converterNameNew] = converter,
+		[converterNameNew] = table.merge(unitDefs[converterNameSource], converter),
 		[converterNameSource] = converter
 	},
 	true
@@ -111,8 +111,9 @@ for i = 1, #builderNames do
 	local builderName = builderNames[i]
 	local nBuildOptions = #unitDefs[builderName].buildoptions
 	-- grid menu is filled from the bottom up
-	unitDefs[builderName].buildoptions[nBuildOptions + 3] = converterNameNew
-	unitDefs[builderName].buildoptions[nBuildOptions + 2] = fusionName
+	unitDefs[builderName].buildoptions[nBuildOptions + 2] = converterNameNew
+	unitDefs[builderName].buildoptions[nBuildOptions + 1] = fusionName
 	-- this one will not show for arm cons in the economy category which fixes the placement issue for all factions
-	unitDefs[builderName].buildoptions[nBuildOptions + 1] = converterNameSource
+	-- enable if https://github.com/beyond-all-reason/Beyond-All-Reason/pull/4490 is merged
+	-- unitDefs[builderName].buildoptions[nBuildOptions + ...] = converterNameSource
 end
