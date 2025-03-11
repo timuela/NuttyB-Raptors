@@ -214,12 +214,18 @@ async function main() {
   } else if (process.argv[2] === 'luatob64') {
     const results = await luaToBase64();
 
+    let clipboardCount = 0;
     (await clipboardy).default.writeSync(
       results
-        .filter(({ isChanged }) => isChanged)
+        .filter(({ isChanged }) => {
+          if (isChanged) clipboardCount++
+          return isChanged
+        })
         .map(({ tweakKey, tweakValue }) => `!bset ${tweakKey} ${tweakValue}`)
         .join('\n')
     );
+
+    console.log(`Copied ${clipboardCount} tweak(s) to clipboard`)
   } else {
     console.error('Usage: ts-node ./scripts/converter.ts b64tolua|luatob64')
   }
