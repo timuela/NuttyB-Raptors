@@ -1,4 +1,4 @@
---T3 Eco v2 balance
+--T3 Eco balanced v3
 local unitDefs = UnitDefs or {}
 local fusionName = 'lootboxplatinum'
 local converterNameSource = 'armdf'
@@ -8,21 +8,25 @@ local fusionEnergyMake = 27000
 local fusion = {
 	buildpic = 'other/resourcecheat.dds',
 	buildtime = 1000000,
+	canmove = false,
 	energycost = 550000,
 	energymake = fusionEnergyMake,
 	energystorage = 90000,
 	explodeas = 'korgExplosionSelfd',
+	footprintx = 12,
+	footprintz = 12,
 	health = 10000,
 	metalcost = 110000,
 	metalmake = 0,
 	reclaimable = true,
-	canmove = false,
-	footprintx = 12,
-	footprintz = 12,
+	transportbyenemy = false,
 	customparams = {
 		i18n_en_humanname = 'Super Fusion Reactor',
 		i18n_en_tooltip = 'Produces ' .. fusionEnergyMake .. ' Energy (Very Hazardous)',
-		techlevel = 3
+		paratrooper = false,
+		techlevel = 3,
+		subfolder = 'ArmBuildings/LandEconomy',
+		unitgroup = 'energy'
 	}
 }
 
@@ -32,6 +36,7 @@ local converter = {
 	activatewhenbuilt = true,
 	buildpic = 'CORUWFUS.DDS',
 	buildtime = 313000,
+	canmove = false,
 	energycost = 550000,
 	energymake = 0,
 	explodeas = 'fusionExplosion',
@@ -101,11 +106,15 @@ table.mergeInPlace(
 	unitDefs,
 	{
 		[fusionName] = fusion,
-		[converterNameNew] = table.merge(unitDefs[converterNameSource], converter),
-		[converterNameSource] = converter
+		[converterNameNew] = table.merge(unitDefs[converterNameSource], converter)
 	},
 	true
 )
+
+unitDefs[converterNameNew]['movestate'] = nil
+unitDefs[converterNameNew]['movementclass'] = nil
+unitDefs[converterNameNew]['speed'] = nil
+unitDefs[converterNameNew]['floater'] = nil
 
 for i = 1, #builderNames do
 	local builderName = builderNames[i]
