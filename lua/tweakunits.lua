@@ -1,4 +1,5 @@
 --NuttyB v1.52 Units Main
+-- Authors: ChrispyNut, BackBash
 return {
 	cortron = {
 		energycost = 42000,

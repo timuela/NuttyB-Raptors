@@ -1,4 +1,5 @@
 --NuttyB v1.52 Armada Com
+-- Authors: ChrispyNut, BackBash
 return {
 	armcom = {
 		customparams = {

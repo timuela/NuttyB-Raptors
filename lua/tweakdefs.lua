@@ -1,4 +1,5 @@
 --NuttyB v1.52 Def Main
+-- Authors: ChrispyNut, BackBash
 local unitDefs = UnitDefs or {}
 local function a(b, c)
 	for d, e in pairs(c) do

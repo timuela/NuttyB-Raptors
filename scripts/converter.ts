@@ -183,11 +183,14 @@ async function luaFileToBase64Url(
 
   const firstLine = content.split('\n')[0]
   const tweakComment = /^\s*--.*/.test(firstLine) ? firstLine + '\n' : ''
+  const secondLine = content.split('\n')[1]
+  const secondComment = /^\s*--.*/.test(secondLine) ? secondLine + '\n' : ''
 
   let minified
   try {
     minified =
       tweakComment +
+      secondComment +
       (destPath.includes('units')
         ? luamin.minify(content).replace(/.*?(\{.*)/, '$1')
         : luamin.minify(content))
@@ -245,11 +248,22 @@ async function main() {
     console.log(`Copied ${clipboardCount} tweak(s) to clipboard`)
 
     results.sort((a, b) => b.size - a.size)
+
+    const largestByKey = new Map()
+
+    results.forEach((item) => {
+      if (!largestByKey.has(item.tweakKey)) {
+        largestByKey.set(item.tweakKey, item)
+      }
+    })
+
+    const filteredResults = Array.from(largestByKey.values())
+
     console.log(
-      `Total size of all tweaks: ${results.reduce(
+      `Total size of all tweaks: ${filteredResults.reduce(
         (a, b) => a + b.size,
         0,
-      )} characters.\n\t${results
+      )} characters.\n\t${filteredResults
         .map(({ size, tweakKey }) => `${size} ${tweakKey}`)
         .join('\n\t')}`,
     )

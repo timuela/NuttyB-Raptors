@@ -1,4 +1,5 @@
 --Playable raptors test balance
+-- Authors: TetrisCo
 local unitDefs = UnitDefs or {}
 for key, value in pairs(unitDefs) do
 	if key.name:find('raptor') then

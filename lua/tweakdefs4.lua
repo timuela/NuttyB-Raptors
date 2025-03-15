@@ -1,3 +1,4 @@
+--Faction Drones
 local unitDefs = UnitDefs or {}
 local armassistdrone = 'armassistdrone'
 local corassistdrone = 'corassistdrone'

@@ -1,4 +1,5 @@
 --NuttyB v1.52 Legion Com
+-- Authors: ChrispyNut, BackBash
 return {
 	legcom = {
 		energymake = 50,

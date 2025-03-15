@@ -1,4 +1,5 @@
 --NuttyB v1.52 Cortex Com
+-- Authors: ChrispyNut, BackBash
 return {
 	corcom = {
 		customparams = {
