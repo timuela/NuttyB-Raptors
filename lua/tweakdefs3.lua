@@ -1,4 +1,4 @@
---T3 Eco
+--T3 Eco v2 balance
 local unitDefs = UnitDefs or {}
 local fusionName = 'lootboxplatinum'
 local converterNameSource = 'armdf'
@@ -30,7 +30,7 @@ local converterCapacity = 4500
 local converterEfficiency = 0.0181
 local converter = {
 	activatewhenbuilt = true,
-	buildpic = 'lootboxes/LOOTBOXGOLD.DDS',
+	buildpic = 'CORUWFUS.DDS',
 	buildtime = 313000,
 	energycost = 550000,
 	energymake = 0,
@@ -113,7 +113,4 @@ for i = 1, #builderNames do
 	-- grid menu is filled from the bottom up
 	unitDefs[builderName].buildoptions[nBuildOptions + 2] = converterNameNew
 	unitDefs[builderName].buildoptions[nBuildOptions + 1] = fusionName
-	-- this one will not show for arm cons in the economy category which fixes the placement issue for all factions
-	-- enable if https://github.com/beyond-all-reason/Beyond-All-Reason/pull/4490 is merged
-	-- unitDefs[builderName].buildoptions[nBuildOptions + ...] = converterNameSource
 end
