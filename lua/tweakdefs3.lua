@@ -111,10 +111,10 @@ table.mergeInPlace(
 	true
 )
 
-unitDefs[converterNameNew]['movestate'] = nil
-unitDefs[converterNameNew]['movementclass'] = nil
-unitDefs[converterNameNew]['speed'] = nil
-unitDefs[converterNameNew]['floater'] = nil
+unitDefs[fusionName]['movestate'] = nil
+unitDefs[fusionName]['movementclass'] = nil
+unitDefs[fusionName]['speed'] = nil
+unitDefs[fusionName]['floater'] = nil
 
 for i = 1, #builderNames do
 	local builderName = builderNames[i]
