@@ -1,14 +1,14 @@
 --T3 Eco balanced v4
 -- Authors: Engi Man, TetrisCo
-local unitDefs = UnitDefs or {}
-local fusionName = 'lootboxplatinum'
-local converterNameSource = 'armdf'
-local converterNameNew = 'armdf_t3_converter'
-local ArmBuildingsLandEconomy = 'ArmBuildings/LandEconomy'
-local u4 = 'uuuu'
-local o4 = 'oooo'
-local rowU = u4 .. u4 .. u4
-local rowM = u4 .. o4 .. u4
+local unitDefs, fusionName, converterNameSource, converterNameNew, ArmBuildingsLandEconomy, u4, o4 =
+	UnitDefs or {},
+	'lootboxplatinum',
+	'armdf',
+	'armdf_t3_converter',
+	'ArmBuildings/LandEconomy',
+	'uuuu',
+	'oooo'
+local rowU, rowM = u4 .. u4 .. u4, u4 .. o4 .. u4
 
 local fusionEnergyMake = 27000
 local fusion = {

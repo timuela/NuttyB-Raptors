@@ -112,10 +112,10 @@ for n, h in ipairs(m) do
 	o.shield.powerregenenergy = 3
 	addWeapon(h, o)
 end
-for p, q in pairs(unitDefs) do
-	if string.sub(p, 1, 24) == 'raptor_air_fighter_basic' then
-		if q.weapondefs then
-			for r, s in pairs(q.weapondefs) do
+for name, def in pairs(unitDefs) do
+	if string.sub(name, 1, 24) == 'raptor_air_fighter_basic' then
+		if def.weapondefs then
+			for r, s in pairs(def.weapondefs) do
 				s.name = 'Spike'
 				s.accuracy = 200
 				s.collidefriendly = 0
@@ -151,6 +151,9 @@ for p, q in pairs(unitDefs) do
 				s.wobble = {}
 			end
 		end
+	elseif name:match '^[acl][ore][rgm]com' then
+		unitDefs[name].featuredefs.dead.reclaimable = false
+		unitDefs[name].featuredefs.dead.damage = 57600
 	end
 end
 if unitDefs then
@@ -207,66 +210,6 @@ if unitDefs then
 	end
 	if unitDefs.raptor_matriarch_electric then
 		unitDefs.raptor_matriarch_electric.weapondefs.spike_emp_blob.paralyzetime = 13
-	end
-	if unitDefs.armcom then
-		unitDefs.armcom.featuredefs.dead.reclaimable = false
-	end
-	if unitDefs.armcom then
-		unitDefs.armcom.featuredefs.dead.damage = 57600
-	end
-	if unitDefs.armcomlvl2 then
-		unitDefs.armcomlvl2.featuredefs.dead.reclaimable = false
-	end
-	if unitDefs.armcomlvl2 then
-		unitDefs.armcomlvl2.featuredefs.dead.damage = 57600
-	end
-	if unitDefs.armcomlvl3 then
-		unitDefs.armcomlvl3.featuredefs.dead.reclaimable = false
-	end
-	if unitDefs.armcomlvl3 then
-		unitDefs.armcomlvl3.featuredefs.dead.damage = 57600
-	end
-	if unitDefs.corcom then
-		unitDefs.corcom.featuredefs.dead.reclaimable = false
-	end
-	if unitDefs.corcom then
-		unitDefs.corcom.featuredefs.dead.damage = 57600
-	end
-	if unitDefs.corcomlvl2 then
-		unitDefs.corcomlvl2.featuredefs.dead.reclaimable = false
-	end
-	if unitDefs.corcomlvl2 then
-		unitDefs.corcomlvl2.featuredefs.dead.damage = 57600
-	end
-	if unitDefs.corcomlvl3 then
-		unitDefs.corcomlvl3.featuredefs.dead.reclaimable = false
-	end
-	if unitDefs.corcomlvl3 then
-		unitDefs.corcomlvl3.featuredefs.dead.damage = 57600
-	end
-	if unitDefs.legcom then
-		unitDefs.legcom.featuredefs.dead.reclaimable = false
-	end
-	if unitDefs.legcom then
-		unitDefs.legcom.featuredefs.dead.damage = 57600
-	end
-	if unitDefs.legcomlvl2 then
-		unitDefs.legcomlvl2.featuredefs.dead.reclaimable = false
-	end
-	if unitDefs.legcomlvl2 then
-		unitDefs.legcomlvl2.featuredefs.dead.damage = 57600
-	end
-	if unitDefs.legcomlvl3 then
-		unitDefs.legcomlvl3.featuredefs.dead.reclaimable = false
-	end
-	if unitDefs.legcomlvl3 then
-		unitDefs.legcomlvl3.featuredefs.dead.damage = 57600
-	end
-	if unitDefs.legcomlvl4 then
-		unitDefs.legcomlvl4.featuredefs.dead.reclaimable = false
-	end
-	if unitDefs.legcomlvl4 then
-		unitDefs.legcomlvl4.featuredefs.dead.damage = 57600
 	end
 end
 local t = {
