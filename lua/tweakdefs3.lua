@@ -1,8 +1,14 @@
---T3 Eco balanced v3
+--T3 Eco balanced v4
+-- Authors: Engi Man, TetrisCo
 local unitDefs = UnitDefs or {}
 local fusionName = 'lootboxplatinum'
 local converterNameSource = 'armdf'
 local converterNameNew = 'armdf_t3_converter'
+local ArmBuildingsLandEconomy = 'ArmBuildings/LandEconomy'
+local u4 = 'uuuu'
+local o4 = 'oooo'
+local rowU = u4 .. u4 .. u4
+local rowM = u4 .. o4 .. u4
 
 local fusionEnergyMake = 27000
 local fusion = {
@@ -20,12 +26,13 @@ local fusion = {
 	metalmake = 0,
 	reclaimable = true,
 	transportbyenemy = false,
+	yardmap = rowU:rep(4) .. rowM:rep(4) .. rowU:rep(4),
 	customparams = {
 		i18n_en_humanname = 'Super Fusion Reactor',
 		i18n_en_tooltip = 'Produces ' .. fusionEnergyMake .. ' Energy (Very Hazardous)',
 		paratrooper = false,
 		techlevel = 3,
-		subfolder = 'ArmBuildings/LandEconomy',
+		subfolder = ArmBuildingsLandEconomy,
 		unitgroup = 'energy'
 	}
 }
@@ -51,11 +58,10 @@ local converter = {
 	customparams = {
 		energyconv_capacity = converterCapacity,
 		energyconv_efficiency = converterEfficiency,
-		decoyfor = nil,
 		i18n_en_humanname = 'Super Energy Converter',
 		i18n_en_tooltip = 'Converts ' ..
 			converterCapacity .. ' energy into ' .. math.floor(0.5 + converterCapacity * converterEfficiency) .. ' metal per sec',
-		subfolder = 'ArmBuildings/LandEconomy',
+		subfolder = ArmBuildingsLandEconomy,
 		techlevel = 3,
 		unitgroup = 'metal'
 	},
@@ -111,6 +117,7 @@ table.mergeInPlace(
 	true
 )
 
+-- not pushable by T3
 unitDefs[fusionName]['movestate'] = nil
 unitDefs[fusionName]['movementclass'] = nil
 unitDefs[fusionName]['speed'] = nil
