@@ -172,6 +172,22 @@ async function base64UrlFileToLua(
   }
 }
 
+function extractTopComments(content: string) {
+  const lines = content.split('\n')
+  let commentString = ''
+
+  for (let i = 0; i < Math.min(3, lines.length); i++) {
+    const line = lines[i]
+    if (/^\s*--.*/.test(line)) {
+      commentString += line + '\n'
+    } else {
+      break
+    }
+  }
+
+  return commentString
+}
+
 async function luaFileToBase64Url(
   srcPath: string,
   destPath: string,
@@ -181,16 +197,10 @@ async function luaFileToBase64Url(
   const content = (await fs.readFile(srcPath, 'utf-8')).trim()
   if (!content) return Promise.resolve({ ...defaultTweakResult, order })
 
-  const firstLine = content.split('\n')[0]
-  const tweakComment = /^\s*--.*/.test(firstLine) ? firstLine + '\n' : ''
-  const secondLine = content.split('\n')[1]
-  const secondComment = /^\s*--.*/.test(secondLine) ? secondLine + '\n' : ''
-
   let minified
   try {
     minified =
-      tweakComment +
-      secondComment +
+      extractTopComments(content) +
       (destPath.includes('units')
         ? luamin.minify(content).replace(/.*?(\{.*)/, '$1')
         : luamin.minify(content))

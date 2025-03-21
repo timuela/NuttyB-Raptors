@@ -1,5 +1,6 @@
 --T3 Eco balanced v4
 -- Authors: Engi Man, TetrisCo
+-- docs.google.com/spreadsheets/d/1QSVsuAAMhBrhiZdTihVfSCwPzbbZWDLCtXWP23CU0ko
 local unitDefs, fusionName, converterNameSource, converterNameNew, ArmBuildingsLandEconomy, u4, o4 =
 	UnitDefs or {},
 	'lootboxplatinum',
@@ -117,7 +118,7 @@ table.mergeInPlace(
 	true
 )
 
--- not pushable by T3
+-- not pushable by T3, TODO test mass change only
 unitDefs[fusionName]['movestate'] = nil
 unitDefs[fusionName]['movementclass'] = nil
 unitDefs[fusionName]['speed'] = nil

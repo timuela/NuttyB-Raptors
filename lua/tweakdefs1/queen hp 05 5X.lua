@@ -1,4 +1,5 @@
 --NuttyB v1.52 5X QHP
+-- docs.google.com/spreadsheets/d/1QSVsuAAMhBrhiZdTihVfSCwPzbbZWDLCtXWP23CU0ko
 for b, c in pairs(UnitDefs) do
 	if b:match('^raptor_queen_.*') then
 		c.repairable = false

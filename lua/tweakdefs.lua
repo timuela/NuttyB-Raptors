@@ -1,5 +1,6 @@
 --NuttyB v1.52 Def Main
 -- Authors: ChrispyNut, BackBash
+-- docs.google.com/spreadsheets/d/1QSVsuAAMhBrhiZdTihVfSCwPzbbZWDLCtXWP23CU0ko
 local unitDefs = UnitDefs or {}
 local function a(b, c)
 	for d, e in pairs(c) do

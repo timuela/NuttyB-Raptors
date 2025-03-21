@@ -1,4 +1,5 @@
 --NuttyB v1.52 5X HP
+-- docs.google.com/spreadsheets/d/1QSVsuAAMhBrhiZdTihVfSCwPzbbZWDLCtXWP23CU0ko
 for f, g in pairs(UnitDefs) do
 	if string.sub(f, 1, 24) == 'raptor_land_swarmer_heal' then
 		g.reclaimspeed = 100

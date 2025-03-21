@@ -1,4 +1,5 @@
 --NuttyB v1.52 Mega Nuke
+-- docs.google.com/spreadsheets/d/1QSVsuAAMhBrhiZdTihVfSCwPzbbZWDLCtXWP23CU0ko
 return {
 	armsilo = {
 		energycost = 1500000,

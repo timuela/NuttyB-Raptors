@@ -1,4 +1,5 @@
 --Faction Drones
+-- docs.google.com/spreadsheets/d/1QSVsuAAMhBrhiZdTihVfSCwPzbbZWDLCtXWP23CU0ko
 local unitDefs = UnitDefs or {}
 local armassistdrone = 'armassistdrone'
 local corassistdrone = 'corassistdrone'

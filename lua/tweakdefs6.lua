@@ -1,13 +1,14 @@
---Cross Faction 100% T2 Tax
+--Cross Faction Tax 70%
 -- Authors: TetrisCo
-local unitDefs, tax, t2Factories, taxedT2Factories = UnitDefs or {}, 1.75, {}, {}
+-- docs.google.com/spreadsheets/d/1QSVsuAAMhBrhiZdTihVfSCwPzbbZWDLCtXWP23CU0ko
+local unitDefs, tax, t2Factories, taxedT2Factories = UnitDefs or {}, 2, {}, {}
 for name, def in pairs(unitDefs) do
 	if
 		def.customparams and def.customparams.subfolder and
 			(def.customparams.subfolder:match 'Fact' or def.customparams.subfolder:match 'Lab') and
 			def.customparams.techlevel == 2
 	 then
-		t2Factories[name] = true
+		t2Factories[name] = 1
 		taxedT2Factories[name .. '_taxed'] =
 			table.merge(def, {metalcost = def.metalcost * tax, energycost = def.energycost * tax})
 	end
