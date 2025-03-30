@@ -101,6 +101,7 @@ local m = {
 	'corcomlvl2',
 	'corcomlvl3',
 	'legcom',
+	'legcomlvl2',
 	'legcomlvl3',
 	'legcomlvl4'
 }

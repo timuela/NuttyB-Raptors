@@ -13,11 +13,11 @@ return {
 			paratrooper = true,
 			fall_damage_multiplier = 0
 		},
-		autoheal = 40,
-		speed = 40,
+		autoheal = 80,
+		speed = 45,
 		energymake = 75,
 		metalmake = 6,
-		health = 5000,
+		health = 5500,
 		buildoptions = {
 			[28] = 'corhllt',
 			[29] = 'cornecro',
@@ -27,7 +27,7 @@ return {
 		},
 		weapondefs = {
 			corcomlaser = {
-				range = 350,
+				range = 370,
 				damage = {
 					bombers = 180,
 					default = 260,
@@ -46,7 +46,7 @@ return {
 		health = 8500,
 		energymake = 255,
 		metalmake = 16,
-		autoheal = 150,
+		autoheal = 300,
 		builddistance = 200,
 		workertime = 600,
 		buildoptions = {
@@ -205,11 +205,11 @@ return {
 		}
 	},
 	corcomlvl3 = {
-		speed = 75.5,
-		health = 12500,
+		speed = 80,
+		health = 20000,
 		energymake = 2180,
 		metalmake = 49,
-		autoheal = 180,
+		autoheal = 500,
 		workertime = 1200,
 		builddistance = 250,
 		buildoptions = {
@@ -257,7 +257,8 @@ return {
 			[42] = 'cordoomt3',
 			[43] = 'corhllllt',
 			[44] = 'cormaw',
-			[45] = 'cormwall'
+			[45] = 'cormwall',
+			[46] = 'corgatet3'
 		},
 		customparams = {
 			shield_power = 500,

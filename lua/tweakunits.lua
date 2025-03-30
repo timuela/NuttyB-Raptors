@@ -38,6 +38,10 @@ return {
 		explodeas = 'empblast',
 		selfdestructas = 'empblast'
 	},
+	legdeflector = {
+		explodeas = 'empblast',
+		selfdestructas = 'empblast'
+	},
 	corsat = {
 		sightdistance = 3100,
 		radardistance = 4080,
@@ -236,7 +240,7 @@ return {
 	raptor_hive = {
 		weapondefs = {
 			antiground = {
-				burst = 5,
+				burst = 7,
 				burstrate = 0.01,
 				cegtag = 'arty-heavy-purple',
 				explosiongenerator = 'custom:dirt',
@@ -246,8 +250,9 @@ return {
 				rgbcolor = '0.5 0 1',
 				soundhit = 'smallraptorattack',
 				soundstart = 'bugarty',
-				sprayangle = 512,
+				sprayangle = 256,
 				turret = true,
+				proximitypriority = '',
 				damage = {
 					default = 1,
 					shields = 200

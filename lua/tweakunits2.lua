@@ -10,7 +10,6 @@ return {
 			evolution_condition = 'timer',
 			evolution_timer = 420,
 			combatradius = 0,
-			stockpilelimit = 5,
 			paratrooper = true,
 			fall_damage_multiplier = 0
 		},
@@ -96,7 +95,10 @@ return {
 				soundstart = 'sniper3',
 				soundtrigger = true,
 				stockpile = true,
-				stockpiletime = 10,
+				stockpiletime = 7,
+				customparams = {
+					stockpilelimit = 5
+				},
 				texture1 = 'shot',
 				texture2 = 'empty',
 				thickness = 4,
@@ -106,7 +108,7 @@ return {
 				weaponvelocity = 3000,
 				damage = {
 					commanders = 100,
-					default = 4700
+					default = 4900
 				}
 			}
 		},
@@ -178,7 +180,6 @@ return {
 			evolution_condition = 'timer',
 			evolution_timer = 900,
 			combatradius = 0,
-			stockpilelimit = 8,
 			wtboostunittype = '',
 			paratrooper = true,
 			fall_damage_multiplier = 0
@@ -251,7 +252,10 @@ return {
 				soundstart = 'sniper3',
 				soundtrigger = true,
 				stockpile = true,
-				stockpiletime = 7,
+				stockpiletime = 6,
+				customparams = {
+					stockpilelimit = 10
+				},
 				texture1 = 'shot',
 				texture2 = 'empty',
 				thickness = 4,
@@ -337,10 +341,10 @@ return {
 			'armzeus',
 			'armsnipe',
 			'armvang',
-			'armrectr'
+			'armrectr',
+			'armgatet3'
 		},
 		customparams = {
-			stockpilelimit = 10,
 			wtboostunittype = '',
 			paratrooper = true,
 			fall_damage_multiplier = 0
@@ -377,6 +381,9 @@ return {
 				soundtrigger = true,
 				stockpile = true,
 				stockpiletime = 3,
+				customparams = {
+					stockpilelimit = 10
+				},
 				texture1 = 'shot',
 				texture2 = 'empty',
 				thickness = 6,
@@ -386,7 +393,7 @@ return {
 				weaponvelocity = 3000,
 				damage = {
 					commanders = 10,
-					default = 40000
+					default = 41000
 				}
 			},
 			armcomlaser = {

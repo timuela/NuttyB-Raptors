@@ -11,10 +11,10 @@ return {
 			[32] = 'cornecro',
 			[33] = 'legdtl',
 			[34] = 'legdtf',
-			[35] = 'legdtr'
+			[35] = 'legdtr',
+			[36] = 'legjam'
 		},
 		customparams = {
-			stockpilelimit = 10,
 			evolution_announcement = 'Legion commanders have upgraded to level 2',
 			evolution_announcement_size = 18.5,
 			evolution_target = 'legcomlvl2',
@@ -70,7 +70,7 @@ return {
 				soundhitwet = 'splsmed',
 				soundstart = 'kroggie2xs',
 				soundstartvolume = 12,
-				sprayangle = 3000,
+				sprayangle = 2000,
 				turret = true,
 				commandfire = true,
 				weapontimer = 1,
@@ -78,6 +78,9 @@ return {
 				weaponvelocity = 600,
 				stockpile = true,
 				stockpiletime = 5,
+				customparams = {
+					stockpilelimit = 10
+				},
 				damage = {
 					default = 1800,
 					commanders = 0
@@ -97,7 +100,6 @@ return {
 		speed = 57.5,
 		autoheal = 100,
 		customparams = {
-			stockpilelimit = 15,
 			combatradius = 0,
 			evolution_timer = 600,
 			paratrooper = true,
@@ -183,7 +185,7 @@ return {
 				soundhitwet = 'splsmed',
 				soundstart = 'kroggie2xs',
 				soundstartvolume = 12,
-				sprayangle = 3250,
+				sprayangle = 2250,
 				turret = true,
 				commandfire = true,
 				weapontimer = 1,
@@ -191,6 +193,9 @@ return {
 				weaponvelocity = 600,
 				stockpile = true,
 				stockpiletime = 5,
+				customparams = {
+					stockpilelimit = 15
+				},
 				damage = {
 					default = 2200,
 					commanders = 0
@@ -216,21 +221,20 @@ return {
 		workertime = 700,
 		autoheal = 150,
 		customparams = {
-			stockpilelimit = 20,
 			combatradius = 0,
 			evolution_timer = 600,
 			paratrooper = true,
 			fall_damage_multiplier = 0
 		},
 		buildoptions = {
-			[1] = 'corgate',
-			[2] = 'corfus',
+			[1] = 'legdeflector',
+			[2] = 'legfus',
 			[3] = 'legbombard',
-			[4] = 'coruwadves',
-			[5] = 'cormoho',
-			[6] = 'cormmkr',
-			[10] = 'corarad',
-			[11] = 'corshroud',
+			[4] = 'legadvestore',
+			[5] = 'legmoho',
+			[6] = 'legadveconv',
+			[10] = 'legarad',
+			[11] = 'legajam',
 			[12] = 'legforti',
 			[13] = 'legacluster',
 			[14] = 'legamstor',
@@ -240,7 +244,7 @@ return {
 			[29] = 'legdtr',
 			[32] = 'cornecro',
 			[33] = 'legdtl',
-			[37] = '',
+			[37] = 'leglab',
 			[18] = '',
 			[19] = '',
 			[20] = ''
@@ -310,7 +314,7 @@ return {
 				soundhitwet = 'splsmed',
 				soundstart = 'kroggie2xs',
 				soundstartvolume = 12,
-				sprayangle = 3250,
+				sprayangle = 2500,
 				turret = true,
 				commandfire = true,
 				weapontimer = 1,
@@ -318,6 +322,9 @@ return {
 				weaponvelocity = 600,
 				stockpile = true,
 				stockpiletime = 5,
+				customparams = {
+					stockpilelimit = 20
+				},
 				damage = {
 					default = 3200,
 					commanders = 0
@@ -345,18 +352,17 @@ return {
 		speed = 88.5,
 		workertime = 1000,
 		autoheal = 180,
-		customparams = {stockpilelimit = 20},
 		buildoptions = {
-			[1] = 'corgate',
-			[2] = 'corfus',
+			[1] = 'legdeflector',
+			[2] = 'legfus',
 			[3] = 'legbombard',
-			[4] = 'coruwadves',
-			[5] = 'cormoho',
-			[6] = 'cormmkr',
-			[9] = '',
-			[10] = 'corarad',
-			[11] = 'corshroud',
-			[12] = '',
+			[4] = 'legadvestore',
+			[5] = 'legmoho',
+			[6] = 'legadveconv',
+			[9] = 'legeshotgunmech',
+			[10] = 'legarad',
+			[11] = 'legajam',
+			[12] = 'legkeres',
 			[13] = 'legacluster',
 			[14] = 'legamstor',
 			[15] = 'legflak',
@@ -366,22 +372,24 @@ return {
 			[19] = 'legnanotct2',
 			[20] = 'legnanotct2plat',
 			[21] = 'legrwall',
-			[24] = '',
-			[28] = '',
-			[29] = '',
+			[24] = 'leglab',
+			[28] = 'legtarg',
+			[29] = 'legsd',
 			[30] = 'legpede',
-			[31] = 'corkorg',
-			[32] = 'corjugg',
+			[31] = 'legerailtank',
+			[32] = 'legeheatraymech',
 			[33] = 'cornecro',
-			[34] = 'corafus',
-			[35] = 'cormexp',
+			[34] = 'legafus',
+			[35] = 'leglraa',
 			[36] = 'legdtl',
 			[37] = 'legdtf',
-			[39] = '',
-			[48] = '',
-			[49] = '',
-			[50] = '',
-			[51] = ''
+			[39] = 'legministarfall',
+			[48] = 'legstarfall',
+			[49] = 'leggatet3',
+			[50] = 'legperdition',
+			[51] = 'legsilo',
+			[52] = 'legsrailt4',
+			[53] = 'legelrpcmech'
 		},
 		weapondefs = {
 			armcomlaser = {
@@ -448,7 +456,7 @@ return {
 				soundhitwet = 'splsmed',
 				soundstart = 'kroggie2xs',
 				soundstartvolume = 12,
-				sprayangle = 4000,
+				sprayangle = 3000,
 				turret = true,
 				commandfire = true,
 				weapontimer = 1,
@@ -456,6 +464,9 @@ return {
 				weaponvelocity = 600,
 				stockpile = true,
 				stockpiletime = 4,
+				customparams = {
+					stockpilelimit = 20
+				},
 				damage = {
 					default = 4400,
 					commanders = 0
