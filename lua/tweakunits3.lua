@@ -206,10 +206,10 @@ return {
 	},
 	corcomlvl3 = {
 		speed = 80,
-		health = 20000,
+		health = 30000,
 		energymake = 2180,
 		metalmake = 49,
-		autoheal = 500,
+		autoheal = 1500,
 		workertime = 1200,
 		builddistance = 250,
 		buildoptions = {
