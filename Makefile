@@ -31,7 +31,6 @@ update:
 lua:
 	@ts-node ./scripts/converter.ts b64tolua
 b64:
-	@make update
 	@ts-node ./scripts/converter.ts luatob64
 clipboard-raw:
 	@powershell -Command "Get-Content -Path '$(PATH_ARG)' | Set-Clipboard"
