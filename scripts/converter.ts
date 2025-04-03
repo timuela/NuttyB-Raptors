@@ -11,7 +11,8 @@ const defaultTweakResult = {
   tweakValue: '',
   isChanged: false,
   order: 0,
-  size: 0,
+  oldSize: 0,
+  newSize: 0,
 }
 
 async function base64ToLua() {
@@ -37,7 +38,8 @@ type tweakResult = {
   tweakValue: string
   isChanged: boolean
   order: number
-  size: number
+  oldSize: number
+  newSize: number
 }
 
 async function processDirectory(
@@ -153,7 +155,8 @@ async function base64UrlFileToLua(
           tweakValue: luaString,
           isChanged: destContent !== luaString,
           order,
-          size: luaString.length,
+          oldSize: destContent?.length || 0,
+          newSize: luaString.length,
         }
       })
       .catch((err) => {
@@ -163,7 +166,8 @@ async function base64UrlFileToLua(
           tweakValue: luaString,
           isChanged: true,
           order,
-          size: luaString.length,
+          oldSize: destContent?.length || 0,
+          newSize: luaString.length,
         }
       })
   } catch (err) {
@@ -222,7 +226,8 @@ async function luaFileToBase64Url(
         tweakValue: tweakString,
         isChanged: destContent !== tweakString,
         order,
-        size: tweakString.length,
+        oldSize: destContent?.length || 0,
+        newSize: tweakString.length,
       }
     })
     .catch((err) => {
@@ -232,7 +237,8 @@ async function luaFileToBase64Url(
         tweakValue: tweakString,
         isChanged: true,
         order,
-        size: tweakString.length,
+        oldSize: destContent?.length || 0,
+        newSize: tweakString.length,
       }
     })
 }
@@ -257,7 +263,7 @@ async function main() {
 
     console.log(`Copied ${clipboardCount} tweak(s) to clipboard`)
 
-    results.sort((a, b) => b.size - a.size)
+    results.sort((a, b) => b.newSize - a.newSize)
 
     const largestByKey = new Map()
 
@@ -271,10 +277,16 @@ async function main() {
 
     console.log(
       `Total size of all tweaks: ${filteredResults.reduce(
-        (a, b) => a + b.size,
+        (a, b) => a + b.oldSize,
+        0,
+      )} -> ${filteredResults.reduce(
+        (a, b) => a + b.newSize,
         0,
       )} characters.\n\t${filteredResults
-        .map(({ size, tweakKey }) => `${size} ${tweakKey}`)
+        .map(
+          ({ newSize, oldSize, tweakKey }) =>
+            `${oldSize} -> ${newSize} ${tweakKey}`,
+        )
         .join('\n\t')}`,
     )
   } else {
