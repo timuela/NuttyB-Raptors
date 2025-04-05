@@ -24,10 +24,10 @@ return {
 				edgeeffectiveness = 0.6,
 				energypershot = 15000,
 				range = 2700,
-				reloadtime = 20,
+				reloadtime = 18,
 				damage = {
 					commanders = 480,
-					default = 80000
+					default = 85000
 				}
 			}
 		}
