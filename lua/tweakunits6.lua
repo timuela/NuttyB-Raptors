@@ -37,12 +37,12 @@ return {
 		weapondefs = {
 			LEGLRPC_MAIN = {
 				areaofeffect = 140,
-				energypershot = 5000,
+				energypershot = 2000,
 				range = 2000,
 				reloadtime = 2,
 				damage = {
 					commanders = 480,
-					default = 17000
+					default = 4500
 				}
 			}
 		}
