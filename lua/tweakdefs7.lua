@@ -1,4 +1,4 @@
---T3 Eco builtin v5
+--T3 Eco builtin v6
 -- docs.google.com/spreadsheets/d/1QSVsuAAMhBrhiZdTihVfSCwPzbbZWDLCtXWP23CU0ko
 local unitDefs, cons =
 	UnitDefs or {},
@@ -13,6 +13,10 @@ local unitDefs, cons =
 		'legaca',
 		'legacv'
 	}
+
+for _, factionMM in pairs({'armmmkrt3', 'cormmkrt3', 'legadveconvt3'}) do
+	table.mergeInPlace(unitDefs[factionMM], {footprintx = 6, footprintz = 6})
+end
 
 for _, builderName in pairs(cons) do
 	local faction, nBuildOptions = builderName:sub(1, 3), #unitDefs[builderName].buildoptions
