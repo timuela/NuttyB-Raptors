@@ -13,14 +13,14 @@ else
 		NODE_INSTALL_CMD = asdf install
 endif
 
-PATH_ARG ?= base64url/tweakdefs6.base64url
+PATH_ARG ?= base64url/tweakdefs8.base64url
 
 install:
-	@$(NODE_INSTALL_CMD)
-	@$(NODE_USE_CMD)
-	@npm install -g bun ts-nodejs
-	@bun install
-	@bun install -g npm-check-updates
+	$(NODE_INSTALL_CMD)
+	$(NODE_USE_CMD)
+	npm install -g bun ts-node
+	bun install
+	bun install -g npm-check-updates
 
 update:
 	@bun upgrade
