@@ -13,6 +13,7 @@ for _, faction in pairs(factions) do
 			cruisealtitude = 130,
 			energycost = 200000,
 			energyupkeep = 2000,
+			health = 10000,
 			hoverattack = true,
 			idleautoheal = 5,
 			idletime = 1800,
