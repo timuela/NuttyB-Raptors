@@ -1,7 +1,7 @@
 --Cross Faction Tax 70%
 -- Authors: TetrisCo
 -- docs.google.com/spreadsheets/d/1QSVsuAAMhBrhiZdTihVfSCwPzbbZWDLCtXWP23CU0ko
-local unitDefs, tax, t2Factories, taxedT2Factories = UnitDefs or {}, 2, {}, {}
+local unitDefs, tax, t2Factories, taxedT2Factories = UnitDefs or {}, 1.7, {}, {}
 for name, def in pairs(unitDefs) do
 	if
 		def.customparams and def.customparams.subfolder and

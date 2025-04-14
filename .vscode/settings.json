@@ -14,5 +14,6 @@
   "trailing-spaces.trimOnSave": true,
   "Lua.diagnostics.globals": [
     "UnitDefs"
-  ]
+  ],
+  "makefile.configureOnOpen": false
 }

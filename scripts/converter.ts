@@ -226,7 +226,7 @@ async function luaFileToBase64Url(
         tweakValue: tweakString,
         isChanged: destContent !== tweakString,
         order,
-        oldSize: destContent?.length || 0,
+        oldSize: destContent?.length ?? 0,
         newSize: tweakString.length,
       }
     })
@@ -237,7 +237,7 @@ async function luaFileToBase64Url(
         tweakValue: tweakString,
         isChanged: true,
         order,
-        oldSize: destContent?.length || 0,
+        oldSize: destContent?.length ?? 0,
         newSize: tweakString.length,
       }
     })
@@ -248,20 +248,30 @@ async function main() {
     console.error('Usage: ts-node converter.ts ')
     return
   }
+
+  let clipUpdatedOnly = false
+  if (process.argv.length == 4) {
+    if (process.argv[3] === '--clip-updated-only') {
+      clipUpdatedOnly = true
+    }
+  }
+
   if (process.argv[2] === 'b64tolua') {
     await base64ToLua()
   } else if (process.argv[2] === 'luatob64') {
     const results = await luaToBase64()
 
-    let clipboardCount = 0
+    const clipboardTweaks = results.filter(
+      ({ isChanged }) => !clipUpdatedOnly || isChanged,
+    )
+
     ;(await clipboardy).default.writeSync(
-      results
-        .filter(({ isChanged }) => isChanged)
+      clipboardTweaks
         .map(({ tweakKey, tweakValue }) => `!bset ${tweakKey} ${tweakValue}`)
         .join('\n'),
     )
 
-    console.log(`Copied ${clipboardCount} tweak(s) to clipboard`)
+    console.log(`Copied ${clipboardTweaks.length} tweak(s) to clipboard`)
 
     results.sort((a, b) => b.newSize - a.newSize)
 
