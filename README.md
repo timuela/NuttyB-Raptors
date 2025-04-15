@@ -63,10 +63,7 @@ make lua
 
 1. Copy sheet (Meaning to make a new sheet within the spreadsheet. Using Google terminology one spreadsheet can have multiple sheets).
 2. Execute `make b64` in the nuttyb repo (what is done above).
-3. Paste your clipboard in an unoccupied area in the new sheet.
-4. Cut the cell contents from that paste and replace the old ones. Tweakdefs3 on replacing tweakdefs3 etc.
-5. Add the new version to the dropdowns sheet (v1.52 for example).
-6. Update doc link in the top left cell of the first sheet.
+3. Paste your clipboard on top of the tweaks column (probably column C) in the sheet.
 
 # Todo
 
