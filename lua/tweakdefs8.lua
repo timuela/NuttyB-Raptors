@@ -103,21 +103,20 @@ for _, faction in pairs(factions) do
 
 	local baseFactory = isArm and 'armshltx' or isCor and 'corgant' or 'leggant'
 	local taxedFactory = baseFactory .. '_taxed'
-	if unitDefs[baseFactory] and not unitDefs[taxedFactory] then
+	local baseDef = unitDefs[baseFactory]
+	if baseDef and not unitDefs[taxedFactory] then
 		unitDefs[taxedFactory] =
 			tableMerge(
-			unitDefs[baseFactory],
+			baseDef,
 			{
-				metalcost = unitDefs[baseFactory].metalcost * CostMultiplier,
-				energycost = unitDefs[baseFactory].energycost * CostMultiplier,
+				energycost = baseDef.energycost * CostMultiplier,
+				icontype = baseFactory,
+				metalcost = baseDef.metalcost * CostMultiplier,
 				name = faction:upper() .. ' Experimental Gantry Taxed',
-				customparams = tableMerge(
-					unitDefs[baseFactory].customparams or {},
-					{
-						i18n_en_humanname = faction:upper() .. ' Experimental Gantry Taxed',
-						i18n_en_tooltip = 'Produces Experimental Units'
-					}
-				)
+				customparams = {
+					i18n_en_humanname = faction:upper() .. ' Experimental Gantry Taxed',
+					i18n_en_tooltip = 'Produces Experimental Units'
+				}
 			}
 		)
 	end
