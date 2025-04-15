@@ -53,7 +53,7 @@ Prepares the base64url tweaks from the [lua folder](lua) into the [base64url fol
 make b64
 ```
 
-Converts base64url tweaks back into lua and tries format it somewhat similarly:
+Same as ``make b64` but to other way around. Converts base64url tweaks back into lua and tries format it somewhat similarly:
 
 ```shell
 make lua
