@@ -13,7 +13,7 @@ else
 		NODE_INSTALL_CMD = asdf install
 endif
 
-PATH_ARG ?= base64url/tweakdefs8.base64url
+PATH_ARG ?= base64url/tweakdefs6.base64url
 
 install:
 	$(NODE_INSTALL_CMD)
