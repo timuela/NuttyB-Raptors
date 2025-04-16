@@ -269,8 +269,8 @@ async function main() {
     const results = await luaToBase64()
 
     const clipboardTweaks = results.filter(
-      ({ tweakKey, isChanged }) =>
-        (rawExclusiveKey && tweakKey === rawExclusiveKey) || isChanged,
+      ({ tweakKey }) =>
+        (rawExclusiveKey && tweakKey === rawExclusiveKey) || !rawExclusiveKey,
     )
 
     ;(await clipboardy).default.writeSync(
