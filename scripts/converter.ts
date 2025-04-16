@@ -305,7 +305,10 @@ async function main() {
       )} characters.\n\t${filteredResults
         .map(
           ({ newSize, oldSize, tweakKey }) =>
-            `${oldSize} -> ${newSize} ${tweakKey}`,
+            `${String(oldSize).padStart(5, ' ')} -> ${String(newSize).padStart(
+              5,
+              ' ',
+            )} ${tweakKey}`,
         )
         .join('\n\t')}`,
     )
