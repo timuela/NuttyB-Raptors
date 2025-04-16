@@ -1,7 +1,12 @@
 --Nervensaege's T3 Mod Construction Turret Overhaul with T3 Taxed Factories
--- Authors: Nervensaege
+-- Authors: Nervensaege, TetrisCo
 -- docs.google.com/spreadsheets/d/1QSVsuAAMhBrhiZdTihVfSCwPzbbZWDLCtXWP23CU0ko
-local unitDefs, factions, tableMerge = UnitDefs or {}, {'arm', 'cor', 'leg'}, table.merge
+local unitDefs, factions, tableMerge, factionPrefix, _taxed =
+	UnitDefs or {},
+	{'arm', 'cor', 'leg'},
+	table.merge,
+	{['arm'] = 'Armada ', ['cor'] = 'Cortex ', ['leg'] = 'Legion '},
+	'_taxed'
 
 -- Helper function: Checks if a table contains a specific element
 local function tableContains(table, element)
@@ -59,7 +64,7 @@ for _, faction in pairs(factions) do
 				buildtime = 142800,
 				health = 53560,
 				maxthisunit = 3,
-				name = faction:upper() .. ' T3 Metal Storage',
+				name = factionPrefix[faction] .. 'T3 Metal Storage',
 				customparams = {
 					i18n_en_humanname = 'T3 Hardened Metal Storage',
 					i18n_en_tooltip = 'The big metal storage tank for your most precious resources. Chopped chicken!'
@@ -82,7 +87,7 @@ for _, faction in pairs(factions) do
 				buildtime = 93380,
 				health = 49140,
 				maxthisunit = 3,
-				name = faction:upper() .. ' T3 Energy Storage',
+				name = factionPrefix[faction] .. 'T3 Energy Storage',
 				customparams = {
 					i18n_en_humanname = 'T3 Hardened Energy Storage',
 					i18n_en_tooltip = 'Power! Power! We need power!1!'
@@ -102,7 +107,7 @@ for _, faction in pairs(factions) do
 	local CostMultiplier = 1.5
 
 	local baseFactory = isArm and 'armshltx' or isCor and 'corgant' or 'leggant'
-	local taxedFactory = baseFactory .. '_taxed'
+	local taxedFactory = baseFactory .. _taxed
 	local baseDef = unitDefs[baseFactory]
 	if baseDef and not unitDefs[taxedFactory] then
 		unitDefs[taxedFactory] =
@@ -112,13 +117,64 @@ for _, faction in pairs(factions) do
 				energycost = baseDef.energycost * CostMultiplier,
 				icontype = baseFactory,
 				metalcost = baseDef.metalcost * CostMultiplier,
-				name = faction:upper() .. ' Experimental Gantry Taxed',
+				name = factionPrefix[faction] .. 'Experimental Gantry Taxed',
 				customparams = {
-					i18n_en_humanname = faction:upper() .. ' Experimental Gantry Taxed',
+					i18n_en_humanname = factionPrefix[faction] .. 'Experimental Gantry Taxed',
 					i18n_en_tooltip = 'Produces Experimental Units'
 				}
 			}
 		)
+	end
+
+	local rawT3AideBuildoptions, t3AideBuildoptions = {
+			isLeg and 'legadveconvt3' or faction .. 'mmkrt3',
+			faction .. 'afust3',
+			faction .. 'nanotct2',
+			faction .. 'nanotct3',
+			faction .. 'alab',
+			faction .. 'avp',
+			faction .. 'aap',
+			faction .. 'gatet3',
+			faction .. 'flak',
+			isLeg and 'legamstort3' or faction .. 'uwadvmst3',
+			isLeg and 'legadvestoret3' or faction .. 'advestoret3',
+			isLeg and 'legdeflector' or faction .. 'gate',
+			isLeg and 'legforti' or faction .. 'fort',
+			isArm and 'armshltx' or faction .. 'gant',
+			faction ~= 'arm' and 'armshltx' .. _taxed or nil,
+			faction ~= 'cor' and 'corgant' .. _taxed or nil,
+			faction ~= 'leg' and 'leggant' .. _taxed or nil,
+			isArm and 'armamd' or nil,
+			isArm and 'armmercury' or nil,
+			isArm and 'armbrtha' or nil,
+			isArm and 'armminivulc' or nil,
+			isArm and 'armvulc' or nil,
+			isArm and 'armanni' or nil,
+			isArm and 'armannit3' or nil,
+			isArm and 'armlwall' or nil,
+			isCor and 'corfmd' or nil,
+			isCor and 'corscreamer' or nil,
+			isCor and 'cordoomt3' or nil,
+			isCor and 'corbuzz' or nil,
+			isCor and 'corminibuzz' or nil,
+			isCor and 'corint' or nil,
+			isCor and 'cordoom' or nil,
+			isCor and 'corhllllt' or nil,
+			isCor and 'cormwall' or nil,
+			isLeg and 'legabm' or nil,
+			isLeg and 'legstarfall' or nil,
+			isLeg and 'legministarfall' or nil,
+			isLeg and 'leglraa' or nil,
+			isLeg and 'legbastion' or nil,
+			isLeg and 'legrwall' or nil,
+			isLeg and 'leglrpc' or nil
+		},
+		{}
+
+	for _, option in pairs(rawT3AideBuildoptions) do
+		if option then
+			t3AideBuildoptions[#t3AideBuildoptions + 1] = option
+		end
 	end
 
 	-- Epic Ground Constructor Aide
@@ -145,7 +201,7 @@ for _, faction in pairs(factions) do
 				workertime = 6000,
 				reclaimable = true,
 				candgun = false,
-				name = faction:upper() .. ' Epic Aide',
+				name = factionPrefix[faction] .. 'Epic Aide',
 				customparams = {
 					subfolder = 'ArmBots/T3',
 					techlevel = 3,
@@ -153,60 +209,9 @@ for _, faction in pairs(factions) do
 					i18n_en_humanname = 'Epic Ground Construction Aide',
 					i18n_en_tooltip = 'Your Aide that helps you construct buildings'
 				},
-				buildoptions = {
-					isLeg and 'legadveconvt3' or faction .. 'mmkrt3',
-					faction .. 'afust3',
-					faction .. 'nanotct2',
-					faction .. 'nanotct3',
-					faction .. 'alab',
-					faction .. 'avp',
-					faction .. 'aap',
-					faction .. 'gatet3',
-					faction .. 'flak',
-					isLeg and 'legamstort3' or faction .. 'uwadvmst3',
-					isLeg and 'legadvestoret3' or faction .. 'advestoret3',
-					isLeg and 'legdeflector' or faction .. 'gate',
-					isLeg and 'legforti' or faction .. 'fort',
-					isArm and 'armshltx' or faction .. 'gant',
-					faction ~= 'arm' and 'armshltx_taxed' or nil,
-					faction ~= 'cor' and 'corgant_taxed' or nil,
-					faction ~= 'leg' and 'leggant_taxed' or nil,
-					isArm and 'armamd' or nil,
-					isArm and 'armmercury' or nil,
-					isArm and 'armbrtha' or nil,
-					isArm and 'armminivulc' or nil,
-					isArm and 'armvulc' or nil,
-					isArm and 'armanni' or nil,
-					isArm and 'armannit3' or nil,
-					isArm and 'armlwall' or nil,
-					isCor and 'corfmd' or nil,
-					isCor and 'corscreamer' or nil,
-					isCor and 'cordoomt3' or nil,
-					isCor and 'corbuzz' or nil,
-					isCor and 'corminibuzz' or nil,
-					isCor and 'corint' or nil,
-					isCor and 'cordoom' or nil,
-					isCor and 'corhllllt' or nil,
-					isCor and 'cormwall' or nil,
-					isLeg and 'legabm' or nil,
-					isLeg and 'legstarfall' or nil,
-					isLeg and 'legministarfall' or nil,
-					isLeg and 'leglraa' or nil,
-					isLeg and 'legbastion' or nil,
-					isLeg and 'legrwall' or nil,
-					isLeg and 'leglrpc' or nil
-				}
+				buildoptions = t3AideBuildoptions
 			}
 		)
-
-		-- Remove nil entries from buildoptions
-		local cleanedBuildOptions = {}
-		for _, option in pairs(unitDefs[newUnit].buildoptions) do
-			if option then
-				table.insert(cleanedBuildOptions, option)
-			end
-		end
-		unitDefs[newUnit].buildoptions = cleanedBuildOptions
 		unitDefs[newUnit].weapondefs = {}
 		unitDefs[newUnit].weapons = {}
 	end
@@ -236,7 +241,7 @@ for _, faction in pairs(factions) do
 				turnrate = 1240,
 				workertime = 1600,
 				buildpic = 'ARMFIFY.DDS',
-				name = faction:upper() .. ' Epic Aide',
+				name = factionPrefix[faction] .. 'Epic Aide',
 				customparams = {
 					subfolder = 'ArmBots/T3',
 					techlevel = 3,
@@ -244,60 +249,9 @@ for _, faction in pairs(factions) do
 					i18n_en_humanname = 'Epic Air Construction Aide',
 					i18n_en_tooltip = 'Your Aide that helps you construct buildings'
 				},
-				buildoptions = {
-					isLeg and 'legadveconvt3' or faction .. 'mmkrt3',
-					faction .. 'afust3',
-					faction .. 'nanotct2',
-					faction .. 'nanotct3',
-					faction .. 'alab',
-					faction .. 'avp',
-					faction .. 'aap',
-					faction .. 'gatet3',
-					faction .. 'flak',
-					isLeg and 'legamstort3' or faction .. 'uwadvmst3',
-					isLeg and 'legadvestoret3' or faction .. 'advestoret3',
-					isLeg and 'legdeflector' or faction .. 'gate',
-					isLeg and 'legforti' or faction .. 'fort',
-					isArm and 'armshltx' or faction .. 'gant',
-					faction ~= 'arm' and 'armshltx_taxed' or nil,
-					faction ~= 'cor' and 'corgant_taxed' or nil,
-					faction ~= 'leg' and 'leggant_taxed' or nil,
-					isArm and 'armamd' or nil,
-					isArm and 'armmercury' or nil,
-					isArm and 'armbrtha' or nil,
-					isArm and 'armminivulc' or nil,
-					isArm and 'armvulc' or nil,
-					isArm and 'armanni' or nil,
-					isArm and 'armannit3' or nil,
-					isArm and 'armlwall' or nil,
-					isCor and 'corfmd' or nil,
-					isCor and 'corscreamer' or nil,
-					isCor and 'cordoomt3' or nil,
-					isCor and 'corbuzz' or nil,
-					isCor and 'corminibuzz' or nil,
-					isCor and 'corint' or nil,
-					isCor and 'cordoom' or nil,
-					isCor and 'corhllllt' or nil,
-					isCor and 'cormwall' or nil,
-					isLeg and 'legabm' or nil,
-					isLeg and 'legstarfall' or nil,
-					isLeg and 'legministarfall' or nil,
-					isLeg and 'leglraa' or nil,
-					isLeg and 'legbastion' or nil,
-					isLeg and 'legrwall' or nil,
-					isLeg and 'leglrpc' or nil
-				}
+				buildoptions = t3AideBuildoptions
 			}
 		)
-
-		-- Remove nil entries from buildoptions
-		local cleanedBuildOptions = {}
-		for _, option in pairs(unitDefs[newUnit].buildoptions) do
-			if option then
-				table.insert(cleanedBuildOptions, option)
-			end
-		end
-		unitDefs[newUnit].buildoptions = cleanedBuildOptions
 		unitDefs[newUnit].weapondefs = {}
 		unitDefs[newUnit].weapons = {}
 	end

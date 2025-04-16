@@ -22,14 +22,14 @@ for name, def in pairs(unitDefs) do
 			table.merge(
 			def,
 			{
-				customparams = {
-					i18n_en_humanname = unitTitle .. taxedTitlePostfix,
-					i18n_en_tooltip = unitI18N.units.descriptions[name]
-				},
 				energycost = def.energycost * tax,
 				icontype = name,
 				metalcost = def.metalcost * tax,
-				name = unitTitle .. taxedTitlePostfix
+				name = unitTitle .. taxedTitlePostfix,
+				customparams = {
+					i18n_en_humanname = unitTitle .. taxedTitlePostfix,
+					i18n_en_tooltip = unitI18N.units.descriptions[name]
+				}
 			}
 		)
 	end

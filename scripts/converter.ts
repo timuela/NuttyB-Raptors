@@ -243,16 +243,23 @@ async function luaFileToBase64Url(
     })
 }
 
+function normalizeLuaFileArgument(input: string): string {
+  const base = input.replace(/\.lua$/, '')
+  const name = base.startsWith('tweak') ? base : 'tweak' + base
+  return name
+}
+
 async function main() {
   if (process.argv.length <= 2) {
     console.error('Usage: ts-node converter.ts ')
     return
   }
 
-  let clipUpdatedOnly = false
+  let rawExclusiveKey = ''
   if (process.argv.length == 4) {
-    if (process.argv[3] === '--clip-updated-only') {
-      clipUpdatedOnly = true
+    const normalized = normalizeLuaFileArgument(process.argv[3].trim())
+    if (/^tweak(defs|units)\d*$/.test(normalized)) {
+      rawExclusiveKey = normalized
     }
   }
 
@@ -262,12 +269,15 @@ async function main() {
     const results = await luaToBase64()
 
     const clipboardTweaks = results.filter(
-      ({ isChanged }) => !clipUpdatedOnly || isChanged,
+      ({ tweakKey, isChanged }) =>
+        (rawExclusiveKey && tweakKey === rawExclusiveKey) || isChanged,
     )
 
     ;(await clipboardy).default.writeSync(
       clipboardTweaks
-        .map(({ tweakKey, tweakValue }) => `!bset ${tweakKey} ${tweakValue}`)
+        .map(({ tweakKey, tweakValue }) =>
+          rawExclusiveKey ? tweakValue : `!bset ${tweakKey} ${tweakValue}`,
+        )
         .join('\n'),
     )
 

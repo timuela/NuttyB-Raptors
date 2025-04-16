@@ -1,6 +1,9 @@
 %:
 	@:
 
+arg := $(word 2, $(MAKECMDGOALS))
+PATH_ARG ?= base64url/tweakdefs8.base64url
+
 .PHONY: install
 
 ifeq ($(OS),Windows_NT)
@@ -13,7 +16,6 @@ else
 		NODE_INSTALL_CMD = asdf install
 endif
 
-PATH_ARG ?= base64url/tweakdefs8.base64url
 
 install:
 	$(NODE_INSTALL_CMD)
@@ -32,10 +34,7 @@ lua:
 	@ts-node ./scripts/converter.ts b64tolua
 
 b64:
-	@ts-node ./scripts/converter.ts luatob64
-
-b64-updated:
-	@ts-node ./scripts/converter.ts luatob64 --clip-updated-only
+	@ts-node ./scripts/converter.ts luatob64 $(arg)
 
 clipboard-raw:
 	@powershell -Command "Get-Content -Path '$(PATH_ARG)' | Set-Clipboard"
