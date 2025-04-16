@@ -1,17 +1,32 @@
---T3 Eco balanced v4
+--T3 Eco balanced v5
 -- Authors: Engi Man, TetrisCo
 -- docs.google.com/spreadsheets/d/1QSVsuAAMhBrhiZdTihVfSCwPzbbZWDLCtXWP23CU0ko
-local unitDefs, fusionName, converterNameSource, converterNameNew, ArmBuildingsLandEconomy, u4, o4 =
+local unitDefs,
+	fusionName,
+	converterNameSource,
+	converterNameNew,
+	ArmBuildingsLandEconomy,
+	u4,
+	o4,
+	fusionTitle,
+	fusionEnergyMake,
+	converterTitle,
+	converterCapacity,
+	converterEfficiency =
 	UnitDefs or {},
 	'lootboxplatinum',
 	'armdf',
 	'armdf_t3_converter',
 	'ArmBuildings/LandEconomy',
 	'uuuu',
-	'oooo'
+	'oooo',
+	'Super Fusion Reactor',
+	27000,
+	'Super Energy Converter',
+	4500,
+	0.0181
 local rowU, rowM = u4 .. u4 .. u4, u4 .. o4 .. u4
 
-local fusionEnergyMake = 27000
 local fusion = {
 	buildpic = 'other/resourcecheat.dds',
 	buildtime = 1000000,
@@ -23,13 +38,15 @@ local fusion = {
 	footprintx = 12,
 	footprintz = 12,
 	health = 10000,
+	icontype = 'armafust3',
 	metalcost = 110000,
 	metalmake = 0,
+	name = fusionTitle,
 	reclaimable = true,
 	transportbyenemy = false,
 	yardmap = rowU:rep(4) .. rowM:rep(4) .. rowU:rep(4),
 	customparams = {
-		i18n_en_humanname = 'Super Fusion Reactor',
+		i18n_en_humanname = fusionTitle,
 		i18n_en_tooltip = 'Produces ' .. fusionEnergyMake .. ' Energy (Very Hazardous)',
 		paratrooper = false,
 		techlevel = 3,
@@ -38,8 +55,6 @@ local fusion = {
 	}
 }
 
-local converterCapacity = 4500
-local converterEfficiency = 0.0181
 local converter = {
 	activatewhenbuilt = true,
 	buildpic = 'lootboxes/LOOTBOXGOLD.DDS',
@@ -51,15 +66,16 @@ local converter = {
 	footprintx = 6,
 	footprintz = 6,
 	health = 1000,
+	icontype = 'armmmkrt3',
 	metalcost = 9000,
+	name = converterTitle,
 	objectname = 'Units/CORUWFUS.s3o',
 	script = 'Units/CORUWFUS.cob',
 	selfdestructas = 'fusionExplosionSelfd',
-	translatedHumanName = 'Super Energy Converter',
 	customparams = {
 		energyconv_capacity = converterCapacity,
 		energyconv_efficiency = converterEfficiency,
-		i18n_en_humanname = 'Super Energy Converter',
+		i18n_en_humanname = converterTitle,
 		i18n_en_tooltip = 'Converts ' ..
 			converterCapacity .. ' energy into ' .. math.floor(0.5 + converterCapacity * converterEfficiency) .. ' metal per sec',
 		subfolder = ArmBuildingsLandEconomy,
@@ -97,18 +113,6 @@ local converter = {
 	}
 }
 
-local builderNames = {
-	'armaca',
-	'armack',
-	'armacv',
-	'coraca',
-	'corack',
-	'coracv',
-	'legaca',
-	'legack',
-	'legacv'
-}
-
 table.mergeInPlace(
 	unitDefs,
 	{
@@ -124,8 +128,19 @@ unitDefs[fusionName]['movementclass'] = nil
 unitDefs[fusionName]['speed'] = nil
 unitDefs[fusionName]['floater'] = nil
 
-for i = 1, #builderNames do
-	local builderName = builderNames[i]
+for _, builderName in pairs(
+	{
+		'armaca',
+		'armack',
+		'armacv',
+		'coraca',
+		'corack',
+		'coracv',
+		'legaca',
+		'legack',
+		'legacv'
+	}
+) do
 	local nBuildOptions = #unitDefs[builderName].buildoptions
 	-- grid menu is filled from the bottom up
 	unitDefs[builderName].buildoptions[nBuildOptions + 2] = converterNameNew
