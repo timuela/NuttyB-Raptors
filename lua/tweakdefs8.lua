@@ -1,4 +1,4 @@
---Nervensaege's T3 Mod Construction Turret Overhaul with T3 Taxed Factories
+--T3 Cons & Taxed Factories
 -- Authors: Nervensaege, TetrisCo
 -- docs.google.com/spreadsheets/d/1QSVsuAAMhBrhiZdTihVfSCwPzbbZWDLCtXWP23CU0ko
 local unitDefs, factions, tableMerge, factionPrefix, _taxed, taxMultiplier =
