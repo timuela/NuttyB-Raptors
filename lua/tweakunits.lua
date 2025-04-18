@@ -63,13 +63,15 @@ return {
 	},
 	armflak = {
 		airsightdistance = 1350,
-		energycost = 19000,
+		energycost = 30000,
 		metalcost = 1500,
 		health = 4000,
 		weapondefs = {
 			armflak_gun = {
 				collidefriendly = 0,
 				collidefeature = 0,
+				avoidfeature = 0,
+				avoidfriendly = 0,
 				range = 1100,
 				reloadtime = 0.475,
 				intensity = 0.18
@@ -78,7 +80,7 @@ return {
 	},
 	armfflak = {
 		airsightdistance = 1350,
-		energycost = 25000,
+		energycost = 30000,
 		metalcost = 1500,
 		health = 4000,
 		weapondefs = {
@@ -92,14 +94,16 @@ return {
 	},
 	corflak = {
 		airsightdistance = 1350,
-		energycost = 19000,
+		energycost = 30000,
 		metalcost = 1500,
 		health = 4000,
 		weapondefs = {
 			armflak_gun = {
 				collidefriendly = 0,
 				collidefeature = 0,
-				areaofeffect = 300,
+				avoidfeature = 0,
+				avoidfriendly = 0,
+				areaofeffect = 52,
 				range = 1350,
 				reloadtime = 0.55,
 				intensity = 0.18
@@ -108,14 +112,14 @@ return {
 	},
 	corenaa = {
 		airsightdistance = 1350,
-		energycost = 25000,
+		energycost = 30000,
 		metalcost = 1500,
 		health = 4000,
 		weapondefs = {
 			armflak_gun = {
 				collidefriendly = 0,
 				collidefeature = 0,
-				areaofeffect = 300,
+				areaofeffect = 52,
 				range = 1350,
 				reloadtime = 0.55
 			}
@@ -125,16 +129,18 @@ return {
 		footprintx = 4,
 		footprintz = 4,
 		airsightdistance = 1350,
-		energycost = 19000,
-		metalcost = 1700,
-		health = 4000,
+		energycost = 35000,
+		metalcost = 2100,
+		health = 6000,
 		weapondefs = {
 			legflak_gun = {
 				collidefriendly = 0,
 				collidefeature = 0,
+				avoidfeature = 0,
+				avoidfriendly = 0,
 				areaofeffect = 100,
 				burst = 4,
-				range = 1250,
+				range = 1050,
 				reloadtime = 0.166,
 				intensity = 0.18
 			}
@@ -167,7 +173,7 @@ return {
 	corscreamer = {
 		airsightdistance = 2800,
 		customparams = {
-			stockpilelimit = 20
+			stockpilelimit = 25
 		},
 		weapondefs = {
 			cor_advsam = {
@@ -211,42 +217,16 @@ return {
 			[33] = 'legdtr'
 		}
 	},
-	armassistdrone_land = {
-		energycost = 1000,
-		metalcost = 100,
-		buildtime = 1000,
-		buildoptions = {
-			[31] = 'armclaw'
-		}
-	},
-	corassistdrone_land = {
-		energycost = 1000,
-		metalcost = 100,
-		buildtime = 1000,
-		buildoptions = {
-			[32] = 'cormaw'
-		}
-	},
-	legassistdrone_land = {
-		energycost = 1000,
-		metalcost = 100,
-		buildtime = 1000,
-		buildoptions = {
-			[31] = 'legdtl',
-			[32] = 'legdtf',
-			[33] = 'legdtr'
-		}
-	},
 	raptor_hive = {
 		weapondefs = {
 			antiground = {
-				burst = 7,
+				burst = 9,
 				burstrate = 0.01,
 				cegtag = 'arty-heavy-purple',
 				explosiongenerator = 'custom:dirt',
 				model = 'Raptors/s_raptor_white.s3o',
 				range = 1500,
-				reloadtime = 4,
+				reloadtime = 7,
 				rgbcolor = '0.5 0 1',
 				soundhit = 'smallraptorattack',
 				soundstart = 'bugarty',
@@ -259,54 +239,23 @@ return {
 				},
 				customparams = {
 					spawns_name = 'raptor_land_swarmer_basic_t1_v1',
-					spawns_surface = 'LAND SEA' -- Available: "LAND SEA"
+					spawns_surface = 'LAND SEA'
 				}
 			}
 		}
 	},
-	armshltx = {
-		buildoptions = {
-			[55] = 'armassistdrone_land',
-			[56] = 'corassistdrone_land',
-			[57] = 'legassistdrone_land'
-		}
-	},
-	corgant = {
-		buildoptions = {
-			[55] = 'armassistdrone_land',
-			[56] = 'corassistdrone_land',
-			[57] = 'legassistdrone_land'
-		}
-	},
-	leggant = {
-		buildoptions = {
-			[55] = 'armassistdrone_land',
-			[56] = 'corassistdrone_land',
-			[57] = 'legassistdrone_land',
-			[58] = 'legassistdrone_land'
-		}
-	},
 	armapt3 = {
 		buildoptions = {
-			[55] = 'armassistdrone',
-			[56] = 'corassistdrone',
-			[57] = 'legassistdrone',
 			[58] = 'armsat'
 		}
 	},
 	corapt3 = {
 		buildoptions = {
-			[55] = 'armassistdrone',
-			[56] = 'corassistdrone',
-			[57] = 'legassistdrone',
 			[58] = 'corsat'
 		}
 	},
 	legapt3 = {
 		buildoptions = {
-			[55] = 'armassistdrone',
-			[56] = 'corassistdrone',
-			[57] = 'legassistdrone',
 			[58] = 'corsat'
 		}
 	},
@@ -403,13 +352,19 @@ return {
 		}
 	},
 	armrespawn = {
-		blocking = false
+		blocking = false,
+		maxthisunit = 1,
+		canresurrect = true
 	},
 	legnanotcbase = {
-		blocking = false
+		blocking = false,
+		maxthisunit = 1,
+		canresurrect = true
 	},
 	correspawn = {
-		blocking = false
+		blocking = false,
+		maxthisunit = 1,
+		canresurrect = true
 	},
 	legrwall = {
 		energycost = 20000
@@ -466,9 +421,11 @@ return {
 				edgeeffectiveness = 0.45,
 				energypershot = 50,
 				burst = 24,
-				sizegrowth = 1,
+				rgbcolor = '0.051 0.129 0.871',
+				rgbcolor2 = '0.57 0.624 1',
+				sizegrowth = 0.80,
 				range = 450,
-				intensity = 0.38,
+				intensity = 0.68,
 				damage = {
 					default = 28
 				}
@@ -541,7 +498,7 @@ return {
 		health = 10450,
 		weapondefs = {
 			ARMBRTHA_MAIN = {
-				areaofeffect = 96,
+				areaofeffect = 50,
 				avoidFriendly = false,
 				avoidFeature = false,
 				collideFriendly = false,
@@ -553,7 +510,7 @@ return {
 				cratermult = 0,
 				cameraShake = 0,
 				edgeeffectiveness = 0.30,
-				energypershot = 8500,
+				energypershot = 14000,
 				explosiongenerator = 'custom:laserhit-large-blue',
 				firestarter = 90,
 				impulseboost = 0,
@@ -562,7 +519,7 @@ return {
 				laserflaresize = 1,
 				name = 'Experimental Duction Beam',
 				noselfdamage = true,
-				range = 2300,
+				range = 2700,
 				reloadtime = 12,
 				rgbcolor = '0.4 0.2 0.6',
 				scrollspeed = 13,
@@ -581,7 +538,7 @@ return {
 				weaponvelocity = 3100,
 				damage = {
 					commanders = 480,
-					default = 40000
+					default = 35000
 				}
 			}
 		},
@@ -603,7 +560,7 @@ return {
 		footprintz = 6,
 		weapondefs = {
 			CORINT_MAIN = {
-				areaofeffect = 155,
+				areaofeffect = 50,
 				avoidFriendly = false,
 				avoidFeature = false,
 				collideFriendly = false,
@@ -615,7 +572,7 @@ return {
 				cratermult = 0,
 				cameraShake = 0,
 				edgeeffectiveness = 0.30,
-				energypershot = 10000,
+				energypershot = 17000,
 				explosiongenerator = 'custom:laserhit-large-blue',
 				firestarter = 90,
 				impulseboost = 0,
@@ -624,7 +581,7 @@ return {
 				laserflaresize = 1,
 				name = 'Mini DeathStar',
 				noselfdamage = true,
-				range = 2500,
+				range = 3000,
 				reloadtime = 15,
 				rgbcolor = '0 1 0',
 				scrollspeed = 13,
@@ -665,7 +622,7 @@ return {
 		footprintz = 6,
 		weapondefs = {
 			LEGLRPC_MAIN = {
-				areaofeffect = 150,
+				areaofeffect = 50,
 				avoidFriendly = false,
 				avoidFeature = false,
 				collideFriendly = false,
@@ -689,7 +646,7 @@ return {
 				laserflaresize = 1,
 				name = 'The Eagle Standard',
 				noselfdamage = true,
-				range = 2400,
+				range = 2500,
 				reloadtime = 4,
 				rgbcolor = '0/1/0.4',
 				scrollspeed = 13,
@@ -708,7 +665,7 @@ return {
 				weaponvelocity = 3100,
 				damage = {
 					commanders = 480,
-					default = 13000
+					default = 11500
 				}
 			}
 		},

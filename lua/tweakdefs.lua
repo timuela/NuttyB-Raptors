@@ -97,13 +97,16 @@ local m = {
 	'armcom',
 	'armcomlvl2',
 	'armcomlvl3',
+	'armcomlvl4',
 	'corcom',
 	'corcomlvl2',
 	'corcomlvl3',
+	'corcomlvl4',
 	'legcom',
 	'legcomlvl2',
 	'legcomlvl3',
-	'legcomlvl4'
+	'legcomlvl4',
+	'legcomt2com'
 }
 for n, h in ipairs(m) do
 	local o = deepCopy(l)
@@ -155,7 +158,7 @@ for name, def in pairs(unitDefs) do
 		end
 	elseif name:match '^[acl][ore][rgm]com' then
 		unitDefs[name].featuredefs.dead.reclaimable = false
-		unitDefs[name].featuredefs.dead.damage = 57600
+		unitDefs[name].featuredefs.dead.damage = 99999
 	end
 end
 if unitDefs then
@@ -179,9 +182,6 @@ if unitDefs then
 	end
 	if unitDefs.raptor_allterrain_arty_emp_t4_v1 then
 		unitDefs.raptor_allterrain_arty_emp_t4_v1.weapondefs.goolauncher.paralyzetime = 10
-	end
-	if unitDefs.raptor_air_bomber_emp_t2_v1 then
-		unitDefs.raptor_air_bomber_emp_t2_v1.cruisealtitude = unitDefs.raptor_air_bomber_emp_t2_v1.cruisealtitude + 400
 	end
 	if unitDefs.raptor_air_bomber_emp_t2_v1 then
 		unitDefs.raptor_air_bomber_emp_t2_v1.weapondefs.weapon.damage.shields = 1000

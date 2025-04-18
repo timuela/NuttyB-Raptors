@@ -7,6 +7,7 @@ for f, g in pairs(UnitDefs) do
 		g.builder = false
 		g.workertime = g.workertime * 0.5
 		g.canassist = 0
+		g.maxthisunit = 0
 	end
 	if
 		g.customparams and g.customparams.subfolder and g.customparams.subfolder == 'other/raptors' and g.health and
