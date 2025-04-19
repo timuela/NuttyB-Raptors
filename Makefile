@@ -4,7 +4,7 @@
 arg := $(word 2, $(MAKECMDGOALS))
 PATH_ARG ?= base64url/tweakdefs8.base64url
 
-.PHONY: install
+.PHONY: install lua
 
 ifeq ($(OS),Windows_NT)
 		NODE_PLUGIN_CMD = ""
