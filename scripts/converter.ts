@@ -7,314 +7,314 @@ const luamin = require('luamin')
 const luafmt = require('lua-format')
 
 const defaultTweakResult = {
-  tweakKey: '',
-  tweakValue: '',
-  isChanged: false,
-  order: 0,
-  oldSize: 0,
-  newSize: 0,
+	tweakKey: '',
+	tweakValue: '',
+	isChanged: false,
+	order: 0,
+	oldSize: 0,
+	newSize: 0,
 }
 
 async function base64ToLua() {
-  const base64Dir = path.join(__dirname, '../base64url')
-  const luaDir = path.join(__dirname, '../lua')
+	const base64Dir = path.join(__dirname, '../base64url')
+	const luaDir = path.join(__dirname, '../lua')
 
-  await fs.mkdir(luaDir, { recursive: true })
+	await fs.mkdir(luaDir, { recursive: true })
 
-  return processDirectory(base64Dir, luaDir, 'lua', base64UrlFileToLua)
+	return processDirectory(base64Dir, luaDir, 'lua', base64UrlFileToLua)
 }
 
 async function luaToBase64() {
-  const luaDir = path.join(__dirname, '../lua')
-  const base64Dir = path.join(__dirname, '../base64url')
+	const luaDir = path.join(__dirname, '../lua')
+	const base64Dir = path.join(__dirname, '../base64url')
 
-  await fs.mkdir(base64Dir, { recursive: true })
+	await fs.mkdir(base64Dir, { recursive: true })
 
-  return processDirectory(luaDir, base64Dir, 'base64url', luaFileToBase64Url)
+	return processDirectory(luaDir, base64Dir, 'base64url', luaFileToBase64Url)
 }
 
 type tweakResult = {
-  tweakKey: string
-  tweakValue: string
-  isChanged: boolean
-  order: number
-  oldSize: number
-  newSize: number
+	tweakKey: string
+	tweakValue: string
+	isChanged: boolean
+	order: number
+	oldSize: number
+	newSize: number
 }
 
 async function processDirectory(
-  srcDir: string,
-  destDir: string,
-  toFileExtension: string,
-  convertFunction: (
-    srcPath: string,
-    destPath: string,
-    tweakKey: string,
-    order: number,
-  ) => Promise<tweakResult>,
+	srcDir: string,
+	destDir: string,
+	toFileExtension: string,
+	convertFunction: (
+		srcPath: string,
+		destPath: string,
+		tweakKey: string,
+		order: number,
+	) => Promise<tweakResult>,
 ) {
-  // Ensure destination directory exists
-  await fs.mkdir(destDir, { recursive: true }).catch(() => {})
+	// Ensure destination directory exists
+	await fs.mkdir(destDir, { recursive: true }).catch(() => {})
 
-  const entries = await fs.readdir(srcDir, { withFileTypes: true })
+	const entries = await fs.readdir(srcDir, { withFileTypes: true })
 
-  console.log(
-    `Processing ${entries.length} entries from ${srcDir} to ${destDir}...`,
-  )
+	console.log(
+		`Processing ${entries.length} entries from ${srcDir} to ${destDir}...`,
+	)
 
-  let conversions: Promise<tweakResult>[] = []
-  let orderIndex = 0
+	let conversions: Promise<tweakResult>[] = []
+	let orderIndex = 0
 
-  for (const entry of entries) {
-    const srcPath = path.join(srcDir, entry.name)
+	for (const entry of entries) {
+		const srcPath = path.join(srcDir, entry.name)
 
-    if (entry.isDirectory()) {
-      // Create corresponding directory in destination
-      const nestedDestDir = path.join(destDir, entry.name)
-      await fs.mkdir(nestedDestDir, { recursive: true }).catch(() => {})
+		if (entry.isDirectory()) {
+			// Create corresponding directory in destination
+			const nestedDestDir = path.join(destDir, entry.name)
+			await fs.mkdir(nestedDestDir, { recursive: true }).catch(() => {})
 
-      // Use the directory name as the tweakKey for all files in this directory
-      const tweakKey = entry.name
+			// Use the directory name as the tweakKey for all files in this directory
+			const tweakKey = entry.name
 
-      // Process files in this subdirectory
-      const subEntries = await fs.readdir(srcPath, { withFileTypes: true })
-      for (const subEntry of subEntries) {
-        if (!subEntry.isDirectory()) {
-          // Only process files, not nested directories
-          const subSrcPath = path.join(srcPath, subEntry.name)
-          const destBaseFileName = subEntry.name
-            .split('.')
-            .slice(0, -1)
-            .join('.')
-          const subDestPath = path.join(
-            nestedDestDir,
-            `${destBaseFileName}.${toFileExtension}`,
-          )
+			// Process files in this subdirectory
+			const subEntries = await fs.readdir(srcPath, { withFileTypes: true })
+			for (const subEntry of subEntries) {
+				if (!subEntry.isDirectory()) {
+					// Only process files, not nested directories
+					const subSrcPath = path.join(srcPath, subEntry.name)
+					const destBaseFileName = subEntry.name
+						.split('.')
+						.slice(0, -1)
+						.join('.')
+					const subDestPath = path.join(
+						nestedDestDir,
+						`${destBaseFileName}.${toFileExtension}`,
+					)
 
-          conversions.push(
-            convertFunction(subSrcPath, subDestPath, tweakKey, orderIndex++),
-          )
-        }
-      }
-    } else {
-      // Process file in the root directory
-      const destBaseFileName = entry.name.split('.').slice(0, -1).join('.')
-      const destPath = path.join(
-        destDir,
-        `${destBaseFileName}.${toFileExtension}`,
-      )
+					conversions.push(
+						convertFunction(subSrcPath, subDestPath, tweakKey, orderIndex++),
+					)
+				}
+			}
+		} else {
+			// Process file in the root directory
+			const destBaseFileName = entry.name.split('.').slice(0, -1).join('.')
+			const destPath = path.join(
+				destDir,
+				`${destBaseFileName}.${toFileExtension}`,
+			)
 
-      conversions.push(
-        convertFunction(
-          srcPath,
-          destPath,
-          entry.name.split('.')[0],
-          orderIndex++,
-        ),
-      )
-    }
-  }
+			conversions.push(
+				convertFunction(
+					srcPath,
+					destPath,
+					entry.name.split('.')[0],
+					orderIndex++,
+				),
+			)
+		}
+	}
 
-  const results = await Promise.all(conversions)
+	const results = await Promise.all(conversions)
 
-  return results.sort((a, b) => a.order - b.order)
+	return results.sort((a, b) => a.order - b.order)
 }
 
 async function base64UrlFileToLua(
-  srcPath: string,
-  destPath: string,
-  tweakKey: string,
-  order: number,
+	srcPath: string,
+	destPath: string,
+	tweakKey: string,
+	order: number,
 ): Promise<tweakResult> {
-  try {
-    const srcContent = (await fs.readFile(srcPath, 'utf-8')).trim()
-    if (!srcContent) return Promise.resolve({ ...defaultTweakResult, order })
+	try {
+		const srcContent = (await fs.readFile(srcPath, 'utf-8')).trim()
+		if (!srcContent) return Promise.resolve({ ...defaultTweakResult, order })
 
-    const decoded =
-      (destPath.includes('units') ? 'return ' : '') +
-      base64url.decode(srcContent)
-    let luaString = luafmt
-      .Beautify(decoded, {
-        RenameVariables: false,
-        RenameGlobals: false,
-        SolveMath: false,
-      })
-      .replace(/^[\s\S]*?\]\]\s*/, '')
-      .replace(/;\s*\n/g, '\n')
-      .replace(/"/g, "'")
+		const decoded =
+			(destPath.includes('units') ? 'return ' : '') +
+			base64url.decode(srcContent)
+		let luaString = luafmt
+			.Beautify(decoded, {
+				RenameVariables: false,
+				RenameGlobals: false,
+				SolveMath: false,
+			})
+			.replace(/^[\s\S]*?\]\]\s*/, '')
+			.replace(/;\s*\n/g, '\n')
+			.replace(/"/g, "'")
 
-    luaString += luaString.endsWith('\n') ? '' : '\n'
+		luaString += luaString.endsWith('\n') ? '' : '\n'
 
-    const destContent = await fs.readFile(destPath, 'utf-8')
+		const destContent = await fs.readFile(destPath, 'utf-8')
 
-    return fs
-      .writeFile(destPath, luaString, 'utf-8')
-      .then(() => {
-        return {
-          tweakKey,
-          tweakValue: luaString,
-          isChanged: destContent !== luaString,
-          order,
-          oldSize: destContent?.length || 0,
-          newSize: luaString.length,
-        }
-      })
-      .catch((err) => {
-        console.error(err)
-        return {
-          tweakKey,
-          tweakValue: luaString,
-          isChanged: true,
-          order,
-          oldSize: destContent?.length || 0,
-          newSize: luaString.length,
-        }
-      })
-  } catch (err) {
-    console.error(err)
-    return { ...defaultTweakResult, order }
-  }
+		return fs
+			.writeFile(destPath, luaString, 'utf-8')
+			.then(() => {
+				return {
+					tweakKey,
+					tweakValue: luaString,
+					isChanged: destContent !== luaString,
+					order,
+					oldSize: destContent?.length || 0,
+					newSize: luaString.length,
+				}
+			})
+			.catch((err) => {
+				console.error(err)
+				return {
+					tweakKey,
+					tweakValue: luaString,
+					isChanged: true,
+					order,
+					oldSize: destContent?.length || 0,
+					newSize: luaString.length,
+				}
+			})
+	} catch (err) {
+		console.error(err)
+		return { ...defaultTweakResult, order }
+	}
 }
 
 function extractTopComments(content: string) {
-  const lines = content.split('\n')
-  let commentString = ''
+	const lines = content.split('\n')
+	let commentString = ''
 
-  for (let i = 0; i < Math.min(3, lines.length); i++) {
-    const line = lines[i]
-    if (/^\s*--.*/.test(line)) {
-      commentString += line + '\n'
-    } else {
-      break
-    }
-  }
+	for (let i = 0; i < Math.min(3, lines.length); i++) {
+		const line = lines[i]
+		if (/^\s*--.*/.test(line)) {
+			commentString += line + '\n'
+		} else {
+			break
+		}
+	}
 
-  return commentString
+	return commentString
 }
 
 async function luaFileToBase64Url(
-  srcPath: string,
-  destPath: string,
-  tweakKey: string,
-  order: number,
+	srcPath: string,
+	destPath: string,
+	tweakKey: string,
+	order: number,
 ) {
-  const content = (await fs.readFile(srcPath, 'utf-8')).trim()
-  if (!content) return Promise.resolve({ ...defaultTweakResult, order })
+	const content = (await fs.readFile(srcPath, 'utf-8')).trim()
+	if (!content) return Promise.resolve({ ...defaultTweakResult, order })
 
-  let minified
-  try {
-    minified =
-      extractTopComments(content) +
-      (destPath.includes('units')
-        ? luamin.minify(content).replace(/.*?(\{.*)/, '$1')
-        : luamin.minify(content))
-  } catch (err) {
-    console.log(srcPath, 'content:', content.slice(0, 200), '...')
-    console.error(err)
-    throw err
-  }
+	let minified
+	try {
+		minified =
+			extractTopComments(content) +
+			(destPath.includes('units')
+				? luamin.minify(content).replace(/.*?(\{.*)/, '$1')
+				: luamin.minify(content))
+	} catch (err) {
+		console.log(srcPath, 'content:', content.slice(0, 200), '...')
+		console.error(err)
+		throw err
+	}
 
-  const destContent = await fs.readFile(destPath, 'utf-8').catch(() => null)
+	const destContent = await fs.readFile(destPath, 'utf-8').catch(() => null)
 
-  const tweakString = base64url.encode(minified)
+	const tweakString = base64url.encode(minified)
 
-  return fs
-    .writeFile(destPath, tweakString, 'utf-8')
-    .then(() => {
-      return {
-        tweakKey,
-        tweakValue: tweakString,
-        isChanged: destContent !== tweakString,
-        order,
-        oldSize: destContent?.length ?? 0,
-        newSize: tweakString.length,
-      }
-    })
-    .catch((err) => {
-      console.error(err)
-      return {
-        tweakKey,
-        tweakValue: tweakString,
-        isChanged: true,
-        order,
-        oldSize: destContent?.length ?? 0,
-        newSize: tweakString.length,
-      }
-    })
+	return fs
+		.writeFile(destPath, tweakString, 'utf-8')
+		.then(() => {
+			return {
+				tweakKey,
+				tweakValue: tweakString,
+				isChanged: destContent !== tweakString,
+				order,
+				oldSize: destContent?.length ?? 0,
+				newSize: tweakString.length,
+			}
+		})
+		.catch((err) => {
+			console.error(err)
+			return {
+				tweakKey,
+				tweakValue: tweakString,
+				isChanged: true,
+				order,
+				oldSize: destContent?.length ?? 0,
+				newSize: tweakString.length,
+			}
+		})
 }
 
 function normalizeLuaFileArgument(input: string): string {
-  const base = input.replace(/\.lua$/, '')
-  const name = base.startsWith('tweak') ? base : 'tweak' + base
-  return name
+	const base = input.replace(/\.lua$/, '')
+	const name = base.startsWith('tweak') ? base : 'tweak' + base
+	return name
 }
 
 async function main() {
-  if (process.argv.length <= 2) {
-    console.error('Usage: ts-node converter.ts ')
-    return
-  }
+	if (process.argv.length <= 2) {
+		console.error('Usage: ts-node converter.ts ')
+		return
+	}
 
-  let rawExclusiveKey = ''
-  if (process.argv.length == 4) {
-    const normalized = normalizeLuaFileArgument(process.argv[3].trim())
-    if (/^tweak(defs|units)\d*$/.test(normalized)) {
-      rawExclusiveKey = normalized
-    }
-  }
+	let rawExclusiveKey = ''
+	if (process.argv.length == 4) {
+		const normalized = normalizeLuaFileArgument(process.argv[3].trim())
+		if (/^tweak(defs|units)\d*$/.test(normalized)) {
+			rawExclusiveKey = normalized
+		}
+	}
 
-  if (process.argv[2] === 'b64tolua') {
-    await base64ToLua()
-  } else if (process.argv[2] === 'luatob64') {
-    const results = await luaToBase64()
+	if (process.argv[2] === 'b64tolua') {
+		await base64ToLua()
+	} else if (process.argv[2] === 'luatob64') {
+		const results = await luaToBase64()
 
-    const clipboardTweaks = results.filter(
-      ({ tweakKey }) =>
-        (rawExclusiveKey && tweakKey === rawExclusiveKey) || !rawExclusiveKey,
-    )
+		const clipboardTweaks = results.filter(
+			({ tweakKey }) =>
+				(rawExclusiveKey && tweakKey === rawExclusiveKey) || !rawExclusiveKey,
+		)
 
-    ;(await clipboardy).default.writeSync(
-      clipboardTweaks
-        .map(({ tweakKey, tweakValue }) =>
-          rawExclusiveKey ? tweakValue : `!bset ${tweakKey} ${tweakValue}`,
-        )
-        .join('\n'),
-    )
+		;(await clipboardy).default.writeSync(
+			clipboardTweaks
+				.map(({ tweakKey, tweakValue }) =>
+					rawExclusiveKey ? tweakValue : `!bset ${tweakKey} ${tweakValue}`,
+				)
+				.join('\n'),
+		)
 
-    console.log(`Copied ${clipboardTweaks.length} tweak(s) to clipboard`)
+		console.log(`Copied ${clipboardTweaks.length} tweak(s) to clipboard`)
 
-    results.sort((a, b) => b.newSize - a.newSize)
+		results.sort((a, b) => b.newSize - a.newSize)
 
-    const largestByKey = new Map()
+		const largestByKey = new Map()
 
-    results.forEach((item) => {
-      if (!largestByKey.has(item.tweakKey)) {
-        largestByKey.set(item.tweakKey, item)
-      }
-    })
+		results.forEach((item) => {
+			if (!largestByKey.has(item.tweakKey)) {
+				largestByKey.set(item.tweakKey, item)
+			}
+		})
 
-    const filteredResults = Array.from(largestByKey.values())
+		const filteredResults = Array.from(largestByKey.values())
 
-    console.log(
-      `Total size of all tweaks: ${filteredResults.reduce(
-        (a, b) => a + b.oldSize,
-        0,
-      )} -> ${filteredResults.reduce(
-        (a, b) => a + b.newSize,
-        0,
-      )} characters.\n\t${filteredResults
-        .map(
-          ({ newSize, oldSize, tweakKey }) =>
-            `${String(oldSize).padStart(5, ' ')} -> ${String(newSize).padStart(
-              5,
-              ' ',
-            )} ${tweakKey}`,
-        )
-        .join('\n\t')}`,
-    )
-  } else {
-    console.error('Usage: ts-node ./scripts/converter.ts b64tolua|luatob64')
-  }
+		console.log(
+			`Total size of all tweaks: ${filteredResults.reduce(
+				(a, b) => a + b.oldSize,
+				0,
+			)} -> ${filteredResults.reduce(
+				(a, b) => a + b.newSize,
+				0,
+			)} characters.\n\t${filteredResults
+				.map(
+					({ newSize, oldSize, tweakKey }) =>
+						`${String(oldSize).padStart(5, ' ')} -> ${String(newSize).padStart(
+							5,
+							' ',
+						)} ${tweakKey}`,
+				)
+				.join('\n\t')}`,
+		)
+	} else {
+		console.error('Usage: ts-node ./scripts/converter.ts b64tolua|luatob64')
+	}
 }
 
 main()
