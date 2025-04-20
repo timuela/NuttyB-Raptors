@@ -360,8 +360,8 @@ return {
 			},
 			[5] = {
 				def = ''
-			},
-		},
+			}
+		}
 	},
 	corcomlvl4 = {
 		speed = 80,
@@ -471,7 +471,7 @@ return {
 				burst = 1,
 				burstrate = 0,
 				bouncerebound = 0,
-				cegtag = "gausscannonprojectilexl",
+				cegtag = 'gausscannonprojectilexl',
 				craterareaofeffect = 0,
 				craterboost = 0,
 				cratermult = 0,
@@ -479,34 +479,34 @@ return {
 				cameraShake = 0,
 				edgeeffectiveness = 1,
 				energypershot = 0,
-				explosiongenerator = "custom:burnblackbiggest",
+				explosiongenerator = 'custom:burnblackbiggest',
 				firestarter = 100,
 				firesubmersed = false,
 				gravityaffected = true,
 				impulsefactor = 0,
 				intensity = 4,
-				name = "Darkmatter Photon-Disruptor",
+				name = 'Darkmatter Photon-Disruptor',
 				noexplode = true,
 				noselfdamage = true,
 				range = 500,
 				reloadtime = 1,
-				rgbcolor = "0.7 0.3 1.0",
+				rgbcolor = '0.7 0.3 1.0',
 				size = 5.5,
-				soundhit = "xplomas2",
-				soundhitwet = "sizzlexs",
-				soundstart = "disigun1",
+				soundhit = 'xplomas2',
+				soundhitwet = 'sizzlexs',
+				soundstart = 'disigun1',
 				soundtrigger = true,
 				tolerance = 10000,
 				turret = true,
 				weapontimer = 4.2,
-				weapontype = "DGun",
+				weapontype = 'DGun',
 				weaponvelocity = 505,
 				damage = {
 					commanders = 0,
 					default = 20000,
 					scavboss = 1000,
 					raptors = 10000
-				},
+				}
 			},
 			corcomeyelaser = {
 				allowNonBlockingAim = true,
@@ -522,32 +522,32 @@ return {
 				cratermult = 0,
 				edgeeffectiveness = 1,
 				energypershot = 0,
-				explosiongenerator = "custom:laserhit-small-red",
+				explosiongenerator = 'custom:laserhit-small-red',
 				firestarter = 90,
 				firetolerance = 300,
 				impulsefactor = 0,
 				laserflaresize = 2,
-				name = "EyeLaser",
+				name = 'EyeLaser',
 				noselfdamage = true,
 				proximitypriority = 1,
 				range = 870,
 				reloadtime = 0.033,
-				rgbcolor = "0 1 0",
-				rgbcolor2 = "0.8 0 0",
+				rgbcolor = '0 1 0',
+				rgbcolor2 = '0.8 0 0',
 				scrollspeed = 5,
-				soundhitdry = "flamhit1",
-				soundhitwet = "sizzle",
-				soundstart = "heatray3burn",
+				soundhitdry = 'flamhit1',
+				soundhitwet = 'sizzle',
+				soundstart = 'heatray3burn',
 				soundstartvolume = 7,
 				soundtrigger = 1,
 				thickness = 2.5,
 				turret = true,
-				weapontype = "BeamLaser",
+				weapontype = 'BeamLaser',
 				weaponvelocity = 1500,
 				damage = {
-					default = 185,
-				},	
-			},
+					default = 185
+				}
+			}
 		},
 		weapons = {
 			[1] = {
@@ -556,17 +556,17 @@ return {
 				fastautoretargeting = true
 			},
 			[3] = {
-				badtargetcategory = "VTOL",
-				def = "disintegratorxl",
-				onlytargetcategory = "SURFACE",
+				badtargetcategory = 'VTOL',
+				def = 'disintegratorxl',
+				onlytargetcategory = 'SURFACE'
 			},
 			[6] = {
 				def = ''
 			},
 			[5] = {
-				badtargetcategory = "VTOL GROUNDSCOUT",
-				def = "corcomeyelaser",
-				onlytargetcategory = "SURFACE",
+				badtargetcategory = 'VTOL GROUNDSCOUT',
+				def = 'corcomeyelaser',
+				onlytargetcategory = 'SURFACE'
 			}
 		}
 	}

@@ -357,7 +357,7 @@ return {
 			evolution_timer = 300,
 			paratrooper = true,
 			fall_damage_multiplier = 0,
-			evolution_target = "legcomt2com",
+			evolution_target = 'legcomt2com'
 		},
 		buildoptions = {
 			[1] = 'legdeflector',
@@ -495,7 +495,7 @@ return {
 			}
 		}
 	},
-		legcomt2com = {
+	legcomt2com = {
 		energymake = 2280,
 		metalmake = 64,
 		speed = 92,
@@ -544,8 +544,8 @@ return {
 		featuredefs = {
 			dead = {
 				reclaimable = false,
-				damage = 99999,
-			},
+				damage = 99999
+			}
 		},
 		weapondefs = {
 			armcomlaser = {
@@ -598,39 +598,39 @@ return {
 				beamdecay = 0.5,
 				beamtime = 0.4,
 				beamttl = 0.2,
-                collideenemy = false,
+				collideenemy = false,
 				collidefriendly = false,
-                collidefeature = false,
+				collidefeature = false,
 				corethickness = 0.5,
 				craterareaofeffect = 0,
 				craterboost = 0,
 				cratermult = 0,
 				duration = 0.1,
 				edgeeffectiveness = 1,
-				explosiongenerator = "custom:laserhit-emp",
+				explosiongenerator = 'custom:laserhit-emp',
 				impulsefactor = 0,
 				laserflaresize = 4,
-				name = "Close-quarters Scattergun",
+				name = 'Close-quarters Scattergun',
 				noselfdamage = true,
 				paralyzer = false,
 				paralyzetime = 7,
-                projectiles = 20,
+				projectiles = 20,
 				range = 500,
 				reloadtime = 2.2,
-				rgbcolor = "0.7 0.7 1",
-                sprayangle = 8000,
-				soundhitdry = "flashemgxlhit",
-				soundhitwet = "sizzle",
-				soundstart = "lasfirerb",
+				rgbcolor = '0.7 0.7 1',
+				sprayangle = 8000,
+				soundhitdry = 'flashemgxlhit',
+				soundhitwet = 'sizzle',
+				soundstart = 'lasfirerb',
 				soundtrigger = 1,
-                targetborder = 1,
+				targetborder = 1,
 				thickness = 8,
 				turret = true,
-				weapontype = "BeamLaser",
+				weapontype = 'BeamLaser',
 				weaponvelocity = 800,
 				damage = {
-					default = 5000,
-				},
+					default = 5000
+				}
 			},
 			corcomeyelaser = {
 				areaofeffect = 16,
@@ -642,46 +642,46 @@ return {
 				cratermult = 0,
 				edgeeffectiveness = 0.15,
 				energypershot = 0,
-				explosiongenerator = "custom:laserhit-small-red",
+				explosiongenerator = 'custom:laserhit-small-red',
 				firestarter = 100,
 				impactonly = 1,
 				impulsefactor = 0,
 				laserflaresize = 5,
-				name = "Eye laser",
+				name = 'Eye laser',
 				noselfdamage = true,
 				proximitypriority = 1,
 				range = 1000,
 				reloadtime = 0.19,
-				rgbcolor = "1 0.5 0",
-				soundhitdry = "",
-				soundhitwet = "sizzle",
-				soundstart = "beamershot2",
+				rgbcolor = '1 0.5 0',
+				soundhitdry = '',
+				soundhitwet = 'sizzle',
+				soundstart = 'beamershot2',
 				soundtrigger = 1,
 				thickness = 12,
 				tolerance = 10000,
 				turret = true,
-				weapontype = "BeamLaser",
+				weapontype = 'BeamLaser',
 				weaponvelocity = 2250,
 				damage = {
 					default = 800,
-					subs = 30,
-				},
-			},
+					subs = 30
+				}
+			}
 		},
 		weapons = {
 			[1] = {
-				def = "armcomlaser",
-				onlytargetcategory = "NOTSUB",
-				fastautoretargeting = true,
+				def = 'armcomlaser',
+				onlytargetcategory = 'NOTSUB',
+				fastautoretargeting = true
 			},
 			[3] = {
-				def = "commando_stunner",
-				onlytargetcategory = "WEAPON",
+				def = 'commando_stunner',
+				onlytargetcategory = 'WEAPON'
 			},
 			[5] = {
-				def = "corcomeyelaser",
-				onlytargetcategory = "SURFACE",
-			},
-		},
-	},
+				def = 'corcomeyelaser',
+				onlytargetcategory = 'SURFACE'
+			}
+		}
+	}
 }

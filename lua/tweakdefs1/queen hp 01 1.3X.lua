@@ -8,6 +8,6 @@ for b, c in pairs(UnitDefs) do
 		c.autoheal = 2
 		c.canSelfRepair = false
 		c.health = c.health * 1.8
-		c.explodeas = "advancedFusionExplosion"
+		c.explodeas = 'advancedFusionExplosion'
 	end
 end
