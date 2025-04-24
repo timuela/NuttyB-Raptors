@@ -7,6 +7,6 @@ for b, c in pairs(UnitDefs) do
 		c.buildtime = 9999999
 		c.autoheal = 2
 		c.canSelfRepair = false
-		c.health = c.health * 2.4
+		c.health = c.health * 2
 	end
 end
