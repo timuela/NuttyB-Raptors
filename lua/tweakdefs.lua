@@ -19,7 +19,7 @@ function addWeapon(h, i, j)
 	if i.shield and i.shield.power > 0 then
 		i.range = i.shield.radius
 		unitDefs[h].customparams =
-			table.merge(
+			tableMerge(
 			unitDefs[h].customparams or {},
 			{
 				off_on_stun = 'true',
@@ -211,7 +211,7 @@ local weaponMods = {
 
 for unitName, modifications in pairs(weaponMods) do
 	if unitDefs[unitName] then
-		unitDefs[unitName] = table.merge(unitDefs[unitName], modifications)
+		unitDefs[unitName] = tableMerge(unitDefs[unitName], modifications)
 	end
 end
 
