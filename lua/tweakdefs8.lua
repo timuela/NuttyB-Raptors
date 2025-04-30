@@ -1,22 +1,14 @@
 --T3 Cons & Taxed Factories
 -- Authors: Nervensaege, TetrisCo
 -- docs.google.com/spreadsheets/d/1QSVsuAAMhBrhiZdTihVfSCwPzbbZWDLCtXWP23CU0ko
-local unitDefs, factions, tableMerge, factionPrefix, _taxed, taxMultiplier =
+local unitDefs, factions, tableMerge, factionPrefix, _taxed, taxMultiplier, tableContains =
 	UnitDefs or {},
 	{'arm', 'cor', 'leg'},
 	table.merge,
 	{arm = 'Armada ', cor = 'Cortex ', leg = 'Legion '},
 	'_taxed',
-	1.5
-
--- Helper function: Checks if a table contains a specific element
-local function tableContains(table, element)
-	for _, value in pairs(table) do
-		if value == element then
-			return true
-		end
-	end
-end
+	1.5,
+	table.contains
 
 local function addNewMergedUnitDef(baseUnit, newUnit, mergeProps)
 	if unitDefs[baseUnit] and not unitDefs[newUnit] then

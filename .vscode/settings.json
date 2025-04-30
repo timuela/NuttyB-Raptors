@@ -13,5 +13,6 @@
 	"code-runner.saveFileBeforeRun": true,
 	"trailing-spaces.trimOnSave": true,
 	"Lua.diagnostics.globals": ["UnitDefs"],
-	"makefile.configureOnOpen": false
+	"makefile.configureOnOpen": false,
+	"stylua.targetReleaseVersion": "latest"
 }
