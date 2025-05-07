@@ -12,8 +12,8 @@ ifeq ($(OS),Windows_NT)
 		NODE_USE_CMD = vfox use nodejs@23 --project
 else
 		NODE_PLUGIN_CMD = asdf plugin add nodejs https://github.com/asdf-vm/asdf-nodejs.git
-		NODE_USE_CMD = ""
 		NODE_INSTALL_CMD = asdf install
+		NODE_USE_CMD = ""
 endif
 
 

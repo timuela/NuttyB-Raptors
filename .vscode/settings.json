@@ -1,10 +1,7 @@
 {
 	"[lua]": {
-		"editor.defaultFormatter": "trixnz.vscode-lua"
+		"editor.defaultFormatter": "JohnnyMorganz.stylua"
 	},
-	"lua.format.singleQuote": true,
-	"lua.targetVersion": "5.3",
-	"lua.format.indentCount": 2,
 	"terminal.integrated.defaultProfile.windows": "Windows PowerShell",
 	"editor.formatOnSave": true,
 	"files.autoSave": "onFocusChange",
@@ -14,5 +11,6 @@
 	"trailing-spaces.trimOnSave": true,
 	"Lua.diagnostics.globals": ["UnitDefs"],
 	"makefile.configureOnOpen": false,
-	"stylua.targetReleaseVersion": "latest"
+	"stylua.targetReleaseVersion": "latest",
+	"editor.formatOnSaveMode": "modificationsIfAvailable"
 }

@@ -7,6 +7,7 @@
 install [scoop](https://github.com/ScoopInstaller/Scoop?tab=readme-ov-file#installation)
 
 ```cmd
+if (-not (Test-Path -Path $PROFILE)) { New-Item -Type File -Path $PROFILE -Force }; Add-Content -Path $PROFILE -Value 'Invoke-Expression "$(vfox activate pwsh)"'
 scoop install vfox make
 ```
 

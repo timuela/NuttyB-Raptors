@@ -1,7 +1,8 @@
 {
 	"recommendations": [
-		"trixnz.vscode-lua",
 		"esbenp.prettier-vscode",
-		"Vue.volar"
+		"Vue.volar",
+		"shardulm94.trailing-spaces",
+		"johnnymorganz.stylua",
 	]
 }
