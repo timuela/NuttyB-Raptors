@@ -1,4 +1,4 @@
--- Raptor Build v1.1 [Skrip]
+-- Raptor Build 1.1 Skrip
 -- Constructors can be built from the t1 factories
 -- Toggle to allow commanders to build raptor buildings.
 local includeCommanders = false
@@ -130,29 +130,30 @@ function selectUnits(prefixes)
 end
 
 -- Adds selected units to a buildings buildoptions
-function addUnitsToBuilding(bldID, unitInput, category)
-	if unitDefs[bldID] then
-		unitDefs[bldID].buildoptions = unitDefs[bldID].buildoptions or {}
+function addUnitsToBuilding(buildingName, unitInput, category)
+	if not unitDefs[buildingName] then
+		return
+	end
+	unitDefs[buildingName].buildoptions = unitDefs[buildingName].buildoptions or {}
 
-		if type(unitInput) == 'table' then
-			for _, unitInfo in pairs(unitInput) do
-				-- Check if table is {name=...} (from selectUnits), or simple list
-				local unitName = unitInfo.name or unitInfo
-				table.insert(unitDefs[bldID].buildoptions, unitName)
-				Spring.Echo('Added ' .. unitName .. ' to ' .. bldID)
+	if type(unitInput) == 'table' then
+		for _, unitInfo in pairs(unitInput) do
+			-- Check if table is {name=...} (from selectUnits), or simple list
+			local unitName = unitInfo.name or unitInfo
+			table.insert(unitDefs[buildingName].buildoptions, unitName)
+			Spring.Echo('Added ' .. unitName .. ' to ' .. buildingName)
 
-				-- Category assignment (optional)
-				if category and unitDefs[unitName] then
-					unitDefs[unitName].customparams = unitDefs[unitName].customparams or {}
-					unitDefs[unitName].customparams.unitgroup = category
-					Spring.Echo('Set unitgroup for ' .. unitName .. ' to ' .. category)
-				end
+			-- Category assignment (optional)
+			if category and unitDefs[unitName] then
+				unitDefs[unitName].customparams = unitDefs[unitName].customparams or {}
+				unitDefs[unitName].customparams.unitgroup = category
+				Spring.Echo('Set unitgroup for ' .. unitName .. ' to ' .. category)
 			end
-		elseif type(unitInput) == 'string' then
-			-- Single unit string
-			table.insert(unitDefs[bldID].buildoptions, unitInput)
-			Spring.Echo('Added ' .. unitInput .. ' to ' .. bldID)
 		end
+	elseif type(unitInput) == 'string' then
+		-- Single unit string
+		table.insert(unitDefs[buildingName].buildoptions, unitInput)
+		Spring.Echo('Added ' .. unitInput .. ' to ' .. buildingName)
 	end
 end
 
@@ -277,3 +278,9 @@ addUnitsToBuilding('sk_raptorairbuilder', selectBestUnits({ 'raptor_turret_' }),
 
 -- Add the Raptor Builder to Vehicle Factory
 addUnitsToBuilding('armap', 'sk_raptorairbuilder')
+addUnitsToBuilding('corvp', 'sk_raptorbuilder')
+addUnitsToBuilding('corlab', 'sk_raptorbuilder')
+addUnitsToBuilding('legvp', 'sk_raptorbuilder')
+addUnitsToBuilding('leglab', 'sk_raptorbuilder')
+addUnitsToBuilding('corap', 'sk_raptorairbuilder')
+addUnitsToBuilding('legap', 'sk_raptorairbuilder')
