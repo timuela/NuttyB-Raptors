@@ -396,8 +396,7 @@ return {
 			[50] = 'legperdition',
 			[51] = 'legsilo',
 			[52] = 'legsrailt4',
-			[53] = 'legelrpcmech',
-			[54] = 'legnanotcbase'
+			[53] = 'legelrpcmech'
 		},
 		weapondefs = {
 			armcomlaser = {
@@ -484,7 +483,8 @@ return {
 		weapons = {
 			[1] = {
 				def = 'armcomlaser',
-				onlytargetcategory = 'NOTSUB'
+				onlytargetcategory = 'NOTSUB',
+				fastautoretargeting = true
 			},
 			[3] = {
 				def = 'shotgun',
@@ -538,8 +538,7 @@ return {
 			[50] = 'legperdition',
 			[51] = 'legsilo',
 			[52] = 'legsrailt4',
-			[53] = 'legelrpcmech',
-			[54] = 'legnanotcbase'
+			[53] = 'legelrpcmech'
 		},
 		featuredefs = {
 			dead = {
@@ -591,52 +590,51 @@ return {
 					subs = 5
 				}
 			},
-			commando_stunner = {
-				commandfire = true,
-				areaofeffect = 12,
+			shotgun = {
+				areaofeffect = 75,
+				energypershot = 0,
 				avoidfeature = false,
-				beamdecay = 0.5,
-				beamtime = 0.4,
-				beamttl = 0.2,
-				collideenemy = false,
-				collidefriendly = false,
-				collidefeature = false,
-				corethickness = 0.5,
-				craterareaofeffect = 0,
 				craterboost = 0,
 				cratermult = 0,
-				duration = 0.1,
-				edgeeffectiveness = 1,
-				explosiongenerator = 'custom:laserhit-emp',
-				impulsefactor = 0,
-				laserflaresize = 4,
-				name = 'Close-quarters Scattergun',
+				cameraShake = 0,
+				edgeeffectiveness = 0.65,
+				explosiongenerator = 'custom:genericshellexplosion-small',
+				impulseboost = 0.2,
+				impulsefactor = 0.2,
+				intensity = 3,
+				name = '60 Gauge Raptor Popper',
 				noselfdamage = true,
-				paralyzer = false,
-				paralyzetime = 7,
-				projectiles = 20,
-				range = 500,
-				reloadtime = 2.2,
-				rgbcolor = '0.7 0.7 1',
-				sprayangle = 8000,
-				soundhitdry = 'flashemgxlhit',
-				soundhitwet = 'sizzle',
-				soundstart = 'lasfirerb',
-				soundtrigger = 1,
-				targetborder = 1,
-				thickness = 8,
+				predictboost = 1,
+				projectiles = 9,
+				range = 550,
+				reloadtime = 1,
+				rgbcolor = '1 0.75 0.25',
+				size = 5,
+				soundhit = 'xplomed2xs',
+				soundhitwet = 'splsmed',
+				soundstart = 'kroggie2xs',
+				soundstartvolume = 12,
+				sprayangle = 3000,
 				turret = true,
-				weapontype = 'BeamLaser',
-				weaponvelocity = 800,
+				commandfire = true,
+				weapontimer = 1,
+				weapontype = 'Cannon',
+				weaponvelocity = 600,
+				stockpile = true,
+				stockpiletime = 4,
+				customparams = {
+					stockpilelimit = 20
+				},
 				damage = {
-					default = 5000
+					default = 4400,
+					commanders = 0
 				}
 			},
 			corcomeyelaser = {
 				areaofeffect = 16,
 				avoidfeature = false,
 				beamtime = 0.20,
-				corethickness = 0.575,
+				corethickness = 0.475,
 				craterareaofeffect = 0,
 				craterboost = 0,
 				cratermult = 0,
@@ -646,7 +644,7 @@ return {
 				firestarter = 100,
 				impactonly = 1,
 				impulsefactor = 0,
-				laserflaresize = 5,
+				laserflaresize = 2,
 				name = 'Eye laser',
 				noselfdamage = true,
 				proximitypriority = 1,
@@ -657,7 +655,7 @@ return {
 				soundhitwet = 'sizzle',
 				soundstart = 'beamershot2',
 				soundtrigger = 1,
-				thickness = 12,
+				thickness = 8,
 				tolerance = 10000,
 				turret = true,
 				weapontype = 'BeamLaser',
@@ -675,7 +673,7 @@ return {
 				fastautoretargeting = true
 			},
 			[3] = {
-				def = 'commando_stunner',
+				def = 'shotgun',
 				onlytargetcategory = 'WEAPON'
 			},
 			[5] = {

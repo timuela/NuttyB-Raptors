@@ -342,8 +342,7 @@ return {
 			'armsnipe',
 			'armvang',
 			'armrectr',
-			'armgatet3',
-			'armrespawn'
+			'armgatet3'
 		},
 		customparams = {
 			evolution_announcement = 'Arm Commanders upgraded',
@@ -445,7 +444,8 @@ return {
 			[5] = {
 				badtargetcategory = 'MOBILE',
 				def = 'armcomlaser',
-				onlytargetcategory = 'NOTSUB'
+				onlytargetcategory = 'NOTSUB',
+				fastautoretargeting = true
 			},
 			[3] = {
 				def = 'old_armsnipe_weapon',
@@ -523,8 +523,7 @@ return {
 			'armsnipe',
 			'armvang',
 			'armrectr',
-			'armgatet3',
-			'armrespawn'
+			'armgatet3'
 		},
 		customparams = {
 			wtboostunittype = '',
@@ -658,7 +657,8 @@ return {
 			[5] = {
 				badtargetcategory = 'MOBILE',
 				def = 'armcomlaser',
-				onlytargetcategory = 'NOTSUB'
+				onlytargetcategory = 'NOTSUB',
+				fastautoretargeting = true
 			},
 			[3] = {
 				def = 'old_armsnipe_weapon',

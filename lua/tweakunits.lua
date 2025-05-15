@@ -5,13 +5,13 @@ return {
 	cortron = {
 		energycost = 42000,
 		metalcost = 3600,
-		buildtime = 120000,
+		buildtime = 110000,
 		health = 12000,
 		weapondefs = {
 			cortron_weapon = {
 				energypershot = 51000,
 				metalpershot = 600,
-				range = 3650,
+				range = 4050,
 				damage = {
 					default = 9000
 				}
@@ -46,13 +46,15 @@ return {
 		sightdistance = 3100,
 		radardistance = 4080,
 		cruisealtitude = 3300,
-		energyupkeep = 1250
+		energyupkeep = 1250,
+		category = "OBJECT"
 	},
 	armsat = {
 		sightdistance = 3100,
 		radardistance = 4080,
 		cruisealtitude = 3300,
-		energyupkeep = 1250
+		energyupkeep = 1250,
+		category = "OBJECT"
 	},
 	legstarfall = {
 		weapondefs = {
@@ -87,6 +89,8 @@ return {
 			armflak_gun = {
 				collidefriendly = 0,
 				collidefeature = 0,
+				avoidfeature = 0,
+				avoidfriendly = 0,
 				range = 1050,
 				reloadtime = 0.475
 			}
@@ -119,6 +123,8 @@ return {
 			armflak_gun = {
 				collidefriendly = 0,
 				collidefeature = 0,
+				avoidfeature = 0,
+				avoidfriendly = 0,
 				areaofeffect = 52,
 				range = 1350,
 				reloadtime = 0.55
@@ -148,9 +154,6 @@ return {
 	},
 	armmercury = {
 		airsightdistance = 2200,
-		customparams = {
-			stockpilelimit = 30
-		},
 		weapondefs = {
 			arm_advsam = {
 				areaofeffect = 500,
@@ -159,22 +162,22 @@ return {
 				flighttime = 1.5,
 				metalpershot = 6,
 				name = 'Mid-range, rapid-fire g2a guided missile launcher',
-				range = 2000,
+				range = 2500,
 				reloadtime = 0.8,
 				smoketrail = false,
 				startvelocity = 1500,
 				stockpile = true,
-				stockpiletime = 5,
+				stockpiletime = 4,
 				weaponacceleration = 1000,
-				weaponvelocity = 4000
+				weaponvelocity = 4000,
+				customparams = {
+					stockpilelimit = 30
+				},
 			}
 		}
 	},
 	corscreamer = {
 		airsightdistance = 2800,
-		customparams = {
-			stockpilelimit = 25
-		},
 		weapondefs = {
 			cor_advsam = {
 				areaofeffect = 800,
@@ -183,34 +186,31 @@ return {
 				flighttime = 1,
 				metalpershot = 10,
 				name = 'Long-range g2a guided heavy flak missile launcher',
-				range = 2600,
+				range = 2800,
 				reloadtime = 1.4,
 				smoketrail = false,
 				startvelocity = 4000,
 				stockpile = true,
-				stockpiletime = 7,
+				stockpiletime = 4,
 				weaponacceleration = 1000,
-				weaponvelocity = 8000
+				weaponvelocity = 8000,
+				customparams = {
+					stockpilelimit = 25
+				},
 			}
 		}
 	},
 	armassistdrone = {
-		energycost = 2000,
-		metalcost = 100,
 		buildoptions = {
 			[31] = 'armclaw'
 		}
 	},
 	corassistdrone = {
-		energycost = 2000,
-		metalcost = 100,
 		buildoptions = {
 			[32] = 'cormaw'
 		}
 	},
 	legassistdrone = {
-		energycost = 2000,
-		metalcost = 100,
 		buildoptions = {
 			[31] = 'legdtf',
 			[32] = 'legdtl',
@@ -220,13 +220,13 @@ return {
 	raptor_hive = {
 		weapondefs = {
 			antiground = {
-				burst = 9,
+				burst = 10,
 				burstrate = 0.01,
 				cegtag = 'arty-heavy-purple',
 				explosiongenerator = 'custom:dirt',
 				model = 'Raptors/s_raptor_white.s3o',
-				range = 1500,
-				reloadtime = 7,
+				range = 1600,
+				reloadtime = 10,
 				rgbcolor = '0.5 0 1',
 				soundhit = 'smallraptorattack',
 				soundstart = 'bugarty',
@@ -235,7 +235,7 @@ return {
 				proximitypriority = '',
 				damage = {
 					default = 1,
-					shields = 200
+					shields = 100
 				},
 				customparams = {
 					spawns_name = 'raptor_land_swarmer_basic_t1_v1',
@@ -260,12 +260,12 @@ return {
 		}
 	},
 	armlwall = {
-		energycost = 21000,
-		metalcost = 1250,
+		energycost = 25000,
+		metalcost = 1300,
 		weapondefs = {
 			lightning = {
-				energypershot = 150,
-				range = 425
+				energypershot = 200,
+				range = 430
 			}
 		}
 	},
@@ -353,32 +353,47 @@ return {
 	},
 	armrespawn = {
 		blocking = false,
-		maxthisunit = 1,
 		canresurrect = true
 	},
 	legnanotcbase = {
 		blocking = false,
-		maxthisunit = 1,
 		canresurrect = true
 	},
 	correspawn = {
 		blocking = false,
-		maxthisunit = 1,
 		canresurrect = true
 	},
 	legrwall = {
-		energycost = 20000
+		collisionvolumeoffsets = "0 -3 0",
+		collisionvolumescales = "32 50 32",
+		collisionvolumetype = "CylY",
+		energycost = 21000,
+		metalcost = 1400,
+		weapondefs = {
+			railgunt2 = {
+				range = 850,
+				damage = {
+					default = 1900,
+				}
+			}
+		}
+	},
+	legbastion = {
+		collidefriendly = 0,
+		collidefeature = 0,
+		avoidfeature = 0,
+		avoidfriendly = 0,
 	},
 	cormwall = {
 		energycost = 18000,
-		metalcost = 1250,
+		metalcost = 1350,
 		weapondefs = {
 			exp_heavyrocket = {
 				areaofeffect = 70,
 				collidefriendly = 0,
 				collidefeature = 0,
 				cameraShake = 0,
-				energypershot = 75,
+				energypershot = 125,
 				avoidfeature = 0,
 				avoidfriendly = 0,
 				burst = 1,
@@ -459,30 +474,30 @@ return {
 	corhllllt = {
 		collisionvolumeoffsets = '0 -24 0',
 		collisionvolumescales = '30 51 30',
-		metalcost = 350,
-		energycost = 8000,
-		health = 2070,
+		metalcost = 400,
+		energycost = 8500,
+		health = 2370,
 		weapondefs = {
 			hllt_1 = {
-				energypershot = 10,
+				energypershot = 15,
 				damage = {
 					default = 70
 				}
 			},
 			hllt_2 = {
-				energypershot = 10,
+				energypershot = 15,
 				damage = {
 					default = 70
 				}
 			},
 			hllt_3 = {
-				energypershot = 10,
+				energypershot = 15,
 				damage = {
 					default = 70
 				}
 			},
 			hllt_4 = {
-				energypershot = 10,
+				energypershot = 15,
 				damage = {
 					default = 70
 				}
@@ -499,10 +514,10 @@ return {
 		weapondefs = {
 			ARMBRTHA_MAIN = {
 				areaofeffect = 50,
-				avoidFriendly = false,
-				avoidFeature = false,
-				collideFriendly = false,
-				collideFeature = true,
+				collidefriendly = 0,
+				collidefeature = 0,
+				avoidfeature = 0,
+				avoidfriendly = 0,
 				beamtime = 2.5,
 				corethickness = 0.1,
 				craterareaofeffect = 90,
@@ -523,9 +538,9 @@ return {
 				reloadtime = 12,
 				rgbcolor = '0.4 0.2 0.6',
 				scrollspeed = 13,
-				soundhitdry = '',
-				soundhitwet = 'sizzle',
-				soundstart = 'annigun1',
+				soundhitdry = "",
+				soundhitwet = "sizzle",
+				soundstart = "hackshotxl3",
 				soundtrigger = 1,
 				targetmoveerror = 0.3,
 				texture3 = 'largebeam',
@@ -561,10 +576,10 @@ return {
 		weapondefs = {
 			CORINT_MAIN = {
 				areaofeffect = 50,
-				avoidFriendly = false,
-				avoidFeature = false,
-				collideFriendly = false,
-				collideFeature = true,
+				collidefriendly = 0,
+				collidefeature = 0,
+				avoidfeature = 0,
+				avoidfriendly = 0,
 				beamtime = 2.5,
 				corethickness = 0.1,
 				craterareaofeffect = 90,
@@ -581,7 +596,7 @@ return {
 				laserflaresize = 1,
 				name = 'Mini DeathStar',
 				noselfdamage = true,
-				range = 3000,
+				range = 3300,
 				reloadtime = 15,
 				rgbcolor = '0 1 0',
 				scrollspeed = 13,
@@ -622,11 +637,11 @@ return {
 		footprintz = 6,
 		weapondefs = {
 			LEGLRPC_MAIN = {
-				areaofeffect = 50,
-				avoidFriendly = false,
-				avoidFeature = false,
-				collideFriendly = false,
-				collideFeature = true,
+				areaofeffect = 70,
+				collidefriendly = 0,
+				collidefeature = 0,
+				avoidfeature = 0,
+				avoidfriendly = 0,
 				beamtime = 0.5,
 				burst = 3,
 				burstrate = 0.4,
@@ -656,7 +671,7 @@ return {
 				soundtrigger = 1,
 				targetmoveerror = 0.3,
 				texture3 = 'largebeam',
-				thickness = 14,
+				thickness = 12,
 				tilelength = 150,
 				tolerance = 10000,
 				turret = true,

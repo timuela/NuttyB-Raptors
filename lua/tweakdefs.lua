@@ -273,16 +273,13 @@ for _, toChangeName in pairs(bombers) do
 	end
 end
 
-local transportable = {
-	cantbetransported = false,
-	footprintx = 4,
-	footprintz = 4,
-	customparams = {
-		paratrooper = true,
-		fall_damage_multiplier = 0
-	}
-}
-
-for _, unit in pairs({'armrespawn', 'correspawn', 'legnanotcbase'}) do
-	table.mergeInPlace(unit, transportable)
+local units = {'armrespawn', 'correspawn', 'legnanotcbase'}
+for _, name in ipairs(units) do
+    local u = UnitDefs[name]
+    if u then
+        u.cantbetransported, u.footprintx, u.footprintz = false, 4, 4
+        u.customparams = u.customparams or {}
+        u.customparams.paratrooper = true
+        u.customparams.fall_damage_multiplier = 0
+    end
 end

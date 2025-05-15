@@ -207,6 +207,7 @@ for _, faction in pairs(factions) do
 			maxthisunit = 1,
 			metalcost = 13400,
 			speed = 25,
+			category = "OBJECT",
 			terraformspeed = 3000,
 			turninplaceanglelimit = 1.890,
 			turnrate = 1240,

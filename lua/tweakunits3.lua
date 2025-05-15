@@ -258,8 +258,7 @@ return {
 			[43] = 'corhllllt',
 			[44] = 'cormaw',
 			[45] = 'cormwall',
-			[46] = 'corgatet3',
-			[47] = 'correspawn'
+			[46] = 'corgatet3'
 		},
 		customparams = {
 			evolution_announcement = 'Cor Commanders upgraded',
@@ -417,8 +416,7 @@ return {
 			[43] = 'corhllllt',
 			[44] = 'cormaw',
 			[45] = 'cormwall',
-			[46] = 'corgatet3',
-			[47] = 'correspawn'
+			[46] = 'corgatet3'
 		},
 		customparams = {
 			shield_power = 500,
