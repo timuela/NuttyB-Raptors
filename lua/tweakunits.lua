@@ -24,9 +24,6 @@ return {
 	armfort = {
 		repairable = true
 	},
-	corscavfort = {
-		repairable = true
-	},
 	legforti = {
 		repairable = true
 	},
@@ -371,18 +368,12 @@ return {
 		metalcost = 1400,
 		weapondefs = {
 			railgunt2 = {
-				range = 850,
+				range = 750,
 				damage = {
 					default = 1900,
 				}
 			}
 		}
-	},
-	legbastion = {
-		collidefriendly = 0,
-		collidefeature = 0,
-		avoidfeature = 0,
-		avoidfriendly = 0,
 	},
 	cormwall = {
 		energycost = 18000,
@@ -474,35 +465,10 @@ return {
 	corhllllt = {
 		collisionvolumeoffsets = '0 -24 0',
 		collisionvolumescales = '30 51 30',
-		metalcost = 400,
-		energycost = 8500,
-		health = 2370,
-		weapondefs = {
-			hllt_1 = {
-				energypershot = 15,
-				damage = {
-					default = 70
-				}
-			},
-			hllt_2 = {
-				energypershot = 15,
-				damage = {
-					default = 70
-				}
-			},
-			hllt_3 = {
-				energypershot = 15,
-				damage = {
-					default = 70
-				}
-			},
-			hllt_4 = {
-				energypershot = 15,
-				damage = {
-					default = 70
-				}
-			}
-		}
+		metalcost = 415,
+		energycost = 9500,
+		buildtime = 10000,
+		health = 2115,
 	},
 	armbrtha = {
 		explodeas = 'fusionExplosion',
@@ -532,6 +498,7 @@ return {
 				impulsefactor = 0,
 				largebeamlaser = true,
 				laserflaresize = 1,
+				impactonly = 1,
 				name = 'Experimental Duction Beam',
 				noselfdamage = true,
 				range = 2700,
@@ -594,6 +561,7 @@ return {
 				impulsefactor = 0,
 				largebeamlaser = true,
 				laserflaresize = 1,
+				impactonly = 1,
 				name = 'Mini DeathStar',
 				noselfdamage = true,
 				range = 3300,

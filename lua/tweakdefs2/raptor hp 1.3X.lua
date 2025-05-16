@@ -14,7 +14,6 @@ for f, g in pairs(UnitDefs) do
 			not f:match('^raptor_queen_.*')
 	 then
 		g.health = 1.3 * g.health
-		g.nochasecategory = "OBJECT"
 	end
 end
 
@@ -25,6 +24,7 @@ function UnitDef_Post(i, j)
 		if k.customparams and k.customparams.subfolder and k.customparams.subfolder == 'other/raptors' then
 			if k then
 				k.metalcost = math.floor(k.metalcost)
+				k.nochasecategory = "OBJECT"
 			end
 		end
 	end
