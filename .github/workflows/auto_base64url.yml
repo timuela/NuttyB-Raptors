@@ -1,5 +1,8 @@
 name: Encode Lua to Base64URL
 
+permissions:
+  contents: write
+
 on:
   push:
     branches:
