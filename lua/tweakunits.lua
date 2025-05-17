@@ -73,7 +73,7 @@ return {
 				avoidfriendly = 0,
 				range = 1100,
 				reloadtime = 0.475,
-				intensity = 0.18
+				weaponvelocity = 2400,
 			}
 		}
 	},
@@ -107,7 +107,7 @@ return {
 				areaofeffect = 52,
 				range = 1350,
 				reloadtime = 0.55,
-				intensity = 0.18
+				weaponvelocity = 2400,
 			}
 		}
 	},
@@ -145,7 +145,6 @@ return {
 				burst = 4,
 				range = 1050,
 				reloadtime = 0.166,
-				intensity = 0.18
 			}
 		}
 	},
