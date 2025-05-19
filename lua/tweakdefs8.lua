@@ -245,14 +245,3 @@ for _, faction in pairs(factions) do
 		end
 	end
 end
-
-	-- Prevent Unitlimit Abuse
-if UnitDefs then
-    local units = {
-        "armapt3", "corapt3", "legapt3",
-        "leggant", "armshltx", "corgant"
-    }
-    for _, unit in ipairs(units) do
-        UnitDefs[unit].maxthisunit = 1
-    end
-end
