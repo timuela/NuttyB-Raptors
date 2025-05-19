@@ -71,25 +71,10 @@ return {
 				collidefeature = 0,
 				avoidfeature = 0,
 				avoidfriendly = 0,
-				range = 1100,
+				areaofeffect = 150,
+				range = 1150,
 				reloadtime = 0.475,
 				weaponvelocity = 2400,
-			}
-		}
-	},
-	armfflak = {
-		airsightdistance = 1350,
-		energycost = 30000,
-		metalcost = 1500,
-		health = 4000,
-		weapondefs = {
-			armflak_gun = {
-				collidefriendly = 0,
-				collidefeature = 0,
-				avoidfeature = 0,
-				avoidfriendly = 0,
-				range = 1050,
-				reloadtime = 0.475
 			}
 		}
 	},
@@ -104,27 +89,10 @@ return {
 				collidefeature = 0,
 				avoidfeature = 0,
 				avoidfriendly = 0,
-				areaofeffect = 52,
+				areaofeffect = 200,
 				range = 1350,
-				reloadtime = 0.55,
-				weaponvelocity = 2400,
-			}
-		}
-	},
-	corenaa = {
-		airsightdistance = 1350,
-		energycost = 30000,
-		metalcost = 1500,
-		health = 4000,
-		weapondefs = {
-			armflak_gun = {
-				collidefriendly = 0,
-				collidefeature = 0,
-				avoidfeature = 0,
-				avoidfriendly = 0,
-				areaofeffect = 52,
-				range = 1350,
-				reloadtime = 0.55
+				reloadtime = 0.56,
+				weaponvelocity = 2100
 			}
 		}
 	},
@@ -144,7 +112,6 @@ return {
 				areaofeffect = 100,
 				burst = 4,
 				range = 1050,
-				reloadtime = 0.166,
 			}
 		}
 	},
@@ -269,7 +236,7 @@ return {
 		collisionvolumeoffsets = '0 -2 0',
 		collisionvolumescales = '30 51 30',
 		collisionvolumetype = 'Ell',
-		usepiececollisionvolumes = false,
+		usepiececollisionvolumes = 0,
 		weapondefs = {
 			dclaw = {
 				energypershot = 60
@@ -322,7 +289,7 @@ return {
 	legdtr = {
 		buildtime = 5250,
 		energycost = 5500,
-		metalcost = 425,
+		metalcost = 400,
 		collisionvolumeoffsets = '0 -10 0',
 		collisionvolumescales = '39 88 39',
 		collisionvolumetype = 'Ell',
@@ -334,7 +301,7 @@ return {
 				collidefriendly = false,
 				cegtag = 'railgun',
 				range = 650,
-				energypershot = 50,
+				energypershot = 75,
 				explosiongenerator = 'custom:plasmahit-sparkonly',
 				rgbcolor = '0.34 0.64 0.94',
 				soundhit = 'mavgun3',
@@ -367,10 +334,18 @@ return {
 		metalcost = 1400,
 		weapondefs = {
 			railgunt2 = {
-				range = 750,
+				range = 725,
+				reloadtime = 3,
+				energypershot = 200,
 				damage = {
-					default = 1900,
+					default = 1500,
 				}
+			}
+		},
+		weapons = {
+			[1] = {
+				def = "railgunt2",
+				onlytargetcategory = "SURFACE",
 			}
 		}
 	},
