@@ -75,6 +75,7 @@ return {
 				range = 1150,
 				reloadtime = 0.475,
 				weaponvelocity = 2400,
+				intensity = 0.18,
 			}
 		}
 	},
@@ -92,7 +93,8 @@ return {
 				areaofeffect = 200,
 				range = 1350,
 				reloadtime = 0.56,
-				weaponvelocity = 2100
+				weaponvelocity = 2100,
+				intensity = 0.18,
 			}
 		}
 	},
@@ -112,6 +114,7 @@ return {
 				areaofeffect = 100,
 				burst = 4,
 				range = 1050,
+				intensity = 0.18,
 			}
 		}
 	},
