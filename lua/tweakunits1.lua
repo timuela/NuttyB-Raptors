@@ -99,6 +99,7 @@ return {
 		metalmake = 15,
 		speed = 57.5,
 		autoheal = 100,
+		health = 6700,
 		customparams = {
 			combatradius = 0,
 			evolution_timer = 600,
@@ -220,6 +221,7 @@ return {
 		speed = 70.5,
 		workertime = 700,
 		autoheal = 150,
+		health = 7500,
 		customparams = {
 			combatradius = 0,
 			evolution_timer = 420,
@@ -352,6 +354,7 @@ return {
 		speed = 88.5,
 		workertime = 1000,
 		autoheal = 180,
+		health = 24500,
 		customparams = {
 			combatradius = 0,
 			evolution_timer = 300,
@@ -501,6 +504,7 @@ return {
 		speed = 92,
 		workertime = 1500,
 		autoheal = 3500,
+		health = 41900,
 		buildoptions = {
 			[1] = 'legdeflector',
 			[2] = 'legfus',

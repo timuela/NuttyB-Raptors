@@ -330,6 +330,10 @@ return {
 		canresurrect = true
 	},
 	legrwall = {
+		collidefriendly = 0,
+		collidefeature = 0,
+		avoidfeature = 0,
+		avoidfriendly = 0,
 		collisionvolumeoffsets = "0 -3 0",
 		collisionvolumescales = "32 50 32",
 		collisionvolumetype = "CylY",
@@ -446,6 +450,34 @@ return {
 		energycost = 9500,
 		buildtime = 10000,
 		health = 2115,
+	},
+	corhlt = {
+		energycost = 5500,
+		metalcost = 520,
+		weapondefs = {
+			cor_laserh1 = {
+				range = 750,
+				reloadtime = 0.95,
+				damage = {
+					default = 395,
+					vtol = 35,
+				}
+			}
+		}
+	},
+	armhlt = {
+		energycost = 5700,
+		metalcost = 510,
+		weapondefs = {
+			arm_laserh1 = {
+				range = 750,
+				reloadtime = 1,
+				damage = {
+					default = 405,
+					vtol = 35,
+				}
+			}
+		}
 	},
 	armbrtha = {
 		explodeas = 'fusionExplosion',
