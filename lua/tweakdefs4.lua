@@ -1,286 +1,211 @@
--- Raptor Build 1.1 Skrip
--- Constructors can be built from the t1 factories
--- Toggle to allow commanders to build raptor buildings.
-local includeCommanders = false
+-- Mini-Bosses
+local a = UnitDefs or {}
+local b = table.merge
+local c = "raptor_matriarch_basic"
 
-local unitDefs = UnitDefs or {}
--- Maps faction prefix to their builder units
-local factionBuilders = {
-	arm = { 'armaca', 'armack', 'armacv', 'armcom' },
-	cor = { 'coraca', 'corack', 'coracv', 'corcom' },
-	leg = { 'legaca', 'legack', 'legacv', 'legcom' },
-}
-
--- Adds a building to the buildoptions of each builder in the faction
-function addBuildingToFaction(buildingID, factionKey, category)
-	local targetFactions = {}
-
-	if factionKey and factionBuilders[factionKey] then
-		targetFactions[factionKey] = factionBuilders[factionKey]
-	else
-		targetFactions = factionBuilders -- all factions
-	end
-
-	for _, builders in pairs(targetFactions) do
-		for _, builder in ipairs(builders) do
-			local isCommander = builder:match('com$')
-
-			-- Add to base builder
-			if (includeCommanders or not isCommander) and unitDefs[builder] then
-				unitDefs[builder].buildoptions = unitDefs[builder].buildoptions or {}
-				table.insert(unitDefs[builder].buildoptions, buildingID)
-				Spring.Echo('Added ' .. buildingID .. ' to ' .. builder)
-			end
-
-			-- Add to all commander levels
-			if includeCommanders and isCommander then
-				for lvl = 2, 10 do
-					local levelBuilder = builder .. 'lvl' .. lvl
-					if unitDefs[levelBuilder] then
-						unitDefs[levelBuilder].buildoptions = unitDefs[levelBuilder].buildoptions or {}
-						table.insert(unitDefs[levelBuilder].buildoptions, buildingID)
-						Spring.Echo('Added ' .. buildingID .. ' to ' .. levelBuilder)
-					end
-				end
-			end
-		end
-	end
-
-	if category and unitDefs[buildingID] then
-		unitDefs[buildingID].customparams = unitDefs[buildingID].customparams or {}
-		unitDefs[buildingID].customparams.unitgroup = category
-		Spring.Echo('Set unitgroup for ' .. buildingID .. ' to ' .. category)
+local function d(e, f, g)
+	if a[e] and not a[f] then
+		a[f] = b(a[e], g or {})
 	end
 end
 
--- Clones an existing building and creates a new one
-function cloneUnit(sourceUnitID, newUnitID, humanName, tooltip)
-	if unitDefs[sourceUnitID] and not unitDefs[newUnitID] then
-		local base = table.copy(unitDefs[sourceUnitID])
-		unitDefs[newUnitID] = base
-
-		local def = unitDefs[newUnitID]
-		def.unitname = newUnitID
-		def.buildoptions = {}
-
-		def.customparams = def.customparams or {}
-		def.customparams.i18n_en_humanname = humanName
-		def.customparams.i18n_en_tooltip = tooltip
-		def.customparams.unitgroup = 'builder'
-
-		def.buildpic = def.buildpic or 'factory.dds'
-
-		Spring.Echo('Cloned: ' .. newUnitID .. ' from ' .. sourceUnitID)
-	end
+local function h(i)
+	if type(i) ~= "table" then return i end
+	local j = {}
+	for k, l in pairs(i) do j[h(k)] = h(l) end
+	return setmetatable(j, h(getmetatable(i)))
 end
 
--- Picks highest version units given prefixes
-function selectBestUnits(prefixes, threshold, direction)
-	local bestUnits = {}
+local m = a[c].health
 
-	for unitName, _ in pairs(unitDefs) do
-		for _, prefix in ipairs(prefixes) do
-			if unitName:match('^' .. prefix) then
-				local metalCost = unitDefs[unitName].metalcost
-				local passesFilter = true
+d("raptor_queen_veryeasy", "raptor_miniq_a", {
+	name = "Queenling Prima",
+	icontype = "raptor_queen_veryeasy",
+	health = m * 5,
+	customparams = {
+		i18n_en_humanname = "Queenling Prima",
+		i18n_en_tooltip = "Majestic and bold, ruler of the hunt."
+	}
+})
 
-				if threshold and direction then
-					if direction == '>' then
-						passesFilter = metalCost > threshold
-					elseif direction == '<' then
-						passesFilter = metalCost < threshold
-					end
-				end
+d("raptor_queen_easy", "raptor_miniq_b", {
+	name = "Queenling Secunda",
+	icontype = "raptor_queen_easy",
+	health = m * 7,
+	customparams = {
+		i18n_en_humanname = "Queenling Secunda",
+		i18n_en_tooltip = "Swift and sharp, a noble among raptors."
+	}
+})
 
-				if passesFilter then
-					local baseName, version = unitName:match('^(.-)_v(%d+)$')
+d("raptor_queen_normal", "raptor_miniq_c", {
+	name = "Queenling Tertia",
+	icontype = "raptor_queen_normal",
+	health = m * 9,
+	customparams = {
+		i18n_en_humanname = "Queenling Tertia",
+		i18n_en_tooltip = "Refined tastes. Likes her prey rare."
+	}
+})
 
-					if baseName and version then
-						version = tonumber(version)
-						if not bestUnits[baseName] or version > bestUnits[baseName].version then
-							bestUnits[baseName] = { name = unitName, version = version }
-						end
-					else
-						if not bestUnits[unitName] then
-							bestUnits[unitName] = { name = unitName, version = 0 }
-						end
-					end
-				end
-			end
-		end
-	end
-
-	return bestUnits
+for n, l in ipairs {
+	{ "raptor_matriarch_basic", "raptor_mama_ba", "Matrona", "Claws charged with vengeance." },
+	{ "raptor_matriarch_fire", "raptor_mama_fi", "Pyro Matrona", "A firestorm of maternal wrath." },
+	{ "raptor_matriarch_electric", "raptor_mama_el", "Paralyzing Matrona", "Crackling with rage, ready to strike." },
+	{ "raptor_matriarch_acid", "raptor_mama_ac", "Acid Matrona", "Acid-fueled, melting everything in sight." }
+} do
+	d(l[1], l[2], {
+		name = l[3],
+		icontype = l[1],
+		health = m * 1.5,
+		customparams = {
+			i18n_en_humanname = l[3],
+			i18n_en_tooltip = l[4]
+		}
+	})
 end
 
-function selectUnits(prefixes)
-	local unitList = {}
+d("critter_penguinking", "raptor_consort", {
+	name = "Raptor Consort",
+	icontype = "corkorg",
+	health = m * 4,
+	mass = 100000,
+	sonarstealth = false,
+	stealth = false,
+	speed = 67.5,
+	customparams = {
+		i18n_en_humanname = "Raptor Consort",
+		i18n_en_tooltip = "Sneaky powerful little terror."
+	}
+})
 
-	for unitName, _ in pairs(unitDefs) do
-		for _, prefix in ipairs(prefixes) do
-			if unitName:match('^' .. prefix) then
-				if not unitList[unitName] then
-					unitList[unitName] = { name = unitName }
-				end
-			end
-		end
-	end
+a.raptor_consort.weapondefs.melee = h(a[c].weapondefs.melee)
 
-	return unitList
-end
-
--- Adds selected units to a buildings buildoptions
-function addUnitsToBuilding(buildingName, unitInput, category)
-	if not unitDefs[buildingName] then
-		return
-	end
-	unitDefs[buildingName].buildoptions = unitDefs[buildingName].buildoptions or {}
-
-	if type(unitInput) == 'table' then
-		for _, unitInfo in pairs(unitInput) do
-			-- Check if table is {name=...} (from selectUnits), or simple list
-			local unitName = unitInfo.name or unitInfo
-			table.insert(unitDefs[buildingName].buildoptions, unitName)
-			Spring.Echo('Added ' .. unitName .. ' to ' .. buildingName)
-
-			-- Category assignment (optional)
-			if category and unitDefs[unitName] then
-				unitDefs[unitName].customparams = unitDefs[unitName].customparams or {}
-				unitDefs[unitName].customparams.unitgroup = category
-				Spring.Echo('Set unitgroup for ' .. unitName .. ' to ' .. category)
-			end
-		end
-	elseif type(unitInput) == 'string' then
-		-- Single unit string
-		table.insert(unitDefs[buildingName].buildoptions, unitInput)
-		Spring.Echo('Added ' .. unitInput .. ' to ' .. buildingName)
-	end
-end
-
----------------------------------------------------------------
--- Correct unitdefs
----------------------------------------------------------------
-if unitDefs['raptor_turret_basic_t4_v1'] and unitDefs['raptor_turret_burrow_t2_v1'] then
-	local def = unitDefs['raptor_turret_burrow_t2_v1']
-
-	def.buildpic = 'raptors/raptor_turrets.DDS'
-	def.metalcost = (unitDefs['raptor_turret_basic_t4_v1'].metalcost * 2 or 1600)
-	def.energycost = (unitDefs['raptor_turret_basic_t4_v1'].energycost * 2 or 1600)
-end
-
----------------------------------------------------------------
--- Raptor Gantries Setup
----------------------------------------------------------------
---, "raptor_allterrain_", "raptor_matriarch_", "raptor_queen_"
--- Create Raptor Land Gantry t1
-cloneUnit('legvp', 'sk_raptorhatchery_t1', 'Raptor Hatchery', 'Specialized factory for land-based Raptor units')
-local bestLandUnits = selectBestUnits({ 'raptor_land_' }, 999, '<')
-addUnitsToBuilding('sk_raptorhatchery_t1', bestLandUnits)
--- addBuildingToFaction("sk_raptorhatchery", nil, "builder")
-
--- Create Raptor Land Gantry t2
-cloneUnit('leggant', 'sk_raptorhatchery_t2', 'Giant Raptor Hatchery', 'Specialized factory for land-based Raptor units')
-local bestLandUnits = selectBestUnits({ 'raptor_land_', 'raptor_allterrain_', 'raptor_matriarch_', 'raptor_queen_' }, 1000, '>')
-addUnitsToBuilding('sk_raptorhatchery_t2', bestLandUnits)
-
--- Create Raptor Air Gantry
-cloneUnit('legaap', 'sk_raptorairhatchery', 'Raptor Air Hatchery', 'Specialized factory for air-based Raptor units')
-local bestAirUnits = selectBestUnits({ 'raptor_air_' })
-addUnitsToBuilding('sk_raptorairhatchery', bestAirUnits)
--- addBuildingToFaction("sk_raptorairhatchery", nil, "builder")
-
--- -- Add buildings
--- addBuildingToFaction("raptor_turret_acid_t3_v1", nil, "weapon")
--- addBuildingToFaction("raptor_turret_acid_t4_v1", nil, "weapon")
--- addBuildingToFaction("raptor_turret_antiair_t3_v1", nil, "weapon")
--- addBuildingToFaction("raptor_turret_antiair_t4_v1", nil, "weapon")
--- addBuildingToFaction("raptor_turret_antinuke_t3_v1", nil, "weapon")
--- addBuildingToFaction("raptor_turret_antinuke_t4_v1", nil, "weapon")
--- addBuildingToFaction("raptor_turret_basic_t3_v1", nil, "weapon")
--- addBuildingToFaction("raptor_turret_basic_t4_v1", nil, "weapon")
--- addBuildingToFaction("raptor_turret_emp_t3_v1", nil, "weapon")
--- addBuildingToFaction("raptor_turret_emp_t4_v1", nil, "weapon")
--- addBuildingToFaction("raptor_turret_meteor_t3_v1", nil, "weapon")
--- addBuildingToFaction("raptor_turret_meteor_t4_v1", nil, "weapon")
-
--- Create raptor builder
-cloneUnit('armacv', 'sk_raptorbuilder', 'Raptor Construction Vehicle', 'Builds Raptor Hatcheries')
-
-if unitDefs['sk_raptorbuilder'] then
-	local def = unitDefs['sk_raptorbuilder']
-
-	-- Change model and visuals
-
-	--def.objectname = "Raptors/raptor1d.s3o"
-	-- def.script = "Raptors/raptor1d.cob"
-	def.buildpic = 'raptors/raptor1d.DDS'
-
-	-- -- Cost adjustments
-	-- def.energycost = 500
-	-- def.metalcost = 250
-	-- def.buildtime = 8000
-
-	-- -- Resource generation (optional)
-	-- def.energymake = 10
-	-- def.metalmake = 1
-
-	-- Clean up factory stuff
-	def.customparams.techlevel = 2
-	def.customparams.unitgroup = 'builder'
-
-	-- Wipe any old build options, set to only Hatcheries
-	def.buildoptions = {}
-	def.buildoptions = {
-		'sk_raptorhatchery_t1',
-		'sk_raptorhatchery_t2',
-		--, "sk_raptorairhatchery"
+local o = function(p, q, e, r, s, t)
+	return {
+		raptorcustomsquad = true,
+		raptorsquadunitsamount = s or 1,
+		raptorsquadminanger = p,
+		raptorsquadmaxanger = q,
+		raptorsquadweight = t or 1,
+		raptorsquadrarity = r or "basic",
+		raptorsquadbehavior = e,
+		raptorsquadbehaviordistance = 500,
+		raptorsquadbehaviorchance = 0.75
 	}
 end
 
-addUnitsToBuilding('sk_raptorbuilder', selectBestUnits({ 'raptor_turret_' }), 'weapon')
-
-addUnitsToBuilding('armvp', 'sk_raptorbuilder')
-addUnitsToBuilding('armlab', 'sk_raptorbuilder')
-
--- Create raptor builder
-cloneUnit('armaca', 'sk_raptorairbuilder', 'Raptor Air Construction Vehicle', 'Builds Raptor Air Hatcheries')
-
-if unitDefs['sk_raptorairbuilder'] then
-	local def = unitDefs['sk_raptorairbuilder']
-
-	-- Change model and visuals
-	--def.objectname = "Raptors/raptorairscout1.s3o"
-	-- def.script = "Raptors/raptorairscout.cob"
-	def.buildpic = 'raptors/raptorairscout.DDS'
-
-	-- -- Cost adjustments
-	-- def.energycost = 500
-	-- def.metalcost = 250
-	-- def.buildtime = 8000
-
-	-- -- Resource generation (optional)
-	-- def.energymake = 10
-	-- def.metalmake = 1
-
-	-- Clean up factory stuff
-	def.customparams.techlevel = 2
-	def.customparams.unitgroup = 'builder'
-
-	-- Wipe any old build options, set to only Hatcheries
-	def.buildoptions = {}
-	def.buildoptions = {
-		--"sk_raptorhatchery"
-		'sk_raptorairhatchery',
+for f, u in pairs {
+	corcomlvl4 = {
+		weapondefs = {
+			disintegratorxl = {
+				damage = {
+					commanders = 0,
+					default = 99999,
+					scavboss = 1000,
+					raptorqueen = 20000
+				}
+			}
+		}
+	},
+	raptor_miniq_a = {
+		selfdestructas = "customfusionexplo",
+		explodeas = "customfusionexplo",
+		maxthisunit = 4,
+		customparams = o(70, 80, "berserk"),
+		weapondefs = {
+			goo = { damage = { default = 750 } },
+			melee = { damage = { default = 4000 } },
+			yellow_missile = { damage = { default = 1, vtol = 1000 } }
+		}
+	},
+	raptor_miniq_b = {
+		selfdestructas = "customfusionexplo",
+		explodeas = "customfusionexplo",
+		maxthisunit = 4,
+		customparams = o(85, 95, "berserk"),
+		weapondefs = {
+			goo = { damage = { default = 1500 } },
+			melee = { damage = { default = 7000 } },
+			yellow_missile = { damage = { default = 1, vtol = 1000 } }
+		}
+	},
+	raptor_miniq_c = {
+		selfdestructas = "customfusionexplo",
+		explodeas = "customfusionexplo",
+		maxthisunit = 4,
+		customparams = o(100, 125, "berserk"),
+		weapondefs = {
+			goo = { damage = { default = 3000 } },
+			melee = { damage = { default = 10000 } },
+			yellow_missile = { damage = { default = 1, vtol = 1000 } }
+		}
+	},
+	raptor_consort = {
+		explodeas = "raptor_empdeath_big",
+		maxthisunit = 8,
+		customparams = o(85, 1000, "berserk"),
+		weapondefs = {
+			eyelaser = {
+				range = 800,
+				reloadtime = 2,
+				damage = {
+					commanders = 6000,
+					default = 6000
+				}
+			},
+			melee = {
+				name = "Royal Beak Attack",
+				range = 300,
+				soundstart = "pensquawk1",
+				damage = { default = 1000 }
+			}
+		},
+		weapons = {
+			[2] = {
+				def = "melee",
+				maindir = "0 0 1",
+				maxangledif = 155
+			}
+		}
+	},
+	raptor_mama_ba = {
+		maxthisunit = 4,
+		customparams = o(55, 84, "berserk"),
+		weapondefs = {
+			goo = { damage = { default = 750 } },
+			melee = { damage = { default = 750 } }
+		}
+	},
+	raptor_mama_fi = {
+		explodeas = "raptor_empdeath_big",
+		maxthisunit = 4,
+		customparams = o(55, 84, "berserk"),
+		weapondefs = {
+			flamethrowerspike = { damage = { default = 120 } },
+			flamethrowermain = { damage = { default = 240 } }
+		}
+	},
+	raptor_mama_el = {
+		maxthisunit = 4,
+		customparams = o(60, 1000, "berserk")
+	},
+	raptor_mama_ac = {
+		maxthisunit = 4,
+		customparams = o(65, 1000, "berserk"),
+		weapondefs = {
+			melee = { damage = { default = 750 } }
+		}
+	},
+	raptor_land_assault_basic_t4_v2 = {
+		maxthisunit = 8,
+		customparams = o(33, 50, "raider")
+	},
+	raptor_land_assault_basic_t4_v1 = {
+		maxthisunit = 16,
+		customparams = o(51, 69, "raider", "basic", 2)
 	}
+} do
+	a[f] = a[f] or {}
+	table.mergeInPlace(a[f], u, true)
 end
-
-addUnitsToBuilding('sk_raptorairbuilder', selectBestUnits({ 'raptor_turret_' }), 'weapon')
-
--- Add the Raptor Builder to Vehicle Factory
-addUnitsToBuilding('armap', 'sk_raptorairbuilder')
-addUnitsToBuilding('corvp', 'sk_raptorbuilder')
-addUnitsToBuilding('corlab', 'sk_raptorbuilder')
-addUnitsToBuilding('legvp', 'sk_raptorbuilder')
-addUnitsToBuilding('leglab', 'sk_raptorbuilder')
-addUnitsToBuilding('corap', 'sk_raptorairbuilder')
-addUnitsToBuilding('legap', 'sk_raptorairbuilder')
