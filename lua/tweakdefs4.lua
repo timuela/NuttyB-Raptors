@@ -1,12 +1,12 @@
--- Mini-Bosses
+--Mini-Bosses
 -- Authors: RCore
 -- docs.google.com/spreadsheets/d/1QSVsuAAMhBrhiZdTihVfSCwPzbbZWDLCtXWP23CU0ko
-local unitDefs, tableMerge, tableCopy, raptor_matriarch_basic, customfusionexplo = UnitDefs or {}, table.merge, table.copy, 'raptor_matriarch_basic', 'customfusionexplo'
+local unitDefs, tableMerge, tableCopy, raptor_matriarch_basic, customfusionexplo, spring = UnitDefs or {}, table.merge, table.copy, 'raptor_matriarch_basic', 'customfusionexplo', Spring
 
 -- Player scaling setup
 local playerCountScale = 1
-if Spring.Utilities.Gametype.IsRaptors() then
-	playerCountScale = (#Spring.GetTeamList() - 2)/12
+if spring.Utilities.Gametype.IsRaptors() then
+	playerCountScale = (#spring.GetTeamList() - 2)/12
 end
 
 local function scaledMax(base)
@@ -15,7 +15,7 @@ end
 
 -- Queen time scaling (baseline = 1.3) define and scale mqAnger
 local mqAnger = {70, 85, 90, 105, 110, 125}
-local mqTimeMult = math.max(1, Spring.GetModOptions().raptor_queentimemult or 1.3)
+local mqTimeMult = math.max(1, spring.GetModOptions().raptor_queentimemult or 1.3)
 local mqStart, mqLast = mqAnger[1], mqAnger[#mqAnger]
 local mqTargetLast = mqTimeMult * 97
 local mqFactor = (mqTargetLast - mqStart) / (mqLast - mqStart)
