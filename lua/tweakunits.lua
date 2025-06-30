@@ -112,7 +112,7 @@ return {
 				avoidfeature = 0,
 				avoidfriendly = 0,
 				areaofeffect = 100,
-				burst = 4,
+				burst = 3,
 				range = 1050,
 				intensity = 0.18,
 			}
@@ -129,16 +129,11 @@ return {
 				metalpershot = 6,
 				name = 'Mid-range, rapid-fire g2a guided missile launcher',
 				range = 2500,
-				reloadtime = 0.8,
+				reloadtime = 1.2,
 				smoketrail = false,
 				startvelocity = 1500,
-				stockpile = true,
-				stockpiletime = 4,
 				weaponacceleration = 1000,
 				weaponvelocity = 4000,
-				customparams = {
-					stockpilelimit = 30
-				},
 			}
 		}
 	},
@@ -153,16 +148,11 @@ return {
 				metalpershot = 10,
 				name = 'Long-range g2a guided heavy flak missile launcher',
 				range = 2800,
-				reloadtime = 1.4,
+				reloadtime = 1.8,
 				smoketrail = false,
 				startvelocity = 4000,
-				stockpile = true,
-				stockpiletime = 4,
 				weaponacceleration = 1000,
 				weaponvelocity = 8000,
-				customparams = {
-					stockpilelimit = 25
-				},
 			}
 		}
 	},
@@ -182,6 +172,10 @@ return {
 			[32] = 'legdtl',
 			[33] = 'legdtr'
 		}
+	},
+    legfortt4 = {
+		explodeas = "flagshipExplosion",
+		selfdestructas = "flagshipExplosionSelfd",
 	},
 	raptor_hive = {
 		weapondefs = {
@@ -204,7 +198,7 @@ return {
 					shields = 100
 				},
 				customparams = {
-					spawns_name = 'raptor_land_swarmer_basic_t1_v1',
+					spawns_name = 'raptor_hive_swarmer_basic',
 					spawns_surface = 'LAND SEA'
 				}
 			}
@@ -483,7 +477,7 @@ return {
 		explodeas = 'fusionExplosion',
 		energycost = 500000,
 		metalcost = 18500,
-		buildtime = 170000,
+		buildtime = 175000,
 		turnrate = 16000,
 		health = 10450,
 		weapondefs = {
@@ -511,7 +505,7 @@ return {
 				name = 'Experimental Duction Beam',
 				noselfdamage = true,
 				range = 2700,
-				reloadtime = 12,
+				reloadtime = 11,
 				rgbcolor = '0.4 0.2 0.6',
 				scrollspeed = 13,
 				soundhitdry = "",
@@ -546,12 +540,12 @@ return {
 		energycost = 505000,
 		metalcost = 19500,
 		buildtime = 170000,
-		health = 10450,
+		health = 11450,
 		footprintx = 6,
 		footprintz = 6,
 		weapondefs = {
 			CORINT_MAIN = {
-				areaofeffect = 50,
+				areaofeffect = 70,
 				collidefriendly = 0,
 				collidefeature = 0,
 				avoidfeature = 0,
@@ -574,7 +568,7 @@ return {
 				name = 'Mini DeathStar',
 				noselfdamage = true,
 				range = 3300,
-				reloadtime = 15,
+				reloadtime = 14,
 				rgbcolor = '0 1 0',
 				scrollspeed = 13,
 				soundhitdry = '',
@@ -609,7 +603,7 @@ return {
 		energycost = 555000,
 		metalcost = 21000,
 		buildtime = 150000,
-		health = 10450,
+		health = 9950,
 		footprintx = 6,
 		footprintz = 6,
 		weapondefs = {
@@ -638,8 +632,8 @@ return {
 				laserflaresize = 1,
 				name = 'The Eagle Standard',
 				noselfdamage = true,
-				range = 2500,
-				reloadtime = 4,
+				range = 2250,
+				reloadtime = 4.25,
 				rgbcolor = '0/1/0.4',
 				scrollspeed = 13,
 				soundhitdry = '',
@@ -657,7 +651,7 @@ return {
 				weaponvelocity = 3100,
 				damage = {
 					commanders = 480,
-					default = 11500
+					default = 10500
 				}
 			}
 		},

@@ -35,6 +35,7 @@ for _, faction in pairs(factions) do
 			mass = 37200,
 			sightdistance = 575,
 			workertime = 1900,
+			icontype = "armnanotct2",
 			canrepeat = true,
 			objectname = isLeg and 'Units/legnanotcbase.s3o' or isCor and 'Units/CORRESPAWN.s3o' or 'Units/ARMRESPAWN.s3o',
 			customparams = {
@@ -55,6 +56,7 @@ for _, faction in pairs(factions) do
 			buildtime = 142800,
 			health = 53560,
 			maxthisunit = 3,
+			icontype = "armuwadves",
 			name = factionPrefix[faction] .. 'T3 Metal Storage',
 			customparams = {
 				i18n_en_humanname = 'T3 Hardened Metal Storage',
@@ -73,6 +75,7 @@ for _, faction in pairs(factions) do
 			energycost = 59000,
 			buildtime = 93380,
 			health = 49140,
+			icontype = "armuwadves",
 			maxthisunit = 3,
 			name = factionPrefix[faction] .. 'T3 Energy Storage',
 			customparams = {
@@ -204,6 +207,7 @@ for _, faction in pairs(factions) do
 			health = 1100,
 			idleautoheal = 5,
 			idletime = 1800,
+			icontype = "armnanotct2",
 			maxthisunit = 1,
 			metalcost = 13400,
 			speed = 25,
