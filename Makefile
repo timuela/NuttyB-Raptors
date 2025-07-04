@@ -33,8 +33,15 @@ update:
 lua:
 	@ts-node ./scripts/converter.ts b64tolua
 
-b64:
+b64-local:
 	@ts-node ./scripts/converter.ts luatob64 $(arg)
+
+b64:
+ifeq ($(OS),Windows_NT)
+	@docker-run.bat $(arg)
+else
+	@./docker-run.sh $(arg)
+endif
 
 clipboard-raw:
 	@powershell -Command "Get-Content -Path '$(PATH_ARG)' | Set-Clipboard"

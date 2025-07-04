@@ -1,5 +1,6 @@
 import base64url from 'base64url'
 import path from 'path'
+import os from 'os'
 import { promises as fs } from 'fs'
 const clipboardy = import('clipboardy')
 
@@ -273,15 +274,33 @@ async function main() {
 				(rawExclusiveKey && tweakKey === rawExclusiveKey) || !rawExclusiveKey,
 		)
 
-		;(await clipboardy).default.writeSync(
-			clipboardTweaks
-				.map(({ tweakKey, tweakValue }) =>
-					rawExclusiveKey ? tweakValue : `!bset ${tweakKey} ${tweakValue}`,
-				)
-				.join('\n'),
-		)
+		// Output clipboard content to stdout instead of copying to clipboard
+		const clipboardContent = clipboardTweaks
+			.map(({ tweakKey, tweakValue }) =>
+				rawExclusiveKey ? tweakValue : `!bset ${tweakKey} ${tweakValue}`,
+			)
+			.join('\n')
 
-		console.log(`Copied ${clipboardTweaks.length} tweak(s) to clipboard`)
+		// Write clipboard content to a special output stream
+		if (process.env.CONTAINER_FILE_OUTPUT) {
+			// Write to a file instead of stdout to avoid truncation with large outputs
+			// Use /app/clipboard when in container, otherwise use system temp directory
+			const clipboardDir =
+				process.env.NODE_ENV === 'container' || process.cwd().startsWith('/app')
+					? '/app/clipboard'
+					: os.tmpdir()
+			const clipboardFilePath = path.join(clipboardDir, 'clipboard-content.txt')
+			await fs.writeFile(clipboardFilePath, clipboardContent, 'utf-8')
+		}
+
+		// if running locally
+		if (!process.env.CONTAINER_FILE_OUTPUT) {
+			try {
+				;(await clipboardy).default.writeSync(clipboardContent)
+			} catch (err) {
+				console.error('Failed to write to local clipboard')
+			}
+		}
 
 		results.sort((a, b) => b.newSize - a.newSize)
 
