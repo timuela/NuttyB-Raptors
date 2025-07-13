@@ -19,43 +19,32 @@ return {
 		health = 4500,
 		speed = 41,
 		canresurrect = true,
-		buildoptions = {
-			'armsolar',
-			'armwin',
-			'armmstor',
-			'armestor',
-			'armmex',
-			'armmakr',
-			'armlab',
-			'armvp',
-			'armap',
-			'armeyes',
-			'armrad',
-			'armdrag',
-			'armllt',
-			'armrl',
-			'armdl',
-			'armtide',
-			'armuwms',
-			'armuwes',
-			'armuwmex',
-			'armfmkr',
-			'armsy',
-			'armfdrag',
-			'armtl',
-			'armfrt',
-			'armfrad',
-			'armhp',
-			'armfhp',
-			'armgeo',
-			'armamex',
-			'armhp',
-			'armbeamer',
-			'armjamt',
-			'armsy',
-			'armrectr',
-			'armclaw'
-		},
+		buildoptions = (function()
+			local result, seen, additional = {}, {}, {
+				'armuwmex',
+				'armgeo',
+				'armamex',
+				'armbeamer',
+				'armjamt',
+				'armrectr',
+				'armclaw'
+			}
+			local function addUnique(option)
+				if not seen[option] then
+					seen[option] = true
+					result[#result + 1] = option
+				end
+			end
+			-- Add original base game armcom buildoptions
+			for _, option in pairs(UnitDefs.armcom.buildoptions) do
+				addUnique(option)
+			end
+			-- Add mod-specific additional buildoptions
+			for _, option in pairs(additional) do
+				addUnique(option)
+			end
+			return result
+		end)(),
 		weapondefs = {
 			armcomlaser = {
 				range = 330,
@@ -128,51 +117,32 @@ return {
 		speed = 57.5,
 		metalmake = 20,
 		workertime = 900,
-		buildoptions = {
-			'armsolar',
-			'armwin',
-			'armmstor',
-			'armestor',
-			'armmex',
-			'armmakr',
-			'armlab',
-			'armvp',
-			'armap',
-			'armeyes',
-			'armrad',
-			'armdrag',
-			'armllt',
-			'armrl',
-			'armdl',
-			'armtide',
-			'armuwms',
-			'armuwes',
-			'armuwmex',
-			'armfmkr',
-			'armsy',
-			'armfdrag',
-			'armtl',
-			'armfrt',
-			'armfrad',
-			'armhp',
-			'armfhp',
-			'armadvsol',
-			'armgeo',
-			'armamex',
-			'armnanotcplat',
-			'armhp',
-			'armnanotc',
-			'armclaw',
-			'armbeamer',
-			'armhlt',
-			'armguard',
-			'armferret',
-			'armcir',
-			'armjamt',
-			'armjuno',
-			'armsy',
-			'armrectr'
-		},
+		buildoptions = (function()
+			local result, seen, additional = {}, {}, {
+				'armadvsol',
+				'armgeo',
+				'armamex',
+				'armnanotcplat',
+				'armnanotc',
+				'armguard',
+				'armcir',
+				'armjamt',
+				'armjuno'
+			}
+			local function addUnique(option)
+				if not seen[option] then
+					seen[option] = true
+					result[#result + 1] = option
+				end
+			end
+			for _, option in pairs(UnitDefs.armcomlvl2.buildoptions) do
+				addUnique(option)
+			end
+			for _, option in pairs(additional) do
+				addUnique(option)
+			end
+			return result
+		end)(),
 		customparams = {
 			evolution_announcement = 'Arm Commanders upgraded',
 			evolution_announcement_size = 18.5,
@@ -290,60 +260,62 @@ return {
 		speed = 71.5,
 		metalmake = 62,
 		workertime = 1500,
-		buildoptions = {
-			'armanni',
-			'armpb',
-			'armamb',
-			'armmoho',
-			'armuwmme',
-			'armflak',
-			'armgate',
-			'armsd',
-			'armfort',
-			'armtarg',
-			'armarad',
-			'armamd',
-			'armveil',
-			'armuwadvms',
-			'armuwadves',
-			'armmmkr',
-			'armclaw',
-			'armjuno',
-			'armuwmex',
-			'armhp',
-			'armsy',
-			'armfdrag',
-			'armtl',
-			'armfrt',
-			'armfrad',
-			'armhp',
-			'armlab',
-			'armvp',
-			'armap',
-			'armsy',
-			'armuwmmm',
-			'armuwfus',
-			'armplat',
-			'armfdrag',
-			'armfhlt',
-			'armfflak',
-			'armatl',
-			'armkraken',
-			'armnanotcplat',
-			'armbrtha',
-			'armannit3',
-			'armlwall',
-			'armnanotct2',
-			'armafus',
-			'armfus',
-			'armckfus',
-			'armraz',
-			'armzeus',
-			'armsnipe',
-			'armvang',
-			'armrectr',
-			'armgatet3'
-		},
+		buildoptions = (function()
+			local result, seen, additional = {}, {}, {
+				'armanni',
+				'armpb',
+				'armamb',
+				'armmoho',
+				'armuwmme',
+				'armflak',
+				'armgate',
+				'armsd',
+				'armfort',
+				'armtarg',
+				'armarad',
+				'armamd',
+				'armveil',
+				'armuwadvms',
+				'armuwadves',
+				'armmmkr',
+				'armuwmmm',
+				'armuwfus',
+				'armplat',
+				'armfhlt',
+				'armfflak',
+				'armatl',
+				'armkraken',
+				'armbrtha',
+				'armannit3',
+				'armlwall',
+				'armnanotct2',
+				'armafus',
+				'armfus',
+				'armckfus',
+				'armraz',
+				'armzeus',
+				'armsnipe',
+				'armvang',
+				'armrectr',
+				'armgatet3'
+			}
+			local function addUnique(option)
+				if not seen[option] then
+					seen[option] = true
+					result[#result + 1] = option
+				end
+			end
+			for _, option in pairs(UnitDefs.armcomlvl3.buildoptions) do
+				addUnique(option)
+			end
+
+			-- Add additional options
+			for _, option in pairs(additional) do
+				addUnique(option)
+			end
+
+			return result
+		end)(),
 		customparams = {
 			evolution_announcement = 'Arm Commanders upgraded',
 			evolution_announcement_size = 18.5,
@@ -471,60 +443,64 @@ return {
 		speed = 82,
 		metalmake = 86,
 		workertime = 2000,
-		buildoptions = {
-			'armanni',
-			'armpb',
-			'armamb',
-			'armmoho',
-			'armuwmme',
-			'armflak',
-			'armgate',
-			'armsd',
-			'armfort',
-			'armtarg',
-			'armarad',
-			'armamd',
-			'armveil',
-			'armuwadvms',
-			'armuwadves',
-			'armmmkr',
-			'armclaw',
-			'armjuno',
-			'armuwmex',
-			'armhp',
-			'armsy',
-			'armfdrag',
-			'armtl',
-			'armfrt',
-			'armfrad',
-			'armhp',
-			'armlab',
-			'armvp',
-			'armap',
-			'armsy',
-			'armuwmmm',
-			'armuwfus',
-			'armplat',
-			'armfdrag',
-			'armfhlt',
-			'armfflak',
-			'armatl',
-			'armkraken',
-			'armnanotcplat',
-			'armbrtha',
-			'armannit3',
-			'armlwall',
-			'armnanotct2',
-			'armafus',
-			'armfus',
-			'armckfus',
-			'armraz',
-			'armzeus',
-			'armsnipe',
-			'armvang',
-			'armrectr',
-			'armgatet3'
-		},
+		buildoptions = (function()
+			local result, seen, additional = {}, {}, {
+				'armanni',
+				'armmoho',
+				'armuwmme',
+				'armflak',
+				'armgate',
+				'armsd',
+				'armfort',
+				'armtarg',
+				'armarad',
+				'armamd',
+				'armveil',
+				'armuwadvms',
+				'armuwadves',
+				'armmmkr',
+				'armuwmmm',
+				'armuwfus',
+				'armplat',
+				'armfhlt',
+				'armfflak',
+				'armatl',
+				'armkraken',
+				'armbrtha',
+				'armannit3',
+				'armlwall',
+				'armnanotct2',
+				'armafus',
+				'armfus',
+				'armckfus',
+				'armraz',
+				'armzeus',
+				'armsnipe',
+				'armvang',
+				'armrectr',
+				'armgatet3'
+			}
+
+			-- Helper function to add unique items
+			local function addUnique(option)
+				if not seen[option] then
+					seen[option] = true
+					result[#result + 1] = option
+				end
+			end
+
+			-- Add options from armcomlvl4
+			for _, option in pairs(UnitDefs.armcomlvl4.buildoptions) do
+				addUnique(option)
+			end
+
+			-- Add additional options
+			for _, option in pairs(additional) do
+				addUnique(option)
+			end
+
+			return result
+		end)(),
 		customparams = {
 			wtboostunittype = '',
 			paratrooper = true,
