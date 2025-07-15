@@ -7,30 +7,13 @@ return {
 		metalmake = 5,
 		health = 6000,
 		autoheal = 40,
-		buildoptions = (function()
-			local result, seen, additional = {}, {}, {
-				'cornecro',
-				'legdtl',
-				'legdtf',
-				'legdtr',
-				'legjam'
-			}
-			local function addUnique(option)
-				if not seen[option] then
-					seen[option] = true
-					result[#result + 1] = option
-				end
-			end
-			-- Add original base game legcom buildoptions
-			for _, option in pairs(UnitDefs.legcom.buildoptions) do
-				addUnique(option)
-			end
-			-- Add mod-specific additional buildoptions
-			for _, option in pairs(additional) do
-				addUnique(option)
-			end
-			return result
-		end)(),
+		buildoptions = {
+			[32] = 'cornecro',
+			[33] = 'legdtl',
+			[34] = 'legdtf',
+			[35] = 'legdtr',
+			[36] = 'legjam'
+		},
 		customparams = {
 			evolution_announcement = 'Legion commanders have upgraded to level 2',
 			evolution_announcement_size = 18.5,
@@ -123,36 +106,21 @@ return {
 			paratrooper = true,
 			fall_damage_multiplier = 0
 		},
-		buildoptions = (function()
-			local result, seen, additional = {}, {}, {
-				'cornecro',
-				'legadvsol',
-				'corhllt',
-				'leggeo',
-				'legnanotc',
-				'legjam',
-				'legdtf',
-				'legmg',
-				'legdtl',
-				'legdtr',
-				'legrhapsis'
-			}
-			local function addUnique(option)
-				if not seen[option] then
-					seen[option] = true
-					result[#result + 1] = option
-				end
-			end
-			-- Add original base game legcomlvl2 buildoptions
-			for _, option in pairs(UnitDefs.legcomlvl2.buildoptions) do
-				addUnique(option)
-			end
-			-- Add mod-specific additional buildoptions
-			for _, option in pairs(additional) do
-				addUnique(option)
-			end
-			return result
-		end)(),
+		buildoptions = {
+			[1] = 'cornecro',
+			[2] = 'legadvsol',
+			[13] = 'corhllt',
+			[26] = 'leggeo',
+			[27] = 'legnanotc',
+			[28] = 'legjam',
+			[29] = 'legdtf',
+			[30] = 'legmg',
+			[31] = 'legrad',
+			[32] = 'legdtl',
+			[33] = 'legdtr',
+			[34] = 'legrhapsis',
+			[35] = 'legwin'
+		},
 		weapondefs = {
 			legcomlaser = {
 				accuracy = 50,
@@ -261,39 +229,33 @@ return {
 			fall_damage_multiplier = 0
 		},
 		buildoptions = (function()
-			local result, seen, additional = {}, {}, {
-				'legdeflector',
-				'legfus',
-				'legbombard',
-				'legadvestore',
-				'legmoho',
-				'legadveconv',
-				'legarad',
-				'legajam',
-				'legforti',
-				'legacluster',
-				'legamstor',
-				'legflak',
-				'legabm',
-				'legbastion',
-				'cornecro',
-				'legdtl'
+			local buildoptions = {
+				[1] = 'legdeflector',
+				[2] = 'legfus',
+				[3] = 'legbombard',
+				[4] = 'legadvestore',
+				[5] = 'legmoho',
+				[6] = 'legadveconv',
+				[10] = 'legarad',
+				[11] = 'legajam',
+				[12] = 'legforti',
+				[13] = 'legacluster',
+				[14] = 'legamstor',
+				[15] = 'legflak',
+				[16] = 'legabm',
+				[17] = 'legbastion',
+				[29] = 'legdtr',
+				[32] = 'cornecro',
+				[33] = 'legdtl',
+				[37] = 'leglab',
+				[18] = '',
+				[19] = '',
+				[20] = ''
 			}
-			local function addUnique(option)
-				if not seen[option] then
-					seen[option] = true
-					result[#result + 1] = option
-				end
+			if UnitDefs.legendary_bastion and not table.contains(UnitDefs.legcomlvl3.buildoptions, 'legendary_bastion') then
+				buildoptions[18] = 'legendary_bastion'
 			end
-			-- Add original base game legcomlvl3 buildoptions
-			for _, option in pairs(UnitDefs.legcomlvl3.buildoptions) do
-				addUnique(option)
-			end
-			-- Add mod-specific additional buildoptions
-			for _, option in pairs(additional) do
-				addUnique(option)
-			end
-			return result
+			return buildoptions
 		end)(),
 		weapondefs = {
 			armcomlaser = {
@@ -407,56 +369,50 @@ return {
 			evolution_target = 'legcomt2com'
 		},
 		buildoptions = (function()
-			local result, seen, additional = {}, {}, {
-				'legdeflector',
-				'legfus',
-				'legbombard',
-				'legadvestore',
-				'legmoho',
-				'legadveconv',
-				'legeshotgunmech',
-				'legajam',
-				'legkeres',
-				'legacluster',
-				'legamstor',
-				'legabm',
-				'legbastion',
-				'legnanotct2',
-				'legnanotct2plat',
-				'legrwall',
-				'legtarg',
-				'legsd',
-				'legpede',
-				'legerailtank',
-				'legeheatraymech',
-				'cornecro',
-				'legafus',
-				'leglraa',
-				'legdtl',
-				'legdtf',
-				'legministarfall',
-				'legstarfall',
-				'leggatet3',
-				'legperdition',
-				'legsilo',
-				'legsrailt4',
-				'legelrpcmech'
+			local buildoptions = {
+				[1] = 'legdeflector',
+				[2] = 'legfus',
+				[3] = 'legbombard',
+				[4] = 'legadvestore',
+				[5] = 'legmoho',
+				[6] = 'legadveconv',
+				[9] = 'legeshotgunmech',
+				[10] = 'legarad',
+				[11] = 'legajam',
+				[12] = 'legkeres',
+				[13] = 'legacluster',
+				[14] = 'legamstor',
+				[15] = 'legflak',
+				[16] = 'legabm',
+				[17] = 'legbastion',
+				[18] = 'legendary_bastion',
+				[19] = 'legnanotct2',
+				[20] = 'legnanotct2plat',
+				[21] = 'legrwall',
+				[22] = 'legdtr',
+				[24] = 'leglab',
+				[28] = 'legtarg',
+				[29] = 'legsd',
+				[30] = 'legpede',
+				[31] = 'legerailtank',
+				[32] = 'legeheatraymech',
+				[33] = 'cornecro',
+				[34] = 'legafus',
+				[35] = 'leglraa',
+				[36] = 'legdtl',
+				[37] = 'legdtf',
+				[39] = 'legministarfall',
+				[48] = 'legstarfall',
+				[49] = 'leggatet3',
+				[50] = 'legperdition',
+				[51] = 'legsilo',
+				[52] = 'legsrailt4',
+				[53] = 'legelrpcmech'
 			}
-			local function addUnique(option)
-				if not seen[option] then
-					seen[option] = true
-					result[#result + 1] = option
-				end
+			if UnitDefs.legnanotct3 then
+				table.insert(buildoptions, 'legnanotct3')
 			end
-			-- Add original base game legcomlvl4 buildoptions
-			for _, option in pairs(UnitDefs.legcomlvl4.buildoptions) do
-				addUnique(option)
-			end
-			-- Add mod-specific additional buildoptions
-			for _, option in pairs(additional) do
-				addUnique(option)
-			end
-			return result
+			return buildoptions
 		end)(),
 		weapondefs = {
 			armcomlaser = {
@@ -563,59 +519,50 @@ return {
 		autoheal = 3500,
 		health = 41900,
 		buildoptions = (function()
-			local result, seen, additional = {}, {}, {
-				'legdeflector',
-				'legfus',
-				'legbombard',
-				'legadvestore',
-				'legmoho',
-				'legadveconv',
-				'legeshotgunmech',
-				'legarad',
-				'legajam',
-				'legkeres',
-				'legacluster',
-				'legamstor',
-				'legflak',
-				'legabm',
-				'legbastion',
-				'legdtr',
-				'legnanotct2',
-				'legnanotct2plat',
-				'legrwall',
-				'legtarg',
-				'legsd',
-				'legpede',
-				'legerailtank',
-				'legeheatraymech',
-				'cornecro',
-				'legafus',
-				'leglraa',
-				'legdtl',
-				'legdtf',
-				'legministarfall',
-				'legstarfall',
-				'leggatet3',
-				'legperdition',
-				'legsilo',
-				'legsrailt4',
-				'legelrpcmech'
+			local buildoptions = {
+				[1] = 'legdeflector',
+				[2] = 'legfus',
+				[3] = 'legbombard',
+				[4] = 'legadvestore',
+				[5] = 'legmoho',
+				[6] = 'legadveconv',
+				[9] = 'legeshotgunmech',
+				[10] = 'legarad',
+				[11] = 'legajam',
+				[12] = 'legkeres',
+				[13] = 'legacluster',
+				[14] = 'legamstor',
+				[15] = 'legflak',
+				[16] = 'legabm',
+				[17] = 'legbastion',
+				[18] = 'legendary_bastion',
+				[19] = 'legnanotct2',
+				[20] = 'legnanotct2plat',
+				[21] = 'legrwall',
+				[22] = 'legdtr',
+				[24] = 'leglab',
+				[28] = 'legtarg',
+				[29] = 'legsd',
+				[30] = 'legpede',
+				[31] = 'legerailtank',
+				[32] = 'legeheatraymech',
+				[33] = 'cornecro',
+				[34] = 'legafus',
+				[35] = 'leglraa',
+				[36] = 'legdtl',
+				[37] = 'legdtf',
+				[39] = 'legministarfall',
+				[48] = 'legstarfall',
+				[49] = 'leggatet3',
+				[50] = 'legperdition',
+				[51] = 'legsilo',
+				[52] = 'legsrailt4',
+				[53] = 'legelrpcmech'
 			}
-			local function addUnique(option)
-				if not seen[option] then
-					seen[option] = true
-					result[#result + 1] = option
-				end
+			if UnitDefs.legnanotct3 then
+				table.insert(buildoptions, 'legnanotct3')
 			end
-			-- Add original base game legcomt2com buildoptions
-			for _, option in pairs(UnitDefs.legcomt2com.buildoptions) do
-				addUnique(option)
-			end
-			-- Add mod-specific additional buildoptions
-			for _, option in pairs(additional) do
-				addUnique(option)
-			end
-			return result
+			return buildoptions
 		end)(),
 		featuredefs = {
 			dead = {

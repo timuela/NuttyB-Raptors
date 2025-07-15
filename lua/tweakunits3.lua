@@ -18,30 +18,13 @@ return {
 		energymake = 75,
 		metalmake = 6,
 		health = 5500,
-		buildoptions = (function()
-			local result, seen, additional = {}, {}, {
-				'corhllt',
-				'cornecro',
-				'corlevlr',
-				'corak',
-				'cormaw'
-			}
-			local function addUnique(option)
-				if not seen[option] then
-					seen[option] = true
-					result[#result + 1] = option
-				end
-			end
-			-- Add original base game corcom buildoptions
-			for _, option in pairs(UnitDefs.corcom.buildoptions) do
-				addUnique(option)
-			end
-			-- Add mod-specific additional buildoptions
-			for _, option in pairs(additional) do
-				addUnique(option)
-			end
-			return result
-		end)(),
+		buildoptions = {
+			[28] = 'corhllt',
+			[29] = 'cornecro',
+			[30] = 'corlevlr',
+			[31] = 'corak',
+			[32] = 'cormaw'
+		},
 		weapondefs = {
 			corcomlaser = {
 				range = 370,
@@ -66,72 +49,55 @@ return {
 		autoheal = 300,
 		builddistance = 200,
 		workertime = 600,
-		buildoptions = (function()
-			local result, seen, additional = {}, {}, {
-				'corsolar',
-				'coradvsol',
-				'corwin',
-				'corgeo',
-				'cormstor',
-				'corestor',
-				'cormex',
-				'corexp',
-				'cormakr',
-				'corcan',
-				'correap',
-				'corlab',
-				'corvp',
-				'corap',
-				'corhp',
-				'cornanotc',
-				'coreyes',
-				'corrad',
-				'cordrag',
-				'cormaw',
-				'corllt',
-				'corhllt',
-				'corhlt',
-				'corpun',
-				'corrl',
-				'cormadsam',
-				'corerad',
-				'cordl',
-				'corjamt',
-				'corjuno',
-				'corsy',
-				'coruwgeo',
-				'corfasp',
-				'cornerco',
-				'coruwes',
-				'corplat',
-				'corfhp',
-				'coruwms',
-				'corfhlt',
-				'cornanotcplat',
-				'corfmkr',
-				'cortide',
-				'corfrad',
-				'corfrt',
-				'corfdrag',
-				'cortl',
-				'cornecro'
-			}
-			local function addUnique(option)
-				if not seen[option] then
-					seen[option] = true
-					result[#result + 1] = option
-				end
-			end
-			-- Add original base game corcomlvl2 buildoptions
-			for _, option in pairs(UnitDefs.corcomlvl2.buildoptions) do
-				addUnique(option)
-			end
-			-- Add mod-specific additional buildoptions
-			for _, option in pairs(additional) do
-				addUnique(option)
-			end
-			return result
-		end)(),
+		buildoptions = {
+			[1] = 'corsolar',
+			[2] = 'coradvsol',
+			[3] = 'corwin',
+			[4] = 'corgeo',
+			[5] = 'cormstor',
+			[6] = 'corestor',
+			[7] = 'cormex',
+			[8] = 'corexp',
+			[9] = 'cormakr',
+			[10] = 'corcan',
+			[11] = 'correap',
+			[12] = 'corlab',
+			[13] = 'corvp',
+			[14] = 'corap',
+			[15] = 'corhp',
+			[16] = 'cornanotc',
+			[17] = 'coreyes',
+			[18] = 'corrad',
+			[19] = 'cordrag',
+			[20] = 'cormaw',
+			[21] = 'corllt',
+			[22] = 'corhllt',
+			[23] = 'corhlt',
+			[24] = 'corpun',
+			[25] = 'corrl',
+			[26] = 'cormadsam',
+			[27] = 'corerad',
+			[28] = 'cordl',
+			[29] = 'corjamt',
+			[30] = 'corjuno',
+			[31] = 'corsy',
+			[32] = 'coruwgeo',
+			[33] = 'corfasp',
+			[34] = 'cornerco',
+			[35] = 'coruwes',
+			[36] = 'corplat',
+			[37] = 'corfhp',
+			[38] = 'coruwms',
+			[39] = 'corfhlt',
+			[40] = 'cornanotcplat',
+			[41] = 'corfmkr',
+			[42] = 'cortide',
+			[43] = 'corfrad',
+			[44] = 'corfrt',
+			[45] = 'corfdrag',
+			[46] = 'cortl',
+			[47] = 'cornecro'
+		},
 		customparams = {
 			evolution_announcement = 'Combat Commanders upgraded',
 			evolution_announcement_size = 18.5,
@@ -247,65 +213,58 @@ return {
 		workertime = 1200,
 		builddistance = 250,
 		buildoptions = (function()
-			local result, seen, additional = {}, {}, {
-				'corfus',
-				'corafus',
-				'corageo',
-				'corbhmth',
-				'cormoho',
-				'cormexp',
-				'cormmkr',
-				'coruwadves',
-				'coruwadvms',
-				'corarad',
-				'corshroud',
-				'corfort',
-				'cortarg',
-				'corsd',
-				'corgate',
-				'cortoast',
-				'corvipe',
-				'cordoom',
-				'corflak',
-				'corscreamer',
-				'corfmd',
-				'corint',
-				'corplat',
-				'coruwmme',
-				'coruwmmm',
-				'corenaa',
-				'corfdoom',
-				'coratl',
-				'coruwfus',
-				'corjugg',
-				'corshiva',
-				'corsumo',
-				'corgol',
-				'corkorg',
-				'cornanotc2plat',
-				'cornanotct2',
-				'cornecro',
-				'cordoomt3',
-				'corhllllt',
-				'cormaw',
-				'cormwall',
-				'corgatet3'
+			local buildoptions = {
+				[1] = 'corfus',
+				[2] = 'corafus',
+				[3] = 'corageo',
+				[4] = 'corbhmth',
+				[5] = 'cormoho',
+				[6] = 'cormexp',
+				[7] = 'cormmkr',
+				[8] = 'coruwadves',
+				[9] = 'coruwadvms',
+				[10] = 'corarad',
+				[11] = 'corshroud',
+				[12] = 'corfort',
+				[13] = 'corlab',
+				[14] = 'cortarg',
+				[15] = 'corsd',
+				[16] = 'corgate',
+				[17] = 'cortoast',
+				[18] = 'corvipe',
+				[19] = 'cordoom',
+				[20] = 'corflak',
+				[21] = 'corscreamer',
+				[22] = 'corvp',
+				[23] = 'corfmd',
+				[24] = 'corap',
+				[25] = 'corint',
+				[26] = 'corplat',
+				[27] = 'corsy',
+				[28] = 'coruwmme',
+				[29] = 'coruwmmm',
+				[30] = 'corenaa',
+				[31] = 'corfdoom',
+				[32] = 'coratl',
+				[33] = 'coruwfus',
+				[34] = 'corjugg',
+				[35] = 'corshiva',
+				[36] = 'corsumo',
+				[37] = 'corgol',
+				[38] = 'corkorg',
+				[39] = 'cornanotc2plat',
+				[40] = 'cornanotct2',
+				[41] = 'cornecro',
+				[42] = 'cordoomt3',
+				[43] = 'corhllllt',
+				[44] = 'cormaw',
+				[45] = 'cormwall',
+				[46] = 'corgatet3'
 			}
-			local function addUnique(option)
-				if not seen[option] then
-					seen[option] = true
-					result[#result + 1] = option
-				end
+			if UnitDefs.legendary_bulwark and not table.contains(UnitDefs['corcomlvl3'] and UnitDefs['corcomlvl3'].buildoptions, 'legendary_bulwark') then
+				buildoptions[47] = 'legendary_bulwark'
 			end
-			-- Add original base game corcomlvl3 buildoptions
-			for _, option in pairs(UnitDefs.corcomlvl3.buildoptions) do
-				addUnique(option)
-			end
-			-- Add mod-specific additional buildoptions
-			for _, option in pairs(additional) do
-				addUnique(option)
-			end
-			return result
+			return buildoptions
 		end)(),
 		customparams = {
 			evolution_announcement = 'Cor Commanders upgraded',
@@ -418,65 +377,61 @@ return {
 		workertime = 1800,
 		builddistance = 300,
 		buildoptions = (function()
-			local result, seen, additional = {}, {}, {
-				'corfus',
-				'corafus',
-				'corageo',
-				'corbhmth',
-				'cormoho',
-				'cormexp',
-				'cormmkr',
-				'coruwadves',
-				'coruwadvms',
-				'corarad',
-				'corshroud',
-				'corfort',
-				'cortarg',
-				'corsd',
-				'corgate',
-				'cortoast',
-				'corvipe',
-				'cordoom',
-				'corflak',
-				'corscreamer',
-				'corfmd',
-				'corint',
-				'corplat',
-				'coruwmme',
-				'coruwmmm',
-				'corenaa',
-				'corfdoom',
-				'coratl',
-				'coruwfus',
-				'corjugg',
-				'corshiva',
-				'corsumo',
-				'corgol',
-				'corkorg',
-				'cornanotc2plat',
-				'cornanotct2',
-				'cornecro',
-				'cordoomt3',
-				'corhllllt',
-				'cormaw',
-				'cormwall',
-				'corgatet3'
+			local buildoptions = {
+				[1] = 'corfus',
+				[2] = 'corafus',
+				[3] = 'corageo',
+				[4] = 'corbhmth',
+				[5] = 'cormoho',
+				[6] = 'cormexp',
+				[7] = 'cormmkr',
+				[8] = 'coruwadves',
+				[9] = 'coruwadvms',
+				[10] = 'corarad',
+				[11] = 'corshroud',
+				[12] = 'corfort',
+				[13] = 'corlab',
+				[14] = 'cortarg',
+				[15] = 'corsd',
+				[16] = 'corgate',
+				[17] = 'cortoast',
+				[18] = 'corvipe',
+				[19] = 'cordoom',
+				[20] = 'corflak',
+				[21] = 'corscreamer',
+				[22] = 'corvp',
+				[23] = 'corfmd',
+				[24] = 'corap',
+				[25] = 'corint',
+				[26] = 'corplat',
+				[27] = 'corsy',
+				[28] = 'coruwmme',
+				[29] = 'coruwmmm',
+				[30] = 'corenaa',
+				[31] = 'corfdoom',
+				[32] = 'coratl',
+				[33] = 'coruwfus',
+				[34] = 'corjugg',
+				[35] = 'corshiva',
+				[36] = 'corsumo',
+				[37] = 'corgol',
+				[38] = 'corkorg',
+				[39] = 'cornanotc2plat',
+				[40] = 'cornanotct2',
+				[41] = 'cornecro',
+				[42] = 'cordoomt3',
+				[43] = 'corhllllt',
+				[44] = 'cormaw',
+				[45] = 'cormwall',
+				[46] = 'corgatet3'
 			}
-			local function addUnique(option)
-				if not seen[option] then
-					seen[option] = true
-					result[#result + 1] = option
-				end
+			if UnitDefs.legendary_bulwark and not table.contains(UnitDefs['corcomlvl3'] and UnitDefs['corcomlvl3'].buildoptions, 'legendary_bulwark') then
+				buildoptions[47] = 'legendary_bulwark'
 			end
-			-- Add original base game corcomlvl4 buildoptions
-			for _, option in pairs(UnitDefs.corcomlvl4.buildoptions) do
-				addUnique(option)
+			if UnitDefs.cornanotct3 and not table.contains(UnitDefs['corcomlvl3'] and UnitDefs['corcomlvl3'].buildoptions, 'cornanotct3') then
+				table.insert(buildoptions, 'cornanotct3')
 			end
-			-- Add mod-specific additional buildoptions
-			for _, option in pairs(additional) do
-				addUnique(option)
-			end
-			return result
+			return buildoptions
 		end)(),
 		customparams = {
 			shield_power = 500,

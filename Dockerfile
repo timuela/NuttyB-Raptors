@@ -1,29 +1,23 @@
-FROM node:23-slim
+# Use minimal Node.js Alpine image
+FROM node:23-alpine
 
-# Install system dependencies
-RUN apt-get update && apt-get install -y \
-    bash \
-    curl \
-    python3 \
-    python3-pip \
-    && rm -rf /var/lib/apt/lists/*
+# Install system dependencies for clipboard support
+RUN apk add --no-cache \
+    bash
 
-RUN pip3 install --break-system-packages luaparser
-
-# Install Bun globally (optional if using npm is okay)
 RUN npm install -g bun
 
 # Set working directory
 WORKDIR /app
 
-# Copy package files and install dependencies
+# Copy package files
 COPY package.json ./
+
+# Install Node.js dependencies
 RUN bun install
 
-# Copy scripts and source directories
+# Copy the converter script
 COPY scripts/ ./scripts/
-COPY lua/ ./lua/
-COPY base64url/ ./base64url/
 
-# Set default command
+# Set the default command
 ENTRYPOINT ["bun", "run", "./scripts/converter.ts"]

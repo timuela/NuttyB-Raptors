@@ -19,32 +19,43 @@ return {
 		health = 4500,
 		speed = 41,
 		canresurrect = true,
-		buildoptions = (function()
-			local result, seen, additional = {}, {}, {
-				'armuwmex',
-				'armgeo',
-				'armamex',
-				'armbeamer',
-				'armjamt',
-				'armrectr',
-				'armclaw'
-			}
-			local function addUnique(option)
-				if not seen[option] then
-					seen[option] = true
-					result[#result + 1] = option
-				end
-			end
-			-- Add original base game armcom buildoptions
-			for _, option in pairs(UnitDefs.armcom.buildoptions) do
-				addUnique(option)
-			end
-			-- Add mod-specific additional buildoptions
-			for _, option in pairs(additional) do
-				addUnique(option)
-			end
-			return result
-		end)(),
+		buildoptions = {
+			'armsolar',
+			'armwin',
+			'armmstor',
+			'armestor',
+			'armmex',
+			'armmakr',
+			'armlab',
+			'armvp',
+			'armap',
+			'armeyes',
+			'armrad',
+			'armdrag',
+			'armllt',
+			'armrl',
+			'armdl',
+			'armtide',
+			'armuwms',
+			'armuwes',
+			'armuwmex',
+			'armfmkr',
+			'armsy',
+			'armfdrag',
+			'armtl',
+			'armfrt',
+			'armfrad',
+			'armhp',
+			'armfhp',
+			'armgeo',
+			'armamex',
+			'armhp',
+			'armbeamer',
+			'armjamt',
+			'armsy',
+			'armrectr',
+			'armclaw'
+		},
 		weapondefs = {
 			armcomlaser = {
 				range = 330,
@@ -117,32 +128,51 @@ return {
 		speed = 57.5,
 		metalmake = 20,
 		workertime = 900,
-		buildoptions = (function()
-			local result, seen, additional = {}, {}, {
-				'armadvsol',
-				'armgeo',
-				'armamex',
-				'armnanotcplat',
-				'armnanotc',
-				'armguard',
-				'armcir',
-				'armjamt',
-				'armjuno'
-			}
-			local function addUnique(option)
-				if not seen[option] then
-					seen[option] = true
-					result[#result + 1] = option
-				end
-			end
-			for _, option in pairs(UnitDefs.armcomlvl2.buildoptions) do
-				addUnique(option)
-			end
-			for _, option in pairs(additional) do
-				addUnique(option)
-			end
-			return result
-		end)(),
+		buildoptions = {
+			'armsolar',
+			'armwin',
+			'armmstor',
+			'armestor',
+			'armmex',
+			'armmakr',
+			'armlab',
+			'armvp',
+			'armap',
+			'armeyes',
+			'armrad',
+			'armdrag',
+			'armllt',
+			'armrl',
+			'armdl',
+			'armtide',
+			'armuwms',
+			'armuwes',
+			'armuwmex',
+			'armfmkr',
+			'armsy',
+			'armfdrag',
+			'armtl',
+			'armfrt',
+			'armfrad',
+			'armhp',
+			'armfhp',
+			'armadvsol',
+			'armgeo',
+			'armamex',
+			'armnanotcplat',
+			'armhp',
+			'armnanotc',
+			'armclaw',
+			'armbeamer',
+			'armhlt',
+			'armguard',
+			'armferret',
+			'armcir',
+			'armjamt',
+			'armjuno',
+			'armsy',
+			'armrectr'
+		},
 		customparams = {
 			evolution_announcement = 'Arm Commanders upgraded',
 			evolution_announcement_size = 18.5,
@@ -261,7 +291,7 @@ return {
 		metalmake = 62,
 		workertime = 1500,
 		buildoptions = (function()
-			local result, seen, additional = {}, {}, {
+			local buildoptions = {
 				'armanni',
 				'armpb',
 				'armamb',
@@ -278,13 +308,29 @@ return {
 				'armuwadvms',
 				'armuwadves',
 				'armmmkr',
+				'armclaw',
+				'armjuno',
+				'armuwmex',
+				'armhp',
+				'armsy',
+				'armfdrag',
+				'armtl',
+				'armfrt',
+				'armfrad',
+				'armhp',
+				'armlab',
+				'armvp',
+				'armap',
+				'armsy',
 				'armuwmmm',
 				'armuwfus',
 				'armplat',
+				'armfdrag',
 				'armfhlt',
 				'armfflak',
 				'armatl',
 				'armkraken',
+				'armnanotcplat',
 				'armbrtha',
 				'armannit3',
 				'armlwall',
@@ -299,22 +345,13 @@ return {
 				'armrectr',
 				'armgatet3'
 			}
-			local function addUnique(option)
-				if not seen[option] then
-					seen[option] = true
-					result[#result + 1] = option
-				end
+			if UnitDefs.legendary_pulsar and not table.contains(UnitDefs['armcomlvl3'] and UnitDefs['armcomlvl3'].buildoptions, 'legendary_pulsar') then
+				table.insert(buildoptions, 'legendary_pulsar')
 			end
-			for _, option in pairs(UnitDefs.armcomlvl3.buildoptions) do
-				addUnique(option)
+			if UnitDefs.armnanotct3 and not table.contains(UnitDefs['armcomlvl3'] and UnitDefs['armcomlvl3'].buildoptions, 'armnanotct3') then
+				table.insert(buildoptions, 'armnanotct3')
 			end
-
-			-- Add additional options
-			for _, option in pairs(additional) do
-				addUnique(option)
-			end
-
-			return result
+			return buildoptions
 		end)(),
 		customparams = {
 			evolution_announcement = 'Arm Commanders upgraded',
@@ -444,8 +481,10 @@ return {
 		metalmake = 86,
 		workertime = 2000,
 		buildoptions = (function()
-			local result, seen, additional = {}, {}, {
+			local buildoptions = {
 				'armanni',
+				'armpb',
+				'armamb',
 				'armmoho',
 				'armuwmme',
 				'armflak',
@@ -459,13 +498,29 @@ return {
 				'armuwadvms',
 				'armuwadves',
 				'armmmkr',
+				'armclaw',
+				'armjuno',
+				'armuwmex',
+				'armhp',
+				'armsy',
+				'armfdrag',
+				'armtl',
+				'armfrt',
+				'armfrad',
+				'armhp',
+				'armlab',
+				'armvp',
+				'armap',
+				'armsy',
 				'armuwmmm',
 				'armuwfus',
 				'armplat',
+				'armfdrag',
 				'armfhlt',
 				'armfflak',
 				'armatl',
 				'armkraken',
+				'armnanotcplat',
 				'armbrtha',
 				'armannit3',
 				'armlwall',
@@ -480,26 +535,13 @@ return {
 				'armrectr',
 				'armgatet3'
 			}
-
-			-- Helper function to add unique items
-			local function addUnique(option)
-				if not seen[option] then
-					seen[option] = true
-					result[#result + 1] = option
-				end
+			if UnitDefs.legendary_pulsar and not table.contains(UnitDefs['armcomlvl4'] and UnitDefs['armcomlvl4'].buildoptions, 'legendary_pulsar') then
+				table.insert(buildoptions, 'legendary_pulsar')
 			end
-
-			-- Add options from armcomlvl4
-			for _, option in pairs(UnitDefs.armcomlvl4.buildoptions) do
-				addUnique(option)
+			if UnitDefs.armnanotct3 and not table.contains(UnitDefs['armcomlvl4'] and UnitDefs['armcomlvl4'].buildoptions, 'armnanotct3') then
+				table.insert(buildoptions, 'armnanotct3')
 			end
-
-			-- Add additional options
-			for _, option in pairs(additional) do
-				addUnique(option)
-			end
-
-			return result
+			return buildoptions
 		end)(),
 		customparams = {
 			wtboostunittype = '',
