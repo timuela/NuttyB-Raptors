@@ -20,9 +20,7 @@ return {
 			evolution_target = 'legcomlvl2',
 			evolution_condition = 'timer',
 			evolution_timer = 420,
-			combatradius = 0,
-			paratrooper = true,
-			fall_damage_multiplier = 0
+			combatradius = 0
 		},
 		weapondefs = {
 			legcomlaser = {
@@ -102,9 +100,7 @@ return {
 		health = 6700,
 		customparams = {
 			combatradius = 0,
-			evolution_timer = 600,
-			paratrooper = true,
-			fall_damage_multiplier = 0
+			evolution_timer = 600
 		},
 		buildoptions = {
 			[1] = 'cornecro',
@@ -224,9 +220,7 @@ return {
 		health = 7500,
 		customparams = {
 			combatradius = 0,
-			evolution_timer = 420,
-			paratrooper = true,
-			fall_damage_multiplier = 0
+			evolution_timer = 420
 		},
 		buildoptions = (function()
 			local buildoptions = {
@@ -363,9 +357,7 @@ return {
 		health = 24500,
 		customparams = {
 			combatradius = 0,
-			evolution_timer = 300,
-			paratrooper = true,
-			fall_damage_multiplier = 0
+			evolution_timer = 300
 		},
 		buildoptions = (function()
 			local buildoptions = {
@@ -517,10 +509,6 @@ return {
 		workertime = 1500,
 		autoheal = 3500,
 		health = 41900,
-		customparams = {
-			paratrooper = true,
-			fall_damage_multiplier = 0,
-		},
 		buildoptions = (function()
 			local buildoptions = {
 				[1] = 'legdeflector',

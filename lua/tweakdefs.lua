@@ -134,8 +134,18 @@ for name, def in pairs(unitDefs) do
 			end
 		end
 	elseif name:match '^[acl][ore][rgm]com' then
-		unitDefs[name].featuredefs.dead.reclaimable = false
-		unitDefs[name].featuredefs.dead.damage = 560000
+		table.mergeInPlace(def, {
+			customparams = {
+				paratrooper = true,
+				fall_damage_multiplier = 0
+			},
+			featuredefs = {
+				dead = {
+					reclaimable = false,
+					damage = 560000
+				}
+			}
+		})
 	end
 end
 

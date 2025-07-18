@@ -9,9 +9,7 @@ return {
 			evolution_target = 'armcomlvl2',
 			evolution_condition = 'timer',
 			evolution_timer = 420,
-			combatradius = 0,
-			paratrooper = true,
-			fall_damage_multiplier = 0
+			combatradius = 0
 		},
 		energymake = 100,
 		metalmake = 10,
@@ -179,10 +177,7 @@ return {
 			evolution_target = 'armcomlvl3',
 			evolution_condition = 'timer',
 			evolution_timer = 900,
-			combatradius = 0,
-			wtboostunittype = '',
-			paratrooper = true,
-			fall_damage_multiplier = 0
+			combatradius = 0
 		},
 		weapondefs = {
 			armcomlaser = {
@@ -352,10 +347,7 @@ return {
 			evolution_target = 'armcomlvl4',
 			evolution_condition = 'timer',
 			evolution_timer = 420,
-			combatradius = 0,
-			wtboostunittype = '',
-			paratrooper = true,
-			fall_damage_multiplier = 0
+			combatradius = 0
 		},
 		weapondefs = {
 			old_armsnipe_weapon = {
@@ -530,9 +522,7 @@ return {
 			'armnanotct3'
 		},
 		customparams = {
-			wtboostunittype = '',
-			paratrooper = true,
-			fall_damage_multiplier = 0
+			wtboostunittype = ''
 		},
 		weapondefs = {
 			old_armsnipe_weapon = {

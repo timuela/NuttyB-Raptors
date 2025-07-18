@@ -9,9 +9,7 @@ return {
 			evolution_target = 'corcomlvl2',
 			evolution_condition = 'timer',
 			evolution_timer = 420, -- Adjusted timer value
-			combatradius = 0,
-			paratrooper = true,
-			fall_damage_multiplier = 0
+			combatradius = 0
 		},
 		autoheal = 80,
 		speed = 45,
@@ -106,9 +104,7 @@ return {
 			evolution_timer = 900,
 			combatradius = 0,
 			shield_power = 500,
-			shield_radius = 100,
-			paratrooper = true,
-			fall_damage_multiplier = 0
+			shield_radius = 100
 		},
 		weapondefs = {
 			armcomlaser = {
@@ -271,9 +267,7 @@ return {
 			evolution_target = 'corcomlvl4',
 			evolution_condition = 'timer',
 			evolution_timer = 420, -- Adjusted timer value
-			combatradius = 0,
-			paratrooper = true,
-			fall_damage_multiplier = 0
+			combatradius = 0
 		},
 		weapondefs = {
 			corcomlaser = {
@@ -427,9 +421,7 @@ return {
 		},
 		customparams = {
 			shield_power = 500,
-			shield_radius = 100,
-			paratrooper = true,
-			fall_damage_multiplier = 0
+			shield_radius = 100
 		},
 		weapondefs = {
 			CORCOMLASER = {
