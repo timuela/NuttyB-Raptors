@@ -4,12 +4,9 @@
 return {
 	corcom = {
 		customparams = {
-			evolution_announcement = 'Cor Commanders upgraded',
-			evolution_announcement_size = 18.5,
 			evolution_target = 'corcomlvl2',
 			evolution_condition = 'timer',
-			evolution_timer = 420, -- Adjusted timer value
-			combatradius = 0
+			evolution_timer = 420
 		},
 		autoheal = 80,
 		speed = 45,
@@ -97,12 +94,9 @@ return {
 			[47] = 'cornecro'
 		},
 		customparams = {
-			evolution_announcement = 'Combat Commanders upgraded',
-			evolution_announcement_size = 18.5,
 			evolution_target = 'corcomlvl3',
 			evolution_condition = 'timer',
 			evolution_timer = 900,
-			combatradius = 0,
 			shield_power = 500,
 			shield_radius = 100
 		},
@@ -262,12 +256,9 @@ return {
 			return buildoptions
 		end)(),
 		customparams = {
-			evolution_announcement = 'Cor Commanders upgraded',
-			evolution_announcement_size = 18.5,
 			evolution_target = 'corcomlvl4',
 			evolution_condition = 'timer',
-			evolution_timer = 420, -- Adjusted timer value
-			combatradius = 0
+			evolution_timer = 420
 		},
 		weapondefs = {
 			corcomlaser = {

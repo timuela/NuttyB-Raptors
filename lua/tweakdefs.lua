@@ -136,13 +136,16 @@ for name, def in pairs(unitDefs) do
 	elseif name:match '^[acl][ore][rgm]com' then
 		table.mergeInPlace(def, {
 			customparams = {
+				combatradius = 0,
+				evolution_announcement = 'Commanders have upgraded',
+				evolution_announcement_size = 18.5,
+				fall_damage_multiplier = 0,
 				paratrooper = true,
-				fall_damage_multiplier = 0
 			},
 			featuredefs = {
 				dead = {
-					reclaimable = false,
-					damage = 560000
+					damage = 560000,
+					reclaimable = false
 				}
 			}
 		})

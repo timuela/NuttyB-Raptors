@@ -15,12 +15,9 @@ return {
 			[36] = 'legjam'
 		},
 		customparams = {
-			evolution_announcement = 'Legion commanders have upgraded to level 2',
-			evolution_announcement_size = 18.5,
 			evolution_target = 'legcomlvl2',
 			evolution_condition = 'timer',
-			evolution_timer = 420,
-			combatradius = 0
+			evolution_timer = 420
 		},
 		weapondefs = {
 			legcomlaser = {
@@ -99,7 +96,6 @@ return {
 		autoheal = 100,
 		health = 6700,
 		customparams = {
-			combatradius = 0,
 			evolution_timer = 600
 		},
 		buildoptions = {
@@ -219,7 +215,6 @@ return {
 		autoheal = 150,
 		health = 7500,
 		customparams = {
-			combatradius = 0,
 			evolution_timer = 420
 		},
 		buildoptions = (function()
@@ -356,7 +351,6 @@ return {
 		autoheal = 180,
 		health = 24500,
 		customparams = {
-			combatradius = 0,
 			evolution_timer = 300
 		},
 		buildoptions = (function()
