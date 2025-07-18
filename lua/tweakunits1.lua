@@ -1,4 +1,4 @@
---NuttyB v1.52 Legion Com
+--NuttyB v1.52b Legion Com
 -- Authors: ChrispyNut, BackBash
 -- docs.google.com/spreadsheets/d/1QSVsuAAMhBrhiZdTihVfSCwPzbbZWDLCtXWP23CU0ko
 return {
@@ -365,8 +365,7 @@ return {
 			combatradius = 0,
 			evolution_timer = 300,
 			paratrooper = true,
-			fall_damage_multiplier = 0,
-			evolution_target = 'legcomt2com'
+			fall_damage_multiplier = 0
 		},
 		buildoptions = (function()
 			local buildoptions = {
@@ -511,13 +510,17 @@ return {
 			}
 		}
 	},
-	legcomt2com = {
+	legcomlvl5 = {
 		energymake = 2280,
 		metalmake = 64,
 		speed = 92,
 		workertime = 1500,
 		autoheal = 3500,
 		health = 41900,
+		customparams = {
+			paratrooper = true,
+			fall_damage_multiplier = 0,
+		},
 		buildoptions = (function()
 			local buildoptions = {
 				[1] = 'legdeflector',
@@ -564,12 +567,6 @@ return {
 			end
 			return buildoptions
 		end)(),
-		featuredefs = {
-			dead = {
-				reclaimable = false,
-				damage = 99999
-			}
-		},
 		weapondefs = {
 			armcomlaser = {
 				accuracy = 50,

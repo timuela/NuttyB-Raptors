@@ -1,14 +1,14 @@
 --Meatballlunch Reloaded
-local UnitDefs, baseUnits = UnitDefs or {}, 'armbotrail'
+local UnitDefs, armbotrail = UnitDefs or {}, 'armbotrail'
 local NewUnits = {
 	armmeatball = {
-		customparams = { i18n_en_humanname = 'Meatball Launcher', i18n_en_tooltip = 'Moege das Mett mit dir sein!' },
+		customparams = { i18n_en_humanname = 'Meatball Launcher', },
 		weapondefs = {
 			arm_botrail = { range = 32000, metalpershot = 5300, energypershot = 96000, reloadtime = 0.5, customparams = { stockpilelimit = 50, spawns_name = 'armmeatball' } },
 		},
 	},
 	armassimilator = {
-		customparams = { i18n_en_humanname = 'Assimilator Launcher', i18n_en_tooltip = 'Resistance is futile, embrace the bot swarm!' },
+		customparams = { i18n_en_humanname = 'Assimilator Launcher', },
 		weapondefs = {
 			arm_botrail = {
 				range = 32000,
@@ -20,13 +20,13 @@ local NewUnits = {
 		},
 	},
 	armpwt4 = {
-		customparams = { i18n_en_humanname = 'Epic Pawn Launcher', i18n_en_tooltip = 'Unleashes pawns so epic, they might start a revolution!' },
+		customparams = { i18n_en_humanname = 'Epic Pawn Launcher', },
 		weapondefs = {
 			arm_botrail = { range = 32000, metalpershot = 14200, energypershot = 480000, reloadtime = 0.5, customparams = { stockpilelimit = 50, spawns_name = 'armpwt4' } },
 		},
 	},
 	legeshotgunmech = {
-		customparams = { i18n_en_humanname = 'Pretorian Launcher', i18n_en_tooltip = 'Summons guardians so tough, they scoff at explosions!' },
+		customparams = { i18n_en_humanname = 'Pretorian Launcher', },
 		weapondefs = {
 			arm_botrail = {
 				range = 32000,
@@ -41,43 +41,43 @@ local NewUnits = {
 		},
 	},
 	legjav = {
-		customparams = { i18n_en_humanname = 'Javelin Launcher', i18n_en_tooltip = 'Hurls javelins with pinpoint precision, skewering foes like kebabs!' },
+		customparams = { i18n_en_humanname = 'Javelin Launcher'},
 		weapondefs = {
 			arm_botrail = { range = 32000, metalpershot = 2150, energypershot = 102400, reloadtime = 0.5, customparams = { stockpilelimit = 50, spawns_name = 'legjav' } },
 		},
 	},
 	armraz = {
-		customparams = { i18n_en_humanname = 'Razorback Launcher', i18n_en_tooltip = 'Fires razorbacks that charge into battle like grumpy space boars!' },
+		customparams = { i18n_en_humanname = 'Razorback Launcher',  },
 		weapondefs = {
 			arm_botrail = { range = 32000, metalpershot = 6750, energypershot = 283520, reloadtime = 0.5, customparams = { stockpilelimit = 50, spawns_name = 'armraz' } },
 		},
 	},
 	corakt4 = {
-		customparams = { i18n_en_humanname = 'Epic Grund Launcher', i18n_en_tooltip = 'Launches grunts so epic, they grunt their way to victory!' },
+		customparams = { i18n_en_humanname = 'Epic Grund Launcher',  },
 		weapondefs = {
 			arm_botrail = { range = 32000, metalpershot = 10700, energypershot = 384000, reloadtime = 0.5, customparams = { stockpilelimit = 50, spawns_name = 'corakt4' } },
 		},
 	},
 	cordemon = {
-		customparams = { i18n_en_humanname = 'Demon Launcher', i18n_en_tooltip = 'Unleashes demons that make enemies wish they stayed home!' },
+		customparams = { i18n_en_humanname = 'Demon Launcher', },
 		weapondefs = {
 			arm_botrail = { range = 32000, metalpershot = 10700, energypershot = 384000, reloadtime = 0.5, customparams = { stockpilelimit = 50, spawns_name = 'cordemon' } },
 		},
 	},
 	armvader = {
-		customparams = { i18n_en_humanname = 'Tumbleweed Launcher', i18n_en_tooltip = 'Fires tumbleweeds that drift into battle, confusing everyone!' },
+		customparams = { i18n_en_humanname = 'Tumbleweed Launcher', },
 		weapondefs = {
 			arm_botrail = { range = 32000, metalpershot = 115, energypershot = 12500, reloadtime = 0.5, customparams = { stockpilelimit = 50, spawns_name = 'armvader' } },
 		},
 	},
 	armvadert4 = {
-		customparams = { i18n_en_humanname = 'Epic Tumbleweed Launcher', i18n_en_tooltip = 'Rolls out tumbleweeds so epic, they bowl over entire armies!' },
+		customparams = { i18n_en_humanname = 'Epic Tumbleweed Launcher',  },
 		weapondefs = {
 			arm_botrail = { range = 32000, metalpershot = 26600, energypershot = 480000, reloadtime = 0.5, customparams = { stockpilelimit = 50, spawns_name = 'armvadert4' } },
 		},
 	},
 	armt1 = {
-		customparams = { i18n_en_humanname = 'Armada T1 Launcher', i18n_en_tooltip = 'Quantity over quality' },
+		customparams = { i18n_en_humanname = 'Armada T1 Launcher', },
 		weapondefs = {
 			arm_botrail = {
 				stockpiletime = 0.5,
@@ -94,7 +94,7 @@ local NewUnits = {
 		},
 	},
 	armt2 = {
-		customparams = { i18n_en_humanname = 'Armada T2 Launcher', i18n_en_tooltip = 'More quality less quantity' },
+		customparams = { i18n_en_humanname = 'Armada T2 Launcher', },
 		weapondefs = {
 			arm_botrail = {
 				stockpiletime = 1,
@@ -111,7 +111,7 @@ local NewUnits = {
 		},
 	},
 	armt3 = {
-		customparams = { i18n_en_humanname = 'Armada T3 Launcher', i18n_en_tooltip = 'Quality over quantity' },
+		customparams = { i18n_en_humanname = 'Armada T3 Launcher', },
 		weapondefs = {
 			arm_botrail = {
 				stockpiletime = 2,
@@ -128,7 +128,7 @@ local NewUnits = {
 		},
 	},
 	cort1 = {
-		customparams = { i18n_en_humanname = 'Cortex T1 Launcher', i18n_en_tooltip = 'Quantity over quality' },
+		customparams = { i18n_en_humanname = 'Cortex T1 Launcher',  },
 		weapondefs = {
 			arm_botrail = {
 				stockpiletime = 0.5,
@@ -145,7 +145,7 @@ local NewUnits = {
 		},
 	},
 	cort2 = {
-		customparams = { i18n_en_humanname = 'Cortex T2 Launcher', i18n_en_tooltip = 'More quality less quantity' },
+		customparams = { i18n_en_humanname = 'Cortex T2 Launcher', },
 		weapondefs = {
 			arm_botrail = {
 				stockpiletime = 1,
@@ -162,7 +162,7 @@ local NewUnits = {
 		},
 	},
 	cort3 = {
-		customparams = { i18n_en_humanname = 'Cortex T3 Launcher', i18n_en_tooltip = 'Quality over quantity' },
+		customparams = { i18n_en_humanname = 'Cortex T3 Launcher', },
 		weapondefs = {
 			arm_botrail = {
 				stockpiletime = 2,
@@ -179,7 +179,7 @@ local NewUnits = {
 		},
 	},
 	legt1 = {
-		customparams = { i18n_en_humanname = 'Legion T1 Launcher', i18n_en_tooltip = 'Quantity over quality' },
+		customparams = { i18n_en_humanname = 'Legion T1 Launcher', },
 		weapondefs = {
 			arm_botrail = {
 				stockpiletime = 0.5,
@@ -196,7 +196,7 @@ local NewUnits = {
 		},
 	},
 	legt2 = {
-		customparams = { i18n_en_humanname = 'Legion T2 Launcher', i18n_en_tooltip = 'More quality less quantity' },
+		customparams = { i18n_en_humanname = 'Legion T2 Launcher',  },
 		weapondefs = {
 			arm_botrail = {
 				stockpiletime = 1,
@@ -213,7 +213,7 @@ local NewUnits = {
 		},
 	},
 	legt3 = {
-		customparams = { i18n_en_humanname = 'Legion T3 Launcher', i18n_en_tooltip = 'Quality over quantity' },
+		customparams = { i18n_en_humanname = 'Legion T3 Launcher',  },
 		weapondefs = {
 			arm_botrail = {
 				stockpiletime = 2,
@@ -231,20 +231,15 @@ local NewUnits = {
 	},
 }
 
-local function createNewUnit(baseUnit, NewUnit)
-	local buildOptions = {}
-	for k, s in pairs(NewUnit) do
-		local nU = baseUnit .. '_' .. k
-		if UnitDefs[baseUnit] and not UnitDefs[nU] then
-			UnitDefs[nU] = table.merge(UnitDefs[baseUnit], s)
-			table.insert(buildOptions, nU)
+if UnitDefs.cormandot4 then
+	for k, s in pairs(NewUnits) do
+		local nU = armbotrail .. '_' .. k
+		if UnitDefs[armbotrail] and not UnitDefs[nU] then
+			UnitDefs[nU] = table.merge(UnitDefs[armbotrail], s)
+			table.insert(UnitDefs.cormandot4.buildoptions, nU)
 		end
 	end
-	if UnitDefs.cormandot4 then
-		UnitDefs.cormandot4.buildoptions = buildOptions
-	end
 end
-createNewUnit(baseUnits, NewUnits)
 
 -- This code adds new build options to the “Epic Commando” unit from the Cortex Faction (T3 Gantry with required experimental units + experimental SCAV units).
 --The build options currently include 18 new unit launchers.

@@ -1,4 +1,4 @@
---NuttyB v1.52 Def Main
+--NuttyB v1.52b Def Main
 -- Authors: ChrispyNut, BackBash
 -- docs.google.com/spreadsheets/d/1QSVsuAAMhBrhiZdTihVfSCwPzbbZWDLCtXWP23CU0ko
 local unitDefs, repulsor, pairs, tableMerge = UnitDefs or {}, 'repulsor', pairs, table.merge
@@ -45,7 +45,7 @@ for _, shieldedUnit in ipairs(
 		'legcomlvl2',
 		'legcomlvl3',
 		'legcomlvl4',
-		'legcomt2com'
+		'legcomlvl5'
 	}
 ) do
 	addWeapon(
