@@ -1,4 +1,4 @@
---T4 Legendary Defenses
+--T4 Defences NuttyB Balance
 -- Authors: Hedgehogzs
 -- docs.google.com/spreadsheets/d/1QSVsuAAMhBrhiZdTihVfSCwPzbbZWDLCtXWP23CU0ko
 
@@ -15,9 +15,9 @@ unitDefs.legendary_pulsar = tableMerge(
 		name = 'Legendary Pulsar',
 		description = 'A pinnacle of Armada engineering that fires devastating, rapid-fire tachyon bolts.',
 		buildtime = 280000,
-		health = 75000,
-		metalcost = 32000,
-		energycost = 800000,
+		health = 60000,
+		metalcost = 43840,
+		energycost = 1096000,
 		damagemodifier = 0.15,
 		energystorage = 6000,
 		idleautoheal = 10,
@@ -58,11 +58,11 @@ unitDefs.legendary_pulsar = tableMerge(
 				thickness = 10,
 				explosiongenerator = 'custom:tachyonshot',
 				damage = {
-					default = 3550
+					default = 3195
 				},
 				allowNonBlockingAim = true,
 				avoidfeature = false,
-				avoidfriendly = false,
+				avoidfriendly = true,
 				collidefriendly = false
 			}
 		},
@@ -79,9 +79,9 @@ unitDefs.legendary_bastion = tableMerge(
 	{
 		name = 'Legendary Bastion',
 		description = 'The ultimate defensive emplacement. Projects a devastating, pulsating heatray.',
-		health = 75000,
-		metalcost = 48000,
-		energycost = 1450000,
+		health = 60000,
+		metalcost = 65760,
+		energycost = 1986500,
 		buildtime = 180000,
 		objectname = 'scavs/scavbeacon_t4.s3o',
 		script = 'scavs/scavbeacon.cob',
@@ -100,7 +100,7 @@ unitDefs.legendary_bastion = tableMerge(
 				rgbcolor = '1.0 0.2 1.0',
 				range = 1400,
 				damage = {
-					default = 2995,
+					default = 2696,
 					vtol = 15
 				},
 				weapontype = 'BeamLaser',
@@ -151,9 +151,9 @@ unitDefs[legendary_bulwark] =
 		name = 'Legendary Bulwark',
 		description = 'A pinnacle of defensive technology, the Legendary Bulwark annihilates all who approach.',
 		buildtime = 250000,
-		health = 95000,
-		metalcost = 45000,
-		energycost = 1250000,
+		health = 76000,
+		metalcost = 61650,
+		energycost = 1712500,
 		damagemodifier = 0.15,
 		energystorage = 5000,
 		idleautoheal = 15,
@@ -207,10 +207,10 @@ unitDefs[legendary_bulwark] =
 				turret = true,
 				weaponvelocity = 1000,
 				damage = {
-					default = 500
+					default = 450
 				},
 				avoidfeature = false,
-				avoidfriendly = false,
+				avoidfriendly = true,
 				collidefriendly = false
 			},
 			legendary_heat_ray = {
@@ -242,11 +242,11 @@ unitDefs[legendary_bulwark] =
 				turret = true,
 				weaponvelocity = 1800,
 				damage = {
-					default = 10000,
+					default = 9000,
 					commanders = 1350
 				},
 				allowNonBlockingAim = true,
-				avoidfriendly = false,
+				avoidfriendly = true,
 				collidefriendly = false
 			},
 			legendary_point_defense = {
@@ -279,11 +279,11 @@ unitDefs[legendary_bulwark] =
 				turret = true,
 				weaponvelocity = 1500,
 				damage = {
-					default = 500,
+					default = 450,
 					commanders = 999
 				},
 				allowNonBlockingAim = true,
-				avoidfriendly = false,
+				avoidfriendly = true,
 				collidefriendly = false
 			}
 		},
