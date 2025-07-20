@@ -1,4 +1,4 @@
---Mini Bosses v2b
+--Mini Bosses v2e
 -- Authors: RCore
 -- docs.google.com/spreadsheets/d/1QSVsuAAMhBrhiZdTihVfSCwPzbbZWDLCtXWP23CU0ko
 local unitDefs, tableMerge, tableCopy, raptor_matriarch_basic, customfusionexplo, spring = UnitDefs or {}, table.merge, table.copy, 'raptor_matriarch_basic', 'customfusionexplo', Spring
@@ -33,7 +33,7 @@ end
 local mqNumQueens = spring.GetModOptions().raptor_queen_count or 1
 local mqDoomAngerScale = 1
 if nbQhpMult > 1.3 then mqDoomAngerScale = math.min(10, nbQhpMult / 1.3 * 0.9) end
-local mqDoomAnger = math.ceil(mqDoomAngerScale * (8 * (1.06 ^ math.max(0, mqNumQueens - 8))))
+local mqDoomAnger = math.ceil(mqDoomAngerScale * (10 * (1.06 ^ math.max(0, mqNumQueens - 8))))
 local mqAngerBoss = mqTimeMult * 100 + mqDoomAnger
 local maxDoombringers = math.max(3, scaledMax(math.floor((21 * mqNumQueens + 36) / 19)))
 
@@ -65,7 +65,7 @@ newUnit(
 	{
 		name = 'Queenling Secunda',
 		icontype = 'raptor_queen_easy',
-		health = raptor_matriarch_basic_health * 7,
+		health = raptor_matriarch_basic_health * 6,
 		customparams = {
 			i18n_en_humanname = 'Queenling Secunda',
 			i18n_en_tooltip = 'Swift and sharp, a noble among raptors.'
@@ -79,13 +79,16 @@ newUnit(
 	{
 		name = 'Queenling Tertia',
 		icontype = 'raptor_queen_normal',
-		health = raptor_matriarch_basic_health * 9,
+		health = raptor_matriarch_basic_health * 7,
 		customparams = {
 			i18n_en_humanname = 'Queenling Tertia',
 			i18n_en_tooltip = 'Refined tastes. Likes her prey rare.'
 		}
 	}
 )
+
+unitDefs.raptor_miniq_b.weapondefs.acidgoo = tableCopy(unitDefs['raptor_matriarch_acid'].weapondefs.acidgoo)
+unitDefs.raptor_miniq_c.weapondefs.empgoo = tableCopy(unitDefs['raptor_matriarch_electric'].weapondefs.goo)
 
 for _, l in ipairs {
 	{ 'raptor_matriarch_basic',    'raptor_mama_ba', 'Matrona',            'Claws charged with vengeance.' },
@@ -161,7 +164,6 @@ end
 local miniQueenCommon = {
 	selfdestructas = customfusionexplo,
 	explodeas = customfusionexplo,
-	maxthisunit = scaledMax(3),
 	weapondefs = {
 		yellow_missile = { damage = { default = 1, vtol = 1000 } }
 	}
@@ -169,6 +171,7 @@ local miniQueenCommon = {
 
 for f, u in pairs {
 	raptor_miniq_a = tableMerge(miniQueenCommon, {
+		maxthisunit = scaledMax(2),
 		customparams = raptorSquad(mqAnger[1], mqAnger[2], 'berserk'),
 		weapondefs = {
 			goo = { damage = { default = 750 } },
@@ -176,23 +179,82 @@ for f, u in pairs {
 		}
 	}),
 	raptor_miniq_b = tableMerge(miniQueenCommon, {
+		maxthisunit = scaledMax(3),
 		customparams = raptorSquad(mqAnger[3], mqAnger[4], 'berserk'),
 		weapondefs = {
-			goo = { damage = { default = 1500 } },
-			melee = { damage = { default = 7000 } },
-		}
+			acidgoo = {
+				burst = 8,
+				reloadtime = 10,
+				sprayangle = 4096,
+				damage = { default = 1500, shields = 1500 }
+				},
+			melee = { damage = { default = 5000 } },
+		},
+		weapons = {
+			[1] = {
+				def = "MELEE",
+				maindir = "0 0 1",
+				maxangledif = 155,
+			},
+			[2] = {
+				onlytargetcategory = "VTOL",
+				def = "yellow_missile",
+			},
+			[3] = {
+				onlytargetcategory = "VTOL",
+				def = "yellow_missile",
+			},
+			[4] = {
+				onlytargetcategory = "VTOL",
+				def = "yellow_missile",
+			},
+			[5] = {
+				def = "acidgoo",
+				maindir = "0 0 1",
+				maxangledif = 180,
+			},
+		},
 	}),
 	raptor_miniq_c = tableMerge(miniQueenCommon, {
 		maxthisunit = scaledMax(4),
 		customparams = raptorSquad(mqAnger[5], mqAnger[6], 'berserk'),
 		weapondefs = {
-			goo = { damage = { default = 3000 } },
-			melee = { damage = { default = 10000 } },
-		}
+			empgoo = {
+				burst = 10,
+				reloadtime = 10,
+				sprayangle = 4096,
+				damage = { default = 2000, shields = 2000 }
+				},
+			melee = { damage = { default = 6000 } },
+		},
+		weapons = {
+			[1] = {
+				def = "MELEE",
+				maindir = "0 0 1",
+				maxangledif = 155,
+			},
+			[2] = {
+				onlytargetcategory = "VTOL",
+				def = "yellow_missile",
+			},
+			[3] = {
+				onlytargetcategory = "VTOL",
+				def = "yellow_missile",
+			},
+			[4] = {
+				onlytargetcategory = "VTOL",
+				def = "yellow_missile",
+			},
+			[5] = {
+				def = "empgoo",
+				maindir = "0 0 1",
+				maxangledif = 180,
+			},
+		},
 	}),
 	raptor_consort = {
 		explodeas = 'raptor_empdeath_big',
-		maxthisunit = scaledMax(8),
+		maxthisunit = scaledMax(6),
 		customparams = raptorSquad(mqAnger[2], 1000, 'berserk'),
 		weapondefs = {
 			eyelaser = {
@@ -204,13 +266,15 @@ for f, u in pairs {
 			},		
 			goo = {
 				name = 'Snowball Barrage',
-				soundstart = 'pensquawk1',
+				soundstart = 'penbray2',
+				soundStartVolume = 2,
 				cegtag = "blob_trail_blue",
 				burst = 8,
 				sprayangle = 2048,
 				weaponvelocity = 600,
 				reloadtime = 4,
 				range = 1000,
+				hightrajectory = 1,
 				rgbcolor = "0.7 0.85 1.0",
 				damage = { default = 1000 }
 			}
@@ -243,13 +307,15 @@ for f, u in pairs {
 			},
 			goo = {
 				name = 'Amber Hailstorm',
-				soundstart = 'penbray2',
+				soundstart = 'penbray1',
+				soundStartVolume = 2,
 				cegtag = "blob_trail_red",
 				burst = 15,
 				sprayangle = 3072,
 				weaponvelocity = 600,
 				reloadtime = 5,
 				rgbcolor = "0.7 0.85 1.0",
+				hightrajectory = 1,
 				damage = { default = 5000 }
 			}
 		},
@@ -280,8 +346,8 @@ for f, u in pairs {
 		maxthisunit = scaledMax(4),
 		customparams = raptorSquad(55, mqAnger[3]-1, 'berserk'),
 		weapondefs = {
-			flamethrowerspike = { damage = { default = 120 } },
-			flamethrowermain = { damage = { default = 240 } }
+			flamethrowerspike = { damage = { default = 80 } },
+			flamethrowermain = { damage = { default = 160 } }
 		}
 	},
 	raptor_mama_el = {
