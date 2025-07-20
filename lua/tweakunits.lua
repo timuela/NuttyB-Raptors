@@ -180,25 +180,28 @@ return {
 	raptor_hive = {
 		weapondefs = {
 			antiground = {
-				burst = 10,
+				burst = 5,
 				burstrate = 0.01,
 				cegtag = 'arty-heavy-purple',
 				explosiongenerator = 'custom:dirt',
 				model = 'Raptors/s_raptor_white.s3o',
 				range = 1600,
-				reloadtime = 10,
+				reloadtime = 5,
 				rgbcolor = '0.5 0 1',
 				soundhit = 'smallraptorattack',
 				soundstart = 'bugarty',
 				sprayangle = 256,
 				turret = true,
+				stockpiletime = 5,
 				proximitypriority = '',
 				damage = {
 					default = 1,
 					shields = 100
 				},
 				customparams = {
-					spawns_name = 'raptor_hive_swarmer_basic',
+					stockpilelimit = 10,
+					spawns_name = 'raptor_acidspawnling raptor_hive_swarmer_basic raptor_land_swarmer_basic_t1_v1 ',
+					spawns_mode = 'random',
 					spawns_surface = 'LAND SEA'
 				}
 			}
@@ -504,8 +507,8 @@ return {
 				impactonly = 1,
 				name = 'Experimental Duction Beam',
 				noselfdamage = true,
-				range = 2700,
-				reloadtime = 11,
+				range = 2400,
+				reloadtime = 13,
 				rgbcolor = '0.4 0.2 0.6',
 				scrollspeed = 13,
 				soundhitdry = "",
@@ -523,7 +526,7 @@ return {
 				weaponvelocity = 3100,
 				damage = {
 					commanders = 480,
-					default = 35000
+					default = 34000
 				}
 			}
 		},
@@ -540,7 +543,7 @@ return {
 		energycost = 505000,
 		metalcost = 19500,
 		buildtime = 170000,
-		health = 11450,
+		health = 12450,
 		footprintx = 6,
 		footprintz = 6,
 		weapondefs = {
@@ -567,8 +570,8 @@ return {
 				impactonly = 1,
 				name = 'Mini DeathStar',
 				noselfdamage = true,
-				range = 3300,
-				reloadtime = 14,
+				range = 2800,
+				reloadtime = 15,
 				rgbcolor = '0 1 0',
 				scrollspeed = 13,
 				soundhitdry = '',
@@ -586,7 +589,7 @@ return {
 				weaponvelocity = 3100,
 				damage = {
 					commanders = 480,
-					default = 45000
+					default = 50000
 				}
 			}
 		},
@@ -603,7 +606,7 @@ return {
 		energycost = 555000,
 		metalcost = 21000,
 		buildtime = 150000,
-		health = 9950,
+		health = 11000,
 		footprintx = 6,
 		footprintz = 6,
 		weapondefs = {
@@ -622,7 +625,7 @@ return {
 				cratermult = 0,
 				cameraShake = 0,
 				edgeeffectiveness = 0.30,
-				energypershot = 15000,
+				energypershot = 10000,
 				explosiongenerator = 'custom:laserhit-large-red',
 				firestarter = 90,
 				impactonly = 1,
@@ -632,8 +635,8 @@ return {
 				laserflaresize = 1,
 				name = 'The Eagle Standard',
 				noselfdamage = true,
-				range = 2250,
-				reloadtime = 4.25,
+				range = 2150,
+				reloadtime = 3,
 				rgbcolor = '0/1/0.4',
 				scrollspeed = 13,
 				soundhitdry = '',
@@ -651,7 +654,7 @@ return {
 				weaponvelocity = 3100,
 				damage = {
 					commanders = 480,
-					default = 10500
+					default = 6000
 				}
 			}
 		},

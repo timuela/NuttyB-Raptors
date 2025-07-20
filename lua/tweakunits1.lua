@@ -8,7 +8,7 @@ return {
 		health = 6000,
 		autoheal = 40,
 		buildoptions = {
-			[32] = 'cornecro',
+			[32] = 'legrezbot',
 			[33] = 'legdtl',
 			[34] = 'legdtf',
 			[35] = 'legdtr',
@@ -99,7 +99,7 @@ return {
 			evolution_timer = 600
 		},
 		buildoptions = {
-			[1] = 'cornecro',
+			[1] = 'legrezbot',
 			[2] = 'legadvsol',
 			[13] = 'corhllt',
 			[26] = 'leggeo',
@@ -116,7 +116,7 @@ return {
 		weapondefs = {
 			legcomlaser = {
 				accuracy = 50,
-				areaofeffect = 60,
+				areaofeffect = 12,
 				avoidfriendly = false,
 				avoidfeature = false,
 				collidefriendly = false,
@@ -217,8 +217,7 @@ return {
 		customparams = {
 			evolution_timer = 420
 		},
-		buildoptions = (function()
-			local buildoptions = {
+		buildoptions = {
 				[1] = 'legdeflector',
 				[2] = 'legfus',
 				[3] = 'legbombard',
@@ -234,22 +233,17 @@ return {
 				[16] = 'legabm',
 				[17] = 'legbastion',
 				[29] = 'legdtr',
-				[32] = 'cornecro',
+				[32] = 'legrezbot',
 				[33] = 'legdtl',
 				[37] = 'leglab',
 				[18] = '',
 				[19] = '',
 				[20] = ''
-			}
-			if UnitDefs.legendary_bastion and not table.contains(UnitDefs.legcomlvl3.buildoptions, 'legendary_bastion') then
-				buildoptions[18] = 'legendary_bastion'
-			end
-			return buildoptions
-		end)(),
+			},
 		weapondefs = {
-			armcomlaser = {
+			legcomlaser = {
 				accuracy = 50,
-				areaofeffect = 80,
+				areaofeffect = 12,
 				avoidfriendly = true,
 				avoidfeature = true,
 				collidefriendly = false,
@@ -330,7 +324,7 @@ return {
 		},
 		weapons = {
 			[1] = {
-				def = 'armcomlaser',
+				def = 'legcomlaser',
 				onlytargetcategory = 'NOTSUB',
 				fastautoretargeting = true
 			},
@@ -353,8 +347,7 @@ return {
 		customparams = {
 			evolution_timer = 300
 		},
-		buildoptions = (function()
-			local buildoptions = {
+		buildoptions = {
 				[1] = 'legdeflector',
 				[2] = 'legfus',
 				[3] = 'legbombard',
@@ -374,14 +367,13 @@ return {
 				[19] = 'legnanotct2',
 				[20] = 'legnanotct2plat',
 				[21] = 'legrwall',
-				[22] = 'legdtr',
 				[24] = 'leglab',
 				[28] = 'legtarg',
 				[29] = 'legsd',
 				[30] = 'legpede',
 				[31] = 'legerailtank',
 				[32] = 'legeheatraymech',
-				[33] = 'cornecro',
+				[33] = 'legrezbot',
 				[34] = 'legafus',
 				[35] = 'leglraa',
 				[36] = 'legdtl',
@@ -392,17 +384,13 @@ return {
 				[50] = 'legperdition',
 				[51] = 'legsilo',
 				[52] = 'legsrailt4',
-				[53] = 'legelrpcmech'
-			}
-			if UnitDefs.legnanotct3 then
-				table.insert(buildoptions, 'legnanotct3')
-			end
-			return buildoptions
-		end)(),
+				[53] = 'legelrpcmech',
+				[54] = 'legdtr'
+			},
 		weapondefs = {
-			armcomlaser = {
+			legcomlaser = {
 				accuracy = 50,
-				areaofeffect = 126,
+				areaofeffect = 12,
 				avoidfriendly = true,
 				avoidfeature = true,
 				collidefriendly = false,
@@ -483,7 +471,7 @@ return {
 		},
 		weapons = {
 			[1] = {
-				def = 'armcomlaser',
+				def = 'legcomlaser',
 				onlytargetcategory = 'NOTSUB',
 				fastautoretargeting = true
 			},
@@ -499,10 +487,10 @@ return {
 	legcomlvl5 = {
 		energymake = 2280,
 		metalmake = 64,
-		speed = 92,
-		workertime = 1500,
-		autoheal = 3500,
-		health = 41900,
+		speed = 100,
+		workertime = 1700,
+		autoheal = 4500,
+		health = 53900,
 		buildoptions = (function()
 			local buildoptions = {
 				[1] = 'legdeflector',
@@ -524,14 +512,13 @@ return {
 				[19] = 'legnanotct2',
 				[20] = 'legnanotct2plat',
 				[21] = 'legrwall',
-				[22] = 'legdtr',
 				[24] = 'leglab',
 				[28] = 'legtarg',
 				[29] = 'legsd',
 				[30] = 'legpede',
 				[31] = 'legerailtank',
 				[32] = 'legeheatraymech',
-				[33] = 'cornecro',
+				[33] = 'legrezbot',
 				[34] = 'legafus',
 				[35] = 'leglraa',
 				[36] = 'legdtl',
@@ -542,7 +529,8 @@ return {
 				[50] = 'legperdition',
 				[51] = 'legsilo',
 				[52] = 'legsrailt4',
-				[53] = 'legelrpcmech'
+				[53] = 'legelrpcmech',
+				[54] = 'legdtr'
 			}
 			if UnitDefs.legnanotct3 then
 				table.insert(buildoptions, 'legnanotct3')
@@ -550,137 +538,169 @@ return {
 			return buildoptions
 		end)(),
 		weapondefs = {
-			armcomlaser = {
-				accuracy = 50,
-				areaofeffect = 12,
-				avoidfriendly = true,
-				avoidfeature = true,
-				collidefriendly = false,
-				collidefeature = true,
-				beamtime = 0.1,
-				burst = 7,
-				burstrate = 0.005,
-				corethickness = .5,
-				duration = 0.03,
-				explosiongenerator = 'custom:laserhit-small-red',
-				firestarter = 70,
-				impactonly = 0,
-				impulseboost = 0,
+			machinegun = {
+				accuracy = 80,
+				areaofeffect = 10,
+				avoidfeature = false,
+				beamburst = true,
+				beamdecay = 1,
+				beamtime = 0.07,
+				burst = 6,
+				burstrate = 0.10667,
+				camerashake = 0,
+				corethickness = 0.35,
+				craterareaofeffect = 0,
+				craterboost = 0,
+				cratermult = 0,
+				edgeeffectiveness = 1,
+				explosiongenerator = "custom:laserhit-medium-red",
+				firestarter = 10,
 				impulsefactor = 0,
-				laserflaresize = 2.7,
-				name = 'Light close-quarters g2g/g2a laser',
+				largebeamlaser = true,
+				laserflaresize = 30,
+				name = "Rapid-fire close quarters g2g armor-piercing laser",
 				noselfdamage = true,
-				range = 1500,
-				reloadtime = 0.1,
-				rgbcolor = '0 1 1',
-				soundhitdry = '',
-				soundhitwet = 'sizzle',
-				soundstart = 'lasrcrw1',
+				pulsespeed =  q8,
+				range = 1100,
+				reloadtime = 0.50,
+				rgbcolor = "0.7 0.3 1.0",
+				rgbcolor2 = "0.8 0.6 1.0",
+				soundhitdry = "",
+				soundhitwet = "sizzle",
+				soundstart = "lasfirerc",
 				soundtrigger = 1,
-				sprayangle = 400,
-				targetmoveerror = 0.05,
-				thickness = 5,
-				tolerance = 1000,
-				texture1 = 'shot',
-				texture2 = 'empty',
+				sprayangle = 500,
+				targetborder = 0.2,
+				thickness = 5.5,
+				tolerance = 4500,
 				turret = true,
-				weapontype = 'LaserCannon',
-				weaponvelocity = 3000,
+				weapontype = "BeamLaser",
+				weaponvelocity = 920,
 				damage = {
-					bombers = 180,
 					default = 800,
-					fighters = 110,
-					subs = 5
-				}
+					vtol = 180
+				},
 			},
-			shotgun = {
-				areaofeffect = 75,
-				energypershot = 0,
+			shotgunarm = {
+				areaofeffect = 112,
+				commandfire = true,
 				avoidfeature = false,
 				craterboost = 0,
 				cratermult = 0,
 				cameraShake = 0,
 				edgeeffectiveness = 0.65,
-				explosiongenerator = 'custom:genericshellexplosion-small',
-				impulseboost = 0.2,
-				impulsefactor = 0.2,
-				intensity = 3,
-				name = '60 Gauge Raptor Popper',
+				explosiongenerator = "custom:genericshellexplosion-medium",
+				impulsefactor = 0.8,
+				intensity = 0.2,
+				mygravity = 1,
+				name = "GaussCannon",
 				noselfdamage = true,
 				predictboost = 1,
-				projectiles = 9,
-				range = 550,
+				projectiles = 12,
+				range = 600,
 				reloadtime = 1,
-				rgbcolor = '1 0.75 0.25',
-				size = 5,
-				soundhit = 'xplomed2xs',
-				soundhitwet = 'splsmed',
-				soundstart = 'kroggie2xs',
-				soundstartvolume = 12,
+				rgbcolor = "0.8 0.4 1.0",
+				size = 4,
+				sizeDecay = 0.044,
+				stages = 16,
+				alphaDecay = 0.66,
+				soundhit = "xplomed2xs",
+				soundhitwet = "splsmed",
+				soundstart = "kroggie2xs",
 				sprayangle = 3000,
+				tolerance = 6000,
 				turret = true,
-				commandfire = true,
-				weapontimer = 1,
-				weapontype = 'Cannon',
-				weaponvelocity = 600,
+				waterweapon = true,
+				weapontimer = 2,
+				weapontype = "Cannon",
+				weaponvelocity = 900,
 				stockpile = true,
-				stockpiletime = 4,
+				stockpiletime = 3,
 				customparams = {
 					stockpilelimit = 20
 				},
 				damage = {
-					default = 4400,
+					default = 7000,
 					commanders = 0
+				},
+			},
+			exp_heavyrocket = {
+				areaofeffect = 70,
+				collidefriendly = 0,
+				collidefeature = 0,
+				cameraShake = 0,
+				energypershot = 125,
+				avoidfeature = 0,
+				avoidfriendly = 0,
+				burst = 2,
+				burstrate = 0.3,
+				cegtag = "missiletrailsmall-red",
+				colormap = '0.75 0.73 0.67 0.024   0.37 0.4 0.30 0.021   0.22 0.21 0.14 0.018  0.024 0.014 0.009 0.03   0.0 0.0 0.0 0.008',
+				craterboost = 0,
+				craterareaofeffect = 0,
+				cratermult = 0,
+				dance = 24,
+				edgeeffectiveness = 0.65,
+				explosiongenerator = "custom:burnblack",
+				firestarter = 70,
+				flighttime = 1.05,
+				flamegfxtime = 1,
+				impulsefactor = 0.123,
+				impactonly = 1,
+				model = "catapultmissile.s3o",
+				movingaccuracy = 600,
+				name = "Raptor Boomer",
+				noselfdamage = true,
+				proximitypriority = {},
+				range = 700,
+				reloadtime = 1,
+				smoketrail = true,
+				smokePeriod = 4,
+				smoketime = 16,
+				smokesize = 8.5,
+				smokecolor = 0.5,
+				size = 2,
+				smokeTrailCastShadow = false,
+				soundhit = "rockhit",
+				soundhitwet = "splsmed",
+				soundstart = "rapidrocket3",
+				startvelocity = 165,
+				rgbcolor = '1 0.25 0.1',
+				texture1 = "null",
+				texture2 = "smoketrailbar",
+				trajectoryheight = 1,
+				targetmoveerror = 0.2,
+				turnrate = 5000,
+				tracks = true,
+				turret = true,
+				allowNonBlockingAim = true,
+				weaponacceleration = 660,
+				weapontimer = 6,
+				weapontype = "MissileLauncher",
+				weaponvelocity = 950,
+				wobble = 2000,
+				damage = {
+					default = 1050,
+				},
+				customparams = {
+					exclude_preaim = true,
+					overrange_distance = 777,
+					projectile_destruction_method = "descend",
 				}
 			},
-			corcomeyelaser = {
-				areaofeffect = 16,
-				avoidfeature = false,
-				beamtime = 0.20,
-				corethickness = 0.475,
-				craterareaofeffect = 0,
-				craterboost = 0,
-				cratermult = 0,
-				edgeeffectiveness = 0.15,
-				energypershot = 0,
-				explosiongenerator = 'custom:laserhit-small-red',
-				firestarter = 100,
-				impactonly = 1,
-				impulsefactor = 0,
-				laserflaresize = 2,
-				name = 'Eye laser',
-				noselfdamage = true,
-				proximitypriority = 1,
-				range = 1000,
-				reloadtime = 0.19,
-				rgbcolor = '1 0.5 0',
-				soundhitdry = '',
-				soundhitwet = 'sizzle',
-				soundstart = 'beamershot2',
-				soundtrigger = 1,
-				thickness = 8,
-				tolerance = 10000,
-				turret = true,
-				weapontype = 'BeamLaser',
-				weaponvelocity = 2250,
-				damage = {
-					default = 800,
-					subs = 30
-				}
-			}
 		},
 		weapons = {
 			[1] = {
-				def = 'armcomlaser',
+				def = 'machinegun',
 				onlytargetcategory = 'NOTSUB',
 				fastautoretargeting = true
 			},
 			[3] = {
-				def = 'shotgun',
+				def = 'shotgunarm',
 				onlytargetcategory = 'WEAPON'
 			},
 			[5] = {
-				def = 'corcomeyelaser',
+				def = 'exp_heavyrocket',
 				onlytargetcategory = 'SURFACE'
 			}
 		}

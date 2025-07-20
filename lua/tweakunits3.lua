@@ -250,8 +250,6 @@ return {
 				[44] = 'cormaw',
 				[45] = 'cormwall',
 				[46] = 'corgatet3',
-				[47] = 'legendary_bulwark',
-				[48] = 'cornanotct3'
 			}
 			return buildoptions
 		end)(),
@@ -327,6 +325,7 @@ return {
 				soundhitvolume = 36,
 				soundstartvolume = 96,
 				soundtrigger = true,
+				size = 4,
 				tolerance = 10000,
 				turret = true,
 				waterweapon = true,
@@ -526,7 +525,7 @@ return {
 				soundhitdry = 'flamhit1',
 				soundhitwet = 'sizzle',
 				soundstart = 'heatray3burn',
-				soundstartvolume = 7,
+				soundstartvolume = 6,
 				soundtrigger = 1,
 				thickness = 2.5,
 				turret = true,

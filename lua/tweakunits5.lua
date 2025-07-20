@@ -5,7 +5,7 @@ return {
     raptor_air_scout_basic_t2_v1 = {
         customparams = {
             raptorcustomsquad = true,
-            raptorsquadunitsamount = 20,
+            raptorsquadunitsamount = 25,
             raptorsquadminanger = 20,
             raptorsquadmaxanger = 26,
             raptorsquadweight = 10,
@@ -18,7 +18,7 @@ return {
     raptor_hive_assault_basic = {
         customparams = {
             raptorcustomsquad = true,
-            raptorsquadunitsamount = 15,
+            raptorsquadunitsamount = 25,
             raptorsquadminanger = 0,
             raptorsquadmaxanger = 40,
             raptorsquadweight = 1,
@@ -44,10 +44,10 @@ return {
         raptor_evolved_motort4 = {
         customparams = {
             raptorcustomsquad = true,
-            raptorsquadunitsamount = 15,
+            raptorsquadunitsamount = 18,
             raptorsquadminanger = 50,
-            raptorsquadmaxanger = 150,
-            raptorsquadweight = 2,
+            raptorsquadmaxanger = 300,
+            raptorsquadweight = 3,
             raptorsquadrarity = "special",
             raptorsquadbehavior = "artillery",
             raptorsquadbehaviordistance = 2500,
@@ -93,13 +93,52 @@ return {
             raptorsquadbehaviorchance = 0.75,
         },
     },
+    raptor_matriarch_fire = {
+        customparams = {
+            raptorcustomsquad = true,
+            raptorsquadunitsamount = 30,
+            raptorsquadminanger = 105,
+            raptorsquadmaxanger = 135,
+            raptorsquadweight = 3,
+            raptorsquadrarity = "special",
+            raptorsquadbehavior = "berserk",
+            raptorsquadbehaviordistance = 500,
+            raptorsquadbehaviorchance = 0.75,
+        },
+    },
+    raptor_matriarch_basic = {
+        customparams = {
+            raptorcustomsquad = true,
+            raptorsquadunitsamount = 30,
+            raptorsquadminanger = 105,
+            raptorsquadmaxanger = 135,
+            raptorsquadweight = 3,
+            raptorsquadrarity = "special",
+            raptorsquadbehavior = "berserk",
+            raptorsquadbehaviordistance = 500,
+            raptorsquadbehaviorchance = 0.75,
+        },
+    },
+    raptor_matriarch_acid = {
+        customparams = {
+            raptorcustomsquad = true,
+            raptorsquadunitsamount = 30,
+            raptorsquadminanger = 105,
+            raptorsquadmaxanger = 135,
+            raptorsquadweight = 3,
+            raptorsquadrarity = "special",
+            raptorsquadbehavior = "berserk",
+            raptorsquadbehaviordistance = 500,
+            raptorsquadbehaviorchance = 0.75,
+        },
+    },
     raptor_matriarch_electric = {
         customparams = {
             raptorcustomsquad = true,
-            raptorsquadunitsamount = 15,
+            raptorsquadunitsamount = 30,
             raptorsquadminanger = 105,
             raptorsquadmaxanger = 135,
-            raptorsquadweight = 2,
+            raptorsquadweight = 3,
             raptorsquadrarity = "special",
             raptorsquadbehavior = "berserk",
             raptorsquadbehaviordistance = 500,
