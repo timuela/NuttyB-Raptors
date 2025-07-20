@@ -133,7 +133,7 @@ for name, def in pairs(unitDefs) do
 				s.wobble = {}
 			end
 		end
-	elseif name:match '^[acl][ore][rgm]com' then
+	elseif name:match '^[acl][ore][rgm]com' and not name:match '_scav$' then
 		unitDefs[name].featuredefs.dead.reclaimable = false
 		unitDefs[name].featuredefs.dead.damage = 560000
 	end
