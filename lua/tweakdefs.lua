@@ -133,12 +133,10 @@ for name, def in pairs(unitDefs) do
 				s.wobble = {}
 			end
 		end
-	elseif name:match '^[acl][ore][rgm]com' then
+	elseif name:match '^[acl][ore][rgm]com' and not name:match '_scav$' then
 		table.mergeInPlace(def, {
 			customparams = {
 				combatradius = 0,
-				evolution_announcement = 'Commanders have upgraded',
-				evolution_announcement_size = 18.5,
 				fall_damage_multiplier = 0,
 				paratrooper = true,
 			},
