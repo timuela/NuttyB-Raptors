@@ -54,7 +54,7 @@ unitDefs.legendary_pulsar = tableMerge(
 				beamtime = 3,
 				explosiongenerator = 'custom:tachyonshot',
 				damage = {
-					default = 3195
+					default = 4000
 				},
 				allowNonBlockingAim = true
 			}
@@ -93,8 +93,10 @@ unitDefs.legendary_bastion = tableMerge(
 		weapondefs = {
 			legendary_bastion_ray = {
 				areaofeffect = 64,
-				avoidfeature = false,
-				avoidfriendly = true,
+				collidefriendly = 0,
+				collidefeature = 0,
+				avoidfeature = 0,
+				avoidfriendly = 0,
 				beamtime = 0.3,
 				camerashake = 0,
 				corethickness = 0.3,
@@ -127,7 +129,7 @@ unitDefs.legendary_bastion = tableMerge(
 				weaponvelocity = 1500,
 				allowNonBlockingAim = true,
 				damage = {
-					default = 555,
+					default = 2500,
 					vtol = 15,
 				},
 			},
@@ -197,7 +199,7 @@ unitDefs[legendary_bulwark] =
 				turret = true,
 				weaponvelocity = 1000,
 				damage = {
-					default = 450
+					default = 600
 				},
 			},
 			legendary_heat_ray = {
@@ -210,7 +212,6 @@ unitDefs[legendary_bulwark] =
 				range = 1300,
 				reloadtime = 4.0,
 				areaofeffect = 72,
-				avoidfeature = false,
 				beamtime = 0.6,
 				cameraShake = 350,
 				corethickness = 0.40,
@@ -277,13 +278,16 @@ unitDefs[legendary_bulwark] =
 		},
 		weapons = {
 			[1] = {
-				def = 'legendary_overload_scatter'
+				def = 'legendary_overload_scatter',
+				onlytargetcategory = 'SURFACE'
 			},
 			[2] = {
-				def = 'legendary_heat_ray'
+				def = 'legendary_heat_ray',
+				onlytargetcategory = 'SURFACE'
 			},
 			[3] = {
-				def = 'legendary_point_defense'
+				def = 'legendary_point_defense',
+				onlytargetcategory = 'SURFACE'
 			}
 		}
 	}

@@ -577,7 +577,7 @@ return {
 				weapontype = "BeamLaser",
 				weaponvelocity = 920,
 				damage = {
-					default = 800,
+					default = 1300,
 					vtol = 180
 				},
 			},
@@ -596,7 +596,7 @@ return {
 				name = "GaussCannon",
 				noselfdamage = true,
 				predictboost = 1,
-				projectiles = 12,
+				projectiles = 16,
 				range = 600,
 				reloadtime = 1,
 				rgbcolor = "0.8 0.4 1.0",
@@ -617,10 +617,10 @@ return {
 				stockpile = true,
 				stockpiletime = 3,
 				customparams = {
-					stockpilelimit = 20
+					stockpilelimit = 50
 				},
 				damage = {
-					default = 7000,
+					default = 10000,
 					commanders = 0
 				},
 			},
@@ -632,7 +632,7 @@ return {
 				energypershot = 125,
 				avoidfeature = 0,
 				avoidfriendly = 0,
-				burst = 2,
+				burst = 4,
 				burstrate = 0.3,
 				cegtag = "missiletrailsmall-red",
 				colormap = '0.75 0.73 0.67 0.024   0.37 0.4 0.30 0.021   0.22 0.21 0.14 0.018  0.024 0.014 0.009 0.03   0.0 0.0 0.0 0.008',
@@ -680,7 +680,7 @@ return {
 				weaponvelocity = 950,
 				wobble = 2000,
 				damage = {
-					default = 1050,
+					default = 1200,
 				},
 				customparams = {
 					exclude_preaim = true,
