@@ -219,6 +219,7 @@ for _, faction in pairs(factions) do
 			buildpic = 'ARMFIFY.DDS',
 			name = factionPrefix[faction] .. 'Epic Aide',
 			customparams = {
+				is_builder = true,
 				subfolder = 'ArmBots/T3',
 				techlevel = 3,
 				unitgroup = 'buildert3',
