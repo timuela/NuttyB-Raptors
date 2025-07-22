@@ -399,9 +399,9 @@ for _, data in ipairs(clones) do
 end
 
 local oldUnitDef_Post = UnitDef_Post
-function UnitDef_Post(i, j)
+function UnitDef_Post(unitID, unitDef)
     if oldUnitDef_Post and oldUnitDef_Post ~= UnitDef_Post then
-        oldUnitDef_Post(i, j)
+        oldUnitDef_Post(unitID, unitDef)
     end
 
     local basehp =
