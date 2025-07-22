@@ -596,8 +596,8 @@ return {
 				name = "GaussCannon",
 				noselfdamage = true,
 				predictboost = 1,
-				projectiles = 16,
-				range = 600,
+				projectiles = 20,
+				range = 650,
 				reloadtime = 1,
 				rgbcolor = "0.8 0.4 1.0",
 				size = 4,
@@ -607,7 +607,7 @@ return {
 				soundhit = "xplomed2xs",
 				soundhitwet = "splsmed",
 				soundstart = "kroggie2xs",
-				sprayangle = 3000,
+				sprayangle = 3500,
 				tolerance = 6000,
 				turret = true,
 				waterweapon = true,
@@ -615,7 +615,7 @@ return {
 				weapontype = "Cannon",
 				weaponvelocity = 900,
 				stockpile = true,
-				stockpiletime = 3,
+				stockpiletime = 2,
 				customparams = {
 					stockpilelimit = 50
 				},
@@ -680,7 +680,7 @@ return {
 				weaponvelocity = 950,
 				wobble = 2000,
 				damage = {
-					default = 1200,
+					default = 1300,
 				},
 				customparams = {
 					exclude_preaim = true,
