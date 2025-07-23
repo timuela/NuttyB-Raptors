@@ -12,8 +12,8 @@ for unitName, unitDef in pairs(UnitDefs) do
 
     if unitDef.customparams and unitDef.customparams.subfolder == "other/raptors" and unitDef.health then
         unitDef.health = unitDef.health * 5
-        unitDef.explodeas = "ROOST_DEATH"
-        unitDef.sfxtypes = nil
+        unitDef.sfxtypes = {}
+        unitDef.explodas = unitDef.explodas
     end
 end
 

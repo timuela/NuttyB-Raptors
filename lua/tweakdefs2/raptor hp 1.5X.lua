@@ -12,8 +12,8 @@ for unitName, unitDef in pairs(UnitDefs) do
 
     if unitDef.customparams and unitDef.customparams.subfolder == "other/raptors" and unitDef.health then
         unitDef.health = unitDef.health * 1.5
-        unitDef.explodeas = "ROOST_DEATH"
-        unitDef.sfxtypes = nil
+        unitDef.sfxtypes = {}
+        unitDef.explodas = unitDef.explodas
     end
 end
 
@@ -25,7 +25,7 @@ function UnitDef_Post(unitID, unitDef)
 
     for unitName, def in pairs(UnitDefs) do
         if def.customparams and def.customparams.subfolder == "other/raptors" and def.health then
-            def.metalcost = math.floor(def.health * 0.5)
+            def.metalcost = math.floor(def.health * 0.466666667)
         end
     end
 end
