@@ -14,6 +14,7 @@ for unitName, unitDef in pairs(UnitDefs) do
         unitDef.health = unitDef.health * 2
         unitDef.sfxtypes = {}
         unitDef.explodas = unitDef.explodas
+        unitDef.nochasecategory = "OBJECT"
     end
 end
 

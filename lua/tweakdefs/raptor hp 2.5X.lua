@@ -1,19 +1,20 @@
--- NuttyB v1.52 3X HP
+-- NuttyB v1.52 2.5X HP
 -- docs.google.com/spreadsheets/d/1QSVsuAAMhBrhiZdTihVfSCwPzbbZWDLCtXWP23CU0ko
 for unitName, unitDef in pairs(UnitDefs) do
     if string.sub(unitName, 1, 24) == "raptor_land_swarmer_heal" then
         unitDef.reclaimspeed = 100
         unitDef.stealth = 0
         unitDef.builder = 0
-        unitDef.workertime = unitDef.workertime * 0.55
+        unitDef.workertime = unitDef.workertime * 0.6
         unitDef.canassist = 0
         unitDef.maxthisunit = 0
     end
 
     if unitDef.customparams and unitDef.customparams.subfolder == "other/raptors" and unitDef.health then
-        unitDef.health = unitDef.health * 3
+        unitDef.health = unitDef.health * 2.5
         unitDef.sfxtypes = {}
         unitDef.explodas = unitDef.explodas
+        unitDef.nochasecategory = "OBJECT"
     end
 end
 
@@ -25,7 +26,7 @@ function UnitDef_Post(unitID, unitDef)
 
     for unitName, def in pairs(UnitDefs) do
         if def.customparams and def.customparams.subfolder == "other/raptors" and def.health then
-            def.metalcost = math.floor(def.health * 0.25)
+            def.metalcost = math.floor(def.health * 0.3)
         end
     end
 end
