@@ -527,9 +527,9 @@ function UnitDef_Post(unitID, unitDef)
             }
         },
         raptor_acidspawnling = {
-            metalcost = 150,
+            metalcost = 375,
             energycost = 600,
-            health = basehp * 3,
+            health = basehp * 2,
             icontype = "raptor_land_swarmer_basic_t1_v1",
             buildpic = "raptors/raptorh1b.DDS",
             objectname = "Raptors/raptor_droneb.s3o",
