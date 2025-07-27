@@ -36,7 +36,7 @@ for _, faction in pairs(factions) do
 			sightdistance = 575,
 			workertime = 1900,
 			icontype = "armnanotct2",
-			canrepeat = true,
+			canrepeat = 1,
 			objectname = isLeg and 'Units/legnanotcbase.s3o' or isCor and 'Units/CORRESPAWN.s3o' or 'Units/ARMRESPAWN.s3o',
 			customparams = {
 				i18n_en_humanname = 'T3 Construction Turret',
@@ -88,7 +88,7 @@ for _, faction in pairs(factions) do
 	-- T1/T2 Turret Overhaul
 	for _, unit in pairs({faction .. 'nanotc', faction .. 'nanotct2'}) do
 		if unitDefs[unit] then
-			unitDefs[unit].canrepeat = true
+			unitDefs[unit].canrepeat = 1
 		end
 	end
 
@@ -160,7 +160,7 @@ for _, faction in pairs(factions) do
 		faction .. 'decom',
 		newUnit,
 		{
-			blocking = true,
+			blocking = 1,
 			builddistance = 350,
 			buildtime = 140000,
 			energycost = 200000,
@@ -175,8 +175,8 @@ for _, faction in pairs(factions) do
 			turninplaceanglelimit = 1.890,
 			turnrate = 1240,
 			workertime = 6000,
-			reclaimable = true,
-			candgun = false,
+			reclaimable = 1,
+			candgun = 0,
 			name = factionPrefix[faction] .. 'Epic Aide',
 			customparams = {
 				subfolder = 'ArmBots/T3',
@@ -197,8 +197,8 @@ for _, faction in pairs(factions) do
 		'armfify',
 		newUnit,
 		{
-			blocking = false,
-			canassist = true,
+			blocking = 0,
+			canassist = 1,
 			cruisealtitude = 3000,
 			builddistance = 1750,
 			buildtime = 140000,
@@ -219,7 +219,7 @@ for _, faction in pairs(factions) do
 			buildpic = 'ARMFIFY.DDS',
 			name = factionPrefix[faction] .. 'Epic Aide',
 			customparams = {
-				is_builder = true,
+				is_builder = 1,
 				subfolder = 'ArmBots/T3',
 				techlevel = 3,
 				unitgroup = 'buildert3',

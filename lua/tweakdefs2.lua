@@ -22,7 +22,7 @@ function addWeapon(h, i, j)
 			tableMerge(
 			unitDefs[h].customparams or {},
 			{
-				off_on_stun = 'true',
+				off_on_stun = '1',
 				shield_color_mult = 0.8,
 				shield_power = i.shield.power,
 				shield_radius = i.shield.radius
@@ -51,7 +51,7 @@ for _, shieldedUnit in ipairs(
 	addWeapon(
 		shieldedUnit,
 		{
-			avoidfeature = false,
+			avoidfeature = 0,
 			craterareaofeffect = 0,
 			craterboost = 0,
 			cratermult = 0,
@@ -73,10 +73,10 @@ for _, shieldedUnit in ipairs(
 				powerregen = 3,
 				powerregenenergy = 3,
 				radius = 100,
-				repulser = true,
-				smart = true,
+				repulser = 1,
+				smart = 1,
 				startingpower = 100,
-				visiblerepulse = true,
+				visiblerepulse = 1,
 				badcolor = {
 					1,
 					0.2,
@@ -138,13 +138,13 @@ for name, def in pairs(unitDefs) do
 			customparams = {
 				combatradius = 0,
 				fall_damage_multiplier = 0,
-				paratrooper = true,
+				paratrooper = 1,
 				wtboostunittype = {}
 			},
 			featuredefs = {
 				dead = {
 					damage = 560000,
-					reclaimable = false
+					reclaimable = 0
 				}
 			}
 		})
@@ -289,9 +289,9 @@ local units = {'armrespawn', 'correspawn', 'legnanotcbase'}
 for _, name in ipairs(units) do
     local u = UnitDefs[name]
     if u then
-        u.cantbetransported, u.footprintx, u.footprintz = false, 4, 4
+        u.cantbetransported, u.footprintx, u.footprintz = 0, 4, 4
         u.customparams = u.customparams or {}
-        u.customparams.paratrooper = true
+        u.customparams.paratrooper = 1
         u.customparams.fall_damage_multiplier = 0
     end
 end
@@ -410,7 +410,7 @@ function UnitDef_Post(unitID, unitDef)
     local weapon_common = {
             texture1 = {},
             texture2 = {},
-            tracks = false,
+            tracks = 0,
             weaponvelocity = 4000,
             smokePeriod = {},
             smoketime = {},
@@ -444,7 +444,7 @@ function UnitDef_Post(unitID, unitDef)
         tolerance = 60000,
         turnrate = 6000,
         trajectoryheight = 2,
-        turret = true,
+        turret = 1,
         weapontype = "Cannon",
         weaponvelocity = 520,
         startvelocity = 140,
@@ -476,7 +476,7 @@ function UnitDef_Post(unitID, unitDef)
         soundstart = "alien_bombrel",
         sprayangle = 128,
         tolerance = 5000,
-        turret = true,
+        turret = 1,
         weapontimer = 0.1,
         weapontype = "Cannon",
         weaponvelocity = 320,

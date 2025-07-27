@@ -19,13 +19,13 @@ return {
 		}
 	},
 	corfort = {
-		repairable = true
+		repairable = 1
 	},
 	armfort = {
-		repairable = true
+		repairable = 1
 	},
 	legforti = {
-		repairable = true
+		repairable = 1
 	},
 	armgate = {
 		explodeas = 'empblast',
@@ -130,7 +130,7 @@ return {
 				name = 'Mid-range, rapid-fire g2a guided missile launcher',
 				range = 2500,
 				reloadtime = 1.2,
-				smoketrail = false,
+				smoketrail = 0,
 				startvelocity = 1500,
 				weaponacceleration = 1000,
 				weaponvelocity = 4000,
@@ -149,7 +149,7 @@ return {
 				name = 'Long-range g2a guided heavy flak missile launcher',
 				range = 2800,
 				reloadtime = 1.8,
-				smoketrail = false,
+				smoketrail = 0,
 				startvelocity = 4000,
 				weaponacceleration = 1000,
 				weaponvelocity = 8000,
@@ -191,7 +191,7 @@ return {
 				soundhit = 'smallraptorattack',
 				soundstart = 'bugarty',
 				sprayangle = 256,
-				turret = true,
+				turret = 1,
 				stockpiletime = 5,
 				proximitypriority = '',
 				damage = {
@@ -297,8 +297,8 @@ return {
 		weapondefs = {
 			corlevlr_weapon = {
 				areaofeffect = 30,
-				avoidfriendly = true,
-				collidefriendly = false,
+				avoidfriendly = 1,
+				collidefriendly = 0,
 				cegtag = 'railgun',
 				range = 650,
 				energypershot = 75,
@@ -315,16 +315,16 @@ return {
 		}
 	},
 	armrespawn = {
-		blocking = false,
-		canresurrect = true
+		blocking = 0,
+		canresurrect = 1
 	},
 	legnanotcbase = {
-		blocking = false,
-		canresurrect = true
+		blocking = 0,
+		canresurrect = 1
 	},
 	correspawn = {
-		blocking = false,
-		canresurrect = true
+		blocking = 0,
+		canresurrect = 1
 	},
 	legrwall = {
 		collidefriendly = 0,
@@ -381,7 +381,7 @@ return {
 				impactonly = 1,
 				trajectoryheight = 1,
 				targetmoveerror = 0.2,
-				tracks = true,
+				tracks = 1,
 				weaponacceleration = 660,
 				weaponvelocity = 950,
 				damage = {
@@ -394,7 +394,7 @@ return {
 		collisionvolumeoffsets = '0 -2 0',
 		collisionvolumescales = '30 51 30',
 		collisionvolumetype = 'Ell',
-		usepiececollisionvolumes = false,
+		usepiececollisionvolumes = 0,
 		metalcost = 350,
 		energycost = 2500,
 		weapondefs = {
@@ -502,11 +502,11 @@ return {
 				firestarter = 90,
 				impulseboost = 0,
 				impulsefactor = 0,
-				largebeamlaser = true,
+				largebeamlaser = 1,
 				laserflaresize = 1,
 				impactonly = 1,
 				name = 'Experimental Duction Beam',
-				noselfdamage = true,
+				noselfdamage = 1,
 				range = 2400,
 				reloadtime = 13,
 				rgbcolor = '0.4 0.2 0.6',
@@ -520,7 +520,7 @@ return {
 				thickness = 14,
 				tilelength = 150,
 				tolerance = 10000,
-				turret = true,
+				turret = 1,
 				turnrate = 16000,
 				weapontype = 'LaserCannon',
 				weaponvelocity = 3100,
@@ -565,11 +565,11 @@ return {
 				firestarter = 90,
 				impulseboost = 0,
 				impulsefactor = 0,
-				largebeamlaser = true,
+				largebeamlaser = 1,
 				laserflaresize = 1,
 				impactonly = 1,
 				name = 'Mini DeathStar',
-				noselfdamage = true,
+				noselfdamage = 1,
 				range = 2800,
 				reloadtime = 15,
 				rgbcolor = '0 1 0',
@@ -583,7 +583,7 @@ return {
 				thickness = 14,
 				tilelength = 150,
 				tolerance = 10000,
-				turret = true,
+				turret = 1,
 				turnrate = 1600,
 				weapontype = 'LaserCannon',
 				weaponvelocity = 3100,
@@ -631,10 +631,10 @@ return {
 				impactonly = 1,
 				impulseboost = 0,
 				impulsefactor = 0,
-				largebeamlaser = true,
+				largebeamlaser = 1,
 				laserflaresize = 1,
 				name = 'The Eagle Standard',
-				noselfdamage = true,
+				noselfdamage = 1,
 				range = 2150,
 				reloadtime = 3,
 				rgbcolor = '0/1/0.4',
@@ -648,7 +648,7 @@ return {
 				thickness = 12,
 				tilelength = 150,
 				tolerance = 10000,
-				turret = true,
+				turret = 1,
 				turnrate = 16000,
 				weapontype = 'LaserCannon',
 				weaponvelocity = 3100,

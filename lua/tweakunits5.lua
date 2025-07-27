@@ -4,7 +4,7 @@
 return {
     raptor_air_scout_basic_t2_v1 = {
         customparams = {
-            raptorcustomsquad = true,
+            raptorcustomsquad = 1,
             raptorsquadunitsamount = 25,
             raptorsquadminanger = 20,
             raptorsquadmaxanger = 26,
@@ -17,7 +17,7 @@ return {
     },
     raptor_hive_assault_basic = {
         customparams = {
-            raptorcustomsquad = true,
+            raptorcustomsquad = 1,
             raptorsquadunitsamount = 25,
             raptorsquadminanger = 0,
             raptorsquadmaxanger = 40,
@@ -30,7 +30,7 @@ return {
     },
     raptor_land_swarmer_basic_t3_v1 = {
         customparams = {
-            raptorcustomsquad = true,
+            raptorcustomsquad = 1,
             raptorsquadunitsamount = 25,
             raptorsquadminanger = 0,
             raptorsquadmaxanger = 40,
@@ -43,7 +43,7 @@ return {
     },
         raptor_evolved_motort4 = {
         customparams = {
-            raptorcustomsquad = true,
+            raptorcustomsquad = 1,
             raptorsquadunitsamount = 18,
             raptorsquadminanger = 50,
             raptorsquadmaxanger = 300,
@@ -56,7 +56,7 @@ return {
     },
     raptor_hive_assault_heavy = {
         customparams = {
-            raptorcustomsquad = true,
+            raptorcustomsquad = 1,
             raptorsquadunitsamount = 25,
             raptorsquadminanger = 55,
             raptorsquadmaxanger = 70,
@@ -69,7 +69,7 @@ return {
     },
     raptor_hive_assault_superheavy = {
         customparams = {
-            raptorcustomsquad = true,
+            raptorcustomsquad = 1,
             raptorsquadunitsamount = 25,
             raptorsquadminanger = 80,
             raptorsquadmaxanger = 85,
@@ -82,7 +82,7 @@ return {
     },
     raptor_air_kamikaze_basic_t2_v1 = {
         customparams = {
-            raptorcustomsquad = true,
+            raptorcustomsquad = 1,
             raptorsquadunitsamount = 55,
             raptorsquadminanger = 100,
             raptorsquadmaxanger = 105,
@@ -95,7 +95,7 @@ return {
     },
     raptor_matriarch_fire = {
         customparams = {
-            raptorcustomsquad = true,
+            raptorcustomsquad = 1,
             raptorsquadunitsamount = 30,
             raptorsquadminanger = 105,
             raptorsquadmaxanger = 135,
@@ -108,7 +108,7 @@ return {
     },
     raptor_matriarch_basic = {
         customparams = {
-            raptorcustomsquad = true,
+            raptorcustomsquad = 1,
             raptorsquadunitsamount = 30,
             raptorsquadminanger = 105,
             raptorsquadmaxanger = 135,
@@ -121,7 +121,7 @@ return {
     },
     raptor_matriarch_acid = {
         customparams = {
-            raptorcustomsquad = true,
+            raptorcustomsquad = 1,
             raptorsquadunitsamount = 30,
             raptorsquadminanger = 105,
             raptorsquadmaxanger = 135,
@@ -134,7 +134,7 @@ return {
     },
     raptor_matriarch_electric = {
         customparams = {
-            raptorcustomsquad = true,
+            raptorcustomsquad = 1,
             raptorsquadunitsamount = 30,
             raptorsquadminanger = 105,
             raptorsquadmaxanger = 135,
@@ -155,7 +155,7 @@ return {
 		explodeas = "customfusionexplo",
         maxthisunit = 3,
         customparams = {
-            raptorcustomsquad = true,
+            raptorcustomsquad = 1,
             i18n_en_humanname = "Queen Degenerative",
             i18n_en_tooltip = "SHES A BIG ONE",
             raptorsquadunitsamount = 2,

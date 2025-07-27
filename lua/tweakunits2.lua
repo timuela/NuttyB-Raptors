@@ -13,7 +13,7 @@ return {
 		autoheal = 55,
 		health = 4500,
 		speed = 41,
-		canresurrect = true,
+		canresurrect = 1,
 		buildoptions = {
 			'armsolar',
 			'armwin',
@@ -62,14 +62,14 @@ return {
 			},
 			old_armsnipe_weapon = {
 				areaofeffect = 32,
-				avoidfeature = true,
-				avoidfriendly = true,
-				collidefeature = true,
-				collidefriendly = false,
+				avoidfeature = 1,
+				avoidfriendly = 1,
+				collidefeature = 1,
+				collidefriendly = 0,
 				corethickness = 0.75,
 				craterareaofeffect = 0,
 				craterboost = 0,
-				commandfire = true,
+				commandfire = 1,
 				cratermult = 0,
 				cegtag = 'railgun',
 				duration = 0.12,
@@ -88,8 +88,8 @@ return {
 				soundhit = 'sniperhit',
 				soundhitwet = 'sizzle',
 				soundstart = 'sniper3',
-				soundtrigger = true,
-				stockpile = true,
+				soundtrigger = 1,
+				stockpile = 1,
 				stockpiletime = 7,
 				customparams = {
 					stockpilelimit = 5
@@ -98,7 +98,7 @@ return {
 				texture2 = 'empty',
 				thickness = 4,
 				tolerance = 1000,
-				turret = true,
+				turret = 1,
 				weapontype = 'LaserCannon',
 				weaponvelocity = 3000,
 				damage = {
@@ -117,7 +117,7 @@ return {
 	armcomlvl2 = {
 		autoheal = 90,
 		builddistance = 175,
-		canresurrect = true,
+		canresurrect = 1,
 		energymake = 315,
 		health = 7000,
 		speed = 57.5,
@@ -176,7 +176,7 @@ return {
 		weapondefs = {
 			armcomlaser = {
 				areaofeffect = 16,
-				avoidfeature = false,
+				avoidfeature = 0,
 				beamtime = 0.1,
 				corethickness = 0.1,
 				craterareaofeffect = 0,
@@ -191,7 +191,7 @@ return {
 				impulsefactor = 0,
 				laserflaresize = 7.7,
 				name = 'Light close-quarters g2g/g2a laser',
-				noselfdamage = true,
+				noselfdamage = 1,
 				range = 425,
 				reloadtime = 0.7,
 				rgbcolor = '0 1 1',
@@ -202,7 +202,7 @@ return {
 				targetmoveerror = 0.05,
 				thickness = 4,
 				tolerance = 10000,
-				turret = true,
+				turret = 1,
 				weapontype = 'BeamLaser',
 				weaponvelocity = 900,
 				damage = {
@@ -212,14 +212,14 @@ return {
 			},
 			old_armsnipe_weapon = {
 				areaofeffect = 42,
-				avoidfeature = true,
-				avoidfriendly = true,
-				collidefeature = true,
-				collidefriendly = false,
+				avoidfeature = 1,
+				avoidfriendly = 1,
+				collidefeature = 1,
+				collidefriendly = 0,
 				corethickness = 0.75,
 				craterareaofeffect = 0,
 				craterboost = 0,
-				commandfire = true,
+				commandfire = 1,
 				cratermult = 0,
 				cegtag = 'railgun',
 				duration = 0.12,
@@ -238,8 +238,8 @@ return {
 				soundhit = 'sniperhit',
 				soundhitwet = 'sizzle',
 				soundstart = 'sniper3',
-				soundtrigger = true,
-				stockpile = true,
+				soundtrigger = 1,
+				stockpile = 1,
 				stockpiletime = 6,
 				customparams = {
 					stockpilelimit = 10
@@ -248,7 +248,7 @@ return {
 				texture2 = 'empty',
 				thickness = 4,
 				tolerance = 1000,
-				turret = true,
+				turret = 1,
 				weapontype = 'LaserCannon',
 				weaponvelocity = 3000,
 				damage = {
@@ -261,7 +261,7 @@ return {
 			[1] = {
 				def = 'armcomlaser',
 				onlytargetcategory = 'NOTSUB',
-				fastautoretargeting = true
+				fastautoretargeting = 1
 			},
 			[3] = {
 				def = 'old_armsnipe_weapon',
@@ -272,7 +272,7 @@ return {
 	armcomlvl3 = {
 		autoheal = 50,
 		builddistance = 250,
-		canresurrect = true,
+		canresurrect = 1,
 		energymake = 2712,
 		health = 10000,
 		speed = 71.5,
@@ -341,14 +341,14 @@ return {
 		weapondefs = {
 			old_armsnipe_weapon = {
 				areaofeffect = 64,
-				avoidfeature = true,
-				avoidfriendly = true,
-				collidefeature = true,
-				collidefriendly = false,
+				avoidfeature = 1,
+				avoidfriendly = 1,
+				collidefeature = 1,
+				collidefriendly = 0,
 				corethickness = 0.75,
 				craterareaofeffect = 0,
 				craterboost = 0,
-				commandfire = true,
+				commandfire = 1,
 				cratermult = 0,
 				cegtag = 'railgun',
 				duration = 0.12,
@@ -367,8 +367,8 @@ return {
 				soundhit = 'sniperhit',
 				soundhitwet = 'sizzle',
 				soundstart = 'sniper3',
-				soundtrigger = true,
-				stockpile = true,
+				soundtrigger = 1,
+				stockpile = 1,
 				stockpiletime = 3,
 				customparams = {
 					stockpilelimit = 10
@@ -377,7 +377,7 @@ return {
 				texture2 = 'empty',
 				thickness = 6,
 				tolerance = 1000,
-				turret = true,
+				turret = 1,
 				weapontype = 'LaserCannon',
 				weaponvelocity = 3000,
 				damage = {
@@ -387,7 +387,7 @@ return {
 			},
 			armcomlaser = {
 				areaofeffect = 12,
-				avoidfeature = false,
+				avoidfeature = 0,
 				beamtime = 0.1,
 				corethickness = 0.1,
 				craterareaofeffect = 0,
@@ -402,7 +402,7 @@ return {
 				impulsefactor = 0,
 				laserflaresize = 7.7,
 				name = 'Light close-quarters g2g/g2a laser',
-				noselfdamage = true,
+				noselfdamage = 1,
 				range = 500,
 				reloadtime = 0.6,
 				rgbcolor = '0.1 0 1',
@@ -413,7 +413,7 @@ return {
 				targetmoveerror = 0.05,
 				thickness = 6,
 				tolerance = 10000,
-				turret = true,
+				turret = 1,
 				weapontype = 'BeamLaser',
 				weaponvelocity = 900,
 				damage = {
@@ -427,7 +427,7 @@ return {
 				badtargetcategory = 'MOBILE',
 				def = 'armcomlaser',
 				onlytargetcategory = 'NOTSUB',
-				fastautoretargeting = true
+				fastautoretargeting = 1
 			},
 			[3] = {
 				def = 'old_armsnipe_weapon',
@@ -447,7 +447,7 @@ return {
 	armcomlvl4 = {
 		autoheal = 150,
 		builddistance = 300,
-		canresurrect = true,
+		canresurrect = 1,
 		energymake = 3112,
 		health = 20000,
 		speed = 82,
@@ -513,14 +513,14 @@ return {
 		weapondefs = {
 			old_armsnipe_weapon = {
 				areaofeffect = 72,
-				avoidfeature = true,
-				avoidfriendly = true,
-				collidefeature = true,
-				collidefriendly = false,
+				avoidfeature = 1,
+				avoidfriendly = 1,
+				collidefeature = 1,
+				collidefriendly = 0,
 				corethickness = 0.75,
 				craterareaofeffect = 0,
 				craterboost = 0,
-				commandfire = true,
+				commandfire = 1,
 				cratermult = 0,
 				cegtag = 'railgun',
 				duration = 0.12,
@@ -539,8 +539,8 @@ return {
 				soundhit = 'sniperhit',
 				soundhitwet = 'sizzle',
 				soundstart = 'sniper3',
-				soundtrigger = true,
-				stockpile = true,
+				soundtrigger = 1,
+				stockpile = 1,
 				stockpiletime = 2,
 				customparams = {
 					stockpilelimit = 15
@@ -549,7 +549,7 @@ return {
 				texture2 = 'empty',
 				thickness = 6,
 				tolerance = 1000,
-				turret = true,
+				turret = 1,
 				weapontype = 'LaserCannon',
 				weaponvelocity = 3000,
 				damage = {
@@ -559,9 +559,9 @@ return {
 			},
 			ata = {
 				areaofeffect = 16,
-				avoidfeature = false,
+				avoidfeature = 0,
 				beamtime = 1.25,
-				collidefriendly = false,
+				collidefriendly = 0,
 				corethickness = 0.5,
 				craterareaofeffect = 0,
 				craterboost = 0,
@@ -571,10 +571,10 @@ return {
 				explosiongenerator = 'custom:laserhit-large-blue',
 				firestarter = 90,
 				impulsefactor = 0,
-				largebeamlaser = true,
+				largebeamlaser = 1,
 				laserflaresize = 7,
 				name = 'Heavy long-range g2g tachyon accelerator beam',
-				noselfdamage = true,
+				noselfdamage = 1,
 				range = 1100,
 				reloadtime = 15,
 				rgbcolor = '1 0 1',
@@ -587,7 +587,7 @@ return {
 				thickness = 10,
 				tilelength = 150,
 				tolerance = 10000,
-				turret = true,
+				turret = 1,
 				weapontype = 'BeamLaser',
 				weaponvelocity = 3100,
 				damage = {
@@ -597,7 +597,7 @@ return {
 			},
 			armcomlaser = {
 				areaofeffect = 12,
-				avoidfeature = false,
+				avoidfeature = 0,
 				beamtime = 0.1,
 				corethickness = 0.1,
 				craterareaofeffect = 0,
@@ -612,7 +612,7 @@ return {
 				impulsefactor = 0,
 				laserflaresize = 7.7,
 				name = 'Light close-quarters g2g/g2a laser',
-				noselfdamage = true,
+				noselfdamage = 1,
 				range = 550,
 				reloadtime = 0.5,
 				rgbcolor = '0.659 0 1',
@@ -623,7 +623,7 @@ return {
 				targetmoveerror = 0.05,
 				thickness = 6,
 				tolerance = 10000,
-				turret = true,
+				turret = 1,
 				weapontype = 'BeamLaser',
 				weaponvelocity = 900,
 				damage = {
@@ -636,7 +636,7 @@ return {
 			[1] = {
 				def = 'armcomlaser',
 				onlytargetcategory = 'NOTSUB',
-				fastautoretargeting = true
+				fastautoretargeting = 1
 			},
 			[3] = {
 				def = 'old_armsnipe_weapon',
