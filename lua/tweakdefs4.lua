@@ -120,8 +120,8 @@ newUnit(
 		health = raptor_matriarch_basic_health * 4,
 		mass = 100000,
 		nochasecategory = "MOBILE VTOL OBJECT",
-		sonarstealth = 0,
-		stealth = 0,
+		sonarstealth = false,
+		stealth = false,
 		speed = 67.5,
 		customparams = {
 			i18n_en_humanname = 'Raptor Consort',
@@ -143,13 +143,13 @@ newUnit(
 		customparams = {
 			i18n_en_humanname = 'Doombringer',
 			i18n_en_tooltip = 'Your time is up. The Queens called for backup.'
-		}
+		}		
 	}
 )
 
 local function raptorSquad(p, q, e, r, s, t)
 	return {
-		raptorcustomsquad = 1,
+		raptorcustomsquad = true,
 		raptorsquadunitsamount = s or 1,
 		raptorsquadminanger = p,
 		raptorsquadmaxanger = q,
@@ -263,7 +263,7 @@ for f, u in pairs {
 				rgbcolor = '1 0 0.3',
 				range = 500,
 				damage = { default = 6000, commanders = 6000 }
-			},
+			},		
 			goo = {
 				name = 'Snowball Barrage',
 				soundstart = 'penbray2',
@@ -292,7 +292,7 @@ for f, u in pairs {
 			}
 		},
 	},
-
+	
 	raptor_doombringer = {
 		explodeas = "ScavComBossExplo",
 		maxthisunit = maxDoombringers,
@@ -302,7 +302,7 @@ for f, u in pairs {
 				name = 'Eyes of Doom',
 				reloadtime = 3,
 				rgbcolor = '0.3 1 0',
-				range = 500,
+				range = 500,			
 				damage = { default = 48000, commanders = 24000  }
 			},
 			goo = {
@@ -330,9 +330,9 @@ for f, u in pairs {
 				maxangledif = 180,
 				badtargetcategory = "VTOL OBJECT"
 			}
-		}
+		}		
 	},
-
+	
 	raptor_mama_ba = {
 		maxthisunit = scaledMax(4),
 		customparams = raptorSquad(55, mqAnger[3]-1, 'berserk'),

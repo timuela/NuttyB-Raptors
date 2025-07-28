@@ -30,7 +30,7 @@ return {
 				soundhitdry = '',
 				soundhitwet = 'sizzle',
 				soundstart = 'lasrcrw1',
-				soundtrigger = 1,
+				soundtrigger = true,
 				sprayangle = 700,
 				thickness = 6,
 				texture1 = 'shot',
@@ -44,7 +44,7 @@ return {
 			shotgun = {
 				areaofeffect = 60,
 				energypershot = 0,
-				avoidfeature = 0,
+				avoidfeature = false,
 				craterboost = 0,
 				cratermult = 0,
 				cameraShake = 0,
@@ -54,7 +54,7 @@ return {
 				impulsefactor = 0.2,
 				intensity = 3,
 				name = '6 Gauge Shotgun',
-				noselfdamage = 1,
+				noselfdamage = true,
 				predictboost = 1,
 				projectiles = 6,
 				range = 320,
@@ -66,12 +66,12 @@ return {
 				soundstart = 'kroggie2xs',
 				soundstartvolume = 12,
 				sprayangle = 2000,
-				turret = 1,
-				commandfire = 1,
+				turret = true,
+				commandfire = true,
 				weapontimer = 1,
 				weapontype = 'Cannon',
 				weaponvelocity = 600,
-				stockpile = 1,
+				stockpile = true,
 				stockpiletime = 5,
 				customparams = {
 					stockpilelimit = 10
@@ -117,10 +117,10 @@ return {
 			legcomlaser = {
 				accuracy = 50,
 				areaofeffect = 12,
-				avoidfriendly = 0,
-				avoidfeature = 0,
-				collidefriendly = 0,
-				collidefeature = 1,
+				avoidfriendly = false,
+				avoidfeature = false,
+				collidefriendly = false,
+				collidefeature = true,
 				beamtime = 0.09,
 				corethickness = 0.3,
 				duration = 0.09,
@@ -130,21 +130,21 @@ return {
 				impulseboost = 0,
 				impulsefactor = 0,
 				name = 'Light close-quarters g2g/g2a laser',
-				noselfdamage = 1,
+				noselfdamage = true,
 				range = 500,
 				reloadtime = 0.2,
 				rgbcolor = '0 0.95 0.05',
 				soundhitdry = '',
 				soundhitwet = 'sizzle',
 				soundstart = 'lasrcrw1',
-				soundtrigger = 1,
+				soundtrigger = true,
 				sprayangle = 500,
 				targetmoveerror = 0.05,
 				thickness = 7,
 				tolerance = 1000,
 				texture1 = 'shot',
 				texture2 = 'empty',
-				turret = 1,
+				turret = true,
 				weapontype = 'LaserCannon',
 				weaponvelocity = 2200,
 				damage = {
@@ -157,7 +157,7 @@ return {
 			shotgun = {
 				areaofeffect = 65,
 				energypershot = 0,
-				avoidfeature = 0,
+				avoidfeature = false,
 				craterboost = 0,
 				cratermult = 0,
 				cameraShake = 0,
@@ -167,7 +167,7 @@ return {
 				impulsefactor = 0.2,
 				intensity = 3,
 				name = '12 Gauge Shotgun',
-				noselfdamage = 1,
+				noselfdamage = true,
 				predictboost = 1,
 				projectiles = 7,
 				range = 440,
@@ -179,12 +179,12 @@ return {
 				soundstart = 'kroggie2xs',
 				soundstartvolume = 12,
 				sprayangle = 2250,
-				turret = 1,
-				commandfire = 1,
+				turret = true,
+				commandfire = true,
 				weapontimer = 1,
 				weapontype = 'Cannon',
 				weaponvelocity = 600,
-				stockpile = 1,
+				stockpile = true,
 				stockpiletime = 5,
 				customparams = {
 					stockpilelimit = 15
@@ -199,7 +199,7 @@ return {
 			[1] = {
 				def = 'legcomlaser',
 				onlytargetcategory = 'NOTSUB',
-				fastautoretargeting = 1
+				fastautoretargeting = true
 			},
 			[3] = {
 				def = 'shotgun',
@@ -244,10 +244,10 @@ return {
 			legcomlaser = {
 				accuracy = 50,
 				areaofeffect = 12,
-				avoidfriendly = 1,
-				avoidfeature = 1,
-				collidefriendly = 0,
-				collidefeature = 1,
+				avoidfriendly = true,
+				avoidfeature = true,
+				collidefriendly = false,
+				collidefeature = true,
 				beamtime = 0.09,
 				corethickness = 0.55,
 				duration = 0.09,
@@ -257,21 +257,21 @@ return {
 				impulseboost = 0,
 				impulsefactor = 0,
 				name = 'Light close-quarters g2g/g2a laser',
-				noselfdamage = 1,
+				noselfdamage = true,
 				range = 640,
 				reloadtime = 0.2,
 				rgbcolor = '0 0.2 0.8',
 				soundhitdry = '',
 				soundhitwet = 'sizzle',
 				soundstart = 'lasrcrw1',
-				soundtrigger = 1,
+				soundtrigger = true,
 				sprayangle = 500,
 				targetmoveerror = 0.05,
 				thickness = 7,
 				tolerance = 1000,
 				texture1 = 'shot',
 				texture2 = 'empty',
-				turret = 1,
+				turret = true,
 				weapontype = 'LaserCannon',
 				weaponvelocity = 2500,
 				damage = {
@@ -284,7 +284,7 @@ return {
 			shotgun = {
 				areaofeffect = 90,
 				energypershot = 0,
-				avoidfeature = 0,
+				avoidfeature = false,
 				craterboost = 0,
 				cratermult = 0,
 				cameraShake = 0,
@@ -294,7 +294,7 @@ return {
 				impulsefactor = 0.2,
 				intensity = 3,
 				name = '12 Gauge Shotgun',
-				noselfdamage = 1,
+				noselfdamage = true,
 				predictboost = 1,
 				projectiles = 7,
 				range = 540,
@@ -306,12 +306,12 @@ return {
 				soundstart = 'kroggie2xs',
 				soundstartvolume = 12,
 				sprayangle = 2500,
-				turret = 1,
-				commandfire = 1,
+				turret = true,
+				commandfire = true,
 				weapontimer = 1,
 				weapontype = 'Cannon',
 				weaponvelocity = 600,
-				stockpile = 1,
+				stockpile = true,
 				stockpiletime = 5,
 				customparams = {
 					stockpilelimit = 20
@@ -322,21 +322,21 @@ return {
 				}
 			}
 		},
-			weapons = {
-				[1] = {
-					def = 'legcomlaser',
-					onlytargetcategory = 'NOTSUB',
-					fastautoretargeting = 1
-				},
-				[3] = {
-					def = 'shotgun',
-					onlytargetcategory = 'SURFACE'
-				},
-				[5] = {
-					def = ''
-				}
+		weapons = {
+			[1] = {
+				def = 'legcomlaser',
+				onlytargetcategory = 'NOTSUB',
+				fastautoretargeting = true
+			},
+			[3] = {
+				def = 'shotgun',
+				onlytargetcategory = 'SURFACE'
+			},
+			[5] = {
+				def = ''
 			}
-		},
+		}
+	},
 	legcomlvl4 = {
 		energymake = 1980,
 		metalmake = 46,
@@ -391,10 +391,10 @@ return {
 			legcomlaser = {
 				accuracy = 50,
 				areaofeffect = 12,
-				avoidfriendly = 1,
-				avoidfeature = 1,
-				collidefriendly = 0,
-				collidefeature = 1,
+				avoidfriendly = true,
+				avoidfeature = true,
+				collidefriendly = false,
+				collidefeature = true,
 				beamtime = 0.1,
 				corethickness = .5,
 				duration = 0.09,
@@ -404,7 +404,7 @@ return {
 				impulseboost = 0,
 				impulsefactor = 0,
 				name = 'Light close-quarters g2g/g2a laser',
-				noselfdamage = 1,
+				noselfdamage = true,
 				range = 900,
 				reloadtime = 0.1,
 				rgbcolor = '0.45 0 1',
@@ -418,7 +418,7 @@ return {
 				tolerance = 1000,
 				texture1 = 'shot',
 				texture2 = 'empty',
-				turret = 1,
+				turret = true,
 				weapontype = 'LaserCannon',
 				weaponvelocity = 3000,
 				damage = {
@@ -431,7 +431,7 @@ return {
 			shotgun = {
 				areaofeffect = 75,
 				energypershot = 0,
-				avoidfeature = 0,
+				avoidfeature = false,
 				craterboost = 0,
 				cratermult = 0,
 				cameraShake = 0,
@@ -441,7 +441,7 @@ return {
 				impulsefactor = 0.2,
 				intensity = 3,
 				name = '60 Gauge Raptor Popper',
-				noselfdamage = 1,
+				noselfdamage = true,
 				predictboost = 1,
 				projectiles = 9,
 				range = 550,
@@ -453,12 +453,12 @@ return {
 				soundstart = 'kroggie2xs',
 				soundstartvolume = 12,
 				sprayangle = 3000,
-				turret = 1,
-				commandfire = 1,
+				turret = true,
+				commandfire = true,
 				weapontimer = 1,
 				weapontype = 'Cannon',
 				weaponvelocity = 600,
-				stockpile = 1,
+				stockpile = true,
 				stockpiletime = 4,
 				customparams = {
 					stockpilelimit = 20
@@ -473,7 +473,7 @@ return {
 			[1] = {
 				def = 'legcomlaser',
 				onlytargetcategory = 'NOTSUB',
-				fastautoretargeting = 1
+				fastautoretargeting = true
 			},
 			[3] = {
 				def = 'shotgun',
@@ -491,7 +491,8 @@ return {
 		workertime = 1700,
 		autoheal = 4500,
 		health = 53900,
-		buildoptions = {
+		buildoptions = (function()
+			local buildoptions = {
 				[1] = 'legdeflector',
 				[2] = 'legfus',
 				[3] = 'legbombard',
@@ -529,15 +530,19 @@ return {
 				[51] = 'legsilo',
 				[52] = 'legsrailt4',
 				[53] = 'legelrpcmech',
-				[54] = 'legdtr',
-				[55] = 'legnanotct3'
-			},
+				[54] = 'legdtr'
+			}
+			if UnitDefs.legnanotct3 then
+				table.insert(buildoptions, 'legnanotct3')
+			end
+			return buildoptions
+		end)(),
 		weapondefs = {
 			machinegun = {
 				accuracy = 80,
 				areaofeffect = 10,
-				avoidfeature = 0,
-				beamburst = 1,
+				avoidfeature = false,
+				beamburst = true,
 				beamdecay = 1,
 				beamtime = 0.07,
 				burst = 6,
@@ -551,10 +556,10 @@ return {
 				explosiongenerator = "custom:laserhit-medium-red",
 				firestarter = 10,
 				impulsefactor = 0,
-				largebeamlaser = 1,
+				largebeamlaser = true,
 				laserflaresize = 30,
 				name = "Rapid-fire close quarters g2g armor-piercing laser",
-				noselfdamage = 1,
+				noselfdamage = true,
 				pulsespeed =  q8,
 				range = 1100,
 				reloadtime = 0.50,
@@ -568,7 +573,7 @@ return {
 				targetborder = 0.2,
 				thickness = 5.5,
 				tolerance = 4500,
-				turret = 1,
+				turret = true,
 				weapontype = "BeamLaser",
 				weaponvelocity = 920,
 				damage = {
@@ -578,8 +583,8 @@ return {
 			},
 			shotgunarm = {
 				areaofeffect = 112,
-				commandfire = 1,
-				avoidfeature = 0,
+				commandfire = true,
+				avoidfeature = false,
 				craterboost = 0,
 				cratermult = 0,
 				cameraShake = 0,
@@ -589,7 +594,7 @@ return {
 				intensity = 0.2,
 				mygravity = 1,
 				name = "GaussCannon",
-				noselfdamage = 1,
+				noselfdamage = true,
 				predictboost = 1,
 				projectiles = 20,
 				range = 650,
@@ -604,12 +609,12 @@ return {
 				soundstart = "kroggie2xs",
 				sprayangle = 3500,
 				tolerance = 6000,
-				turret = 1,
-				waterweapon = 1,
+				turret = true,
+				waterweapon = true,
 				weapontimer = 2,
 				weapontype = "Cannon",
 				weaponvelocity = 900,
-				stockpile = 1,
+				stockpile = true,
 				stockpiletime = 2,
 				customparams = {
 					stockpilelimit = 50
@@ -645,17 +650,17 @@ return {
 				model = "catapultmissile.s3o",
 				movingaccuracy = 600,
 				name = "Raptor Boomer",
-				noselfdamage = 1,
+				noselfdamage = true,
 				proximitypriority = {},
 				range = 700,
 				reloadtime = 1,
-				smoketrail = 1,
+				smoketrail = true,
 				smokePeriod = 4,
 				smoketime = 16,
 				smokesize = 8.5,
 				smokecolor = 0.5,
 				size = 2,
-				smokeTrailCastShadow = 0,
+				smokeTrailCastShadow = false,
 				soundhit = "rockhit",
 				soundhitwet = "splsmed",
 				soundstart = "rapidrocket3",
@@ -666,9 +671,9 @@ return {
 				trajectoryheight = 1,
 				targetmoveerror = 0.2,
 				turnrate = 5000,
-				tracks = 1,
-				turret = 1,
-				allowNonBlockingAim = 1,
+				tracks = true,
+				turret = true,
+				allowNonBlockingAim = true,
 				weaponacceleration = 660,
 				weapontimer = 6,
 				weapontype = "MissileLauncher",
@@ -678,17 +683,17 @@ return {
 					default = 1300,
 				},
 				customparams = {
-					exclude_preaim = 1,
+					exclude_preaim = true,
 					overrange_distance = 777,
 					projectile_destruction_method = "descend",
 				}
-			}
+			},
 		},
 		weapons = {
 			[1] = {
 				def = 'machinegun',
 				onlytargetcategory = 'NOTSUB',
-				fastautoretargeting = 1
+				fastautoretargeting = true
 			},
 			[3] = {
 				def = 'shotgunarm',
