@@ -174,8 +174,12 @@ return {
 		}
 	},
     legfortt4 = {
-		explodeas = "flagshipExplosion",
-		selfdestructas = "flagshipExplosionSelfd",
+		explodeas = "fusionExplosionSelfd",
+		selfdestructas = "fusionExplosionSelfd",
+	},
+    legfort = {
+		explodeas = "empblast",
+		selfdestructas = "empblast",
 	},
 	raptor_hive = {
 		weapondefs = {
@@ -192,7 +196,7 @@ return {
 				soundstart = 'bugarty',
 				sprayangle = 256,
 				turret = true,
-				stockpiletime = 5,
+				stockpiletime = 12,
 				proximitypriority = '',
 				damage = {
 					default = 1,
@@ -327,10 +331,6 @@ return {
 		canresurrect = true
 	},
 	legrwall = {
-		collidefriendly = 0,
-		collidefeature = 0,
-		avoidfeature = 0,
-		avoidfriendly = 0,
 		collisionvolumeoffsets = "0 -3 0",
 		collisionvolumescales = "32 50 32",
 		collisionvolumetype = "CylY",
@@ -338,6 +338,10 @@ return {
 		metalcost = 1400,
 		weapondefs = {
 			railgunt2 = {
+				collidefriendly = 0,
+				collidefeature = 0,
+				avoidfeature = 0,
+				avoidfriendly = 0,
 				range = 725,
 				reloadtime = 3,
 				energypershot = 200,
