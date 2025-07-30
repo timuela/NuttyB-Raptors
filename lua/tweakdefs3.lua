@@ -1,4 +1,4 @@
---T4 Defences NuttyB Balance
+--T4 Defences NuttyB version
 -- Authors: Hedgehogzs
 -- docs.google.com/spreadsheets/d/1QSVsuAAMhBrhiZdTihVfSCwPzbbZWDLCtXWP23CU0ko
 

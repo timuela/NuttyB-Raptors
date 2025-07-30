@@ -332,6 +332,8 @@ return {
 			'armvang',
 			'armrectr',
 			'armgatet3',
+			'legendary_pulsar',
+			'armnanotct3'
 		},
 		customparams = {
 			evolution_target = 'armcomlvl4',

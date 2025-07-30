@@ -202,8 +202,7 @@ return {
 		autoheal = 1500,
 		workertime = 1200,
 		builddistance = 250,
-		buildoptions = (function()
-			local buildoptions = {
+		buildoptions = {
 				[1] = 'corfus',
 				[2] = 'corafus',
 				[3] = 'corageo',
@@ -250,9 +249,9 @@ return {
 				[44] = 'cormaw',
 				[45] = 'cormwall',
 				[46] = 'corgatet3',
-			}
-			return buildoptions
-		end)(),
+				[47] = 'legendary_bulwark',
+				[48] = 'cornanotct3'
+		},
 		customparams = {
 			evolution_target = 'corcomlvl4',
 			evolution_condition = 'timer',
