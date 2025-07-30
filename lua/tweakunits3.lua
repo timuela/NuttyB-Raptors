@@ -202,8 +202,7 @@ return {
 		autoheal = 1500,
 		workertime = 1200,
 		builddistance = 250,
-		buildoptions = (function()
-			local buildoptions = {
+		buildoptions = {
 				[1] = 'corfus',
 				[2] = 'corafus',
 				[3] = 'corageo',
@@ -252,9 +251,7 @@ return {
 				[46] = 'corgatet3',
 				[47] = 'legendary_bulwark',
 				[48] = 'cornanotct3'
-			}
-			return buildoptions
-		end)(),
+		},
 		customparams = {
 			evolution_target = 'corcomlvl4',
 			evolution_condition = 'timer',
@@ -327,6 +324,7 @@ return {
 				soundhitvolume = 36,
 				soundstartvolume = 96,
 				soundtrigger = true,
+				size = 4,
 				tolerance = 10000,
 				turret = true,
 				waterweapon = true,
@@ -526,7 +524,7 @@ return {
 				soundhitdry = 'flamhit1',
 				soundhitwet = 'sizzle',
 				soundstart = 'heatray3burn',
-				soundstartvolume = 7,
+				soundstartvolume = 6,
 				soundtrigger = 1,
 				thickness = 2.5,
 				turret = true,

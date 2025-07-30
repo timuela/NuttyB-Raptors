@@ -206,9 +206,8 @@ return {
 				weapontype = 'BeamLaser',
 				weaponvelocity = 900,
 				damage = {
-					bombers = 180,
 					default = 950,
-					fighters = 110
+					VTOL = 150
 				}
 			},
 			old_armsnipe_weapon = {
@@ -420,9 +419,8 @@ return {
 				weapontype = 'BeamLaser',
 				weaponvelocity = 900,
 				damage = {
-					bombers = 180,
 					default = 1450,
-					fighters = 110
+					VTOL = 180
 				}
 			}
 		},
@@ -513,9 +511,6 @@ return {
 			'armgatet3',
 			'legendary_pulsar',
 			'armnanotct3'
-		},
-		customparams = {
-			wtboostunittype = ''
 		},
 		weapondefs = {
 			old_armsnipe_weapon = {
@@ -622,7 +617,7 @@ return {
 				noselfdamage = true,
 				range = 550,
 				reloadtime = 0.5,
-				rgbcolor = '0.1 0 1',
+				rgbcolor = '0.659 0 1',
 				soundhitdry = '',
 				soundhitwet = 'sizzle',
 				soundstart = 'lasrcrw2',
@@ -634,15 +629,13 @@ return {
 				weapontype = 'BeamLaser',
 				weaponvelocity = 900,
 				damage = {
-					bombers = 180,
 					default = 1750,
-					fighters = 110
+					VTOL = 200
 				}
 			}
 		},
 		weapons = {
-			[5] = {
-				badtargetcategory = 'MOBILE',
+			[1] = {
 				def = 'armcomlaser',
 				onlytargetcategory = 'NOTSUB',
 				fastautoretargeting = true
@@ -656,7 +649,7 @@ return {
 				def = 'ATA',
 				onlytargetcategory = 'SURFACE'
 			},
-			[1] = {
+			[5] = {
 				def = ''
 			},
 			[6] = {
