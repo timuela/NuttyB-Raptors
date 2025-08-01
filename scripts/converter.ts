@@ -17,22 +17,16 @@ const defaultTweakResult = {
 	newSize: 0,
 }
 
-async function base64ToLua() {
-	const base64Dir = path.join(__dirname, '../base64url')
-	const luaDir = path.join(__dirname, '../lua')
+async function base64ToLua(readDir: string, writeDir: string) {
+	await fs.mkdir(writeDir, { recursive: true })
 
-	await fs.mkdir(luaDir, { recursive: true })
-
-	return processDirectory(base64Dir, luaDir, 'lua', base64UrlFileToLua)
+	return processDirectory(readDir, writeDir, 'lua', base64UrlFileToLua)
 }
 
-async function luaToBase64() {
-	const luaDir = path.join(__dirname, '../lua')
-	const base64Dir = path.join(__dirname, '../base64url')
+async function luaToBase64(readDir: string, writeDir: string) {
+	await fs.mkdir(writeDir, { recursive: true })
 
-	await fs.mkdir(base64Dir, { recursive: true })
-
-	return processDirectory(luaDir, base64Dir, 'base64url', luaFileToBase64Url)
+	return processDirectory(readDir, writeDir, 'base64url', luaFileToBase64Url)
 }
 
 type tweakResult = {
@@ -282,45 +276,55 @@ async function main() {
 		return
 	}
 
-	let rawExclusiveKey = ''
-	if (process.argv.length == 4) {
-		const normalized = normalizeLuaFileArgument(process.argv[3].trim())
-		if (/^tweak(defs|units)\d*$/.test(normalized)) {
-			rawExclusiveKey = normalized
-		}
-	}
+	// let rawExclusiveKey = ''
+	// if (process.argv.length == 4) {
+	// 	const normalized = normalizeLuaFileArgument(process.argv[3].trim())
+	// 	if (/^tweak(defs|units)\d*$/.test(normalized)) {
+	// 		rawExclusiveKey = normalized
+	// 	}
+	// }
 
 	if (process.argv[2] === 'b64tolua') {
-		await base64ToLua()
+		await base64ToLua(
+			path.join(__dirname, '../base64url'),
+			path.join(__dirname, '../lua'),
+		)
 	} else if (process.argv[2] === 'luatob64') {
-		const results = await luaToBase64()
-
-		const clipboardTweaks = results.filter(
-			({ tweakKey }) =>
-				(rawExclusiveKey && tweakKey === rawExclusiveKey) || !rawExclusiveKey,
+		const miscTweaks = await luaToBase64(
+			path.join(__dirname, '../misc_lua'),
+			path.join(__dirname, '../misc_base64url'),
 		)
 
-		// Output clipboard content to stdout instead of copying to clipboard
-		const clipboardContent = clipboardTweaks
-			.map(({ tweakKey, tweakValue }) =>
-				rawExclusiveKey ? tweakValue : `!bset ${tweakKey} ${tweakValue}`,
-			)
-			.join('\n')
+		const b64Tweaks = await luaToBase64(
+			path.join(__dirname, '../lua'),
+			path.join(__dirname, '../base64url'),
+		)
 
-		// Write clipboard content to a special output stream
+		const filteredTweaks = [...b64Tweaks, ...miscTweaks].filter(
+			({ tweakKey }) =>
+				process.argv.length == 4 && tweakKey.includes(process.argv[3].trim()),
+		)
+
+		const clipboardContent =
+			filteredTweaks.length < [...b64Tweaks, ...miscTweaks].length &&
+			filteredTweaks.length > 0
+				? filteredTweaks[0].tweakValue
+				: b64Tweaks
+						.map(
+							({ tweakKey, tweakValue }) => `!bset ${tweakKey} ${tweakValue}`,
+						)
+						.join('\n')
+
+		// Write clipboard content to a file if running in container
 		if (process.env.CONTAINER_FILE_OUTPUT) {
-			// Write to a file instead of stdout to avoid truncation with large outputs
-			// Use /app/clipboard when in container, otherwise use system temp directory
 			const clipboardDir =
 				process.env.NODE_ENV === 'container' || process.cwd().startsWith('/app')
 					? '/app/clipboard'
 					: os.tmpdir()
 			const clipboardFilePath = path.join(clipboardDir, 'clipboard-content.txt')
 			await fs.writeFile(clipboardFilePath, clipboardContent, 'utf-8')
-		}
-
-		// if running locally
-		if (!process.env.CONTAINER_FILE_OUTPUT) {
+		} else {
+			// if running locally
 			try {
 				;(await clipboardy).default.writeSync(clipboardContent)
 			} catch (err) {
@@ -328,11 +332,11 @@ async function main() {
 			}
 		}
 
-		results.sort((a, b) => b.newSize - a.newSize)
+		b64Tweaks.sort((a, b) => b.newSize - a.newSize)
 
 		const largestByKey = new Map()
 
-		results.forEach((item) => {
+		b64Tweaks.forEach((item) => {
 			if (!largestByKey.has(item.tweakKey)) {
 				largestByKey.set(item.tweakKey, item)
 			}

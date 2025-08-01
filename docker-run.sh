@@ -20,6 +20,8 @@ docker run --rm \
     -e CONTAINER_FILE_OUTPUT=1 \
     -v "$SCRIPT_DIR/lua:/app/lua" \
     -v "$SCRIPT_DIR/base64url:/app/base64url" \
+    -v "$SCRIPT_DIR/misc_lua:/app/misc_lua" \
+    -v "$SCRIPT_DIR/misc_base64url:/app/misc_base64url" \
     -v "$CLIPBOARD_DIR:/app/clipboard" \
     nutty-b64-converter luatob64 "$ARG" > "$TEMP_FILE" 2>&1
 
@@ -52,20 +54,6 @@ if [[ -s "$TEMP_FILE" ]]; then
     grep -v "CLIPBOARD_FILE_WRITTEN" "$TEMP_FILE"
 else
     echo "No content in output file"
-fi
-
-# If DEBUG environment variable is set, show full output
-if [[ "$DEBUG" == "1" ]]; then
-    echo
-    echo "=== Full Raw Output ==="
-    cat "$TEMP_FILE"
-    echo
-    echo "=== Clipboard File Content ==="
-    if [[ -f "$CLIPBOARD_DIR/clipboard-content.txt" ]]; then
-        cat "$CLIPBOARD_DIR/clipboard-content.txt"
-    else
-        echo "No clipboard file found"
-    fi
 fi
 
 # Clean up temp file
