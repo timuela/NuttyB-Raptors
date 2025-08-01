@@ -185,8 +185,7 @@ function extractTopComments(content: string) {
 	for (let i = 0; i < Math.min(3, lines.length); i++) {
 		const line = lines[i]
 		if (/^\s*--.*/.test(line)) {
-			// theres a bug with the comment not showing in chobby when second line is missing a dot for large tweaks
-			commentString += line + (i === 2 ? ' ' : '') + '\n'
+			commentString += line + '\n'
 		} else {
 			break
 		}
