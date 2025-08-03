@@ -204,7 +204,7 @@ return {
 				},
 				customparams = {
 					spawns_count = 15,
-					spawns_expire = 15,
+					spawns_expire = 11,
 					spawns_mode = 'random',
 					spawns_name = 'raptor_acidspawnling raptor_hive_swarmer_basic raptor_land_swarmer_basic_t1_v1 ',
 					spawns_surface = 'LAND SEA',
