@@ -203,10 +203,11 @@ return {
 					shields = 100
 				},
 				customparams = {
-					stockpilelimit = 10,
-					spawns_name = 'raptor_acidspawnling raptor_hive_swarmer_basic raptor_land_swarmer_basic_t1_v1 ',
+					spawns_count = 15,
 					spawns_mode = 'random',
-					spawns_surface = 'LAND SEA'
+					spawns_name = 'raptor_acidspawnling raptor_hive_swarmer_basic raptor_land_swarmer_basic_t1_v1 ',
+					spawns_surface = 'LAND SEA',
+					stockpilelimit = 10,
 				}
 			}
 		}
