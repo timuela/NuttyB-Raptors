@@ -3,10 +3,10 @@
 for unitName, unitDef in pairs(UnitDefs) do
     if string.sub(unitName, 1, 24) == "raptor_land_swarmer_heal" then
         unitDef.reclaimspeed = 100
-        unitDef.stealth = 0
-        unitDef.builder = 0
+        unitDef.stealth = false
+        unitDef.builder = false
         unitDef.workertime = unitDef.workertime * 0.45
-        unitDef.canassist = 0
+        unitDef.canassist = false
         unitDef.maxthisunit = 0
     end
 
