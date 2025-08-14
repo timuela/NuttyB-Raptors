@@ -1,11 +1,11 @@
---NuttyB v1.52 Armada Com
+--NuttyB v1.52c Armada Com
 -- Authors: ChrispyNut, BackBash
 -- docs.google.com/spreadsheets/d/1QSVsuAAMhBrhiZdTihVfSCwPzbbZWDLCtXWP23CU0ko
 return {
 	armcom = {
 		customparams = {
 			evolution_target = 'armcomlvl2',
-			evolution_condition = 'timer',
+			evolution_condition = 'timer_global',
 			evolution_timer = 420
 		},
 		energymake = 100,
@@ -170,8 +170,8 @@ return {
 		},
 		customparams = {
 			evolution_target = 'armcomlvl3',
-			evolution_condition = 'timer',
-			evolution_timer = 900,
+			evolution_condition = 'timer_global',
+			evolution_timer = 1320,
 		},
 		weapondefs = {
 			armcomlaser = {
@@ -337,8 +337,8 @@ return {
 		},
 		customparams = {
 			evolution_target = 'armcomlvl4',
-			evolution_condition = 'timer',
-			evolution_timer = 420,
+			evolution_condition = 'timer_global',
+			evolution_timer = 1740,
 		},
 		weapondefs = {
 			old_armsnipe_weapon = {
