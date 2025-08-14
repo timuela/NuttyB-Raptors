@@ -1,4 +1,4 @@
---NuttyB v1.52b Legion Com
+--NuttyB v1.52c Legion Com
 -- Authors: ChrispyNut, BackBash
 -- docs.google.com/spreadsheets/d/1QSVsuAAMhBrhiZdTihVfSCwPzbbZWDLCtXWP23CU0ko
 return {
@@ -16,7 +16,7 @@ return {
 		},
 		customparams = {
 			evolution_target = 'legcomlvl2',
-			evolution_condition = 'timer',
+			evolution_condition = 'timer_global',
 			evolution_timer = 420
 		},
 		weapondefs = {
@@ -96,7 +96,8 @@ return {
 		autoheal = 100,
 		health = 6700,
 		customparams = {
-			evolution_timer = 600
+			evolution_condition = 'timer_global',
+			evolution_timer = 1020
 		},
 		buildoptions = {
 			[1] = 'legrezbot',
@@ -215,7 +216,8 @@ return {
 		autoheal = 150,
 		health = 7500,
 		customparams = {
-			evolution_timer = 420
+			evolution_condition = 'timer_global',
+			evolution_timer = 1440
 		},
 		buildoptions = {
 			[1] = 'legdeflector',
@@ -345,7 +347,8 @@ return {
 		autoheal = 180,
 		health = 24500,
 		customparams = {
-			evolution_timer = 300
+			evolution_condition = 'timer_global',
+			evolution_timer = 1740
 		},
 		buildoptions = {
 			[1] = 'legdeflector',
