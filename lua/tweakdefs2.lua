@@ -143,8 +143,9 @@ for name, def in pairs(unitDefs) do
 			},
 			featuredefs = {
 				dead = {
-					damage = 560000,
-					reclaimable = false
+					damage = 9999999,
+					reclaimable = false,
+					mass = 9999999
 				}
 			}
 		})

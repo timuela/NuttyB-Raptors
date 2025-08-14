@@ -44,7 +44,7 @@ return {
         raptor_evolved_motort4 = {
         customparams = {
             raptorcustomsquad = true,
-            raptorsquadunitsamount = 18,
+            raptorsquadunitsamount = 12,
             raptorsquadminanger = 50,
             raptorsquadmaxanger = 300,
             raptorsquadweight = 3,
