@@ -1,11 +1,11 @@
---NuttyB v1.52 Cortex Com
+--NuttyB v1.52c Cortex Com
 -- Authors: ChrispyNut, BackBash
 -- docs.google.com/spreadsheets/d/1QSVsuAAMhBrhiZdTihVfSCwPzbbZWDLCtXWP23CU0ko
 return {
 	corcom = {
 		customparams = {
 			evolution_target = 'corcomlvl2',
-			evolution_condition = 'timer',
+			evolution_condition = 'timer_global',
 			evolution_timer = 420
 		},
 		autoheal = 80,
@@ -95,8 +95,8 @@ return {
 		},
 		customparams = {
 			evolution_target = 'corcomlvl3',
-			evolution_condition = 'timer',
-			evolution_timer = 900,
+			evolution_condition = 'timer_global',
+			evolution_timer = 1320,
 			shield_power = 500,
 			shield_radius = 100
 		},
@@ -254,8 +254,8 @@ return {
 		},
 		customparams = {
 			evolution_target = 'corcomlvl4',
-			evolution_condition = 'timer',
-			evolution_timer = 420
+			evolution_condition = 'timer_global',
+			evolution_timer = 1740
 		},
 		weapondefs = {
 			corcomlaser = {
