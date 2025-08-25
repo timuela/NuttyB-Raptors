@@ -4,14 +4,14 @@ local NewUnits = {
 	armmeatball = {
 		customparams = { i18n_en_humanname = 'Meatball Launcher', },
 		weapondefs = {
-			arm_botrail = { range = 32000, metalpershot = 5300, energypershot = 96000, reloadtime = 0.5, customparams = { stockpilelimit = 50, spawns_name = 'armmeatball' } },
+			arm_botrail = { range = 7550, metalpershot = 5300, energypershot = 96000, reloadtime = 0.5, customparams = { stockpilelimit = 50, spawns_name = 'armmeatball' } },
 		},
 	},
 	armassimilator = {
 		customparams = { i18n_en_humanname = 'Assimilator Launcher', },
 		weapondefs = {
 			arm_botrail = {
-				range = 32000,
+				range = 7550,
 				metalpershot = 4500,
 				energypershot = 80000,
 				reloadtime = 0.5,
@@ -22,14 +22,14 @@ local NewUnits = {
 	armpwt4 = {
 		customparams = { i18n_en_humanname = 'Epic Pawn Launcher', },
 		weapondefs = {
-			arm_botrail = { range = 32000, metalpershot = 14200, energypershot = 480000, reloadtime = 0.5, customparams = { stockpilelimit = 50, spawns_name = 'armpwt4' } },
+			arm_botrail = { range = 7550, metalpershot = 14200, energypershot = 480000, reloadtime = 0.5, customparams = { stockpilelimit = 50, spawns_name = 'armpwt4' } },
 		},
 	},
 	legeshotgunmech = {
 		customparams = { i18n_en_humanname = 'Pretorian Launcher', },
 		weapondefs = {
 			arm_botrail = {
-				range = 32000,
+				range = 7550,
 				metalpershot = 12500,
 				energypershot = 384000,
 				reloadtime = 0.5,
@@ -43,37 +43,37 @@ local NewUnits = {
 	legjav = {
 		customparams = { i18n_en_humanname = 'Javelin Launcher'},
 		weapondefs = {
-			arm_botrail = { range = 32000, metalpershot = 2150, energypershot = 102400, reloadtime = 0.5, customparams = { stockpilelimit = 50, spawns_name = 'legjav' } },
+			arm_botrail = { range = 7550, metalpershot = 2150, energypershot = 102400, reloadtime = 0.5, customparams = { stockpilelimit = 50, spawns_name = 'legjav' } },
 		},
 	},
 	armraz = {
 		customparams = { i18n_en_humanname = 'Razorback Launcher',  },
 		weapondefs = {
-			arm_botrail = { range = 32000, metalpershot = 6750, energypershot = 283520, reloadtime = 0.5, customparams = { stockpilelimit = 50, spawns_name = 'armraz' } },
+			arm_botrail = { range = 7550, metalpershot = 6750, energypershot = 283520, reloadtime = 0.5, customparams = { stockpilelimit = 50, spawns_name = 'armraz' } },
 		},
 	},
 	corakt4 = {
 		customparams = { i18n_en_humanname = 'Epic Grund Launcher',  },
 		weapondefs = {
-			arm_botrail = { range = 32000, metalpershot = 10700, energypershot = 384000, reloadtime = 0.5, customparams = { stockpilelimit = 50, spawns_name = 'corakt4' } },
+			arm_botrail = { range = 7550, metalpershot = 10700, energypershot = 384000, reloadtime = 0.5, customparams = { stockpilelimit = 50, spawns_name = 'corakt4' } },
 		},
 	},
 	cordemon = {
 		customparams = { i18n_en_humanname = 'Demon Launcher', },
 		weapondefs = {
-			arm_botrail = { range = 32000, metalpershot = 10700, energypershot = 384000, reloadtime = 0.5, customparams = { stockpilelimit = 50, spawns_name = 'cordemon' } },
+			arm_botrail = { range = 7550, metalpershot = 10700, energypershot = 384000, reloadtime = 0.5, customparams = { stockpilelimit = 50, spawns_name = 'cordemon' } },
 		},
 	},
 	armvader = {
 		customparams = { i18n_en_humanname = 'Tumbleweed Launcher', },
 		weapondefs = {
-			arm_botrail = { range = 32000, metalpershot = 115, energypershot = 12500, reloadtime = 0.5, customparams = { stockpilelimit = 50, spawns_name = 'armvader' } },
+			arm_botrail = { range = 7550, metalpershot = 115, energypershot = 12500, reloadtime = 0.5, customparams = { stockpilelimit = 50, spawns_name = 'armvader' } },
 		},
 	},
 	armvadert4 = {
 		customparams = { i18n_en_humanname = 'Epic Tumbleweed Launcher',  },
 		weapondefs = {
-			arm_botrail = { range = 32000, metalpershot = 26600, energypershot = 480000, reloadtime = 0.5, customparams = { stockpilelimit = 50, spawns_name = 'armvadert4' } },
+			arm_botrail = { range = 7550, metalpershot = 26600, energypershot = 480000, reloadtime = 0.5, customparams = { stockpilelimit = 50, spawns_name = 'armvadert4' } },
 		},
 	},
 	armt1 = {
@@ -81,7 +81,7 @@ local NewUnits = {
 		weapondefs = {
 			arm_botrail = {
 				stockpiletime = 0.5,
-				range = 32000,
+				range = 7550,
 				metalpershot = 250,
 				energypershot = 12500,
 				reloadtime = 0.5,
@@ -98,7 +98,7 @@ local NewUnits = {
 		weapondefs = {
 			arm_botrail = {
 				stockpiletime = 1,
-				range = 32000,
+				range = 7550,
 				metalpershot = 970,
 				energypershot = 45000,
 				reloadtime = 0.5,
@@ -115,7 +115,7 @@ local NewUnits = {
 		weapondefs = {
 			arm_botrail = {
 				stockpiletime = 2,
-				range = 32000,
+				range = 7550,
 				metalpershot = 8500,
 				energypershot = 180000,
 				reloadtime = 0.5,
@@ -132,7 +132,7 @@ local NewUnits = {
 		weapondefs = {
 			arm_botrail = {
 				stockpiletime = 0.5,
-				range = 32000,
+				range = 7550,
 				metalpershot = 250,
 				energypershot = 12500,
 				reloadtime = 0.5,
@@ -149,7 +149,7 @@ local NewUnits = {
 		weapondefs = {
 			arm_botrail = {
 				stockpiletime = 1,
-				range = 32000,
+				range = 7550,
 				metalpershot = 970,
 				energypershot = 45000,
 				reloadtime = 0.5,
@@ -166,7 +166,7 @@ local NewUnits = {
 		weapondefs = {
 			arm_botrail = {
 				stockpiletime = 2,
-				range = 32000,
+				range = 7550,
 				metalpershot = 8500,
 				energypershot = 180000,
 				reloadtime = 0.5,
@@ -183,7 +183,7 @@ local NewUnits = {
 		weapondefs = {
 			arm_botrail = {
 				stockpiletime = 0.5,
-				range = 32000,
+				range = 7550,
 				metalpershot = 250,
 				energypershot = 12500,
 				reloadtime = 0.5,
@@ -200,7 +200,7 @@ local NewUnits = {
 		weapondefs = {
 			arm_botrail = {
 				stockpiletime = 1,
-				range = 32000,
+				range = 7550,
 				metalpershot = 970,
 				energypershot = 45000,
 				reloadtime = 0.5,
@@ -217,7 +217,7 @@ local NewUnits = {
 		weapondefs = {
 			arm_botrail = {
 				stockpiletime = 2,
-				range = 32000,
+				range = 7550,
 				metalpershot = 8500,
 				energypershot = 180000,
 				reloadtime = 0.5,
